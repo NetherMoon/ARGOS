@@ -218,10 +218,11 @@ both a file and every trusted hash anchor.
 
 Relative weight bounds are an explicit new ARGOS policy. The historical V4 claim
 could not be established in local condor_flexdc_v4 source or its zip archive.
-The actual pinned generic inference calculate_weight_bounds function documents
-relative_lower=.6/J, relative_upper=1.8/J, lower=max(relative_lower,1/N),
-upper=min(relative_upper,1-(J-1)*lower). Its paired-comparison notebook uses the
-same multipliers. This supports the implementation rationale (fraction of equal
+The pinned generic inference calculate_weight_bounds function uses parameterized
+fractions of equal allocation: lower=max(min_fraction/J,1/N),
+upper=min(max_multiple/J,1-(J-1)*lower). Its defaults are .1 and 4.0; its
+paired-comparison notebook explicitly chooses .6 and 1.8. ARGOS applies its
+configured bounds as stricter overrides intersected with the upstream defaults. This supports the implementation rationale (fraction of equal
 allocation plus at least one server), not attribution to a particular V4 experiment.
 Fixed bounds remain [.15,.45], and fixed J=8 is correctly infeasible.
 
@@ -242,3 +243,9 @@ exceeds the simulation horizon. In W1, GPT2/Llama/Bloom require 4740/4968/4416 s
 to exceed QoS; the 3600-second run cannot observe those violations for new arrivals.
 Their nonempty censored estimators meet the declared n>=1 rule, but do not establish
 long-horizon QoS. Resnet's corresponding threshold is 1348 seconds.
+
+
+The history check found the same parameterized rule with .1/4.0 defaults in older
+CONDOR commit 4eaacd4. Available local optimize_v4.py instead declares a .1/J
+floor and [.3/J,2.4/J] trust region. Neither establishes the requested V4 dynamic
+label. See reports/publication_audit/weight_policy_provenance.json for exact sources.

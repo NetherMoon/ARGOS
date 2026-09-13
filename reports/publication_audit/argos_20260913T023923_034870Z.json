@@ -26,6 +26,23 @@
         "objective": 79.9174643198774
       },
       "assessment": {
+        "tracking_pass": true,
+        "qos_numerical_pass": true,
+        "max_pj": 0.0,
+        "worst_violation": 0.0,
+        "total_violation": 0.0,
+        "per_job_evidence_counts": [
+          1563,
+          281,
+          284,
+          375
+        ],
+        "ordered_job_sections": [
+          "Resnet.train.4",
+          "GPT2.train.4",
+          "Llama.train.4",
+          "Bloom.train.4"
+        ],
         "execution_valid": true,
         "numerical_feasible": true,
         "evidence_status": "SUFFICIENT",
@@ -163,6 +180,23 @@
         "objective": 93.79988775228026
       },
       "assessment": {
+        "tracking_pass": true,
+        "qos_numerical_pass": true,
+        "max_pj": 0.06466069142125486,
+        "worst_violation": 0.0,
+        "total_violation": 0.0,
+        "per_job_evidence_counts": [
+          1563,
+          281,
+          284,
+          375
+        ],
+        "ordered_job_sections": [
+          "Resnet.train.4",
+          "GPT2.train.4",
+          "Llama.train.4",
+          "Bloom.train.4"
+        ],
         "execution_valid": true,
         "numerical_feasible": true,
         "evidence_status": "SUFFICIENT",
@@ -300,6 +334,23 @@
         "objective": 99.41986111152792
       },
       "assessment": {
+        "tracking_pass": true,
+        "qos_numerical_pass": true,
+        "max_pj": 0.0,
+        "worst_violation": 0.0,
+        "total_violation": 0.0,
+        "per_job_evidence_counts": [
+          1563,
+          281,
+          284,
+          375
+        ],
+        "ordered_job_sections": [
+          "Resnet.train.4",
+          "GPT2.train.4",
+          "Llama.train.4",
+          "Bloom.train.4"
+        ],
         "execution_valid": true,
         "numerical_feasible": true,
         "evidence_status": "SUFFICIENT",
@@ -437,6 +488,23 @@
         "objective": 105.07968346335815
       },
       "assessment": {
+        "tracking_pass": true,
+        "qos_numerical_pass": false,
+        "max_pj": 0.6952624839948784,
+        "worst_violation": 5.952624839948784,
+        "total_violation": 5.952624839948784,
+        "per_job_evidence_counts": [
+          1563,
+          281,
+          284,
+          375
+        ],
+        "ordered_job_sections": [
+          "Resnet.train.4",
+          "GPT2.train.4",
+          "Llama.train.4",
+          "Bloom.train.4"
+        ],
         "execution_valid": true,
         "numerical_feasible": false,
         "evidence_status": "SUFFICIENT",
@@ -574,6 +642,23 @@
         "objective": 106.31183704490896
       },
       "assessment": {
+        "tracking_pass": false,
+        "qos_numerical_pass": true,
+        "max_pj": 0.0,
+        "worst_violation": 0.06666666666666665,
+        "total_violation": 0.06666666666666665,
+        "per_job_evidence_counts": [
+          1563,
+          281,
+          284,
+          375
+        ],
+        "ordered_job_sections": [
+          "Resnet.train.4",
+          "GPT2.train.4",
+          "Llama.train.4",
+          "Bloom.train.4"
+        ],
         "execution_valid": true,
         "numerical_feasible": false,
         "evidence_status": "SUFFICIENT",
@@ -711,6 +796,23 @@
         "objective": 90.94964255358728
       },
       "assessment": {
+        "tracking_pass": false,
+        "qos_numerical_pass": true,
+        "max_pj": 0.0,
+        "worst_violation": 0.99,
+        "total_violation": 0.99,
+        "per_job_evidence_counts": [
+          1563,
+          281,
+          284,
+          375
+        ],
+        "ordered_job_sections": [
+          "Resnet.train.4",
+          "GPT2.train.4",
+          "Llama.train.4",
+          "Bloom.train.4"
+        ],
         "execution_valid": true,
         "numerical_feasible": false,
         "evidence_status": "SUFFICIENT",
@@ -848,6 +950,23 @@
         "objective": 91.88178373814816
       },
       "assessment": {
+        "tracking_pass": true,
+        "qos_numerical_pass": true,
+        "max_pj": 0.0,
+        "worst_violation": 0.0,
+        "total_violation": 0.0,
+        "per_job_evidence_counts": [
+          1563,
+          281,
+          284,
+          375
+        ],
+        "ordered_job_sections": [
+          "Resnet.train.4",
+          "GPT2.train.4",
+          "Llama.train.4",
+          "Bloom.train.4"
+        ],
         "execution_valid": true,
         "numerical_feasible": true,
         "evidence_status": "SUFFICIENT",
@@ -985,6 +1104,23 @@
         "objective": 123.10788023452207
       },
       "assessment": {
+        "tracking_pass": false,
+        "qos_numerical_pass": true,
+        "max_pj": 0.0,
+        "worst_violation": 4.550000000000001,
+        "total_violation": 4.550000000000001,
+        "per_job_evidence_counts": [
+          1563,
+          281,
+          284,
+          375
+        ],
+        "ordered_job_sections": [
+          "Resnet.train.4",
+          "GPT2.train.4",
+          "Llama.train.4",
+          "Bloom.train.4"
+        ],
         "execution_valid": true,
         "numerical_feasible": false,
         "evidence_status": "SUFFICIENT",
@@ -1122,6 +1258,23 @@
         "objective": 80.16839426362822
       },
       "assessment": {
+        "tracking_pass": true,
+        "qos_numerical_pass": true,
+        "max_pj": 0.00908455625436766,
+        "worst_violation": 0.0,
+        "total_violation": 0.0,
+        "per_job_evidence_counts": [
+          1432,
+          303,
+          280,
+          309
+        ],
+        "ordered_job_sections": [
+          "Resnet.train.4",
+          "GPT2.train.4",
+          "Llama.train.4",
+          "Bloom.train.4"
+        ],
         "execution_valid": true,
         "numerical_feasible": true,
         "evidence_status": "SUFFICIENT",
@@ -1259,6 +1412,23 @@
         "objective": 80.00171717902296
       },
       "assessment": {
+        "tracking_pass": true,
+        "qos_numerical_pass": true,
+        "max_pj": 0.00566973777462787,
+        "worst_violation": 0.0,
+        "total_violation": 0.0,
+        "per_job_evidence_counts": [
+          1412,
+          317,
+          323,
+          335
+        ],
+        "ordered_job_sections": [
+          "Resnet.train.4",
+          "GPT2.train.4",
+          "Llama.train.4",
+          "Bloom.train.4"
+        ],
         "execution_valid": true,
         "numerical_feasible": true,
         "evidence_status": "SUFFICIENT",

@@ -242,3 +242,77 @@ def test_resume_rejects_legacy_before_simulator(tmp_path):
     )
     with pytest.raises(ValueError, match="LEGACY_UNTRUSTED"):
         run_episode(tmp_path, resume=tmp_path)
+
+
+@pytest.mark.parametrize("j", [3, 4, 5, 6])
+def test_fixed_policy_legal_j_sampling_projection_and_local(j):
+    lo, hi = Config().weight_bounds(j)
+    domain = Domain(0.2, 0.7, 0.9, 0, 0.6, (lo,) * j, (hi,) * j)
+    rng = np.random.default_rng(j)
+    for i in range(20):
+        candidate = domain.independent(rng, str(i))
+        domain.validate(candidate)
+        domain.validate(domain.local(candidate, rng, 0.12, "local"))
+        domain.validate(replace(candidate, weights=domain.project(rng.normal(0, 10, j))))
+
+
+def test_conditioned_N_and_utilization_can_change(tmp_path):
+    config, _ = context_fixture(tmp_path)
+    assert not check_context(tmp_path, replace(config, server_count=250, utilization=0.8))[
+        "context_ood"
+    ]
+
+
+def test_unchanged_generated_files_resume_without_regeneration(tmp_path, monkeypatch):
+    from dataclasses import asdict
+    from types import SimpleNamespace
+
+    import argos.episode as api
+    from argos.controller.argos_controller import SearchState
+    from argos.provenance import write_json
+
+    episode = tmp_path / "episode"
+    directory = episode / "v3"
+    directory.mkdir(parents=True)
+    config = Config()
+    config.save(episode / "resolved_config.yaml")
+    for name in FILES:
+        (directory / name).write_text(
+            "a\n1\n"
+            if name.endswith(".csv")
+            else '{"wall_seconds":0}'
+            if name == "search_timing.json"
+            else "[]"
+        )
+    digest = write_search_manifest(directory, config)
+    write_json(
+        episode / "manifest.json",
+        {
+            "resolved_config_sha256": sha256(episode / "resolved_config.yaml"),
+            "v3_search_manifest_sha256": digest,
+            "input_identity": {},
+        },
+    )
+    write_json(episode / "state.json", asdict(SearchState(episode.name, phase="DONE")))
+    bounds = SimpleNamespace(
+        pbar_lower_kw_per_server=0.2,
+        pbar_upper_kw_per_server=0.7,
+        pr_upper_kw_per_server=0.9,
+        r_lower_kw_per_server=0.01,
+    )
+    fake = SimpleNamespace(
+        context=lambda *args: (SimpleNamespace(job_count=4), None),
+        api=SimpleNamespace(
+            OptimizationSettings=lambda **kwargs: None,
+            calculate_pr_bounds=lambda w: bounds,
+            resolve_effective_weight_bounds=lambda *args, **kwargs: SimpleNamespace(
+                final_lower=0.15, final_upper=0.45
+            ),
+        ),
+    )
+    monkeypatch.setattr(api, "V3Adapter", lambda *args: fake)
+    monkeypatch.setattr(api, "doctor", lambda *args: {})
+    monkeypatch.setattr(api, "episode_identity", lambda *args: {})
+    monkeypatch.setattr(api, "FlexDCRunner", lambda *args: object())
+    assert api.run_episode(tmp_path, resume=episode) == episode
+    verify_search_manifest(directory, config, digest)

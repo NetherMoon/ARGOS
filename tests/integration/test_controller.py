@@ -260,3 +260,25 @@ def test_confirmation_summary_semantics(tmp_path, passes, expected):
     assert summary["confirmation_status"] == expected
     assert summary["confirmation_passes"] == passes
     assert summary["confirmation_numerical_passes"] == 2
+
+
+def test_later_qualified_candidate_replaces_unknown_favorite(tmp_path):
+    controller, simulator = setup(tmp_path / "later_evidence", "B")
+    original = simulator.evaluate_batch
+
+    def withdraw_first(*args):
+        return [
+            replace(o, qos_evidence=None) if o.candidate.candidate_id == "bad-v3-favorite" else o
+            for o in original(*args)
+        ]
+
+    simulator.evaluate_batch = withdraw_first
+    state = controller.run()
+    from argos.contracts import qualified
+
+    assert not qualified(state.observations[0])
+    assert state.incumbent.candidate_id != "bad-v3-favorite"
+    assert any(
+        o.candidate == state.incumbent and qualified(o) and o.phase == "search"
+        for o in state.observations
+    )

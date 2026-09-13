@@ -37,11 +37,14 @@ def main():
     venv.EnvBuilder(with_pip=True, system_site_packages=False).create(environment)
     python = environment / ("Scripts/python.exe" if sys.platform == "win32" else "bin/python")
     commands = [
-        [str(python), "-m", "pip", "install", "-e", ".[dev]"],
+        [str(python), "-m", "pip", "install", "--no-compile", "-e", ".[dev]"],
         [str(python), "-B", "-m", "pytest", "-q"],
         [str(python), "-B", "-m", "ruff", "check", "."],
         [str(python), "-B", "-m", "ruff", "format", "--check", "."],
-        [str(python), "-B", "-m", "argos.cli", "--help"],
+        [
+            str(environment / ("Scripts/argos.exe" if sys.platform == "win32" else "bin/argos")),
+            "--help",
+        ],
     ]
     results = []
     for i, command in enumerate(commands):

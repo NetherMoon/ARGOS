@@ -1,0 +1,36 @@
+{
+  "historical_V4_dynamic_0_6_1_8_attribution": "NOT_ESTABLISHED",
+  "searched": [
+    "comder-main/am_flexdc source and notebooks",
+    "condor_flexdc_v4 source and results",
+    "condor_flexdc_v4.zip source and notebooks",
+    "CONDOR-FLEXDC Git history",
+    "FlexDC_V5_Eval source and notebooks"
+  ],
+  "generic_source": {
+    "repository": "CONDOR-FLEXDC",
+    "commit": "2b653facf31de356d8c682ee76d814bd81b8e95d",
+    "sha256": "c7c5fcb637766b7a12a6c6ef0874ac4db719eb867a41af47ba555c7d44009edd",
+    "default_min_fraction": 0.1,
+    "default_max_multiple": 4.0,
+    "formula": "lower=max(min_fraction/J,1/N); upper=min(max_multiple/J,1-(J-1)*lower)"
+  },
+  "notebook_evidence": {
+    "repository": "CONDOR-FLEXDC",
+    "path": "am_flexdc/flexdc_generic_sources/FlexDC_Generic_Full_Parity_Paired_Comparison.ipynb",
+    "cell": 18,
+    "explicit_min_fraction": 0.6,
+    "explicit_max_multiple": 1.8
+  },
+  "older_generic_commit": "4eaacd40e421d393457aa3c8b83603b45d97b603",
+  "available_V4_source": {
+    "path": "condor_flexdc_v4/optimize_v4.py",
+    "sha256": "121ea83f872ef70016569e20f58e02218fea122a845a392d9a120e472d9bf43d",
+    "weight_floor_fraction": 0.1,
+    "trust_region_multipliers": [
+      0.3,
+      2.4
+    ]
+  },
+  "ARGOS_policy": "New explicit relative_to_equal policy [.6/J,1.8/J] intersected with the actual upstream bounds; no automatic J switch or claim that the V4 labeled experiment was reproduced."
+}

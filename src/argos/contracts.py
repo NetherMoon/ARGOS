@@ -86,7 +86,17 @@ def assessment(o: FlexDCObservation, minimum: int = 1) -> dict:
     )
     sufficient = all(e.observation_count >= minimum for e in evidence) if known else None
     qualified_value = bool(o.valid and numerical and sufficient)
+    worst, total = violations(o.metrics) if o.valid and o.metrics else (None, None)
     return {
+        "tracking_pass": o.metrics.p90 <= TRACKING_LIMIT if o.valid and o.metrics else None,
+        "qos_numerical_pass": max(o.metrics.pj) <= QOS_LIMIT if o.valid and o.metrics else None,
+        "max_pj": max(o.metrics.pj) if o.valid and o.metrics else None,
+        "worst_violation": worst,
+        "total_violation": total,
+        "per_job_evidence_counts": [e.observation_count for e in evidence]
+        if evidence is not None
+        else None,
+        "ordered_job_sections": [e.job.section for e in evidence] if evidence is not None else None,
         "execution_valid": o.valid,
         "numerical_feasible": numerical,
         "evidence_status": "SUFFICIENT" if sufficient else "INSUFFICIENT" if known else "UNKNOWN",
