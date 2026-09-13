@@ -9,10 +9,15 @@ from pathlib import Path
 import pandas as pd
 
 from argos.config import Config
-from argos.provenance import ARTIFACT, git, sha256, write_json
+from argos.provenance import ARTIFACT, git, sha256
 
 ROOT = Path(__file__).resolve().parents[1]
 CORE = "425eec6b7fec1202bdc97b88f7b50c23ca575aa0"
+
+
+def write_json(path, value):
+    path.parent.mkdir(parents=True, exist_ok=True)
+    path.write_bytes((json.dumps(value, indent=2, allow_nan=False) + "\n").encode())
 
 
 def main():

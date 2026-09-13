@@ -5,9 +5,9 @@
   "core_tag": "v0.2.0-pretest",
   "output": "runs/campaigns/controlled_development_v1",
   "ledger": "configs/campaigns/seed_ledger_v1.json",
-  "ledger_sha256": "3f352b5efb2738f8a7657cf36af1f788c59eb053951700fc03ed29268da195ba",
+  "ledger_sha256": "6c6af5412070623c5b8fcf6eb4223a4169b86bdd702e32731ebf803d5a33f4b6",
   "provenance": "configs/campaigns/provenance_v1.json",
-  "provenance_sha256": "4bcc4fc405e58502d0bc8029ff2a167cfa06f13966125dff12a8fa8c380371a2",
+  "provenance_sha256": "45cd00f1ecd1c29a7879464adec716895e5fa71cb05bf0ecc7585bfc27a48bed",
   "original_workloads": [
     "W1-train-qos3333",
     "W1-train-qos4444",

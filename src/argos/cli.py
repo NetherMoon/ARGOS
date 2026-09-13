@@ -14,6 +14,11 @@ def main() -> None:
     parser = argparse.ArgumentParser(description="Adaptive Region-Guided Optimization Search")
     parser.add_argument("--root", type=Path, default=Path.cwd())
     commands = parser.add_subparsers(dest="command", required=True)
+    # CAMPAIGN ROUTING START
+    from argos.campaign.cli import add_parser
+
+    add_parser(commands)
+    # CAMPAIGN ROUTING END
     boot = commands.add_parser("bootstrap")
     boot.add_argument("--refresh-lock", action="store_true")
     commands.add_parser("inspect-artifact")
@@ -35,6 +40,13 @@ def main() -> None:
     )
     audit.add_argument("--output", type=Path)
     args = parser.parse_args()
+    # CAMPAIGN ROUTING START
+    if args.command == "campaign":
+        from argos.campaign.cli import dispatch
+
+        dispatch(args)
+        return
+    # CAMPAIGN ROUTING END
     if args.command == "audit":
         from argos.audit import audit_episode
         from argos.provenance import write_json

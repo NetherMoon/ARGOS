@@ -1,0 +1,37 @@
+{
+  "status": "NOT_EXECUTED_PROTOCOL_INCOMPATIBLE",
+  "source": ".deps\\FlexDC\\src\\peacsim\\simulated_annealing.py",
+  "source_sha256": "e5471d928c3139bf5d218e919d6760ab4756e91cec0323af26cfcf616849b16d",
+  "core_affected": false,
+  "representatives_predeclared": [
+    "W1-train-qos4444",
+    "W2-short-qos5555",
+    "MIX4-TTII",
+    "J3-TRAIN"
+  ],
+  "findings": [
+    {
+      "lines": [
+        97
+      ],
+      "finding": "sa_evaluate assigns experiment random seed to iteration, preventing the common frozen scenario protocol without source changes."
+    },
+    {
+      "lines": [
+        112,
+        113,
+        114,
+        115
+      ],
+      "finding": "Tracking cost uses cost_tracking_raw multiplied by a nonlinear expression, whereas canonical ARGOS objective uses the frozen p90 softplus term; sharing constants alone does not align objectives."
+    },
+    {
+      "lines": [
+        285,
+        415
+      ],
+      "finding": "Unconditional wandb logging and initialization require a separate logging/runtime protocol."
+    }
+  ],
+  "decision": "Do not modify SA or present its native objective as a matched canonical-objective baseline. Preserve the predeclared representatives for a separately approved compatible baseline protocol."
+}

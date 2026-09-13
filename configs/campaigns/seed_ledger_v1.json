@@ -1,7 +1,7 @@
 {
   "schema": 1,
   "generation": "SHA256 ARGOS-controlled-v1/group/counter, first 32 bits, collision rejection",
-  "provenance_sha256": "4bcc4fc405e58502d0bc8029ff2a167cfa06f13966125dff12a8fa8c380371a2",
+  "provenance_sha256": "45cd00f1ecd1c29a7879464adec716895e5fa71cb05bf0ecc7585bfc27a48bed",
   "groups": {
     "historical_or_training": [
       20,
