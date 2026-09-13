@@ -5,7 +5,7 @@ from __future__ import annotations
 from dataclasses import dataclass, field
 from typing import Any
 
-from argos.versions import OBSERVATION_SCHEMA
+from argos.versions import OBSERVATION_SCHEMA, QOS_ESTIMATOR, QOS_PARITY_ATOL, QOS_PARITY_RTOL
 
 
 @dataclass(frozen=True)
@@ -56,7 +56,7 @@ class QoSEvidence:
     exceedance_count: int | None = None
     estimator_numerator: int | None = None
     estimator_denominator: int | None = None
-    estimator: str = "flexdc_rank_cdf_v1"
+    estimator: str = QOS_ESTIMATOR
     horizon_seconds: float = 3600.0
     threshold_sojourn_seconds: float | None = None
     threshold_exceeds_horizon: bool | None = None
@@ -83,8 +83,8 @@ class QoSEvidence:
         if (self.estimator_numerator, self.estimator_denominator) != (numerator, denominator):
             raise ValueError("Inconsistent QoS estimator numerator/denominator")
         expected = numerator / denominator if n else 0
-        if abs(self.pj - expected) > 1e-10:
-            raise ValueError("Inconsistent reconstructed QoS probability")
+        if abs(self.pj - expected) > QOS_PARITY_ATOL + QOS_PARITY_RTOL * abs(expected):
+            raise ValueError("Reported QoS probability fails estimator parity")
 
 
 @dataclass(frozen=True)
@@ -106,6 +106,11 @@ class FlexDCObservation:
     residuals: dict[str, Any] = field(default_factory=dict)
     qos_evidence: tuple[QoSEvidence, ...] | None = None
     schema_version: int = OBSERVATION_SCHEMA
+
+    @property
+    def execution_status(self) -> str:
+        """Normalize historical scientific labels without rewriting persisted history."""
+        return "PARSED" if self.valid else self.status
 
 
 def candidate_from_dict(data: dict) -> Candidate:

@@ -5,15 +5,17 @@ from __future__ import annotations
 from dataclasses import asdict, replace
 from pathlib import Path
 
+from argos.audit_provenance import audit_provenance
 from argos.config import Config
-from argos.contracts import assessment, qualified
+from argos.contracts import assessment, confirmation_status, qualified
 from argos.controller.argos_controller import SearchState
 from argos.controller.stopping import replay
 from argos.provenance import read_json, sha256
 from argos.search.integrity import verify_search_manifest
 from argos.simulator.configuration import canonical_costs
 from argos.simulator.output_parser import parse_output
-from argos.types import candidate_from_dict, evidence_from_dict
+from argos.types import candidate_from_dict, evidence_from_dict, observation_from_dict
+from argos.versions import AUDIT_SCHEMA, OBSERVATION_SCHEMA
 
 
 def audit_episode(root: Path, episode: Path, allow_legacy: bool = False) -> dict:
@@ -21,15 +23,25 @@ def audit_episode(root: Path, episode: Path, allow_legacy: bool = False) -> dict
     config = Config.load(episode / "resolved_config.yaml")
     manifest = read_json(episode / "manifest.json")
     failures = []
+    provenance = audit_provenance(root, manifest, allow_legacy)
+    audit_only = manifest.get("purpose") == "single_exact_evidence_parser_audit"
 
     def check(condition, message):
         if not condition:
             failures.append(message)
 
-    check(
-        sha256(episode / "resolved_config.yaml") == manifest["resolved_config_sha256"],
-        "resolved config hash mismatch",
-    )
+    config_digest = manifest.get("resolved_config_sha256")
+    config_integrity = "VERIFIED" if config_digest else "UNAVAILABLE"
+    if config_digest:
+        check(
+            sha256(episode / "resolved_config.yaml") == config_digest,
+            "resolved config hash mismatch",
+        )
+    elif not (audit_only and allow_legacy):
+        failures.append("Missing resolved config hash")
+    else:
+        config_integrity = "HISTORICAL_UNANCHORED"
+
     expected = manifest.get("v3_search_manifest_sha256")
     search_integrity = "LEGACY_UNTRUSTED_SEARCH"
     if expected:
@@ -38,9 +50,22 @@ def audit_episode(root: Path, episode: Path, allow_legacy: bool = False) -> dict
             search_integrity = "VERIFIED"
         except (OSError, ValueError, KeyError) as exc:
             failures.append(str(exc))
+    elif audit_only:
+        search_integrity = "NOT_APPLICABLE_AUDIT_ONLY"
     elif not allow_legacy:
         failures.append("Legacy search requires --allow-legacy-audit; no resume trust is granted")
-    state = SearchState.load(episode / "state.json")
+    if audit_only:
+        state = SearchState(
+            episode.name,
+            observations=[
+                observation_from_dict(read_json(p))
+                for p in sorted((episode / "flexdc_raw").glob("*/observation.json"))
+            ],
+        )
+        check(len(state.observations) == 1, "Audit-only smoke must have one observation")
+        check(all(o.phase == "audit" for o in state.observations), "Audit-only phase mismatch")
+    else:
+        state = SearchState.load(episode / "state.json")
     attempts = sorted((episode / "flexdc_raw").glob("*/attempt-*/execution.json"))
     count_search = sum(read_json(p)["identity"]["phase"] == "search" for p in attempts)
     check(count_search <= config.max_search_calls, "search attempt budget exceeded")
@@ -91,8 +116,19 @@ def audit_episode(root: Path, episode: Path, allow_legacy: bool = False) -> dict
                 qos_evidence=evidence_from_dict(reported["qos_evidence"])
                 if reported["qos_evidence"] is not None
                 else None,
-                schema_version=2,
+                schema_version=OBSERVATION_SCHEMA,
             )
+            if o.schema_version >= 2:
+                check(
+                    checked.qos_evidence == o.qos_evidence,
+                    f"stored typed evidence mismatch {o.execution_id}",
+                )
+                stored = o.reported.get("qos_evidence")
+                check(
+                    (evidence_from_dict(stored) if stored is not None else None)
+                    == checked.qos_evidence,
+                    f"stored reported evidence mismatch {o.execution_id}",
+                )
             audited.append(checked)
             parent = Path(raw["results"]).parent
             rows.append(
@@ -103,6 +139,10 @@ def audit_episode(root: Path, episode: Path, allow_legacy: bool = False) -> dict
                     "seed": o.seed,
                     "batch": o.batch,
                     "original_status": o.status,
+                    "execution_status": checked.execution_status,
+                    "pj_source": reported["pj_source"],
+                    "reported_pj_validation": reported["reported_pj_validation"],
+                    "objective_parity": "PASS" if metrics == o.metrics else "FAIL",
                     "metrics": asdict(metrics),
                     "assessment": assessment(checked, config.min_qos_observations_per_type),
                     "qos_evidence": reported["qos_evidence"],
@@ -148,27 +188,32 @@ def audit_episode(root: Path, episode: Path, allow_legacy: bool = False) -> dict
                 "incumbent differs from best qualified search observation",
             )
     passes = sum(qualified(o, config.min_qos_observations_per_type) for o in confirmations)
-    confirmation_status = (
-        "CONFIRMATION_ALL_PASS"
-        if confirmations and passes == len(confirmations) == len(config.confirmation_seeds)
-        else "CONFIRMATION_PARTIAL_PASS"
-        if passes
-        else "CONFIRMATION_NONE_PASS"
-    )
     check(
         attempts == sorted((episode / "flexdc_raw").glob("*/attempt-*/execution.json")),
         "audit created execution",
     )
     return {
-        "audit_schema": 2,
+        "audit_schema": AUDIT_SCHEMA,
         "episode_id": episode.name,
-        "status": "FAIL" if failures else "PASS",
+        "status": "FAIL"
+        if failures or (not provenance["exact_match"] and not allow_legacy)
+        else "PASS",
+        "raw_data_validity": "FAIL" if failures else "PASS",
+        "current_environment_identity": provenance,
+        "resolved_config_integrity": config_integrity,
+        "provenance_failures": [
+            name for name, d in provenance["dimensions"].items() if d["status"] != "MATCH"
+        ],
         "historical_search_integrity": search_integrity,
         "historical_records_modified": False,
         "new_simulator_calls": 0,
         "failures": failures,
         "observations": rows,
-        "confirmation_status": confirmation_status,
+        "confirmation_status": confirmation_status(
+            confirmations, config.min_qos_observations_per_type
+        ),
+        "confirmation_expected_runs": len(config.confirmation_seeds),
+        "confirmation_complete": len(confirmations) == len(config.confirmation_seeds),
         "confirmation_passes": passes,
         "confirmation_runs": len(confirmations),
         "qualified_search_count": len(eligible),

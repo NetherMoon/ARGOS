@@ -9,7 +9,7 @@ from pathlib import Path
 
 import pandas as pd
 
-from argos.contracts import assessment
+from argos.contracts import assessment, confirmation_status
 from argos.provenance import read_json, write_json
 from argos.types import observation_from_dict
 
@@ -36,6 +36,23 @@ def main() -> None:
     summary = read_json(episode / "summary.json")
     state = read_json(episode / "state.json")
     manifest = read_json(episode / "manifest.json")
+    observations = [observation_from_dict(o) for o in state["observations"]]
+    minimum = summary["config"].get("min_qos_observations_per_type", 1)
+    confirms = [o for o in observations if o.phase == "confirmation"]
+    summary["original_confirmation_status"] = summary.get("confirmation_status")
+    summary["confirmation_status"] = confirmation_status(confirms, minimum)
+    summary["confirmation_runs"] = len(confirms)
+    summary["confirmation_passes"] = sum(
+        assessment(o, minimum)["evidence_qualified_feasible"] for o in confirms
+    )
+    summary["confirmation_expected_runs"] = len(summary["config"]["confirmation_seeds"])
+    summary["confirmation_complete"] = len(confirms) == summary["confirmation_expected_runs"]
+    summary["export_assessments"] = {o.execution_id: assessment(o, minimum) for o in observations}
+    summary["export_evidence_policy"] = (
+        "Stored evidence only; missing legacy evidence stays UNKNOWN. Use argos audit for raw validation."
+    )
+    if not confirms and str(summary.get("status", "")).startswith("CONFIRMATION_"):
+        summary["status"] = "CONFIRMATION_NOT_RUN"
     summary["execution_provenance"] = manifest
     summary["actual_simulator_attempts"] = len(
         list((episode / "flexdc_raw").glob("*/attempt-*/execution.json"))
@@ -83,7 +100,8 @@ def main() -> None:
                 "seed": o["seed"],
                 "phase": o["phase"],
                 "batch": o["batch"],
-                "status": o["status"],
+                "status": observation_from_dict(o).execution_status,
+                "original_status": o["status"],
                 "valid": o["valid"],
                 "runtime_seconds": o["runtime_seconds"],
                 "actual_p90": m["p90"] if m else None,

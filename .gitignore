@@ -29,3 +29,5 @@ dist/
 condor_set_transformer_sweep_v3_behavior_v3_best_feasibility_artifacts/
 
 .pytest_tmp/
+
+.venv-paper/

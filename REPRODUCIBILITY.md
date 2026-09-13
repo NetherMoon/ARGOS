@@ -29,23 +29,44 @@ Ordinary gradient settings are copied locally and only these mapped keys change.
 
 ## Python environment
 
-Important versions are in `reports/environment.json`. The transitive installed
-package versions used by ARGOS and its test tools are in `requirements-tested.txt`.
-The development environment used an ARGOS-local venv with system-site-packages;
-no installed user packages were upgraded. A fresh reproduction can use:
+Portable correctness CI covers Python 3.10, 3.11 and 3.12 with current compatible
+packages (`pip install -e ".[dev]"`). The package declares >=3.10,<3.13; later
+interpreters need validation before expanding that range. Public CI downloads no
+V3 artifact and executes no simulator. Artifact/dependency tests skip explicitly.
+
+Historical verified simulations used Windows x86-64, Python **3.12.4**, runtime
+PyTorch **2.4.1+cpu** with four threads. Their development venv exposed system site
+packages. The installed distribution metadata reported torch 2.4.1; the runtime
+reported 2.4.1+cpu. `constraints-paper-cpu.txt` pins the official CPU wheel explicitly
+and the 38-package runtime/test/build dependency closure at the tested versions.
+It does not reproduce unrelated packages in the historical shared environment.
+`requirements-tested.txt` remains the original inventory, not the reproduction lock.
+
+For exact paper CPU reproduction, create a new environment using Python 3.12.4
+(check `py -3.12 --version` first) and run:
 
 ```powershell
-py -3.12 -m venv .venv
-.\.venv\Scripts\python.exe -m pip install torch==2.4.1+cpu --index-url https://download.pytorch.org/whl/cpu
-.\.venv\Scripts\python.exe -m pip install -r requirements-tested.txt
-.\.venv\Scripts\python.exe -m pip install --no-deps -e .
-.\.venv\Scripts\argos.exe bootstrap
-.\.venv\Scripts\argos.exe doctor
+py -3.12 -m venv .venv-paper
+.\.venv-paper\Scripts\python.exe -m pip install -c constraints-paper-cpu.txt setuptools wheel
+.\.venv-paper\Scripts\python.exe -m pip install --no-build-isolation -c constraints-paper-cpu.txt --extra-index-url https://download.pytorch.org/whl/cpu -e ".[dev]"
+.\.venv-paper\Scripts\python.exe -m pip check
+.\.venv-paper\Scripts\python.exe -B -m pytest -q
+.\.venv-paper\Scripts\python.exe -B -m ruff check .
+.\.venv-paper\Scripts\python.exe -B -m ruff format --check .
+.\.venv-paper\Scripts\argos.exe --help
 ```
 
-For another platform, select a compatible PyTorch build explicitly; the generic
-package does not force CUDA. Exact CPU output parity on every platform is not
-claimed. Do not install or generate metadata inside `.deps`.
+The first install pins setuptools and wheel; `--no-build-isolation` uses those
+versions for the editable build. The second install obeys all runtime/test pins
+and obtains the exact CPU wheel from PyTorch's official index. `--no-compile` may
+be added to either install to skip bytecode precompilation without changing packages.
+A separate Windows CI lane uses Python 3.12.4 and these exact commands. No CUDA
+paper environment is claimed. Exact cross-platform floating-point parity is not
+claimed. Ordinary runtime-only doctor records absent pytest/Ruff as NOT_INSTALLED;
+CI/release gates explicitly install development tools.
+
+After providing the immutable artifact and pinned dependencies, run bootstrap and
+paper-mode doctor from a clean tree. Never install or generate files inside `.deps`.
 
 ## Original prediction and optimizer parity
 
@@ -203,3 +224,53 @@ rerunning it. It is audit-only, not a search or confirmation result. A future
 explicitly authorized audit must use a new seed and preserve its own provenance.
 See REPORT.md and reports/publication_audit/release_validation.json for validation
 results, the interrupted-install history, and the real recovery defect correction.
+
+
+## Canonical upstream revision and final pre-testing gates
+
+The stored cost source exactly matches peaclab/flexdc-sim commit
+`20986e7ddd0c5c4e33ee0b162c722ca2b46a79f9` at
+`configs/optimization/simulated_annealing/SA_train_low_util_RSR_1000server.ini`.
+[Commit-qualified source](https://github.com/peaclab/flexdc-sim/blob/20986e7ddd0c5c4e33ee0b162c722ca2b46a79f9/configs/optimization/simulated_annealing/SA_train_low_util_RSR_1000server.ini).
+SHA-256: `f20f3f78f53cca79d29c8b077747df86d9a23dc5bf19a5870142154c9b0567c4`.
+The upstream file history was queried and bytes verified before recording the
+revision on 2026-09-13. Metadata records the upstream repository, commit, path,
+verified file hash and verification timestamp. Offline tests verify the recorded
+metadata/hash agreement. Only cost_function and dr_program are used; initialization,
+simulated_annealing, boundaries and step_size remain ignored. ARGOS does not use SA.
+
+From Python 3.12.4, run both isolated final-commit gates:
+
+```powershell
+python -B scripts/release_gate.py --environment portable
+python -B scripts/release_gate.py --environment paper-cpu
+```
+
+Each creates its own clean checkout and brand-new venv without system packages,
+dependencies, artifact, prior runs or pytest caches. Package download caches may be
+used; installed environments are never reused. Both perform install, pip check,
+pytest, Ruff, formatting and installed CLI checks. The paper gate also checks the
+CPU Torch build. Results and exact source HEAD are stored under runs/release_gate.
+
+Read-only final historical audits (choose new output filenames):
+
+```powershell
+argos audit runs/argos_20260913T024050_620101Z --allow-historical-audit --output runs/pretest_serious_audit.json
+argos audit runs/argos_20260913T023923_034870Z --allow-historical-audit --output runs/pretest_small_audit.json
+argos audit runs/evidence_smoke_seed_2026091301 --allow-historical-audit --output runs/pretest_smoke_audit.json
+argos doctor --config configs/argos_paper.yaml
+```
+
+The authoritative Pj is always FlexDC's reported column. Raw-table calculation
+validates estimator parity and records counts, not replacement probabilities.
+Historical raw validity is separate from current software/model identity. Changed
+ARGOS source and missing historical metadata are explicit; no manifest is rewritten
+or retrospectively certified for resume. The older smoke has no resolved-config
+hash anchor; its audit labels that limitation HISTORICAL_UNANCHORED while checking
+recorded execution/input hashes. New smoke manifests include the config hash.
+
+This hardening pass adds no new simulator result or campaign. Existing W1 Pj/counts
+and selected bids remain the same; n>=1 still means only nonempty evidence and
+statistical_reliability_established remains false. GPT2/Llama/Bloom thresholds
+exceed the one-hour horizon. The historical V4 weight-policy attribution remains
+unestablished. Controlled experiments will be specified separately.

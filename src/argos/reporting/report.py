@@ -9,9 +9,18 @@ from pathlib import Path
 import pandas as pd
 
 from argos.config import Config
-from argos.contracts import QOS_LIMIT, TRACKING_LIMIT, assessment, feasible, qualified, violations
+from argos.contracts import (
+    QOS_LIMIT,
+    TRACKING_LIMIT,
+    assessment,
+    confirmation_status,
+    feasible,
+    qualified,
+    violations,
+)
 from argos.controller.argos_controller import SearchState
 from argos.provenance import read_json, write_json
+from argos.versions import REPORT_SCHEMA
 
 
 def report(episode: Path, config: Config, state: SearchState) -> dict:
@@ -27,10 +36,8 @@ def report(episode: Path, config: Config, state: SearchState) -> dict:
         status = "NO_FEASIBLE_BID_FOUND_WITHIN_BUDGET"
     elif not confirms:
         status = "SIMULATOR_OBSERVED_FEASIBLE"
-    elif passes == len(confirms) == len(config.confirmation_seeds):
-        status = "CONFIRMATION_ALL_PASS"
     else:
-        status = "CONFIRMATION_PARTIAL_PASS" if passes else "CONFIRMATION_NONE_PASS"
+        status = confirmation_status(confirms, config.min_qos_observations_per_type)
     selected = next(
         (
             o
@@ -42,7 +49,7 @@ def report(episode: Path, config: Config, state: SearchState) -> dict:
         None,
     )
     summary = {
-        "schema_version": 2,
+        "schema_version": REPORT_SCHEMA,
         "run_mode": config.run_mode,
         "argos_dirty": manifest.get("argos_dirty"),
         "context_ood": context.get("context_ood"),
@@ -68,13 +75,9 @@ def report(episode: Path, config: Config, state: SearchState) -> dict:
         "completed_search_observations": len(searches),
         "valid_search_observations": sum(o.valid for o in searches),
         "observed_feasible_count": len(feasible_search),
-        "confirmation_status": (
-            "CONFIRMATION_ALL_PASS"
-            if confirms and passes == len(confirms) == len(config.confirmation_seeds)
-            else "CONFIRMATION_PARTIAL_PASS"
-            if passes
-            else "CONFIRMATION_NONE_PASS"
-        ),
+        "confirmation_status": confirmation_status(confirms, config.min_qos_observations_per_type),
+        "confirmation_expected_runs": len(config.confirmation_seeds),
+        "confirmation_complete": len(confirms) == len(config.confirmation_seeds),
         "confirmation_passes": passes,
         "confirmation_runs": len(confirms),
         "max_workers": config.max_workers,
@@ -82,7 +85,7 @@ def report(episode: Path, config: Config, state: SearchState) -> dict:
         "selected_search_observation": asdict(selected) if selected else None,
         "confirmation_observations": [asdict(o) for o in confirms],
         "failures": [
-            {"execution_id": o.execution_id, "error": o.error, "status": o.status}
+            {"execution_id": o.execution_id, "error": o.error, "status": o.execution_status}
             for o in state.observations
             if not o.valid
         ],
@@ -110,7 +113,7 @@ def report(episode: Path, config: Config, state: SearchState) -> dict:
             "returncode": o.returncode,
             "runtime_seconds": o.runtime_seconds,
             "evidence_validity": o.valid,
-            "status": o.status,
+            "status": o.execution_status,
             "error": o.error,
             "raw_paths": json.dumps(o.raw_paths),
             "reported": json.dumps(o.reported),
@@ -162,7 +165,7 @@ def report(episode: Path, config: Config, state: SearchState) -> dict:
         )
     for o in confirms:
         text.append(
-            f"\nConfirmation seed {o.seed}: {o.status}; metrics={o.metrics}; assessment={assessment(o, config.min_qos_observations_per_type)}; QoS evidence={o.qos_evidence}."
+            f"\nConfirmation seed {o.seed}: {o.execution_status}; metrics={o.metrics}; assessment={assessment(o, config.min_qos_observations_per_type)}; QoS evidence={o.qos_evidence}."
         )
     for failure in summary["failures"]:
         text.append(f"\nInvalid observation: {failure}.")

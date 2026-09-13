@@ -5,7 +5,12 @@ import pandas as pd
 import pytest
 
 from argos.contracts import assessment, qualified
-from argos.simulator.evidence import ordered_jobs, reconstruct, verify_order, workload_fingerprint
+from argos.simulator.evidence import (
+    ordered_jobs,
+    validate_reported_qos_evidence,
+    verify_order,
+    workload_fingerprint,
+)
 from argos.types import Candidate, FlexDCObservation, JobIdentity, Metrics, observation_from_dict
 
 JOB = JobIdentity(0, "same-name-is-not-a-numeric-index", (100, 200, 10, 20, 1, 1))
@@ -34,7 +39,7 @@ def table(delays):
     ],
 )
 def test_exact_estimator_empty_singleton_exceedance_quirks(delays, pj, numerator, denominator):
-    e = reconstruct(table(delays), [JOB], [pj])[0]
+    e = validate_reported_qos_evidence(table(delays), [JOB], [pj])[0]
     assert (e.observation_count, e.estimator_numerator, e.estimator_denominator) == (
         len(delays),
         numerator,
@@ -52,7 +57,7 @@ def test_exact_inclusion_filters_and_censored_observations():
         }
     )
     # Arrival zero/prefill excluded; strict minimum-runtime cutoff excludes 3590.
-    e = reconstruct(t, [JOB], [0])[0]
+    e = validate_reported_qos_evidence(t, [JOB], [0])[0]
     assert (e.finished_count, e.unfinished_count, e.observation_count, e.exceedance_count) == (
         0,
         2,
@@ -60,14 +65,14 @@ def test_exact_inclusion_filters_and_censored_observations():
         1,
     )
     with pytest.raises(ValueError, match="Pj mismatch"):
-        reconstruct(t, [JOB], [0.5])
+        validate_reported_qos_evidence(t, [JOB], [0.5])
 
 
 def test_later_hours_finished_filter_has_no_upper_cutoff():
     t = pd.DataFrame(
         {"job_type_id": [0] * 3, "arrival_time": [3600, 8000, 8000], "end_time": [9000, 8030, -1]}
     )
-    e = reconstruct(t, [JOB], [1], sim_hour=3)[0]
+    e = validate_reported_qos_evidence(t, [JOB], [1], sim_hour=3)[0]
     assert (e.finished_count, e.unfinished_count, e.observation_count) == (1, 0, 1)
 
 
@@ -79,8 +84,8 @@ def test_qualification_unknown_empty_and_objective_unchanged():
     legacy.pop("schema_version")
     parsed = observation_from_dict(legacy)
     assert parsed.schema_version == 1 and assessment(parsed)["evidence_status"] == "UNKNOWN"
-    empty = replace(o, qos_evidence=reconstruct(table([]), [JOB], [0]))
-    nonempty = replace(o, qos_evidence=reconstruct(table([0]), [JOB], [0]))
+    empty = replace(o, qos_evidence=validate_reported_qos_evidence(table([]), [JOB], [0]))
+    nonempty = replace(o, qos_evidence=validate_reported_qos_evidence(table([0]), [JOB], [0]))
     assert not qualified(empty) and assessment(empty)["evidence_status"] == "INSUFFICIENT"
     assert qualified(nonempty) and not qualified(nonempty, 2)
     assert o.metrics.objective == empty.metrics.objective == nonempty.metrics.objective == 42

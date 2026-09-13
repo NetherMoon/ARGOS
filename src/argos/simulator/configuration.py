@@ -3,6 +3,9 @@
 from __future__ import annotations
 
 import configparser
+import hashlib
+import threading
+from collections.abc import Callable
 from pathlib import Path
 
 from argos.contracts import Costs
@@ -18,10 +21,30 @@ def read_ini(path: Path) -> configparser.ConfigParser:
     return config
 
 
-def canonical_costs(root: Path) -> Costs:
+def canonical_cost_provenance(root: Path) -> dict:
     path = root / "configs/canonical_cost_source.ini"
-    if sha256(path) != read_json(root / "configs/canonical_cost_source.json")["sha256"]:
+    metadata_path = root / "configs/canonical_cost_source.json"
+    metadata = read_json(metadata_path)
+    digest = sha256(path)
+    if digest != metadata["sha256"] or digest != metadata.get("upstream_file_sha256", digest):
         raise ValueError("Canonical cost source hash mismatch")
+    allowed = {"cost_function", "dr_program"}
+    if set(metadata["used_sections"]) != allowed:
+        raise ValueError("Canonical cost source allows only cost_function and dr_program")
+    if set(metadata["ignored_sections"]) != set(read_ini(path).sections()) - allowed:
+        raise ValueError("Canonical cost ignored-section metadata mismatch")
+    return {
+        "sha256": digest,
+        "metadata_sha256": sha256(metadata_path),
+        "upstream_repository": metadata.get("upstream_repository"),
+        "upstream_commit": metadata.get("upstream_commit"),
+        "upstream_path": metadata.get("upstream_path"),
+    }
+
+
+def canonical_costs(root: Path) -> Costs:
+    canonical_cost_provenance(root)
+    path = root / "configs/canonical_cost_source.ini"
     config = read_ini(path)
     if config["dr_program"]["program_type"] != "RSR":
         raise ValueError("RSR program required")
@@ -30,13 +53,25 @@ def canonical_costs(root: Path) -> Costs:
     return costs
 
 
+_HELPER_LOCK = threading.Lock()
+_REPLACERS: dict[Path, Callable] = {}
+
+
+def load_ini_replacer(root: Path) -> Callable:
+    """Load the pinned pure replacement function once per dependency path."""
+    path = (root / ".deps/FlexDC/am_generate_paper_iso_experiment_configs.py").resolve()
+    with _HELPER_LOCK:
+        if path not in _REPLACERS:
+            name = "_argos_ini_generator_" + hashlib.sha256(str(path).encode()).hexdigest()[:16]
+            _REPLACERS[path] = import_file(name, path).replace_ini_values
+        return _REPLACERS[path]
+
+
 def overlay(root: Path, source: Path, target: Path, changes: dict[tuple[str, str], str]) -> dict:
-    generator = import_file(
-        "_argos_ini_generator", root / ".deps/FlexDC/am_generate_paper_iso_experiment_configs.py"
-    )
+    replace_ini_values = load_ini_replacer(root)
     original = read_ini(source)
     text = source.read_text(encoding="utf-8")
-    result = generator.replace_ini_values(text, changes, source)
+    result = replace_ini_values(text, changes, source)
     record = {
         "source": str(source),
         "source_sha256": sha256(source),

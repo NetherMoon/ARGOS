@@ -7,6 +7,7 @@ import importlib.util
 import json
 import subprocess
 import sys
+import threading
 from datetime import datetime, timezone
 from pathlib import Path
 from types import ModuleType
@@ -41,17 +42,33 @@ def read_json(path: Path) -> Any:
     return json.loads(path.read_text(encoding="utf-8"))
 
 
+_IMPORT_LOCK = threading.RLock()
+
+
 def import_file(name: str, path: Path) -> ModuleType:
+    """Serialize dynamic imports that temporarily alter interpreter bytecode policy."""
+    with _IMPORT_LOCK:
+        return _import_file(name, path)
+
+
+def _import_file(name: str, path: Path) -> ModuleType:
     """Import source without writing bytecode into immutable reference trees."""
     spec = importlib.util.spec_from_file_location(name, path)
     if spec is None or spec.loader is None:
         raise ImportError(str(path))
     module = importlib.util.module_from_spec(spec)
+    previous = sys.modules.get(name)
     sys.modules[name] = module
     old = sys.dont_write_bytecode
     sys.dont_write_bytecode = True
     try:
         spec.loader.exec_module(module)
+    except BaseException:
+        if previous is None:
+            sys.modules.pop(name, None)
+        else:
+            sys.modules[name] = previous
+        raise
     finally:
         sys.dont_write_bytecode = old
     return module

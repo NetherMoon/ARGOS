@@ -11,9 +11,11 @@ from dataclasses import asdict, replace
 from datetime import datetime, timezone
 from pathlib import Path
 
+from argos.audit_provenance import source_identity
 from argos.config import Config
 from argos.context import check_context
 from argos.controller.argos_controller import Controller
+from argos.environment import package_versions
 from argos.provenance import (
     ARTIFACT,
     CHECKPOINT,
@@ -27,15 +29,11 @@ from argos.reporting.report import report
 from argos.search.candidates import Domain
 from argos.search.integrity import verify_search_manifest, write_search_manifest
 from argos.search.regions import extract_regions, from_snapshot, promising
-from argos.simulator.configuration import canonical_costs, read_ini
+from argos.simulator.configuration import canonical_cost_provenance, canonical_costs, read_ini
 from argos.simulator.flexdc_adapter import FlexDCRunner
 from argos.surrogate.v3_adapter import V3Adapter, resolve_device
 from argos.types import Candidate, Metrics, Region, candidate_from_dict
-
-
-def source_identity(root: Path) -> dict:
-    paths = sorted((root / "src/argos").rglob("*.py"))
-    return {str(p.relative_to(root)): sha256(p) for p in paths}
+from argos.versions import SOFTWARE_VERSION
 
 
 def doctor(root: Path, config: Config) -> dict:
@@ -97,22 +95,8 @@ def doctor(root: Path, config: Config) -> dict:
         "python": sys.version,
         "platform": platform.platform(),
         "device": str(adapter.loaded.device),
-        "packages": {
-            n: importlib.metadata.version(n)
-            for n in [
-                "numpy",
-                "pandas",
-                "scipy",
-                "torch",
-                "PyYAML",
-                "scikit-learn",
-                "pytest",
-                "ruff",
-                "matplotlib",
-                "psutil",
-                "tqdm",
-            ]
-        },
+        "argos_version": SOFTWARE_VERSION,
+        "packages": package_versions(),
         "dependencies": dependencies,
         "checkpoint_sha256": manifest["files"][CHECKPOINT]["sha256"],
         "costs": asdict(costs),
@@ -138,6 +122,8 @@ def episode_identity(root: Path, config: Config) -> dict:
             p: sha256(flexdc / p) for p in [config.workload, config.experiment, config.cluster]
         },
         "canonical_cost_sha256": sha256(root / "configs/canonical_cost_source.ini"),
+        "canonical_cost_provenance": canonical_cost_provenance(root),
+        "software_version": SOFTWARE_VERSION,
     }
 
 
@@ -166,6 +152,7 @@ def run_episode(root: Path, config_path: Path | None = None, resume: Path | None
             {
                 "created_at_utc": datetime.now(timezone.utc).isoformat(),
                 "argos_git_head": git(root, "rev-parse", "HEAD"),
+                "argos_version": SOFTWARE_VERSION,
                 "argos_dirty": bool(git(root, "status", "--porcelain")),
                 "resolved_config_sha256": sha256(episode / "resolved_config.yaml"),
                 "input_identity": episode_identity(root, config),

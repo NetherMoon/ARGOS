@@ -1,4 +1,4 @@
-"""Reject mismatched or incomplete evidence; independently reconstruct objective."""
+"""Reject mismatched or incomplete evidence; independently validate_reported_qos_evidence objective."""
 
 from __future__ import annotations
 
@@ -11,7 +11,12 @@ import pandas as pd
 
 from argos.config import Config
 from argos.contracts import Costs, validate_metrics
-from argos.simulator.evidence import ordered_jobs, reconstruct, verify_order, workload_fingerprint
+from argos.simulator.evidence import (
+    ordered_jobs,
+    validate_reported_qos_evidence,
+    verify_order,
+    workload_fingerprint,
+)
 from argos.types import Candidate, Metrics
 
 
@@ -63,6 +68,7 @@ def parse_output(
     for key, value in [("P_actual_watts", candidate.Pbar), ("R_actual_watts", candidate.R)]:
         if float(raw[key]) != round(value * 1000 * config.server_count):
             raise ValueError("Physical watt conversion mismatch")
+    # FlexDC owns Pj. Raw-table reconstruction below is validation only.
     probs = tuple(float(x) for x in json.loads(raw["QoS_Delay_Probabilities"]))
     p90 = float(diag["Ctrack_Epsilon_90th"])
     objective = costs.objective(float(raw["Simulator_RSR_Total_Cost"]), p90, probs)
@@ -106,10 +112,12 @@ def parse_output(
     )
     table_path = results.with_name("job_table.csv")
     evidence = (
-        reconstruct(pd.read_csv(table_path), jobs, probs)
+        validate_reported_qos_evidence(pd.read_csv(table_path), jobs, probs)
         if table_path.is_file() and identity_known
         else None
     )
+    reported["pj_source"] = "grid_search_results.csv:QoS_Delay_Probabilities"
+    reported["reported_pj_validation"] = "PASS" if evidence is not None else "UNAVAILABLE"
     reported["ordered_jobs"] = [asdict(j) for j in jobs]
     reported["workload_fingerprint"] = workload_fingerprint(jobs)
     reported["qos_evidence"] = [asdict(e) for e in evidence] if evidence is not None else None

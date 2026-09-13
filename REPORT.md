@@ -235,3 +235,66 @@ long-horizon QoS, n>=1 does not confer statistical reliability, no CUDA device w
 available for execution validation, and attribution of [.6/J,1.8/J] to the requested
 historical V4 result remains unestablished. The available V4 source uses different
 bounds. These limitations are not hidden by the positive numerical result.
+
+
+## Final pre-testing hardening pass (0.2.0, 2026-09-13)
+
+Actual starting HEAD: `8439959330325e0c9a436f6bc13247927bcb857f`, branch main,
+initially clean. This pass preserves the core search and simulator science.
+No new learned model, experiment-label controller or scientific campaign was added.
+No new simulator invocation was needed: deterministic failure/concurrency tests and
+saved raw-output audits exercise the changed paths. Total real calls remain 46.
+
+FlexDC's `grid_search_results.csv:QoS_Delay_Probabilities` is the sole source of
+Metrics.pj. The renamed validate_reported_qos_evidence function validates the pinned
+estimator against job_table.csv and returns support metadata. It never replaces a
+reported probability. Tests preserve a distinct, tolerated reported value and reject
+a deliberately mismatched table as a contract failure. Counts, thresholds, objective,
+n>=1 eligibility and one-hour censoring limitations remain unchanged.
+
+Process identity inspection now handles absent, vanished, zombie, reused and
+permission-inaccessible PIDs. Matching live or indeterminate identities block
+unsafe resume. A fast post-Popen exit produces a durable structured failed
+observation. The pinned INI replacement helper loads once before dispatch and is
+cached under a lock; 32 concurrent overlays match serial text and audit metadata
+without modifying the dependency source or writing bytecode there.
+
+Audit now separates raw_data_validity from current_environment_identity, with seven
+explicit provenance dimensions. Normal current audits fail nonmatching identities.
+Explicit historical audit preserves raw-data PASS while showing source differences
+and unavailable historical fields. Reported Pj validation and objective parity are
+explicit. No historical manifest is rewritten. Existing audit-only smoke layouts
+are supported; its missing config hash is honestly HISTORICAL_UNANCHORED.
+
+Confirmation status is NOT_RUN for zero executions, NONE_PASS for zero qualified
+passes among executions, PARTIAL_PASS for some, and ALL_PASS for all executed runs.
+Expected counts and completion are separate. New observation status describes only
+execution; scientific booleans retain simultaneous numerical/evidence failures.
+Runtime doctor accepts absent pytest/Ruff and still requires runtime packages.
+
+Canonical-cost bytes match upstream peaclab/flexdc-sim revision
+`20986e7ddd0c5c4e33ee0b162c722ca2b46a79f9`, verified against the upstream file history.
+The stored SHA remains `f20f3f78f53cca79d29c8b077747df86d9a23dc5bf19a5870142154c9b0567c4`.
+Only cost_function and dr_program are used; SA initialization, schedule, boundaries
+and step sizes are ignored. The relative-weight historical V4 attribution remains
+unestablished and is not relabeled as verified.
+
+Portable Python support is explicitly 3.10/3.11/3.12, with a CI matrix. The separate
+paper CPU lane uses Python 3.12.4 and constraints-paper-cpu.txt, including official
+PyTorch 2.4.1+cpu and exact tested package versions. A new isolated environment
+successfully installed the documented commands and passed pip check. The historical
+system-site development environment is not represented as an isolated environment.
+
+Pre-commit full local regression result: **127 passed, 1 skipped**, 14.98 seconds;
+CUDA execution is the skip. Ruff and formatting pass. Read-only preliminary audits
+pass for serious W1 (34), small W1 (10), and evidence smoke (1). The W1 selections,
+metrics, per-job counts and 2/2 confirmation results remain unchanged. Dependencies,
+checkpoint and artifact identities match; historical source differences and missing
+cost/context metadata are reported independently. The smoke has zero confirmations.
+
+The final release procedure requires both portable and exact CPU gates from fresh
+checkouts of the final committed HEAD, plus clean paper doctor, V3 CPU parity and
+final historical preservation checks. Exact HEAD/results are recorded in ignored
+runs/release_gate receipts and runs/pretest_hardening/final_verification.json, with
+final CI status supplied in the task report after the push. A pre-commit test or
+install probe is not presented as that final gate.

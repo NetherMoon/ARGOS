@@ -4,9 +4,9 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "argos-flexdc"
-version = "0.1.0"
+dynamic = ["version"]
 description = "Adaptive Region-Guided Optimization Search for frozen CONDOR and FlexDC"
-requires-python = ">=3.10"
+requires-python = ">=3.10,<3.13"
 dependencies = ["numpy", "pandas", "scipy", "torch", "PyYAML", "scikit-learn", "matplotlib", "psutil", "tqdm"]
 
 [project.optional-dependencies]
@@ -14,6 +14,9 @@ dev = ["pytest", "ruff"]
 
 [project.scripts]
 argos = "argos.cli:main"
+
+[tool.setuptools.dynamic]
+version = {attr = "argos.versions.SOFTWARE_VERSION"}
 
 [tool.setuptools.packages.find]
 where = ["src"]

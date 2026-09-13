@@ -1,4 +1,4 @@
-"""Exact reconstruction of pinned FlexDC's ranked, censored delay statistic."""
+"""Validate FlexDC-reported Pj against raw support; never replace simulator outcomes."""
 
 from __future__ import annotations
 
@@ -12,6 +12,7 @@ import numpy as np
 import pandas as pd
 
 from argos.types import JobIdentity, QoSEvidence
+from argos.versions import QOS_PARITY_ATOL, QOS_PARITY_RTOL
 
 FIELDS = (
     "min_job_power_watts",
@@ -66,7 +67,10 @@ def verify_order(jobs, mix, names_path: Path, weights) -> bool:
     return True
 
 
-def reconstruct(table: pd.DataFrame, jobs, probabilities, sim_hour=1) -> tuple[QoSEvidence, ...]:
+def validate_reported_qos_evidence(
+    table: pd.DataFrame, jobs, probabilities, sim_hour=1
+) -> tuple[QoSEvidence, ...]:
+    """Return evidence for reported Pj after parity validation (rtol=1e-10, atol=1e-12)."""
     required = ["job_type_id", "arrival_time", "end_time"]
     if not set(required).issubset(table.columns) or not np.isfinite(table[required]).all().all():
         raise ValueError("Missing/nonfinite raw QoS table columns")
@@ -95,7 +99,7 @@ def reconstruct(table: pd.DataFrame, jobs, probabilities, sim_hour=1) -> tuple[Q
         numerator = max(m - 1, 0) if n >= 2 else m if n else None
         denominator = n - 1 if n >= 2 else 1 if n else None
         reconstructed = numerator / denominator if n else 0.0
-        if not np.isclose(pj, reconstructed, rtol=1e-10, atol=1e-12):
+        if not np.isclose(pj, reconstructed, rtol=QOS_PARITY_RTOL, atol=QOS_PARITY_ATOL):
             raise ValueError("Raw-table/reported Pj mismatch")
         evidence.append(
             QoSEvidence(

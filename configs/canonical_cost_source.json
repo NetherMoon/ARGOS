@@ -1,5 +1,5 @@
 {
-  "url": "https://raw.githubusercontent.com/peaclab/flexdc-sim/main/configs/optimization/simulated_annealing/SA_train_low_util_RSR_1000server.ini",
+  "url": "https://raw.githubusercontent.com/peaclab/flexdc-sim/20986e7ddd0c5c4e33ee0b162c722ca2b46a79f9/configs/optimization/simulated_annealing/SA_train_low_util_RSR_1000server.ini",
   "retrieved_at_utc": "2026-09-13T02:28:58.209228+00:00",
   "sha256": "f20f3f78f53cca79d29c8b077747df86d9a23dc5bf19a5870142154c9b0567c4",
   "used_sections": [
@@ -11,5 +11,10 @@
     "simulated_annealing",
     "boundaries",
     "step_size"
-  ]
+  ],
+  "upstream_repository": "https://github.com/peaclab/flexdc-sim",
+  "upstream_commit": "20986e7ddd0c5c4e33ee0b162c722ca2b46a79f9",
+  "upstream_path": "configs/optimization/simulated_annealing/SA_train_low_util_RSR_1000server.ini",
+  "upstream_file_sha256": "f20f3f78f53cca79d29c8b077747df86d9a23dc5bf19a5870142154c9b0567c4",
+  "upstream_verified_at_utc": "2026-09-13T18:01:23.442696+00:00"
 }

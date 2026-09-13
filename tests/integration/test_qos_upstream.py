@@ -5,7 +5,7 @@ import pandas as pd
 import pytest
 
 from argos.provenance import import_file
-from argos.simulator.evidence import reconstruct
+from argos.simulator.evidence import validate_reported_qos_evidence
 from argos.types import JobIdentity
 
 ROOT = Path(__file__).resolve().parents[2]
@@ -28,6 +28,6 @@ def test_exact_estimator_against_pinned_upstream(hours):
     pj = api.calculate_delay_prob(
         hours, 3, table, {i: 1 for i in range(3)}, {i: 10 + 500 * i for i in range(3)}
     )
-    result = reconstruct(table, jobs, pj, sim_hour=hours)
+    result = validate_reported_qos_evidence(table, jobs, pj, sim_hour=hours)
     assert [e.pj for e in result] == pj
     assert result[2].observation_count == 0

@@ -21,8 +21,9 @@ transferable correction model. A failed finite search is a valid result.
 
 ## Install
 
-Python 3.10+ is the package target; Windows/Python 3.12.4 is tested. From this
-repository in PowerShell:
+ARGOS 0.2.0 supports Python 3.10, 3.11 and 3.12, covered by portable CI.
+The exact paper CPU environment uses Windows x86-64 and Python 3.12.4.
+For a portable installation with current compatible packages, from PowerShell:
 
 ```powershell
 py -3.12 -m venv .venv
@@ -30,8 +31,20 @@ py -3.12 -m venv .venv
 .\.venv\Scripts\argos.exe bootstrap
 ```
 
-For the exact tested package versions, use `requirements-tested.txt`. PyTorch's
-CPU/GPU wheel choice is platform-dependent; see [REPRODUCIBILITY.md](REPRODUCIBILITY.md).
+For paper CPU reproduction, use a fresh Python 3.12.4 environment and:
+
+```powershell
+python -m pip install -c constraints-paper-cpu.txt setuptools wheel
+python -m pip install --no-build-isolation -c constraints-paper-cpu.txt --extra-index-url https://download.pytorch.org/whl/cpu -e ".[dev]"
+python -m pip check
+```
+
+Use that environment's `python`. The CPU constraint selects `torch==2.4.1+cpu`.
+The general package retains open dependency specifications; the paper constraints
+pin the tested dependency closure. `requirements-tested.txt` remains a historical
+inventory. See [REPRODUCIBILITY.md](REPRODUCIBILITY.md) for exact commands and limits.
+Runtime-only `pip install .` does not require pytest or Ruff. Doctor reports those
+optional tools as `NOT_INSTALLED`; missing runtime dependencies still fail.
 Scikit-learn is needed by the immutable training utility imports; ARGOS does not
 use it for region grouping. No simulator package is installed into the clones.
 
@@ -66,19 +79,38 @@ not a generalization result. Review the resolved configuration before changing a
 
 ## Evidence and outputs
 
+**FlexDC-reported Pj is authoritative.** `Metrics.pj` comes directly from
+`grid_search_results.csv:QoS_Delay_Probabilities`. ARGOS validates FlexDC's reported
+Pj against `job_table.csv` and records its observation support. Reproducing the
+pinned estimator is a parity check only (rtol=1e-10, atol=1e-12). A mismatch invalidates
+the observation; ARGOS never substitutes a reconstructed Pj. The reported values
+feed numerical feasibility, margins, ranking, residuals and objective reconstruction.
+
 Numerical feasibility requires **p90 tracking <= 0.30 AND every job Pj <= 0.10**.
 An execution failure, missing row, mismatched input, incomplete job vector or
 non-finite metric is invalid evidence, not a numerical infeasibility label.
 The monetary cost plus canonical stable softplus tracking and per-job QoS
 penalties defines the reconstructed actual objective.
 
+Execution status is separate from scientific assessment. Parsed outputs retain
+`PARSED`, including simultaneous numerical infeasibility and insufficient evidence.
+Structured assessment fields are authoritative; historical status labels are
+normalized for display without rewriting saved observations.
+
 All observations are retained, including failures. Search ranks evidence-qualified feasible
 candidates by actual objective; otherwise it ranks worst normalized violation,
 then total violation, then objective. Every batch reserves independent exploration.
 The selected candidate is frozen before fresh, disjoint-within-episode confirmation
-seeds run. `CONFIRMATION_ALL_PASS`, `CONFIRMATION_PARTIAL_PASS`, and
-`CONFIRMATION_NONE_PASS` refer to evidence-qualified confirmation counts.
-It does not establish universal reliability. Confirmation data never select an
+seeds run. Confirmation status counts executions that actually occurred:
+
+- `CONFIRMATION_NOT_RUN`: zero executions.
+- `CONFIRMATION_NONE_PASS`: executions occurred, zero qualified passes.
+- `CONFIRMATION_PARTIAL_PASS`: some executions qualified.
+- `CONFIRMATION_ALL_PASS`: every executed confirmation qualified.
+
+Expected runs and completion are separate fields, so ALL_PASS on a partially
+completed confirmation plan does not imply the plan finished. These statuses do
+not establish universal reliability. Confirmation data never select an
 alternative candidate within that episode.
 
 ```text
@@ -115,7 +147,7 @@ Dependencies: [FlexDC](https://github.com/amenon871/FlexDC),
 [CONDOR-FLEXDC](https://github.com/NetherMoon/CONDOR-FLEXDC), and the original
 [FlexDC simulator](https://github.com/peaclab/flexdc-sim).
 Canonical costs come only from the `cost_function` and `dr_program` sections of
-[the upstream configuration](https://github.com/peaclab/flexdc-sim/blob/main/configs/optimization/simulated_annealing/SA_train_low_util_RSR_1000server.ini).
+[the upstream configuration](https://github.com/peaclab/flexdc-sim/blob/20986e7ddd0c5c4e33ee0b162c722ca2b46a79f9/configs/optimization/simulated_annealing/SA_train_low_util_RSR_1000server.ini).
 SA optimizer settings are never ARGOS optimizer settings.
 
 
@@ -162,3 +194,26 @@ Audit output must be a new file outside the original episode. Historical reports
 preserved; the explicit post-audit qualification is in REPORT.md and
 `reports/publication_audit/`. A clean checkout can install `.[dev]`, run pytest,
 Ruff, formatting, and `argos --help` without a `runs/` directory or model artifact.
+
+
+## Pre-testing audit and execution hardening
+
+`argos audit` reports `raw_data_validity` independently from
+`current_environment_identity`. Seven dimensions identify ARGOS source, both pinned
+dependencies, checkpoint, artifact manifest/files, canonical cost source and context
+contract. Each reports MATCH, MISMATCH, UNAVAILABLE or HISTORICAL. Normal audit
+fails an environment mismatch or missing identity. Explicit
+`--allow-historical-audit` (alias `--allow-legacy-audit`) permits internally valid
+historical raw data to pass while retaining every environment discrepancy. It
+never grants resume trust or rewrites old manifests. `reported_pj_validation`
+reports the raw parity check; it is not a second Pj metric.
+
+Process inspection handles vanished/zombie PIDs and creation-time reuse. A live
+matching process blocks duplicate resume; an indeterminate identity also blocks it.
+Fast simulator exits produce durable failed attempts. Configuration overlays use
+one cached pinned FlexDC replacement helper loaded before worker dispatch; no
+candidate reimports it. Dependencies remain immutable.
+
+The final pre-testing pass adds no experiment-label controller or learned model.
+The search, retention, variable-J policies, fixed radius and default local proposal
+method remain unchanged. The one-hour horizon and n>=1 evidence limitations remain.

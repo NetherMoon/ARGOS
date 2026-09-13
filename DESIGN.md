@@ -6,7 +6,7 @@
 `search/` owns candidate geometry and deterministic region extraction.
 `simulator/` alone knows FlexDC execution and output schemas.
 `controller/` owns the bounded adaptive policy. `contracts.py` is the single
-feasibility, violation-ranking and objective authority. Typed immutable candidate,
+ARGOS feasibility, violation-ranking and objective-composition authority. FlexDC owns simulator Pj. Typed immutable candidate,
 metric, region and observation records preserve job order and scientific provenance.
 
 A candidate comprises Pbar and R in kW/server plus one scheduler weight per job.
@@ -152,6 +152,19 @@ concurrent-episode lock, broad OOD validation, alternative-duration objective
 contracts, baseline experiments and a release license decision remain future work.
 
 
+## Simulator Pj authority and raw-evidence validation
+
+`Metrics.pj` is parsed directly from FlexDC's `QoS_Delay_Probabilities` result
+column. `validate_reported_qos_evidence` returns QoSEvidence metadata and checks
+that the pinned raw-record formula agrees with each reported value. It never
+returns a replacement metric vector. Mismatch raises a contract failure. The
+same rtol=1e-10 / atol=1e-12 tolerance is centralized for validation and typed
+records. Tiny tolerated differences remain in the simulator-reported value.
+Reported Pj drives all numerical tests, margins, residuals, ranking and penalties.
+
+The following formula documents validation of FlexDC's estimator, not a separate
+ARGOS definition.
+
 ## QoS estimator source trace (publication audit)
 
 Pinned FlexDC `src/peacsim/calculate_qos_cost.py:calculate_delay_prob`
@@ -249,3 +262,55 @@ The history check found the same parameterized rule with .1/4.0 defaults in olde
 CONDOR commit 4eaacd4. Available local optimize_v4.py instead declares a .1/J
 floor and [.3/J,2.4/J] trust region. Neither establishes the requested V4 dynamic
 label. See reports/publication_audit/weight_policy_provenance.json for exact sources.
+
+
+## Pre-testing execution and provenance contract (0.2.0)
+
+`inspect_process` returns LIVE with creation time, ABSENT for a vanished/zombie
+process, or UNKNOWN for permission/other psutil errors. `original_process_running`
+compares the creation time to avoid confusing a reused PID with the original.
+Matching live or indeterminate prior processes block duplicate dispatch. A process
+observed absent immediately after Popen is recorded as absent; its owned Popen
+handle is still waited and its exit recorded as a structured attempt. Unknown
+inspection after Popen does not lose ownership of that handle or prevent bounded
+waiting. Unknown identity during later recovery fails conservatively. Every failed
+attempt and cached failed observation remain recoverable without a duplicate call.
+
+The immutable FlexDC INI replacement function is cached by resolved source path.
+Runner construction loads it before dispatch, and a lock also protects first use
+by concurrent overlay callers. The lock covers import/cache access, not INI
+preparation or simulations. Dynamic imports share an interpreter-state lock and
+restore bytecode policy and previous module bindings on failure. Overlay output
+and audit metadata are deterministic and match the pinned helper's serial output.
+
+New observations use schema 3 and execution-only status: PARSED,
+SIMULATOR_EXECUTION_FAILED, CONTRACT_MISMATCH (or another explicit invalid-output
+status). Scientific facts are orthogonal structured assessment fields. For example,
+PARSED may coexist with numerical_feasible=false and evidence_sufficient=false.
+Schema-1/2 historical records retain their stored status; the execution_status
+property and exports normalize valid historical labels to PARSED. They do not
+retroactively acquire evidence. No analysis uses a lossy scientific status string.
+
+Confirmation status is derived centrally from actual executions and qualified
+passes: zero executions=NOT_RUN; zero passes among executions=NONE_PASS; some
+passes=PARTIAL_PASS; all executed runs pass=ALL_PASS. Expected count and completion
+are separate; an interrupted confirmation plan can have ALL_PASS so far while
+confirmation_complete=false and the overall episode remains incomplete.
+
+Audit records raw_data_validity separately from current_environment_identity.
+ARGOS source (HEAD, dirty flag, source hashes), dependency commits/URLs/dirty flags,
+checkpoint bytes, artifact manifest and all listed file hashes, canonical source
+bytes/metadata, and context-contract bytes are compared independently. Missing
+historical dimensions remain HISTORICAL with their recorded/current values shown;
+known differences remain MISMATCH even in historical mode. Unavailable current
+inputs remain UNAVAILABLE. Exact current audit fails any non-match. Explicit
+historical audit permits raw reconstruction success without claiming environment
+identity. Neither path mutates old manifests. Audit-only smoke layouts are
+supported without inventing search state or confirmation executions.
+
+Software and scientific policy/schema constants live in versions.py. Package
+metadata derives version 0.2.0 from that module. Search policy versions stay
+unchanged; observation/report/audit schemas advance for the clarified interfaces.
+The default algorithm remains frozen V3 guidance, measured refinement, fixed local
+radius, measured_random local proposals and disjoint final confirmation. Experiment
+novelty labels introduce no optimizer behavior and no learned extension is added.

@@ -1,3 +1,5 @@
 """ARGOS: frozen surrogate guidance with simulator-grounded evidence."""
 
-__version__ = "0.1.0"
+from argos.versions import SOFTWARE_VERSION as __version__
+
+__all__ = ["__version__"]

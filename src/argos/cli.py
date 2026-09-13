@@ -23,9 +23,16 @@ def main() -> None:
     run.add_argument("--config", type=Path, required=True)
     resume = commands.add_parser("resume")
     resume.add_argument("episode_dir", type=Path)
-    audit = commands.add_parser("audit", help="Reconstruct evidence without simulator calls")
+    audit = commands.add_parser(
+        "audit", help="Validate reported Pj, raw evidence and provenance without simulator calls"
+    )
     audit.add_argument("episode_dir", type=Path)
-    audit.add_argument("--allow-legacy-audit", action="store_true")
+    audit.add_argument(
+        "--allow-legacy-audit",
+        "--allow-historical-audit",
+        action="store_true",
+        help="Allow raw historical audit with separately reported environment mismatches; never grants resume trust",
+    )
     audit.add_argument("--output", type=Path)
     args = parser.parse_args()
     if args.command == "audit":

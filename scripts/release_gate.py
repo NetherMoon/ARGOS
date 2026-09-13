@@ -14,10 +14,17 @@ from pathlib import Path
 def main():
     parser = argparse.ArgumentParser()
     parser.add_argument("--root", type=Path, default=Path.cwd())
+    parser.add_argument("--environment", choices=("portable", "paper-cpu"), default="portable")
     args = parser.parse_args()
+    if args.environment == "paper-cpu" and sys.version_info[:3] != (3, 12, 4):
+        raise RuntimeError("Paper CPU gate requires the declared Python 3.12.4 interpreter")
     root = args.root.resolve()
     head = subprocess.check_output(["git", "-C", str(root), "rev-parse", "HEAD"], text=True).strip()
-    gate = root / "runs/release_gate" / (head[:12] + "_" + str(time.time_ns()))
+    gate = (
+        root
+        / "runs/release_gate"
+        / (head[:12] + "_" + args.environment + "_" + str(time.time_ns()))
+    )
     checkout = gate / "checkout"
     gate.mkdir(parents=True)
     subprocess.run(
@@ -36,8 +43,37 @@ def main():
     environment = gate / "fresh_venv"
     venv.EnvBuilder(with_pip=True, system_site_packages=False).create(environment)
     python = environment / ("Scripts/python.exe" if sys.platform == "win32" else "bin/python")
-    commands = [
-        [str(python), "-m", "pip", "install", "--no-compile", "-e", ".[dev]"],
+    install = [[str(python), "-m", "pip", "install", "--no-compile", "-e", ".[dev]"]]
+    if args.environment == "paper-cpu":
+        install = [
+            [
+                str(python),
+                "-m",
+                "pip",
+                "install",
+                "--no-compile",
+                "-c",
+                "constraints-paper-cpu.txt",
+                "setuptools",
+                "wheel",
+            ],
+            [
+                str(python),
+                "-m",
+                "pip",
+                "install",
+                "--no-compile",
+                "--no-build-isolation",
+                "-c",
+                "constraints-paper-cpu.txt",
+                "--extra-index-url",
+                "https://download.pytorch.org/whl/cpu",
+                "-e",
+                ".[dev]",
+            ],
+        ]
+    commands = install + [
+        [str(python), "-m", "pip", "check"],
         [str(python), "-B", "-m", "pytest", "-q"],
         [str(python), "-B", "-m", "ruff", "check", "."],
         [str(python), "-B", "-m", "ruff", "format", "--check", "."],
@@ -66,6 +102,8 @@ def main():
             json.dumps(
                 {
                     "head": head,
+                    "environment": args.environment,
+                    "python": sys.version,
                     "clean_initial_absence": absent,
                     "isolated_venv": True,
                     "steps": results,
@@ -78,6 +116,17 @@ def main():
             print((gate / f"step_{i + 1}.log").read_text(encoding="utf-8")[-6000:])
             raise SystemExit(result.returncode)
     assert not (checkout / "runs").exists()
+    with (gate / "installed_packages.json").open("w", encoding="utf-8") as log:
+        subprocess.run([str(python), "-m", "pip", "list", "--format=json"], stdout=log, check=True)
+    if args.environment == "paper-cpu":
+        subprocess.run(
+            [
+                str(python),
+                "-c",
+                "import torch; assert torch.__version__ == '2.4.1+cpu'; assert torch.version.cuda is None",
+            ],
+            check=True,
+        )
     print(f"PASS: {gate.relative_to(root)}", flush=True)
 
 

@@ -97,6 +97,7 @@ def assessment(o: FlexDCObservation, minimum: int = 1) -> dict:
         if evidence is not None
         else None,
         "ordered_job_sections": [e.job.section for e in evidence] if evidence is not None else None,
+        "execution_status": o.execution_status,
         "execution_valid": o.valid,
         "numerical_feasible": numerical,
         "evidence_status": "SUFFICIENT" if sufficient else "INSUFFICIENT" if known else "UNKNOWN",
@@ -123,3 +124,13 @@ def observation_rank(o: FlexDCObservation, minimum: int = 1) -> tuple:
         total,
         o.metrics.objective,
     )
+
+
+def confirmation_status(observations: list[FlexDCObservation], minimum: int = 1) -> str:
+    """Classify executions that actually occurred; planned count is reported separately."""
+    if not observations:
+        return "CONFIRMATION_NOT_RUN"
+    passes = sum(qualified(o, minimum) for o in observations)
+    if passes == len(observations):
+        return "CONFIRMATION_ALL_PASS"
+    return "CONFIRMATION_PARTIAL_PASS" if passes else "CONFIRMATION_NONE_PASS"

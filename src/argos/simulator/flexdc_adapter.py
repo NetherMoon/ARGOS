@@ -14,13 +14,17 @@ from concurrent.futures import ThreadPoolExecutor
 from dataclasses import asdict
 from pathlib import Path
 
-import psutil
-
 from argos.config import Config
-from argos.contracts import assessment
 from argos.provenance import read_json, sha256, write_json
-from argos.simulator.configuration import canonical_costs, gradient_config, overlay, read_ini
+from argos.simulator.configuration import (
+    canonical_costs,
+    gradient_config,
+    load_ini_replacer,
+    overlay,
+    read_ini,
+)
 from argos.simulator.output_parser import parse_output
+from argos.simulator.process_identity import inspect_process, original_process_running
 from argos.types import Candidate, FlexDCObservation, evidence_from_dict, observation_from_dict
 
 
@@ -31,6 +35,7 @@ class FlexDCRunner:
         self.config = config
         self.flexdc = self.root / ".deps/FlexDC"
         self.costs = canonical_costs(root)
+        load_ini_replacer(self.root)  # Load before any parallel dispatch, including resume.
         self.workload = (self.flexdc / config.workload).resolve()
         self.base_experiment = (self.flexdc / config.experiment).resolve()
         self.cluster = (self.flexdc / config.cluster).resolve()
@@ -74,12 +79,10 @@ class FlexDCRunner:
             if not (directory / "observation.json").exists():
                 for previous in directory.glob("attempt-*/process.json"):
                     record = read_json(previous)
-                    if psutil.pid_exists(record["pid"]):
-                        process = psutil.Process(record["pid"])
-                        if abs(process.create_time() - record["created"]) < 0.01:
-                            raise RuntimeError(
-                                "Previous simulator is still running; resume after it exits"
-                            )
+                    if original_process_running(record):
+                        raise RuntimeError(
+                            "Previous simulator is still running; resume after it exits"
+                        )
                 if phase == "search":
                     if remaining < 1:
                         raise RuntimeError(
@@ -284,7 +287,7 @@ class FlexDCRunner:
                 process = subprocess.Popen(command, cwd=cwd, env=env, stdout=out, stderr=err)
                 write_json(
                     attempt_dir / "process.json",
-                    {"pid": process.pid, "created": psutil.Process(process.pid).create_time()},
+                    {"pid": process.pid, **asdict(inspect_process(process.pid))},
                 )
                 try:
                     process.wait(timeout=self.config.simulator_timeout_seconds)
@@ -363,17 +366,5 @@ class FlexDCRunner:
             if reported.get("qos_evidence") is not None
             else None,
         )
-        if valid:
-            from dataclasses import replace
-
-            a = assessment(observation, self.config.min_qos_observations_per_type)
-            status = (
-                "EVIDENCE_QUALIFIED_FEASIBLE"
-                if a["evidence_qualified_feasible"]
-                else "QOS_EVIDENCE_" + a["evidence_status"]
-                if not a["evidence_sufficient"]
-                else "SIMULATOR_OBSERVED_INFEASIBLE"
-            )
-            observation = replace(observation, status=status)
         write_json(cache, asdict(observation))
         return observation

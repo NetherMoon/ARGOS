@@ -9,7 +9,7 @@ from pathlib import Path
 from argos.config import Config
 from argos.contracts import assessment
 from argos.episode import doctor, episode_identity
-from argos.provenance import git, write_json
+from argos.provenance import git, sha256, write_json
 from argos.simulator.flexdc_adapter import FlexDCRunner
 from argos.types import Candidate
 
@@ -32,6 +32,7 @@ def main():
         "argos_dirty": False,
         "run_mode": "paper",
         "purpose": "single_exact_evidence_parser_audit",
+        "resolved_config_sha256": sha256(directory / "resolved_config.yaml"),
         "identity": episode_identity(root, config),
     }
     write_json(directory / "manifest.json", provenance)
