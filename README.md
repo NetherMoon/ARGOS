@@ -217,3 +217,8 @@ candidate reimports it. Dependencies remain immutable.
 The final pre-testing pass adds no experiment-label controller or learned model.
 The search, retention, variable-J policies, fixed radius and default local proposal
 method remain unchanged. The one-hour horizon and n>=1 evidence limitations remain.
+
+Historical objective parity uses the execution's retained gradient INI after its
+recorded input hash is verified. A different current canonical cost source is an
+environment mismatch; it does not replace historical cost constants or invalidate
+otherwise reconstructable historical raw data. Changed historical inputs still fail.

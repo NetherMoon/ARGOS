@@ -314,3 +314,8 @@ unchanged; observation/report/audit schemas advance for the clarified interfaces
 The default algorithm remains frozen V3 guidance, measured refinement, fixed local
 radius, measured_random local proposals and disjoint final confirmation. Experiment
 novelty labels introduce no optimizer behavior and no learned extension is added.
+
+Historical objective parity uses the execution's retained gradient INI after its
+recorded input hash is verified. A different current canonical cost source is an
+environment mismatch; it does not replace historical cost constants or invalidate
+otherwise reconstructable historical raw data. Changed historical inputs still fail.

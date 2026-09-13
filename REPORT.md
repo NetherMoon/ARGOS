@@ -298,3 +298,28 @@ final historical preservation checks. Exact HEAD/results are recorded in ignored
 runs/release_gate receipts and runs/pretest_hardening/final_verification.json, with
 final CI status supplied in the task report after the push. A pre-commit test or
 install probe is not presented as that final gate.
+
+
+### Verified pre-testing milestone and final audit correction
+
+Commit `f5c56c91ffb8978f91fd618a8af1c180c4b26982` passed both fully isolated
+checkout gates: portable **117 passed, 11 skipped** (29.75 s), and exact paper CPU
+**117 passed, 11 skipped** (29.57 s). Both passed pip check, Ruff, formatting and
+installed CLI checks. The paper gate confirmed torch 2.4.1+cpu without CUDA.
+All four GitHub CI jobs passed (portable Python 3.10/3.11/3.12 and Windows paper
+Python 3.12.4), run 34774204526. Clean paper doctor, all seven current provenance
+dimensions and V3 CPU parity passed. All 906 historical files were hash-verified
+unchanged, with 46 total simulator executions and zero new executions in this pass.
+
+Final review identified a historical-audit separation gap: objective reconstruction
+still read the current canonical cost file. The correction reads cost constants
+from the historical execution's hash-verified gradient input. Current cost identity
+is independently checked and a normal audit fails mismatches. Explicit historical
+audit can preserve raw-data PASS when only today's cost source differs; changed
+historical gradient inputs fail. An actual parsed-output regression covers both
+cases. All three real saved datasets pass with this correction. The final commit
+is subjected anew to both clean-checkout gates and CI; the exact final receipts
+are stored in runs/pretest_hardening/final_verification.json and runs/release_gate.
+
+Full development suite after the audit correction: **128 passed, 1 skipped**
+(CUDA unavailable), 14.55 seconds; Ruff and formatting pass.

@@ -195,3 +195,77 @@ def test_real_collector_reports_changed_cost_bytes(tmp_path):
     path.write_bytes(path.read_bytes() + b"\n; changed\n")
     changed = provenance._canonical_cost(tmp_path)
     assert not changed["metadata_valid"] and changed["sha256"] != before["sha256"]
+
+
+def test_historical_raw_objective_independent_of_current_cost_source(tmp_path, monkeypatch):
+    from dataclasses import replace
+
+    from test_output_parser import inputs
+
+    from argos.simulator.output_parser import parse_output
+    from argos.types import FlexDCObservation
+
+    args, _ = inputs(tmp_path)
+    metrics, reported = parse_output(*args)
+    candidate, _config, seed, execution_id, context, workload = args[2:8]
+    episode = tmp_path / "smoke"
+    episode.mkdir()
+    config = replace(Config(), workload=str(workload), confirmation_seeds=())
+    config.save(episode / "resolved_config.yaml")
+    manifest = manifest_fixture()
+    manifest.update(
+        purpose="single_exact_evidence_parser_audit",
+        resolved_config_sha256=sha256(episode / "resolved_config.yaml"),
+    )
+    write_json(episode / "manifest.json", manifest)
+    gradient = episode / "gradient.ini"
+    gradient.write_text(
+        "[calculate_gradient]\npsi1=1\npsi2=10\ntracking_error_constraint=0.3\nqos_threshold=0.1\n[gradient_driver]\nbeta=20\nrho=2\n[dr_program]\nprogram_type=RSR\n"
+    )
+    attempt = episode / "flexdc_raw" / execution_id / "attempt-001"
+    execution = attempt / "execution.json"
+    write_json(
+        execution,
+        {
+            "command": ["python", "wizard", "--gradient-config", str(gradient)],
+            "input_hashes": {str(gradient): sha256(gradient), str(workload): sha256(workload)},
+            "identity": {
+                "candidate": asdict(candidate),
+                "seed": seed,
+                "phase": "audit",
+                "batch": 1,
+                "context": context,
+            },
+        },
+    )
+    o = FlexDCObservation(
+        candidate,
+        seed,
+        "audit",
+        1,
+        True,
+        metrics,
+        "PARSED",
+        0,
+        execution_id,
+        reported,
+        {"results": str(args[0]), "diagnostics": str(args[1]), "execution": str(execution)},
+        schema_version=1,
+    )
+    write_json(attempt.parent / "observation.json", asdict(o))
+    current = install_current(monkeypatch, manifest)
+    current["canonical_cost_source"]["value"]["sha256"] = "changed-current-cost"
+    # There is no current cost INI here. Valid historical raw reconstruction uses
+    # the retained verified execution input and keeps this identity mismatch separate.
+    result = audit_episode(tmp_path, episode, True)
+    assert result["status"] == result["raw_data_validity"] == "PASS"
+    assert result["observations"][0]["objective_parity"] == "PASS"
+    assert (
+        result["current_environment_identity"]["dimensions"]["canonical_cost_source"]["status"]
+        == "MISMATCH"
+    )
+    assert audit_episode(tmp_path, episode)["status"] == "FAIL"
+    gradient.write_text(gradient.read_text().replace("psi1=1", "psi1=2"))
+    result = audit_episode(tmp_path, episode, True)
+    assert result["raw_data_validity"] == "FAIL"
+    assert any("gradient" in failure for failure in result["failures"])

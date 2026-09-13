@@ -7,15 +7,37 @@ from pathlib import Path
 
 from argos.audit_provenance import audit_provenance
 from argos.config import Config
-from argos.contracts import assessment, confirmation_status, qualified
+from argos.contracts import Costs, assessment, confirmation_status, qualified
 from argos.controller.argos_controller import SearchState
 from argos.controller.stopping import replay
 from argos.provenance import read_json, sha256
 from argos.search.integrity import verify_search_manifest
-from argos.simulator.configuration import canonical_costs
+from argos.simulator.configuration import read_ini
 from argos.simulator.output_parser import parse_output
 from argos.types import candidate_from_dict, evidence_from_dict, observation_from_dict
 from argos.versions import AUDIT_SCHEMA, OBSERVATION_SCHEMA
+
+
+def recorded_execution_costs(execution: dict) -> Costs:
+    """Use the hash-verified historical simulator input, never today's cost source."""
+    command = execution["command"]
+    path = Path(command[command.index("--gradient-config") + 1])
+    expected = execution["input_hashes"].get(str(path))
+    if expected is None or sha256(path) != expected:
+        raise ValueError("Historical gradient cost input missing or changed")
+    config = read_ini(path)
+    if config["dr_program"]["program_type"] != "RSR":
+        raise ValueError("Historical cost input requires RSR")
+    costs = Costs(
+        config.getfloat("calculate_gradient", "psi1"),
+        config.getfloat("calculate_gradient", "psi2"),
+        config.getfloat("calculate_gradient", "tracking_error_constraint"),
+        config.getfloat("gradient_driver", "beta"),
+        config.getfloat("gradient_driver", "rho"),
+        config.getfloat("calculate_gradient", "qos_threshold"),
+    )
+    costs.validate()
+    return costs
 
 
 def audit_episode(root: Path, episode: Path, allow_legacy: bool = False) -> dict:
@@ -108,7 +130,7 @@ def audit_episode(root: Path, episode: Path, allow_legacy: bool = False) -> dict
                 o.execution_id,
                 ident["context"],
                 root / ".deps/FlexDC" / config.workload,
-                canonical_costs(root),
+                recorded_execution_costs(execution),
             )
             check(metrics == o.metrics, f"metric mismatch {o.execution_id}")
             checked = replace(
@@ -159,7 +181,7 @@ def audit_episode(root: Path, episode: Path, allow_legacy: bool = False) -> dict
                     },
                 }
             )
-        except (OSError, ValueError, KeyError) as exc:
+        except (OSError, ValueError, KeyError, IndexError) as exc:
             failures.append(f"{o.execution_id}: {exc}")
     search = [o for o in audited if o.phase == "search"]
     confirmations = [o for o in audited if o.phase == "confirmation"]

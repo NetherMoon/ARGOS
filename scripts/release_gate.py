@@ -102,6 +102,7 @@ def main():
             json.dumps(
                 {
                     "head": head,
+                    "status": "FAIL" if result.returncode else "RUNNING",
                     "environment": args.environment,
                     "python": sys.version,
                     "clean_initial_absence": absent,
@@ -127,6 +128,9 @@ def main():
             ],
             check=True,
         )
+    receipt = json.loads((gate / "result.json").read_text())
+    receipt["status"] = "PASS"
+    (gate / "result.json").write_text(json.dumps(receipt, indent=2))
     print(f"PASS: {gate.relative_to(root)}", flush=True)
 
 

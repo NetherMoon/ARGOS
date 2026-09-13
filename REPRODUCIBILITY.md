@@ -274,3 +274,8 @@ and selected bids remain the same; n>=1 still means only nonempty evidence and
 statistical_reliability_established remains false. GPT2/Llama/Bloom thresholds
 exceed the one-hour horizon. The historical V4 weight-policy attribution remains
 unestablished. Controlled experiments will be specified separately.
+
+Historical objective parity uses the execution's retained gradient INI after its
+recorded input hash is verified. A different current canonical cost source is an
+environment mismatch; it does not replace historical cost constants or invalidate
+otherwise reconstructable historical raw data. Changed historical inputs still fail.
