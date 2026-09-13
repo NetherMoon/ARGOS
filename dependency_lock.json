@@ -1,0 +1,17 @@
+{
+  "recorded_at_utc": "2026-09-13T02:19:28.563550+00:00",
+  "repositories": {
+    "FlexDC": {
+      "url": "https://github.com/amenon871/FlexDC",
+      "commit": "525dc684d73ab0c6f6c479f5b54811ddf02f1221",
+      "branch": "main",
+      "dirty": false
+    },
+    "CONDOR-FLEXDC": {
+      "url": "https://github.com/NetherMoon/CONDOR-FLEXDC",
+      "commit": "2b653facf31de356d8c682ee76d814bd81b8e95d",
+      "branch": "main",
+      "dirty": false
+    }
+  }
+}

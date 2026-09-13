@@ -1,0 +1,78 @@
+{
+  "directory": "condor_set_transformer_sweep_v3_behavior_v3_best_feasibility_artifacts",
+  "selected_checkpoint": "condor_set_transformer_sweep_v3_behavior_v3_best_feasibility.pt",
+  "files": {
+    "am_flexdc_behavior_training_utilities_v3.py": {
+      "bytes": 87599,
+      "sha256": "38cc0f7106c6a0986643d514ab53f9d206d6d04e0618e966c896dc7550fe3764"
+    },
+    "condor_set_transformer_sweep_v3_behavior_v3_best_feasibility.pt": {
+      "bytes": 50277287,
+      "sha256": "7f60e28dfc836053064c772c95acc56eb73999b145fa314e98f7b39cf4d0c38a"
+    },
+    "condor_set_transformer_sweep_v3_behavior_v3_best_feasibility_test_context_summary.csv": {
+      "bytes": 2310,
+      "sha256": "ec4e6c5eabc939a2504862418a85fa694e7deb1ea6bcb8978be4462565c13242"
+    },
+    "condor_set_transformer_sweep_v3_behavior_v3_best_feasibility_test_metrics.csv": {
+      "bytes": 13023,
+      "sha256": "c93c4214ee135212016cc0fbf9ab93040559e2acf704257fdc0f7e88eccd3b83"
+    },
+    "condor_set_transformer_sweep_v3_behavior_v3_best_feasibility_test_predictions.csv": {
+      "bytes": 5129066,
+      "sha256": "27e9d7ab99c06bc8f11d7b85adb4171361ab87e9773c6cf814aa40c2ddc15ea5"
+    },
+    "condor_set_transformer_sweep_v3_behavior_v3_best_feasibility_train_predictions.csv": {
+      "bytes": 36038426,
+      "sha256": "31d998262ee873afdfa6910dd029b57d29087294670bcfae39d9f54f8f30ab6a"
+    },
+    "condor_set_transformer_sweep_v3_behavior_v3_best_feasibility_train_validation_metrics.csv": {
+      "bytes": 27753,
+      "sha256": "b9ffad78b5c35cf2ba20ca834660655310da8025681c7c1ecfb8b1975caea7e6"
+    },
+    "condor_set_transformer_sweep_v3_behavior_v3_best_feasibility_validation_context_summary.csv": {
+      "bytes": 2297,
+      "sha256": "304033c665294e160da0847d36d5a1535a536e2c0e4270d0f9014bf684dc255a"
+    },
+    "condor_set_transformer_sweep_v3_behavior_v3_best_feasibility_validation_predictions.csv": {
+      "bytes": 10275778,
+      "sha256": "3b3bd14e8df993766a16e9ba2c33b21d1cd7f00e467195aa198a3472ff96fbdc"
+    },
+    "condor_set_transformer_sweep_v3_behavior_v3_best_loss.pt": {
+      "bytes": 50851457,
+      "sha256": "b829509792f95dff62a82fc405d865e72e7d27d60042355674331ef4223583e7"
+    },
+    "condor_set_transformer_sweep_v3_behavior_v3_best_objective.pt": {
+      "bytes": 51172755,
+      "sha256": "0f7e42b952a86fb66d42349eacbf5dee72e279f8fcf28b1f6d53d075ab517950"
+    },
+    "condor_set_transformer_sweep_v3_behavior_v3_checkpoint_comparison.csv": {
+      "bytes": 1022,
+      "sha256": "cdf0b31eae5d7181a79b49c3a3f611178cb01e3ef00e9dff40eefebae17abc1f"
+    },
+    "condor_set_transformer_sweep_v3_behavior_v3_final.pt": {
+      "bytes": 51490521,
+      "sha256": "e36016e5db8808333bd8526ec354b2dfd0f39693af5745644dfb98e439eb7497"
+    },
+    "condor_set_transformer_sweep_v3_behavior_v3_history.csv": {
+      "bytes": 985070,
+      "sha256": "aa49524692db6c78010bdcc994782f7ed4eec86836a7f2edb3a74481d53d4a7c"
+    },
+    "condor_set_transformer_sweep_v3_behavior_v3_latest.pt": {
+      "bytes": 51490755,
+      "sha256": "048516c44636439c4e9b5eac1b886df0c1160baa28e1ccce7b7f5174a3a2d5bf"
+    },
+    "data_center_model_flexdc_behavior_v3.py": {
+      "bytes": 11043,
+      "sha256": "12c702a954c7e783150c0b8c38e0bcaccd8cae2c1ff432d45ab1efb191cd68fb"
+    },
+    "flexdc_sweep_v3_final_audit.json": {
+      "bytes": 49134,
+      "sha256": "aa8de1926a2b8003b546304089742bc5dc8fb88072c16440cae1c560e0664ce3"
+    },
+    "test_flexdc_behavior_training_v3.py": {
+      "bytes": 12149,
+      "sha256": "235a7297988fc3a8d3eb7e84daca44a6fd65921fc0aa7063c74a53e3fdc279f6"
+    }
+  }
+}
