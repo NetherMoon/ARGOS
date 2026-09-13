@@ -1,0 +1,572 @@
+{
+  "v3_splits": [
+    {
+      "split": "train",
+      "path": "condor_set_transformer_sweep_v3_behavior_v3_best_feasibility_artifacts\\condor_set_transformer_sweep_v3_behavior_v3_best_feasibility_train_predictions.csv",
+      "sha256": "31d998262ee873afdfa6910dd029b57d29087294670bcfae39d9f54f8f30ab6a",
+      "rows": 142034,
+      "seed_counts": {
+        "20": 129024,
+        "21": 6505,
+        "22": 6505
+      },
+      "contexts": [
+        {
+          "Workload_Name": "W1-train-qos3333",
+          "server_count": 250,
+          "utilization": 0.6
+        },
+        {
+          "Workload_Name": "W1-train-qos3333",
+          "server_count": 250,
+          "utilization": 0.8
+        },
+        {
+          "Workload_Name": "W1-train-qos3333",
+          "server_count": 1000,
+          "utilization": 0.6
+        },
+        {
+          "Workload_Name": "W1-train-qos3333",
+          "server_count": 1000,
+          "utilization": 0.8
+        },
+        {
+          "Workload_Name": "W1-train-qos4444",
+          "server_count": 250,
+          "utilization": 0.6
+        },
+        {
+          "Workload_Name": "W1-train-qos4444",
+          "server_count": 250,
+          "utilization": 0.8
+        },
+        {
+          "Workload_Name": "W1-train-qos4444",
+          "server_count": 1000,
+          "utilization": 0.6
+        },
+        {
+          "Workload_Name": "W1-train-qos4444",
+          "server_count": 1000,
+          "utilization": 0.8
+        },
+        {
+          "Workload_Name": "W2-short-qos5555",
+          "server_count": 250,
+          "utilization": 0.6
+        },
+        {
+          "Workload_Name": "W2-short-qos5555",
+          "server_count": 250,
+          "utilization": 0.8
+        },
+        {
+          "Workload_Name": "W2-short-qos5555",
+          "server_count": 1000,
+          "utilization": 0.6
+        },
+        {
+          "Workload_Name": "W2-short-qos5555",
+          "server_count": 1000,
+          "utilization": 0.8
+        },
+        {
+          "Workload_Name": "W2-short-qos5_4.5_4_3.5",
+          "server_count": 250,
+          "utilization": 0.6
+        },
+        {
+          "Workload_Name": "W2-short-qos5_4.5_4_3.5",
+          "server_count": 250,
+          "utilization": 0.8
+        },
+        {
+          "Workload_Name": "W2-short-qos5_4.5_4_3.5",
+          "server_count": 1000,
+          "utilization": 0.6
+        },
+        {
+          "Workload_Name": "W2-short-qos5_4.5_4_3.5",
+          "server_count": 1000,
+          "utilization": 0.8
+        }
+      ]
+    },
+    {
+      "split": "validation",
+      "path": "condor_set_transformer_sweep_v3_behavior_v3_best_feasibility_artifacts\\condor_set_transformer_sweep_v3_behavior_v3_best_feasibility_validation_predictions.csv",
+      "sha256": "3b3bd14e8df993766a16e9ba2c33b21d1cd7f00e467195aa198a3472ff96fbdc",
+      "rows": 40504,
+      "seed_counts": {
+        "20": 36864,
+        "21": 1820,
+        "22": 1820
+      },
+      "contexts": [
+        {
+          "Workload_Name": "W1-train-qos3333",
+          "server_count": 250,
+          "utilization": 0.6
+        },
+        {
+          "Workload_Name": "W1-train-qos3333",
+          "server_count": 250,
+          "utilization": 0.8
+        },
+        {
+          "Workload_Name": "W1-train-qos3333",
+          "server_count": 1000,
+          "utilization": 0.6
+        },
+        {
+          "Workload_Name": "W1-train-qos3333",
+          "server_count": 1000,
+          "utilization": 0.8
+        },
+        {
+          "Workload_Name": "W1-train-qos4444",
+          "server_count": 250,
+          "utilization": 0.6
+        },
+        {
+          "Workload_Name": "W1-train-qos4444",
+          "server_count": 250,
+          "utilization": 0.8
+        },
+        {
+          "Workload_Name": "W1-train-qos4444",
+          "server_count": 1000,
+          "utilization": 0.6
+        },
+        {
+          "Workload_Name": "W1-train-qos4444",
+          "server_count": 1000,
+          "utilization": 0.8
+        },
+        {
+          "Workload_Name": "W2-short-qos5555",
+          "server_count": 250,
+          "utilization": 0.6
+        },
+        {
+          "Workload_Name": "W2-short-qos5555",
+          "server_count": 250,
+          "utilization": 0.8
+        },
+        {
+          "Workload_Name": "W2-short-qos5555",
+          "server_count": 1000,
+          "utilization": 0.6
+        },
+        {
+          "Workload_Name": "W2-short-qos5555",
+          "server_count": 1000,
+          "utilization": 0.8
+        },
+        {
+          "Workload_Name": "W2-short-qos5_4.5_4_3.5",
+          "server_count": 250,
+          "utilization": 0.6
+        },
+        {
+          "Workload_Name": "W2-short-qos5_4.5_4_3.5",
+          "server_count": 250,
+          "utilization": 0.8
+        },
+        {
+          "Workload_Name": "W2-short-qos5_4.5_4_3.5",
+          "server_count": 1000,
+          "utilization": 0.6
+        },
+        {
+          "Workload_Name": "W2-short-qos5_4.5_4_3.5",
+          "server_count": 1000,
+          "utilization": 0.8
+        }
+      ]
+    },
+    {
+      "split": "test",
+      "path": "condor_set_transformer_sweep_v3_behavior_v3_best_feasibility_artifacts\\condor_set_transformer_sweep_v3_behavior_v3_best_feasibility_test_predictions.csv",
+      "sha256": "27e9d7ab99c06bc8f11d7b85adb4171361ab87e9773c6cf814aa40c2ddc15ea5",
+      "rows": 20214,
+      "seed_counts": {
+        "20": 18432,
+        "21": 891,
+        "22": 891
+      },
+      "contexts": [
+        {
+          "Workload_Name": "W1-train-qos3333",
+          "server_count": 250,
+          "utilization": 0.6
+        },
+        {
+          "Workload_Name": "W1-train-qos3333",
+          "server_count": 250,
+          "utilization": 0.8
+        },
+        {
+          "Workload_Name": "W1-train-qos3333",
+          "server_count": 1000,
+          "utilization": 0.6
+        },
+        {
+          "Workload_Name": "W1-train-qos3333",
+          "server_count": 1000,
+          "utilization": 0.8
+        },
+        {
+          "Workload_Name": "W1-train-qos4444",
+          "server_count": 250,
+          "utilization": 0.6
+        },
+        {
+          "Workload_Name": "W1-train-qos4444",
+          "server_count": 250,
+          "utilization": 0.8
+        },
+        {
+          "Workload_Name": "W1-train-qos4444",
+          "server_count": 1000,
+          "utilization": 0.6
+        },
+        {
+          "Workload_Name": "W1-train-qos4444",
+          "server_count": 1000,
+          "utilization": 0.8
+        },
+        {
+          "Workload_Name": "W2-short-qos5555",
+          "server_count": 250,
+          "utilization": 0.6
+        },
+        {
+          "Workload_Name": "W2-short-qos5555",
+          "server_count": 250,
+          "utilization": 0.8
+        },
+        {
+          "Workload_Name": "W2-short-qos5555",
+          "server_count": 1000,
+          "utilization": 0.6
+        },
+        {
+          "Workload_Name": "W2-short-qos5555",
+          "server_count": 1000,
+          "utilization": 0.8
+        },
+        {
+          "Workload_Name": "W2-short-qos5_4.5_4_3.5",
+          "server_count": 250,
+          "utilization": 0.6
+        },
+        {
+          "Workload_Name": "W2-short-qos5_4.5_4_3.5",
+          "server_count": 250,
+          "utilization": 0.8
+        },
+        {
+          "Workload_Name": "W2-short-qos5_4.5_4_3.5",
+          "server_count": 1000,
+          "utilization": 0.6
+        },
+        {
+          "Workload_Name": "W2-short-qos5_4.5_4_3.5",
+          "server_count": 1000,
+          "utilization": 0.8
+        }
+      ]
+    }
+  ],
+  "historical_executions": [
+    {
+      "path": "runs\\argos_20260913T023923_034870Z\\flexdc_raw\\599004aa5bc1ebe4bb86ecc5\\attempt-001\\execution.json",
+      "sha256": "18cd511bd065498b95c68d8afdb053cd28ab9164fe328c2470428bafb959e8f7",
+      "seed": 20,
+      "phase": "search"
+    },
+    {
+      "path": "runs\\argos_20260913T023923_034870Z\\flexdc_raw\\8cfcf4a7db2a8764a78d3533\\attempt-001\\execution.json",
+      "sha256": "1eb13b1a1a9a98223beb3cb29a5913caab411557e818c34337407bbc764aee47",
+      "seed": 20,
+      "phase": "search"
+    },
+    {
+      "path": "runs\\argos_20260913T023923_034870Z\\flexdc_raw\\a502af31775c6b59bdb2541f\\attempt-001\\execution.json",
+      "sha256": "6a9507c5fee52f415b5108c2575396c6da7586fa8c7861956b3b821962c84753",
+      "seed": 100021,
+      "phase": "confirmation"
+    },
+    {
+      "path": "runs\\argos_20260913T023923_034870Z\\flexdc_raw\\b6204b23554ddda2eb148ba2\\attempt-001\\execution.json",
+      "sha256": "018c3cd6479f3407a4ecee092bf2b5f96e4ee1abfa0d7ac9033671415282cfd8",
+      "seed": 20,
+      "phase": "search"
+    },
+    {
+      "path": "runs\\argos_20260913T023923_034870Z\\flexdc_raw\\bb9fd03e9f3e920bf19f7c38\\attempt-001\\execution.json",
+      "sha256": "78db8adcfc7f7d1c58b405e7e122c1b1b55c5c559abfb92e0dfb62bf21de2911",
+      "seed": 20,
+      "phase": "search"
+    },
+    {
+      "path": "runs\\argos_20260913T023923_034870Z\\flexdc_raw\\bcc8653d1b161c9c94e1be5e\\attempt-001\\execution.json",
+      "sha256": "523ce7ab7ac40a47e4f6807b8e391301a0cb0328cbffa74c8d182a744bf7ef6f",
+      "seed": 100020,
+      "phase": "confirmation"
+    },
+    {
+      "path": "runs\\argos_20260913T023923_034870Z\\flexdc_raw\\d1353f42ddace8034ad7aae5\\attempt-001\\execution.json",
+      "sha256": "703d46271df44d4d3c2e4ce257bea8a2c6b9a0b21f1aeede98d52dea195d5dd2",
+      "seed": 20,
+      "phase": "search"
+    },
+    {
+      "path": "runs\\argos_20260913T023923_034870Z\\flexdc_raw\\e409925f7d8def053451cdb2\\attempt-001\\execution.json",
+      "sha256": "83924db9bc1f1c79cb43ad14333bf9581972846b52d5d08c479c84982d2ad016",
+      "seed": 20,
+      "phase": "search"
+    },
+    {
+      "path": "runs\\argos_20260913T023923_034870Z\\flexdc_raw\\eeb737208598ea05abc970e2\\attempt-001\\execution.json",
+      "sha256": "66104eeea4136609fe1552a75d40e749cf8ed99806b53297723351158f49bfbd",
+      "seed": 20,
+      "phase": "search"
+    },
+    {
+      "path": "runs\\argos_20260913T023923_034870Z\\flexdc_raw\\f1b9002af568e4f0de69e967\\attempt-001\\execution.json",
+      "sha256": "4a36f11f14fad63fb86b262daf478545524716ee06b1a665c5ce7bacf4533be2",
+      "seed": 20,
+      "phase": "search"
+    },
+    {
+      "path": "runs\\argos_20260913T024050_620101Z\\flexdc_raw\\01d3b17e80f5e65f0c72cc21\\attempt-001\\execution.json",
+      "sha256": "8a3556fa4e698ea35b01c590942db9336502d94f7cd06aa04bf8d37407009fac",
+      "seed": 20,
+      "phase": "search"
+    },
+    {
+      "path": "runs\\argos_20260913T024050_620101Z\\flexdc_raw\\01e4da0a7ba437a61d916d7c\\attempt-001\\execution.json",
+      "sha256": "7bacd5c21de6b36a58531d01bb160ffdc5311bd1378fdc196a24ffb918adb520",
+      "seed": 20,
+      "phase": "search"
+    },
+    {
+      "path": "runs\\argos_20260913T024050_620101Z\\flexdc_raw\\0934e0cb391c058ba2b26df5\\attempt-001\\execution.json",
+      "sha256": "ec7e4e24aeeea2e611ce258fe1bab17e7675068cd6d7843cb748e3d7f2774ff7",
+      "seed": 20,
+      "phase": "search"
+    },
+    {
+      "path": "runs\\argos_20260913T024050_620101Z\\flexdc_raw\\0c5b9dda09ce316c3b50e942\\attempt-001\\execution.json",
+      "sha256": "332d2511a9b9fbed199c1476f052f1c3607dbc3605a47cf4da2f162a5ef79388",
+      "seed": 20,
+      "phase": "search"
+    },
+    {
+      "path": "runs\\argos_20260913T024050_620101Z\\flexdc_raw\\12516013665a5c1df59cbc1b\\attempt-001\\execution.json",
+      "sha256": "df06d5e8da55b003d5e123871ff551cfad3685f5b8c214ca132bce1d74694ebb",
+      "seed": 20,
+      "phase": "search"
+    },
+    {
+      "path": "runs\\argos_20260913T024050_620101Z\\flexdc_raw\\14bc045c0a659e2a2fd760c2\\attempt-001\\execution.json",
+      "sha256": "726dbf6d8c818cce56f224fa777d82b723eb4b3c65357365b9c67d4ed67a0efc",
+      "seed": 20,
+      "phase": "search"
+    },
+    {
+      "path": "runs\\argos_20260913T024050_620101Z\\flexdc_raw\\272fe88d15bc6ca9eb329e6a\\attempt-001\\execution.json",
+      "sha256": "e6c2ef1716a2d568c2ef50131498575cbcbe65522ed83cb558c5d8510e6ee048",
+      "seed": 20,
+      "phase": "search"
+    },
+    {
+      "path": "runs\\argos_20260913T024050_620101Z\\flexdc_raw\\2fcabbfbecd50476ce4eb0bb\\attempt-001\\execution.json",
+      "sha256": "40ee775f82bd6c1b341fe188f8b2f8fafd09027373d628a09e1ee7d3f82db809",
+      "seed": 20,
+      "phase": "search"
+    },
+    {
+      "path": "runs\\argos_20260913T024050_620101Z\\flexdc_raw\\352db3f7ecb95df9b4dd89be\\attempt-001\\execution.json",
+      "sha256": "6e5fea6937a2e2ac028a3460ba587583dc71af60ef79b8fd6714257697ef0713",
+      "seed": 20,
+      "phase": "search"
+    },
+    {
+      "path": "runs\\argos_20260913T024050_620101Z\\flexdc_raw\\390e722d758d05f511a565bb\\attempt-001\\execution.json",
+      "sha256": "ddbf11098fea1e7adfa0ce9a9d74a98b070f451fcc16f738cca3f734a38c886f",
+      "seed": 20,
+      "phase": "search"
+    },
+    {
+      "path": "runs\\argos_20260913T024050_620101Z\\flexdc_raw\\41f64c5ae0fc4bb3dae519b3\\attempt-001\\execution.json",
+      "sha256": "648e50a60a91eef3c41fa9b1851ce71818ef0df6572a5ddcb1ab1b61aea966fa",
+      "seed": 20,
+      "phase": "search"
+    },
+    {
+      "path": "runs\\argos_20260913T024050_620101Z\\flexdc_raw\\461d246e4f7fe02ba3b649a0\\attempt-001\\execution.json",
+      "sha256": "b6fe77fb3ad6304cee63c3310093f7d6a8c87ea16de875826047ed89cc9296bc",
+      "seed": 20,
+      "phase": "search"
+    },
+    {
+      "path": "runs\\argos_20260913T024050_620101Z\\flexdc_raw\\4e1d3542280dc9fcfd2deb0c\\attempt-001\\execution.json",
+      "sha256": "79711d89b2b3d9b47bd97814be803ef5ec734ddf706124a1da169c1a8eaee6d9",
+      "seed": 20,
+      "phase": "search"
+    },
+    {
+      "path": "runs\\argos_20260913T024050_620101Z\\flexdc_raw\\4ef251a5b859b2be4ada9fa7\\attempt-001\\execution.json",
+      "sha256": "e645cbf53d4593021cffb8c83d3ccac4745cddc60533bb9de8217f6de05da01c",
+      "seed": 100020,
+      "phase": "confirmation"
+    },
+    {
+      "path": "runs\\argos_20260913T024050_620101Z\\flexdc_raw\\57adb744c421730a163ac0bb\\attempt-001\\execution.json",
+      "sha256": "a1368ab384753a1c633f3b3676c0261e50a1a51095e30f911a3ea54ea333aac2",
+      "seed": 20,
+      "phase": "search"
+    },
+    {
+      "path": "runs\\argos_20260913T024050_620101Z\\flexdc_raw\\58b709a7c5a03d1bd2c93bdc\\attempt-001\\execution.json",
+      "sha256": "6db6b8c4492fb9ed1379541be654731d9d726da5e9ea181b0e030fbd94ea797c",
+      "seed": 20,
+      "phase": "search"
+    },
+    {
+      "path": "runs\\argos_20260913T024050_620101Z\\flexdc_raw\\5acbaa374e9eee0cbc84e72e\\attempt-001\\execution.json",
+      "sha256": "0fd3502d0b214fc962d43a06211932ff9ab8f61eb87a029383b3257fcca9b0ca",
+      "seed": 20,
+      "phase": "search"
+    },
+    {
+      "path": "runs\\argos_20260913T024050_620101Z\\flexdc_raw\\6d3b8b68d99403efe64c7d1f\\attempt-001\\execution.json",
+      "sha256": "6072010b7efd886e8843927b92c082d4ec4fe3e751ef90ec53466f71402e0426",
+      "seed": 20,
+      "phase": "search"
+    },
+    {
+      "path": "runs\\argos_20260913T024050_620101Z\\flexdc_raw\\77f53028a7761a361f983d0f\\attempt-001\\execution.json",
+      "sha256": "13185a1fef573df3be4ec9636ad33f1d17a2c9183449c9d29972981ceeacfa66",
+      "seed": 20,
+      "phase": "search"
+    },
+    {
+      "path": "runs\\argos_20260913T024050_620101Z\\flexdc_raw\\8692be34194604d5d4c9e74a\\attempt-001\\execution.json",
+      "sha256": "ba5199d4c578e78857777da007bfa3d62606b2e1153c3a6daaadc964770a4208",
+      "seed": 20,
+      "phase": "search"
+    },
+    {
+      "path": "runs\\argos_20260913T024050_620101Z\\flexdc_raw\\89a160d3a39b7b2dc08ad1f3\\attempt-001\\execution.json",
+      "sha256": "14e7a6d99802f1dc4d37a9b62686f8a7480a6e0ce29a5c4f6dc721bc8a896fdc",
+      "seed": 20,
+      "phase": "search"
+    },
+    {
+      "path": "runs\\argos_20260913T024050_620101Z\\flexdc_raw\\8fab21e2b0d9a4e40af1b6da\\attempt-001\\execution.json",
+      "sha256": "ce2f55839f346e0df342bfe390c916fb27036357405e5bbf5497a838c8d8e509",
+      "seed": 20,
+      "phase": "search"
+    },
+    {
+      "path": "runs\\argos_20260913T024050_620101Z\\flexdc_raw\\adf370e9c5d3dbdb8a18e879\\attempt-001\\execution.json",
+      "sha256": "71f5780a3e16d06c33b2b4bdef1dee9a2be20f4f485b29ba9dba4fca17d3575f",
+      "seed": 100021,
+      "phase": "confirmation"
+    },
+    {
+      "path": "runs\\argos_20260913T024050_620101Z\\flexdc_raw\\aef950aea1421d4c4378afce\\attempt-001\\execution.json",
+      "sha256": "26dab0c9d406232dfe0c454d035e74bf8c7f266e506259d0ad7b20467f91f103",
+      "seed": 20,
+      "phase": "search"
+    },
+    {
+      "path": "runs\\argos_20260913T024050_620101Z\\flexdc_raw\\b11562bb9799226fcdca2bd1\\attempt-001\\execution.json",
+      "sha256": "9d2afac7ec0c9f80e58a2a839dc08b7c143b247e158dd044838c1857bfd7dce7",
+      "seed": 20,
+      "phase": "search"
+    },
+    {
+      "path": "runs\\argos_20260913T024050_620101Z\\flexdc_raw\\b28c5a6266f22cbba77500ff\\attempt-001\\execution.json",
+      "sha256": "116d25324d489a3da6e975c4a48c27473fffefbd49cbe4e227973e554f1d743e",
+      "seed": 20,
+      "phase": "search"
+    },
+    {
+      "path": "runs\\argos_20260913T024050_620101Z\\flexdc_raw\\b359b30f8b007ce0b80ff405\\attempt-001\\execution.json",
+      "sha256": "f59aab66645f44c6a1783c7c65f902344bc119ba598f2ee5db2af94d039135d3",
+      "seed": 20,
+      "phase": "search"
+    },
+    {
+      "path": "runs\\argos_20260913T024050_620101Z\\flexdc_raw\\b8351d2a7e5b6a32234a648f\\attempt-001\\execution.json",
+      "sha256": "06babe2ab25a9498ea6e703ebd3d4faa4d8d95f629a52c9955063162e679782d",
+      "seed": 20,
+      "phase": "search"
+    },
+    {
+      "path": "runs\\argos_20260913T024050_620101Z\\flexdc_raw\\b9322c2059c961c2539d41c2\\attempt-001\\execution.json",
+      "sha256": "b1f6a9e3e1bd4029526cc2d9f586a856269236b8e0d7b76cf8d6c9e3ad17f140",
+      "seed": 20,
+      "phase": "search"
+    },
+    {
+      "path": "runs\\argos_20260913T024050_620101Z\\flexdc_raw\\dbbcb062a52306da019453bb\\attempt-001\\execution.json",
+      "sha256": "ba2335104e85efd3119c4dc3a09135de1c6244fa3b32f4060c69e8a22cd20ed5",
+      "seed": 20,
+      "phase": "search"
+    },
+    {
+      "path": "runs\\argos_20260913T024050_620101Z\\flexdc_raw\\e409925f7d8def053451cdb2\\attempt-001\\execution.json",
+      "sha256": "bf71fba0717d5ab52a2e7eb79836226a4ff6db03ecb992ace847dd9064d4202f",
+      "seed": 20,
+      "phase": "search"
+    },
+    {
+      "path": "runs\\argos_20260913T024050_620101Z\\flexdc_raw\\e96ea4055edb6034470ea572\\attempt-001\\execution.json",
+      "sha256": "f01bdff59596f5df457af3e4319212c8db8870b4d3ae3cfa7c1d34f1e3c799cb",
+      "seed": 20,
+      "phase": "search"
+    },
+    {
+      "path": "runs\\argos_20260913T024050_620101Z\\flexdc_raw\\f56184f4d1398c0b46f89092\\attempt-001\\execution.json",
+      "sha256": "82777ccd05063f8391f29f2404b61ecb116461bc2db19a2e21b5676215f7abfa",
+      "seed": 20,
+      "phase": "search"
+    },
+    {
+      "path": "runs\\argos_20260913T024050_620101Z\\flexdc_raw\\f9dd2cf59eee6c7201fa49ae\\attempt-001\\execution.json",
+      "sha256": "64b4e46b0436708d9b34425eeac1d46cbf85d98b1fb63e7d3ea3202cc54a33a3",
+      "seed": 20,
+      "phase": "search"
+    },
+    {
+      "path": "runs\\evidence_smoke_seed_2026091301\\flexdc_raw\\1abfaf091f85505aac94042f\\attempt-001\\execution.json",
+      "sha256": "065f4799764b7b5ddbe51a4521babf05aadbdd4c6ebcdeaab307bc5ed9120413",
+      "seed": 2026091301,
+      "phase": "audit"
+    },
+    {
+      "path": "runs\\smoke_20260912_223103\\flexdc_raw\\8e69309677940f43a87ed181\\attempt-001\\execution.json",
+      "sha256": "19d19e7429edcb8994ec73f3fabe8adcbb22a0b60ecf395159711fb387e63998",
+      "seed": 20,
+      "phase": "smoke"
+    }
+  ],
+  "generator_sha256": "dde6daae827a71b8d6af16df61110a22635e5cc3f586eeb75fc5d23a5542da00",
+  "training_server_counts": [
+    250,
+    1000
+  ],
+  "training_utilizations": [
+    0.6,
+    0.8
+  ],
+  "historical_v4_authority": "User authorized pinned V4 INIs and manifest; original generator unavailable",
+  "unseen_profile_status": "No provenance-supported unseen-profile experiment declared"
+}
