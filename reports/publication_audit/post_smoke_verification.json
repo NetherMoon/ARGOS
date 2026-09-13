@@ -1,0 +1,40 @@
+{
+  "historical_audits_unchanged": true,
+  "smoke_cache_reparse": "PASS",
+  "verification_source_files": {
+    "src\\argos\\__init__.py": "ba395dec5a98eb0e5a9438c5c74ea5bf73fd06657a78d6da2afd412d83a4302d",
+    "src\\argos\\audit.py": "1fcca1dafa5061f15592ff6f7298425209ca943ec18cc56e21a3df599dad6905",
+    "src\\argos\\cli.py": "cef8c42aac27de3aaa16c0675353867fccaee6733c02583047912580a7472403",
+    "src\\argos\\config.py": "adbb907ad3feb95e3c1bea15b8cb6f6958af778959b9eeeb54c33719be1ce507",
+    "src\\argos\\context.py": "d2ced713e278c4cc8753c47b96d6905426f30b09ba5f1a6c0fa09aad5c333afd",
+    "src\\argos\\contracts.py": "d4db11eea4d6dcf39ccd0093282320a3d485cba659e14ff6fea90d87eb7b9ae9",
+    "src\\argos\\controller\\__init__.py": "5581d0319f48de5c350eeec21e9694114882d4029028025f8024c607fb43bd9d",
+    "src\\argos\\controller\\argos_controller.py": "b03af164b5728644383c24ebddd138e285a89f0a097c59c25d674ec9ec76d71b",
+    "src\\argos\\controller\\stopping.py": "ca71b2ffb590b2da2eb421c9404fbff33f55b985512aa56d2b81a7fa988a9f68",
+    "src\\argos\\episode.py": "1146ed5e0e128be63fe98274b66a3b479acd0c965c5a3055cd716c93433a963b",
+    "src\\argos\\provenance.py": "3920ea4cef021c47f0fd577d61f703b1430d50b298a13b4795ad0502f3c86b74",
+    "src\\argos\\reporting\\__init__.py": "bb4520072ebb2724e8b5e96de8c8710f39162a68c5b6f7831ac6ee063cbd36ad",
+    "src\\argos\\reporting\\report.py": "2233013a266b5fb89ab085e01f10877f818ad6bb6ced726e455619640e4c6abc",
+    "src\\argos\\search\\__init__.py": "1c3b6fa0b316166c236c463b1a7c6be0b3ba824d830afe60408508b998d0d47b",
+    "src\\argos\\search\\candidates.py": "7f312c12d14c4643122f72444448bb98f5ddf2d3d6a62bb37a80a846dd34738f",
+    "src\\argos\\search\\integrity.py": "2abb6189ae205e175ea284589c6cf701c529e6c2291b38922f22510b1f1fb5ce",
+    "src\\argos\\search\\regions.py": "40c1898c27a3faa16a349ddef1710975874b9f7051b2e0f12ccc4b2224c1089c",
+    "src\\argos\\simulator\\__init__.py": "dded54adf89771d49c2ced74ea4d0d93eb4f193e0161125c843e2d02ad54cf7d",
+    "src\\argos\\simulator\\configuration.py": "e3703026c6b80e1ee1bcfc352ec231d264b01a6e601e4b52739754c27efad7c0",
+    "src\\argos\\simulator\\evidence.py": "d2675839afe4605d0d534dcf35d08187e3b07a2ca62b99b3329818bc90bbec8a",
+    "src\\argos\\simulator\\flexdc_adapter.py": "4a4a4228a2bd1f9b70a5bf743eef1c470da77c6de4ba594206c8d48ab0a24bf0",
+    "src\\argos\\simulator\\output_parser.py": "a28b7d3e8d53ff2e5c0042cab0cde002583746f53dd8b6ef17bc64f988af0c5b",
+    "src\\argos\\surrogate\\__init__.py": "738e7149e02a47048e879ecf5ed8e21ba141980deed3559e469dd4f8aeabdfd3",
+    "src\\argos\\surrogate\\v3_adapter.py": "51e9fc9be429578feef9abfcc15db312f9eaa2f9dadd9de7fc5c28c265a8d982",
+    "src\\argos\\types.py": "de0173bdba009195f4ec09570871a7959ba8b2c3e7e9d67b02fdc55ba9b3cecb",
+    "src\\argos\\versions.py": "801dae50d40e2c82216c1a209e9f4e567ada3a200c6ea657b92ea88b9785708f"
+  },
+  "execution_counts": {
+    "argos_20260913T023923_034870Z": 10,
+    "argos_20260913T024050_620101Z": 34,
+    "evidence_smoke_seed_2026091301": 1,
+    "smoke_20260912_223103": 1
+  },
+  "total_executions": 46,
+  "new_audit_only_executions": 1
+}

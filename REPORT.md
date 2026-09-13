@@ -184,3 +184,54 @@ The prior feasible-only retention bug is fixed with all-candidate tradeoffs and
 a dedicated infeasible/diversity quota. Optional V3 local screening is tested;
 measured_random and fixed radius remain defaults. No broad scientific campaign,
 GP, residual model, or reliability model was introduced.
+
+
+## Publication release validation (2026-09-13)
+
+Full local suite after the real recovery fix: **85 passed, 1 skipped** (CUDA not
+available), 20.31 seconds. Lint and formatting pass. An isolated checkout of
+`e461483443db862e338f3fb7adb7faf04086ed18`, with a new environment and no dependency
+clones, model artifacts, runs, or pytest caches, installed `.[dev]` and passed
+**73 tests with 10 explicit artifact/dependency skips**. Lint, formatting and the
+installed CLI passed; no runs directory was manually or automatically created in
+that checkout. This pre-final gate preceded three additional recovery regression
+cases. The exact final commit is subjected to the same fresh-checkout gate after
+this report is committed; its head and results are stored in runs/release_gate.
+
+GitHub Actions passed on both f7d4a16 and e461483. The final commit's CI result is
+reported separately after publication. Initial Windows package installation was
+interrupted by the user's PC crash; that environment was preserved and never
+counted as passing or reused. Subsequent fresh installs skip unnecessary bytecode
+compilation, while still installing into a new isolated environment.
+
+Clean paper-mode doctor verified the pinned, clean dependencies, context contract,
+and immutable artifact. CPU validation reproduced 32 saved predictions, bitwise
+optimizer endpoints, and three finite-difference gradient checks. CUDA hardware
+was unavailable; no GPU execution or bitwise GPU claim is made.
+
+Exactly **one** new real invocation was made, using audit-only seed **2026091301**
+at clean source commit e461483. It evaluated the historical serious finalist,
+without running a new search or treating the result as a fresh confirmation:
+
+| p90 | Pj in configured order | Evidence counts | Actual objective | Qualification |
+|---:|---|---|---:|---|
+| 0.007 | [0,0,0,0] | [1479,305,287,348] | 62.61061362821437 | Numerical and n>=1 evidence gates pass |
+
+The smoke's raw files were preserved. Its first recovery check exposed a JSON
+list/tuple comparison defect; the recovery path now normalizes both records to
+QoSEvidence before comparison. The same saved execution reparses successfully
+with the fix, and tampered reported or typed identities still fail. This correction
+does not change the simulator invocation or QoS statistic, and no repeat smoke
+was launched. The smoke manifest retains its actual pre-fix execution commit.
+
+All 34 serious and 10 small historical observations re-audit identically to the
+separate stored audits, including raw hashes. The supported `argos audit` CLI also
+passes on serious W1. Total saved real executions rose from **45 to 46**, solely
+because of this audit-only smoke. There were no W2, mixed-workload, or real
+variable-J campaigns. Machine-readable evidence is in reports/publication_audit.
+
+Remaining scientific limitations are explicit: one-hour censoring does not prove
+long-horizon QoS, n>=1 does not confer statistical reliability, no CUDA device was
+available for execution validation, and attribution of [.6/J,1.8/J] to the requested
+historical V4 result remains unestablished. The available V4 source uses different
+bounds. These limitations are not hidden by the positive numerical result.

@@ -140,14 +140,20 @@ class FlexDCRunner:
                     raise ValueError("Cached simulator metrics changed")
                 if observation.schema_version < 2:
                     raise ValueError("Legacy observation requires explicit audit; cannot resume")
-                if parsed_reported["qos_evidence"] != observation.reported.get("qos_evidence"):
-                    raise ValueError("Cached QoS evidence changed")
                 checked_evidence = (
                     evidence_from_dict(parsed_reported["qos_evidence"])
                     if parsed_reported["qos_evidence"] is not None
                     else None
                 )
-                if checked_evidence != observation.qos_evidence:
+                recorded_evidence = (
+                    evidence_from_dict(observation.reported["qos_evidence"])
+                    if observation.reported.get("qos_evidence") is not None
+                    else None
+                )
+                if (
+                    checked_evidence != observation.qos_evidence
+                    or checked_evidence != recorded_evidence
+                ):
                     raise ValueError("Cached typed QoS evidence changed")
                 for path, expected in observation.reported.get("output_hashes", {}).items():
                     if sha256(Path(path)) != expected:

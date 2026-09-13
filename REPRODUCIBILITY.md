@@ -182,3 +182,24 @@ The validation scope for this remediation is CPU parity, portable and full tests
 historical raw-data audits, and one exact audit-only simulator invocation using a
 new seed. No W2, mixed-workload, or real variable-J campaign is authorized by this
 release gate. Historical fixed-budget results are not presented as early-stop runs.
+
+
+The automated local gate is `python -B scripts/release_gate.py`. It clones the
+current committed HEAD into a new ignored location and creates a distinct venv
+without system site packages. It installs `.[dev]` with `--no-compile` (only bytecode
+precompilation is skipped), then runs tests, Ruff, formatting and the installed
+`argos --help`. It asserts that runs was absent initially and remains absent.
+Do not treat an interrupted install or a reused environment as a release pass.
+
+For the one-call audit smoke, from a clean tree with the immutable dependencies:
+
+```powershell
+.\.venv\Scripts\python.exe -B scripts/evidence_smoke.py --seed 2026091301
+```
+
+That seed has already been executed for this report; the script deliberately refuses
+to overwrite its existing run directory. Inspect its saved evidence rather than
+rerunning it. It is audit-only, not a search or confirmation result. A future
+explicitly authorized audit must use a new seed and preserve its own provenance.
+See REPORT.md and reports/publication_audit/release_validation.json for validation
+results, the interrupted-install history, and the real recovery defect correction.

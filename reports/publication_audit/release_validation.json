@@ -1,0 +1,115 @@
+{
+  "implementation_start_head": "d656070c5b0e8d7cf26f99afdfc86d681e5ff687",
+  "smoke_execution_head": "e461483443db862e338f3fb7adb7faf04086ed18",
+  "full_local_pytest": {
+    "passed": 85,
+    "skipped": 1,
+    "seconds": 20.31,
+    "skip_reason": "CUDA unavailable"
+  },
+  "pre_final_clean_checkout": {
+    "head": "e461483443db862e338f3fb7adb7faf04086ed18",
+    "clean_initial_absence": [
+      ".venv",
+      ".deps",
+      "runs",
+      ".pytest_cache",
+      ".pytest_tmp",
+      "condor_set_transformer_sweep_v3_behavior_v3_best_feasibility_artifacts"
+    ],
+    "isolated_venv": true,
+    "steps": [
+      {
+        "step": 1,
+        "arguments": [
+          "-m",
+          "pip",
+          "install",
+          "--no-compile",
+          "-e",
+          ".[dev]"
+        ],
+        "exit_code": 0,
+        "seconds": 74.22442590000003
+      },
+      {
+        "step": 2,
+        "arguments": [
+          "-B",
+          "-m",
+          "pytest",
+          "-q"
+        ],
+        "exit_code": 0,
+        "seconds": 44.100814499999956
+      },
+      {
+        "step": 3,
+        "arguments": [
+          "-B",
+          "-m",
+          "ruff",
+          "check",
+          "."
+        ],
+        "exit_code": 0,
+        "seconds": 1.3842372000000296
+      },
+      {
+        "step": 4,
+        "arguments": [
+          "-B",
+          "-m",
+          "ruff",
+          "format",
+          "--check",
+          "."
+        ],
+        "exit_code": 0,
+        "seconds": 0.2470796000000064
+      },
+      {
+        "step": 5,
+        "arguments": [
+          "--help"
+        ],
+        "exit_code": 0,
+        "seconds": 0.5259627000000364
+      }
+    ],
+    "runs_created": false
+  },
+  "pre_final_portable_pytest": {
+    "passed": 73,
+    "skipped": 10,
+    "seconds": 39.84
+  },
+  "lint": "PASS",
+  "format": "PASS",
+  "audit_cli": "PASS",
+  "cpu_parity": {
+    "status": "PASS",
+    "saved_prediction_rows": 32,
+    "endpoint_parity": "bitwise",
+    "gradient_checks": 3,
+    "report_sha256": "5df8d60e24ce585adcab5ee97ea24b3b87b750e05a6731c55f307dc876029a3c"
+  },
+  "ci_verified": [
+    {
+      "head": "f7d4a16baaabe577478613e27a536e74057364f2",
+      "result": "success",
+      "url": "https://github.com/NetherMoon/ARGOS/actions/runs/34737293456"
+    },
+    {
+      "head": "e461483443db862e338f3fb7adb7faf04086ed18",
+      "result": "success",
+      "url": "https://github.com/NetherMoon/ARGOS/actions/runs/34737898979"
+    }
+  ],
+  "final_commit_gate": "Run scripts/release_gate.py after committing this report; its result.json records the exact final HEAD. Final result is reported in the task response.",
+  "interrupted_attempt": "The initial f7d4a16 Windows installation was interrupted by a PC crash. It was preserved, was not counted as a passing gate, and was not reused.",
+  "new_real_executions": 1,
+  "new_seed": 2026091301,
+  "historical_reexecutions": 0,
+  "recovery_fix": "A real cache reparse exposed list/tuple comparison mismatch. Both representations now normalize to typed evidence; unchanged-cache and two tamper cases are regression tested."
+}
