@@ -1,0 +1,475 @@
+{
+  "episode_id": "argos_20260913T023923_034870Z",
+  "status": "CONFIRMATION_2_OF_2_PASS",
+  "phase": "DONE",
+  "stop_reason": "configured search budget exhausted",
+  "config": {
+    "workload": "configs/workload/W1-train-qos3333.ini",
+    "experiment": "configs/experiment/new_iso/traditional_signal/generated_server_counts/exp_traditional_iso16_servers_1000.ini",
+    "cluster": "configs/cluster/cluster.ini",
+    "server_count": 1000,
+    "utilization": 0.6,
+    "policy": "AQA",
+    "search_seed": 20,
+    "candidate_seed": 20260912,
+    "confirmation_seeds": [
+      100020,
+      100021
+    ],
+    "starts": 8,
+    "iterations": 20,
+    "snapshot_every": 5,
+    "torch_threads": 4,
+    "weight_min": 0.15,
+    "weight_max": 0.45,
+    "r_over_p_max": 0.6,
+    "max_regions": 6,
+    "region_distance": 0.12,
+    "dedupe_distance": 0.0001,
+    "promising_per_snapshot": 24,
+    "batch_size": 4,
+    "independent_per_batch": 1,
+    "max_workers": 4,
+    "max_search_batches": 2,
+    "max_search_calls": 8,
+    "local_radius": 0.12,
+    "max_wall_seconds": null,
+    "simulator_timeout_seconds": 1800.0
+  },
+  "search_calls": 8,
+  "completed_search_observations": 8,
+  "valid_search_observations": 8,
+  "observed_feasible_count": 4,
+  "confirmation_passes": 2,
+  "confirmation_runs": 2,
+  "max_workers": 4,
+  "controller_wall_seconds": 47.24728590000086,
+  "selected_search_observation": {
+    "candidate": {
+      "candidate_id": "v3-0020-0005",
+      "Pbar": 0.5552651882171631,
+      "R": 0.24327042698860168,
+      "weights": [
+        0.2869108021259308,
+        0.28310343623161316,
+        0.25492629408836365,
+        0.1750594675540924
+      ],
+      "source": "V3 endpoint",
+      "start_id": 5,
+      "iteration": 20,
+      "region_id": "region-01",
+      "prediction": {
+        "mean_tracking": 0.026867177337408066,
+        "p90": 0.15817496180534363,
+        "pj": [
+          0.03219912573695183,
+          9.632786755753298e-12,
+          2.6274346587307207e-10,
+          8.813829657436378e-13
+        ],
+        "objective": 80.51109313964844
+      },
+      "provenance": {}
+    },
+    "seed": 20,
+    "phase": "search",
+    "batch": 1,
+    "valid": true,
+    "metrics": {
+      "mean_tracking": 0.0267341666666666,
+      "p90": 0.158,
+      "pj": [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "objective": 79.9174643198774
+    },
+    "status": "SIMULATOR_OBSERVED_FEASIBLE",
+    "runtime_seconds": 11.929931700000452,
+    "execution_id": "599004aa5bc1ebe4bb86ecc5",
+    "reported": {
+      "Plan_Row_ID": "599004aa5bc1ebe4bb86ecc5",
+      "Context_ID": "fa2ac14ce36754a5614092c5669318ff9efdfd09b42c8c0e7929098029d1595f",
+      "Workload_Name": "W1-train-qos3333",
+      "Workload_Config": "<ARGOS_ROOT>\\.deps\\FlexDC\\configs\\workload\\W1-train-qos3333.ini",
+      "Pbar_kw_per_server": 0.5552651882171631,
+      "R_kw_per_server": 0.2432704269886016,
+      "P_actual_watts": 555265,
+      "R_actual_watts": 243270,
+      "server_count": 1000,
+      "utilization": 0.6,
+      "Simulation_Seed": 20,
+      "Policy_Name": "AQA",
+      "workload_mix": "[[199.0, 755.0, 337.0, 1321.0, 3.0, 1.0], [201.0, 763.0, 1185.0, 4592.0, 3.0, 1.0], [200.0, 742.0, 1242.0, 4921.0, 3.0, 1.0], [202.0, 726.0, 1104.0, 4202.0, 3.0, 1.0]]",
+      "weights": [
+        0.2869108021259308,
+        0.2831034362316131,
+        0.2549262940883636,
+        0.1750594675540924
+      ],
+      "input_hashes": {
+        "<ARGOS_ROOT>\\.deps\\FlexDC\\configs\\workload\\W1-train-qos3333.ini": "f166c1b1719f4321fcfc33c063e2716599f61dc3c1ab7f6a2bfaf394e4384f1d",
+        "<ARGOS_ROOT>\\.deps\\FlexDC\\configs\\cluster\\cluster.ini": "da8643388be4618a538d6dc6c0a006ee2d62d64064f47d3a209d83c05d3393d5",
+        "<ARGOS_ROOT>\\runs\\argos_20260913T023923_034870Z\\generated_configs\\argos_gradient.ini": "15cf8fb9c238af2aa6ee8c602dd428fa531a97e8729fb95761af2c0d735bf506",
+        "<ARGOS_ROOT>\\runs\\argos_20260913T023923_034870Z\\generated_configs\\599004aa5bc1ebe4bb86ecc5.ini": "e358c47a2fb3f33d6480ef8175d8373117b02916a2c2215e36dea85531b62a7e",
+        "<ARGOS_ROOT>\\runs\\argos_20260913T023923_034870Z\\flexdc_raw\\599004aa5bc1ebe4bb86ecc5\\attempt-001\\plan.json": "5bc161f348481fd6e83ad325441b62ac2c21f74a05840833076af9dfddd385ad",
+        "<ARGOS_ROOT>\\.deps\\FlexDC\\data\\1-17-2025_traditional.csv": "b33e986fa6410b715fc86cd7f3c2e868c42a7379e6cd8eeea99fa81211000413",
+        "<ARGOS_ROOT>\\runs\\argos_20260913T023923_034870Z\\flexdc_raw\\599004aa5bc1ebe4bb86ecc5\\attempt-001\\data\\1-17-2025_traditional.csv": "b33e986fa6410b715fc86cd7f3c2e868c42a7379e6cd8eeea99fa81211000413"
+      }
+    },
+    "raw_paths": {
+      "stdout": "<ARGOS_ROOT>\\runs\\argos_20260913T023923_034870Z\\flexdc_raw\\599004aa5bc1ebe4bb86ecc5\\attempt-001\\stdout.log",
+      "stderr": "<ARGOS_ROOT>\\runs\\argos_20260913T023923_034870Z\\flexdc_raw\\599004aa5bc1ebe4bb86ecc5\\attempt-001\\stderr.log",
+      "execution": "<ARGOS_ROOT>\\runs\\argos_20260913T023923_034870Z\\flexdc_raw\\599004aa5bc1ebe4bb86ecc5\\attempt-001\\execution.json",
+      "results": "<ARGOS_ROOT>\\runs\\argos_20260913T023923_034870Z\\flexdc_raw\\599004aa5bc1ebe4bb86ecc5\\attempt-001\\engine\\peacsim\\output\\optimization\\candidate_20260912223928\\grid_search_results.csv",
+      "diagnostics": "<ARGOS_ROOT>\\runs\\argos_20260913T023923_034870Z\\flexdc_raw\\599004aa5bc1ebe4bb86ecc5\\attempt-001\\engine\\peacsim\\output\\optimization\\candidate_20260912223928\\grid_search_diagnostics.csv"
+    },
+    "error": null,
+    "returncode": 0,
+    "worker": "argos-flexdc_0",
+    "residuals": {
+      "mean_tracking": -0.00013301067074146522,
+      "p90": -0.00017496180534362638,
+      "pj": [
+        -0.03219912573695183,
+        -9.632786755753298e-12,
+        -2.6274346587307207e-10,
+        -8.813829657436378e-13
+      ],
+      "objective": -0.5936288197710411
+    }
+  },
+  "confirmation_observations": [
+    {
+      "candidate": {
+        "candidate_id": "v3-0020-0005",
+        "Pbar": 0.5552651882171631,
+        "R": 0.24327042698860168,
+        "weights": [
+          0.2869108021259308,
+          0.28310343623161316,
+          0.25492629408836365,
+          0.1750594675540924
+        ],
+        "source": "V3 endpoint",
+        "start_id": 5,
+        "iteration": 20,
+        "region_id": "region-01",
+        "prediction": {
+          "mean_tracking": 0.026867177337408066,
+          "p90": 0.15817496180534363,
+          "pj": [
+            0.03219912573695183,
+            9.632786755753298e-12,
+            2.6274346587307207e-10,
+            8.813829657436378e-13
+          ],
+          "objective": 80.51109313964844
+        },
+        "provenance": {}
+      },
+      "seed": 100020,
+      "phase": "confirmation",
+      "batch": 1,
+      "valid": true,
+      "metrics": {
+        "mean_tracking": 0.0294580555555555,
+        "p90": 0.168,
+        "pj": [
+          0.00908455625436766,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "objective": 80.16839426362822
+      },
+      "status": "SIMULATOR_OBSERVED_FEASIBLE",
+      "runtime_seconds": 10.362319500000012,
+      "execution_id": "bcc8653d1b161c9c94e1be5e",
+      "reported": {
+        "Plan_Row_ID": "bcc8653d1b161c9c94e1be5e",
+        "Context_ID": "fa2ac14ce36754a5614092c5669318ff9efdfd09b42c8c0e7929098029d1595f",
+        "Workload_Name": "W1-train-qos3333",
+        "Workload_Config": "<ARGOS_ROOT>\\.deps\\FlexDC\\configs\\workload\\W1-train-qos3333.ini",
+        "Pbar_kw_per_server": 0.5552651882171631,
+        "R_kw_per_server": 0.2432704269886016,
+        "P_actual_watts": 555265,
+        "R_actual_watts": 243270,
+        "server_count": 1000,
+        "utilization": 0.6,
+        "Simulation_Seed": 100020,
+        "Policy_Name": "AQA",
+        "workload_mix": "[[199.0, 755.0, 337.0, 1321.0, 3.0, 1.0], [201.0, 763.0, 1185.0, 4592.0, 3.0, 1.0], [200.0, 742.0, 1242.0, 4921.0, 3.0, 1.0], [202.0, 726.0, 1104.0, 4202.0, 3.0, 1.0]]",
+        "weights": [
+          0.2869108021259308,
+          0.2831034362316131,
+          0.2549262940883636,
+          0.1750594675540924
+        ],
+        "input_hashes": {
+          "<ARGOS_ROOT>\\.deps\\FlexDC\\configs\\workload\\W1-train-qos3333.ini": "f166c1b1719f4321fcfc33c063e2716599f61dc3c1ab7f6a2bfaf394e4384f1d",
+          "<ARGOS_ROOT>\\.deps\\FlexDC\\configs\\cluster\\cluster.ini": "da8643388be4618a538d6dc6c0a006ee2d62d64064f47d3a209d83c05d3393d5",
+          "<ARGOS_ROOT>\\runs\\argos_20260913T023923_034870Z\\generated_configs\\argos_gradient.ini": "15cf8fb9c238af2aa6ee8c602dd428fa531a97e8729fb95761af2c0d735bf506",
+          "<ARGOS_ROOT>\\runs\\argos_20260913T023923_034870Z\\generated_configs\\bcc8653d1b161c9c94e1be5e.ini": "be2fdd98963d466a6c1b998f5f15af5abb3bbc102e5d94e0628191bbf25947e7",
+          "<ARGOS_ROOT>\\runs\\argos_20260913T023923_034870Z\\flexdc_raw\\bcc8653d1b161c9c94e1be5e\\attempt-001\\plan.json": "15ad6e13868e3798001996681a67d4d61aa44640f49728ee86902a013fe07bf8",
+          "<ARGOS_ROOT>\\.deps\\FlexDC\\data\\1-17-2025_traditional.csv": "b33e986fa6410b715fc86cd7f3c2e868c42a7379e6cd8eeea99fa81211000413",
+          "<ARGOS_ROOT>\\runs\\argos_20260913T023923_034870Z\\flexdc_raw\\bcc8653d1b161c9c94e1be5e\\attempt-001\\data\\1-17-2025_traditional.csv": "b33e986fa6410b715fc86cd7f3c2e868c42a7379e6cd8eeea99fa81211000413"
+        }
+      },
+      "raw_paths": {
+        "stdout": "<ARGOS_ROOT>\\runs\\argos_20260913T023923_034870Z\\flexdc_raw\\bcc8653d1b161c9c94e1be5e\\attempt-001\\stdout.log",
+        "stderr": "<ARGOS_ROOT>\\runs\\argos_20260913T023923_034870Z\\flexdc_raw\\bcc8653d1b161c9c94e1be5e\\attempt-001\\stderr.log",
+        "execution": "<ARGOS_ROOT>\\runs\\argos_20260913T023923_034870Z\\flexdc_raw\\bcc8653d1b161c9c94e1be5e\\attempt-001\\execution.json",
+        "results": "<ARGOS_ROOT>\\runs\\argos_20260913T023923_034870Z\\flexdc_raw\\bcc8653d1b161c9c94e1be5e\\attempt-001\\engine\\peacsim\\output\\optimization\\candidate_20260912223954\\grid_search_results.csv",
+        "diagnostics": "<ARGOS_ROOT>\\runs\\argos_20260913T023923_034870Z\\flexdc_raw\\bcc8653d1b161c9c94e1be5e\\attempt-001\\engine\\peacsim\\output\\optimization\\candidate_20260912223954\\grid_search_diagnostics.csv"
+      },
+      "error": null,
+      "returncode": 0,
+      "worker": "argos-flexdc_0",
+      "residuals": {
+        "mean_tracking": 0.0025908782181474355,
+        "p90": 0.009825038194656383,
+        "pj": [
+          -0.02311456948258417,
+          -9.632786755753298e-12,
+          -2.6274346587307207e-10,
+          -8.813829657436378e-13
+        ],
+        "objective": -0.3426988760202221
+      }
+    },
+    {
+      "candidate": {
+        "candidate_id": "v3-0020-0005",
+        "Pbar": 0.5552651882171631,
+        "R": 0.24327042698860168,
+        "weights": [
+          0.2869108021259308,
+          0.28310343623161316,
+          0.25492629408836365,
+          0.1750594675540924
+        ],
+        "source": "V3 endpoint",
+        "start_id": 5,
+        "iteration": 20,
+        "region_id": "region-01",
+        "prediction": {
+          "mean_tracking": 0.026867177337408066,
+          "p90": 0.15817496180534363,
+          "pj": [
+            0.03219912573695183,
+            9.632786755753298e-12,
+            2.6274346587307207e-10,
+            8.813829657436378e-13
+          ],
+          "objective": 80.51109313964844
+        },
+        "provenance": {}
+      },
+      "seed": 100021,
+      "phase": "confirmation",
+      "batch": 2,
+      "valid": true,
+      "metrics": {
+        "mean_tracking": 0.0264563888888888,
+        "p90": 0.152,
+        "pj": [
+          0.00566973777462787,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "objective": 80.00171717902296
+      },
+      "status": "SIMULATOR_OBSERVED_FEASIBLE",
+      "runtime_seconds": 10.902550300001167,
+      "execution_id": "a502af31775c6b59bdb2541f",
+      "reported": {
+        "Plan_Row_ID": "a502af31775c6b59bdb2541f",
+        "Context_ID": "fa2ac14ce36754a5614092c5669318ff9efdfd09b42c8c0e7929098029d1595f",
+        "Workload_Name": "W1-train-qos3333",
+        "Workload_Config": "<ARGOS_ROOT>\\.deps\\FlexDC\\configs\\workload\\W1-train-qos3333.ini",
+        "Pbar_kw_per_server": 0.5552651882171631,
+        "R_kw_per_server": 0.2432704269886016,
+        "P_actual_watts": 555265,
+        "R_actual_watts": 243270,
+        "server_count": 1000,
+        "utilization": 0.6,
+        "Simulation_Seed": 100021,
+        "Policy_Name": "AQA",
+        "workload_mix": "[[199.0, 755.0, 337.0, 1321.0, 3.0, 1.0], [201.0, 763.0, 1185.0, 4592.0, 3.0, 1.0], [200.0, 742.0, 1242.0, 4921.0, 3.0, 1.0], [202.0, 726.0, 1104.0, 4202.0, 3.0, 1.0]]",
+        "weights": [
+          0.2869108021259308,
+          0.2831034362316131,
+          0.2549262940883636,
+          0.1750594675540924
+        ],
+        "input_hashes": {
+          "<ARGOS_ROOT>\\.deps\\FlexDC\\configs\\workload\\W1-train-qos3333.ini": "f166c1b1719f4321fcfc33c063e2716599f61dc3c1ab7f6a2bfaf394e4384f1d",
+          "<ARGOS_ROOT>\\.deps\\FlexDC\\configs\\cluster\\cluster.ini": "da8643388be4618a538d6dc6c0a006ee2d62d64064f47d3a209d83c05d3393d5",
+          "<ARGOS_ROOT>\\runs\\argos_20260913T023923_034870Z\\generated_configs\\argos_gradient.ini": "15cf8fb9c238af2aa6ee8c602dd428fa531a97e8729fb95761af2c0d735bf506",
+          "<ARGOS_ROOT>\\runs\\argos_20260913T023923_034870Z\\generated_configs\\a502af31775c6b59bdb2541f.ini": "744cbdba2330b771fda5caa1f105407508ea74b3a5ef1f23e2840da29b6e18be",
+          "<ARGOS_ROOT>\\runs\\argos_20260913T023923_034870Z\\flexdc_raw\\a502af31775c6b59bdb2541f\\attempt-001\\plan.json": "846e1e4923d2988979b7adc4bbb8599b4934c1dff324db3b735b70e3fe833f4e",
+          "<ARGOS_ROOT>\\.deps\\FlexDC\\data\\1-17-2025_traditional.csv": "b33e986fa6410b715fc86cd7f3c2e868c42a7379e6cd8eeea99fa81211000413",
+          "<ARGOS_ROOT>\\runs\\argos_20260913T023923_034870Z\\flexdc_raw\\a502af31775c6b59bdb2541f\\attempt-001\\data\\1-17-2025_traditional.csv": "b33e986fa6410b715fc86cd7f3c2e868c42a7379e6cd8eeea99fa81211000413"
+        }
+      },
+      "raw_paths": {
+        "stdout": "<ARGOS_ROOT>\\runs\\argos_20260913T023923_034870Z\\flexdc_raw\\a502af31775c6b59bdb2541f\\attempt-001\\stdout.log",
+        "stderr": "<ARGOS_ROOT>\\runs\\argos_20260913T023923_034870Z\\flexdc_raw\\a502af31775c6b59bdb2541f\\attempt-001\\stderr.log",
+        "execution": "<ARGOS_ROOT>\\runs\\argos_20260913T023923_034870Z\\flexdc_raw\\a502af31775c6b59bdb2541f\\attempt-001\\execution.json",
+        "results": "<ARGOS_ROOT>\\runs\\argos_20260913T023923_034870Z\\flexdc_raw\\a502af31775c6b59bdb2541f\\attempt-001\\engine\\peacsim\\output\\optimization\\candidate_20260912224004\\grid_search_results.csv",
+        "diagnostics": "<ARGOS_ROOT>\\runs\\argos_20260913T023923_034870Z\\flexdc_raw\\a502af31775c6b59bdb2541f\\attempt-001\\engine\\peacsim\\output\\optimization\\candidate_20260912224004\\grid_search_diagnostics.csv"
+      },
+      "error": null,
+      "returncode": 0,
+      "worker": "argos-flexdc_0",
+      "residuals": {
+        "mean_tracking": -0.0004107884485192656,
+        "p90": -0.006174961805343632,
+        "pj": [
+          -0.026529387962323958,
+          -9.632786755753298e-12,
+          -2.6274346587307207e-10,
+          -8.813829657436378e-13
+        ],
+        "objective": -0.5093759606254764
+      }
+    }
+  ],
+  "failures": [],
+  "v3": {
+    "wall_seconds": 2.892133699999249,
+    "device": "cpu",
+    "torch_threads": 4,
+    "starts": 8,
+    "iterations": 20,
+    "snapshot_every": 5,
+    "settings": {
+      "starts": 8,
+      "iterations": 20,
+      "learning_rate": 0.03,
+      "minimum_learning_rate": 0.0005,
+      "mode": "margin_constrained",
+      "tracking_penalty": 2000.0,
+      "qos_penalty": 2000.0,
+      "penalty_ramp_fraction": 0.3,
+      "top_k": 5,
+      "candidate_distance": 0.03,
+      "random_seed": 20260912,
+      "near_equal_start_fraction": 0.25,
+      "high_p_low_r_start_fraction": 0.25,
+      "enforce_flexdc_weight_bounds": true,
+      "weight_min_fraction_of_equal": 0.1,
+      "weight_max_multiple_of_equal": 4.0,
+      "weight_min": 0.15,
+      "weight_max": 0.45,
+      "r_over_p_max": 0.6,
+      "pbar_min_override": null,
+      "pbar_max_override": null,
+      "r_min_override": null,
+      "r_max_override": null,
+      "explicit_ratio_starts": null,
+      "illegal_start_policy": "project",
+      "log_every": 25
+    },
+    "domain": {
+      "p_lower": 0.1791,
+      "p_upper": 0.763,
+      "pr_upper": 0.9156,
+      "r_lower": 0.01,
+      "r_over_p": 0.6,
+      "lower": [
+        0.15,
+        0.15,
+        0.15,
+        0.15
+      ],
+      "upper": [
+        0.45,
+        0.45,
+        0.45,
+        0.45
+      ]
+    },
+    "regions": 4
+  },
+  "total_active_wall_seconds": 50.13941960000011,
+  "execution_provenance": {
+    "created_at_utc": "2026-09-13T02:39:23.045051+00:00",
+    "argos_git_head": "d2afb64200c1a8d9948ab5eae2660564fe637a51",
+    "argos_dirty": true,
+    "resolved_config_sha256": "151dcf9fd93d079334e846f46841c7c6ee6fdc13cfe837c4d9344deca8a191d5",
+    "input_identity": {
+      "runtime": {
+        "numpy": "2.2.6",
+        "pandas": "2.2.2",
+        "scipy": "1.14.0",
+        "torch": "2.4.1",
+        "PyYAML": "6.0.2"
+      },
+      "dependencies": {
+        "FlexDC": {
+          "url": "https://github.com/amenon871/FlexDC",
+          "commit": "525dc684d73ab0c6f6c479f5b54811ddf02f1221",
+          "branch": "main",
+          "dirty": false
+        },
+        "CONDOR-FLEXDC": {
+          "url": "https://github.com/NetherMoon/CONDOR-FLEXDC",
+          "commit": "2b653facf31de356d8c682ee76d814bd81b8e95d",
+          "branch": "main",
+          "dirty": false
+        }
+      },
+      "artifact_manifest_sha256": "01b7747391e22549043c9e07203a4754d9ee12bc86d0a0af316fa3d1850ddc62",
+      "checkpoint_sha256": "7f60e28dfc836053064c772c95acc56eb73999b145fa314e98f7b39cf4d0c38a",
+      "source_files": {
+        "src\\argos\\__init__.py": "ba395dec5a98eb0e5a9438c5c74ea5bf73fd06657a78d6da2afd412d83a4302d",
+        "src\\argos\\cli.py": "90fb6fd91dffe9963332d6608f0c0d8ce9035a06f37536ae7058e211018c5359",
+        "src\\argos\\config.py": "c330cf069f51435068e897187a6fd7a18dbc2e781b7dd40c9d73263e1c95a50d",
+        "src\\argos\\contracts.py": "348da8c49519f9e66c5d84e89d751a8c7a3496b4ada9795742edf1e9bcf02a87",
+        "src\\argos\\controller\\__init__.py": "5581d0319f48de5c350eeec21e9694114882d4029028025f8024c607fb43bd9d",
+        "src\\argos\\controller\\argos_controller.py": "4186836e7685d5eea66a29539d5e0d4a418daf6b96f01bf998023292606cf1c9",
+        "src\\argos\\episode.py": "a22726c9ccd0d90a4ebb46f0c06890b855e5b3f4fbae29805273e5620e2b185c",
+        "src\\argos\\provenance.py": "3920ea4cef021c47f0fd577d61f703b1430d50b298a13b4795ad0502f3c86b74",
+        "src\\argos\\reporting\\__init__.py": "bb4520072ebb2724e8b5e96de8c8710f39162a68c5b6f7831ac6ee063cbd36ad",
+        "src\\argos\\reporting\\report.py": "be09e645370b4f01b70350634b50410a181407d7365b1b3c3250fb38a89950d4",
+        "src\\argos\\search\\__init__.py": "1c3b6fa0b316166c236c463b1a7c6be0b3ba824d830afe60408508b998d0d47b",
+        "src\\argos\\search\\candidates.py": "5d50dbbfe21b5c6b70638bae46fefc243af9e262898fe275d08c0c2f63fd5f6e",
+        "src\\argos\\search\\regions.py": "7f6076c245806cca1e166c1a558030f6f49afb9e21992e813ed818ac809b1d75",
+        "src\\argos\\simulator\\__init__.py": "dded54adf89771d49c2ced74ea4d0d93eb4f193e0161125c843e2d02ad54cf7d",
+        "src\\argos\\simulator\\configuration.py": "e3703026c6b80e1ee1bcfc352ec231d264b01a6e601e4b52739754c27efad7c0",
+        "src\\argos\\simulator\\flexdc_adapter.py": "32aeeef4f8b95f16f1aa12f53293720d0eb8ab637e97f27bbfe152235824b277",
+        "src\\argos\\simulator\\output_parser.py": "a959c9f5963fde8313b8717fe38bc69d184c33871f7379b0637c24bd32076d20",
+        "src\\argos\\surrogate\\__init__.py": "738e7149e02a47048e879ecf5ed8e21ba141980deed3559e469dd4f8aeabdfd3",
+        "src\\argos\\surrogate\\v3_adapter.py": "a611042255046fa77363cc71249446ef90411184148e1dd53f785206a053f850",
+        "src\\argos\\types.py": "ad9ae87c4ef160a55d33b884dde8d6b0880e65c5ba8104e43814768ea57d97ba"
+      },
+      "context_hashes": {
+        "configs/workload/W1-train-qos3333.ini": "f166c1b1719f4321fcfc33c063e2716599f61dc3c1ab7f6a2bfaf394e4384f1d",
+        "configs/experiment/new_iso/traditional_signal/generated_server_counts/exp_traditional_iso16_servers_1000.ini": "e358c47a2fb3f33d6480ef8175d8373117b02916a2c2215e36dea85531b62a7e",
+        "configs/cluster/cluster.ini": "da8643388be4618a538d6dc6c0a006ee2d62d64064f47d3a209d83c05d3393d5"
+      },
+      "canonical_cost_sha256": "f20f3f78f53cca79d29c8b077747df86d9a23dc5bf19a5870142154c9b0567c4"
+    }
+  },
+  "actual_simulator_attempts": 10,
+  "batch_wall_seconds": [
+    12.579116299999441,
+    13.14732179999919
+  ],
+  "episode_elapsed_seconds_from_timestamps": 51.105515480041504,
+  "timing_semantics": "Episode elapsed includes setup after manifest creation, V3, region extraction and controller; excludes preflight doctor. Active sum is V3 plus controller only.",
+  "recovery_audit": {
+    "episode_id": "argos_20260913T023923_034870Z",
+    "status": "PASS",
+    "observations_revalidated": 10,
+    "simulator_attempts_before": 10,
+    "simulator_attempts_after": 10,
+    "new_confirmation_evidence": 0
+  }
+}
