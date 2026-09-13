@@ -1,0 +1,42 @@
+{
+  "status": "PASS",
+  "python": "3.12.4 (tags/v3.12.4:8e8a4ba, Jun  6 2024, 19:30:16) [MSC v.1940 64 bit (AMD64)]",
+  "platform": "Windows-11-10.0.26200-SP0",
+  "device": "cpu",
+  "packages": {
+    "numpy": "2.2.6",
+    "pandas": "2.2.2",
+    "scipy": "1.14.0",
+    "torch": "2.4.1",
+    "PyYAML": "6.0.2",
+    "scikit-learn": "1.6.1",
+    "pytest": "9.0.3",
+    "ruff": "0.16.4",
+    "matplotlib": "3.9.0",
+    "psutil": "7.0.0",
+    "tqdm": "4.66.6"
+  },
+  "dependencies": {
+    "FlexDC": {
+      "url": "https://github.com/amenon871/FlexDC",
+      "commit": "525dc684d73ab0c6f6c479f5b54811ddf02f1221",
+      "branch": "main",
+      "dirty": false
+    },
+    "CONDOR-FLEXDC": {
+      "url": "https://github.com/NetherMoon/CONDOR-FLEXDC",
+      "commit": "2b653facf31de356d8c682ee76d814bd81b8e95d",
+      "branch": "main",
+      "dirty": false
+    }
+  },
+  "checkpoint_sha256": "7f60e28dfc836053064c772c95acc56eb73999b145fa314e98f7b39cf4d0c38a",
+  "costs": {
+    "psi1": 1.0,
+    "psi2": 10.0,
+    "tracking_error_constraint": 0.3,
+    "beta": 20.0,
+    "rho": 2.0,
+    "qos_constraint": 0.1
+  }
+}

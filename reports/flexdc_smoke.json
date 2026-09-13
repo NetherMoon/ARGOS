@@ -1,0 +1,103 @@
+{
+  "episode": "<ARGOS_ROOT>\\runs\\smoke_20260912_223103",
+  "observation": {
+    "candidate": {
+      "candidate_id": "smoke-11",
+      "Pbar": 0.52944,
+      "R": 0.317664,
+      "weights": [
+        0.2833333333333333,
+        0.15,
+        0.2833333333333333,
+        0.2833333333333333
+      ],
+      "source": "known V3 fixture",
+      "start_id": null,
+      "iteration": null,
+      "region_id": null,
+      "prediction": {
+        "mean_tracking": 0.03940863162279129,
+        "p90": 0.26338690519332886,
+        "pj": [
+          0.09340186417102814,
+          4.165098488329022e-09,
+          1.2820331463103685e-08,
+          2.675591519174514e-12
+        ],
+        "objective": 72.57596449497393
+      },
+      "provenance": {
+        "plan_row_id": "sweep_v3__W1-train-qos3333__N1000__U060__PR099__W003__seed020"
+      }
+    },
+    "seed": 20,
+    "phase": "smoke",
+    "batch": 0,
+    "valid": true,
+    "metrics": {
+      "mean_tracking": 0.0393586111111111,
+      "p90": 0.258,
+      "pj": [
+        0.12548015364916776,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "objective": 73.20028890479986
+    },
+    "status": "SIMULATOR_OBSERVED_INFEASIBLE",
+    "runtime_seconds": 10.759729899997183,
+    "execution_id": "8e69309677940f43a87ed181",
+    "reported": {
+      "Plan_Row_ID": "8e69309677940f43a87ed181",
+      "Context_ID": "fa2ac14ce36754a5614092c5669318ff9efdfd09b42c8c0e7929098029d1595f",
+      "Workload_Name": "W1-train-qos3333",
+      "Workload_Config": "<ARGOS_ROOT>\\.deps\\FlexDC\\configs\\workload\\W1-train-qos3333.ini",
+      "Pbar_kw_per_server": 0.52944,
+      "R_kw_per_server": 0.317664,
+      "P_actual_watts": 529440,
+      "R_actual_watts": 317664,
+      "server_count": 1000,
+      "utilization": 0.6,
+      "Simulation_Seed": 20,
+      "Policy_Name": "AQA",
+      "workload_mix": "[[199.0, 755.0, 337.0, 1321.0, 3.0, 1.0], [201.0, 763.0, 1185.0, 4592.0, 3.0, 1.0], [200.0, 742.0, 1242.0, 4921.0, 3.0, 1.0], [202.0, 726.0, 1104.0, 4202.0, 3.0, 1.0]]",
+      "weights": [
+        0.2833333333333333,
+        0.15,
+        0.2833333333333333,
+        0.2833333333333333
+      ],
+      "input_hashes": {
+        "<ARGOS_ROOT>\\.deps\\FlexDC\\configs\\workload\\W1-train-qos3333.ini": "f166c1b1719f4321fcfc33c063e2716599f61dc3c1ab7f6a2bfaf394e4384f1d",
+        "<ARGOS_ROOT>\\.deps\\FlexDC\\configs\\cluster\\cluster.ini": "da8643388be4618a538d6dc6c0a006ee2d62d64064f47d3a209d83c05d3393d5",
+        "<ARGOS_ROOT>\\runs\\smoke_20260912_223103\\generated_configs\\argos_gradient.ini": "15cf8fb9c238af2aa6ee8c602dd428fa531a97e8729fb95761af2c0d735bf506",
+        "<ARGOS_ROOT>\\runs\\smoke_20260912_223103\\generated_configs\\8e69309677940f43a87ed181.ini": "e358c47a2fb3f33d6480ef8175d8373117b02916a2c2215e36dea85531b62a7e",
+        "<ARGOS_ROOT>\\runs\\smoke_20260912_223103\\flexdc_raw\\8e69309677940f43a87ed181\\attempt-001\\plan.json": "fc6ec5cdf586d71b0fbfa669b054ac4672fbe9eff0659d1b33e58c03aa12933d",
+        "<ARGOS_ROOT>\\.deps\\FlexDC\\data\\1-17-2025_traditional.csv": "b33e986fa6410b715fc86cd7f3c2e868c42a7379e6cd8eeea99fa81211000413",
+        "<ARGOS_ROOT>\\runs\\smoke_20260912_223103\\flexdc_raw\\8e69309677940f43a87ed181\\attempt-001\\data\\1-17-2025_traditional.csv": "b33e986fa6410b715fc86cd7f3c2e868c42a7379e6cd8eeea99fa81211000413"
+      }
+    },
+    "raw_paths": {
+      "stdout": "<ARGOS_ROOT>\\runs\\smoke_20260912_223103\\flexdc_raw\\8e69309677940f43a87ed181\\attempt-001\\stdout.log",
+      "stderr": "<ARGOS_ROOT>\\runs\\smoke_20260912_223103\\flexdc_raw\\8e69309677940f43a87ed181\\attempt-001\\stderr.log",
+      "execution": "<ARGOS_ROOT>\\runs\\smoke_20260912_223103\\flexdc_raw\\8e69309677940f43a87ed181\\attempt-001\\execution.json",
+      "results": "<ARGOS_ROOT>\\runs\\smoke_20260912_223103\\flexdc_raw\\8e69309677940f43a87ed181\\attempt-001\\engine\\peacsim\\output\\optimization\\candidate_20260912223104\\grid_search_results.csv",
+      "diagnostics": "<ARGOS_ROOT>\\runs\\smoke_20260912_223103\\flexdc_raw\\8e69309677940f43a87ed181\\attempt-001\\engine\\peacsim\\output\\optimization\\candidate_20260912223104\\grid_search_diagnostics.csv"
+    },
+    "error": null,
+    "returncode": 0,
+    "worker": "MainThread",
+    "residuals": {
+      "mean_tracking": -5.002051168018912e-05,
+      "p90": -0.00538690519332885,
+      "pj": [
+        0.03207828947813962,
+        -4.165098488329022e-09,
+        -1.2820331463103685e-08,
+        -2.675591519174514e-12
+      ],
+      "objective": 0.6243244098259311
+    }
+  }
+}

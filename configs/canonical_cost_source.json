@@ -1,0 +1,15 @@
+{
+  "url": "https://raw.githubusercontent.com/peaclab/flexdc-sim/main/configs/optimization/simulated_annealing/SA_train_low_util_RSR_1000server.ini",
+  "retrieved_at_utc": "2026-09-13T02:28:58.209228+00:00",
+  "sha256": "f20f3f78f53cca79d29c8b077747df86d9a23dc5bf19a5870142154c9b0567c4",
+  "used_sections": [
+    "cost_function",
+    "dr_program"
+  ],
+  "ignored_sections": [
+    "initialization",
+    "simulated_annealing",
+    "boundaries",
+    "step_size"
+  ]
+}
