@@ -20,7 +20,7 @@ where = ["src"]
 
 [tool.pytest.ini_options]
 testpaths = ["tests"]
-addopts = "--basetemp=runs/pytest"
+addopts = "--basetemp=.pytest_tmp"
 pythonpath = ["src"]
 
 [tool.ruff]

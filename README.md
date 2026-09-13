@@ -72,11 +72,12 @@ non-finite metric is invalid evidence, not a numerical infeasibility label.
 The monetary cost plus canonical stable softplus tracking and per-job QoS
 penalties defines the reconstructed actual objective.
 
-All observations are retained, including failures. Search ranks measured feasible
+All observations are retained, including failures. Search ranks evidence-qualified feasible
 candidates by actual objective; otherwise it ranks worst normalized violation,
 then total violation, then objective. Every batch reserves independent exploration.
 The selected candidate is frozen before fresh, disjoint-within-episode confirmation
-seeds run. A `CONFIRMATION_2_OF_2_PASS` status means precisely that finite count.
+seeds run. `CONFIRMATION_ALL_PASS`, `CONFIRMATION_PARTIAL_PASS`, and
+`CONFIRMATION_NONE_PASS` refer to evidence-qualified confirmation counts.
 It does not establish universal reliability. Confirmation data never select an
 alternative candidate within that episode.
 
@@ -116,3 +117,48 @@ Dependencies: [FlexDC](https://github.com/amenon871/FlexDC),
 Canonical costs come only from the `cost_function` and `dr_program` sections of
 [the upstream configuration](https://github.com/peaclab/flexdc-sim/blob/main/configs/optimization/simulated_annealing/SA_train_low_util_RSR_1000server.ini).
 SA optimizer settings are never ARGOS optimizer settings.
+
+
+## Publication correctness contract
+
+Simulator selection requires valid execution, numerical feasibility, and at least
+`min_qos_observations_per_type` observations for **every** ordered job type (default
+1). Missing counts are UNKNOWN; zero counts are INSUFFICIENT, even when upstream
+reports Pj=0. Evidence insufficiency is a completed execution, not a fatal simulator
+failure. The objective is unchanged. The threshold only establishes nonempty
+estimators; censored one-hour observations are not statistical reliability evidence.
+See DESIGN.md for the exact nonstandard ranked-CDF numerator/denominator.
+
+`search_mode: fixed_budget` preserves the historical method. `early_stop` waits for
+a qualified bid, a subsequent local refinement batch, and one no-improvement batch
+(default epsilon 1e-6, minimum two batches); hard budgets always bound execution.
+The optional `local_proposal_mode: v3_screened` scores a larger legal local pool and
+retains trade-offs. `measured_random` remains the default; no superiority is claimed.
+`local_radius_mode: fixed` uses the typed radius-policy interface.
+
+`weight_policy: fixed` retains [.15,.45]. `relative_to_equal` explicitly requests
+[.6/J,1.8/J], intersected with pinned upstream server/job bounds. There is no
+automatic J switch. J=3/4/5/6/8 have domain tests, not new simulator campaigns.
+
+`device: cpu|cuda|auto` records the requested and actual device. Explicit unavailable
+CUDA fails. CPU remains the parity authority; GPU results need tolerance-based
+validation. `run_mode: paper` requires clean ARGOS and pinned dependency trees;
+`development` records dirty status. `configs/argos_paper.yaml` is the paper example.
+
+The tracked V3 context contract locks unconditioned signal/system/hardware behavior.
+N, utilization, and workload descriptors are feature-conditioned, which alone does
+not establish generalization. `allow_context_ood: true` explicitly tags mismatches.
+The simulator's one-hour objective restriction still applies.
+
+Generated V3 search files have a hashed, versioned `v3/search_manifest.json`, anchored
+in the episode manifest. Resume verifies it before using candidates and revalidates
+completed simulator evidence. Legacy runs without it are audit-only:
+
+```powershell
+argos audit runs/argos_20260913T024050_620101Z --allow-legacy-audit --output runs/new_w1_audit.json
+```
+
+Audit output must be a new file outside the original episode. Historical reports are
+preserved; the explicit post-audit qualification is in REPORT.md and
+`reports/publication_audit/`. A clean checkout can install `.[dev]`, run pytest,
+Ruff, formatting, and `argos --help` without a `runs/` directory or model artifact.

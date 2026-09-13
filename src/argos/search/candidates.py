@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 from dataclasses import dataclass
+from typing import Protocol
 
 import numpy as np
 
@@ -47,8 +48,8 @@ class Domain:
             or sum(self.upper) < 1 - 1e-12
         ):
             raise ValueError("Infeasible bounded simplex")
-        if min(self.r_max(self.p_lower), self.r_max(self.p_upper)) <= self.r_lower:
-            raise ValueError("Reserve interval must be nondegenerate throughout domain")
+        if min(self.r_max(self.p_lower), self.r_max(self.p_upper)) < self.r_lower - 1e-12:
+            raise ValueError("Negative reserve interval in bid domain")
 
     def r_max(self, pbar: float) -> float:
         return min(self.r_over_p * pbar, self.pr_upper - pbar)
@@ -81,7 +82,11 @@ class Domain:
         )
         return np.r_[
             (candidate.Pbar - self.p_lower) / (self.p_upper - self.p_lower),
-            (candidate.R - self.r_lower) / (self.r_max(candidate.Pbar) - self.r_lower),
+            (
+                (candidate.R - self.r_lower) / (self.r_max(candidate.Pbar) - self.r_lower)
+                if self.r_max(candidate.Pbar) - self.r_lower > 1e-12
+                else 0.0
+            ),
             weights,
         ]
 
@@ -109,7 +114,7 @@ class Domain:
 
     def independent(self, rng: np.random.Generator, candidate_id: str) -> Candidate:
         p = float(rng.uniform(self.p_lower, self.p_upper))
-        r = float(rng.uniform(self.r_lower, self.r_max(p)))
+        r = interval_sample(rng, self.r_lower, self.r_max(p))
         # Sequential conditional allocation samples feasible weights directly.
         order = rng.permutation(len(self.lower))
         w = np.zeros(len(order))
@@ -118,7 +123,7 @@ class Domain:
             rest = order[k + 1 :]
             low = max(self.lower[j], remaining - sum(self.upper[t] for t in rest))
             high = min(self.upper[j], remaining - sum(self.lower[t] for t in rest))
-            w[j] = remaining if k == len(order) - 1 else rng.uniform(low, max(low, high))
+            w[j] = interval_sample(rng, low, high)
             remaining -= w[j]
         candidate = Candidate(candidate_id, p, r, tuple(w.tolist()), "independent")
         self.validate(candidate)
@@ -150,3 +155,22 @@ class Domain:
         )
         self.validate(candidate)
         return candidate
+
+
+def interval_sample(rng: np.random.Generator, low: float, high: float, tolerance=1e-12) -> float:
+    """Only roundoff-width intervals collapse; genuinely empty intervals are errors."""
+    if not np.isfinite([low, high]).all() or high < low - tolerance:
+        raise ValueError("Invalid conditional sampling interval")
+    return float((low + high) / 2) if high - low <= tolerance else float(rng.uniform(low, high))
+
+
+class RadiusPolicy(Protocol):
+    def radius(self, *, batch: int, observations: tuple) -> float: ...
+
+
+@dataclass(frozen=True)
+class FixedRadius:
+    value: float
+
+    def radius(self, *, batch: int, observations: tuple) -> float:
+        return self.value

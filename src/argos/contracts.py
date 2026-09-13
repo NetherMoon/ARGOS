@@ -6,7 +6,7 @@ from dataclasses import dataclass
 
 import numpy as np
 
-from argos.types import Metrics
+from argos.types import FlexDCObservation, Metrics
 
 TRACKING_LIMIT = 0.30
 QOS_LIMIT = 0.10
@@ -51,6 +51,7 @@ def validate_metrics(metrics: Metrics, job_count: int) -> None:
 
 
 def feasible(metrics: Metrics) -> bool:
+    """Numerical feasibility only; simulator eligibility requires qualified()."""
     validate_metrics(metrics, len(metrics.pj))
     return metrics.p90 <= TRACKING_LIMIT and max(metrics.pj) <= QOS_LIMIT
 
@@ -68,3 +69,47 @@ def rank(metrics: Metrics) -> tuple:
         return (0, metrics.objective, 0.0, 0.0)
     worst, total = violations(metrics)
     return (1, worst, total, metrics.objective)
+
+
+def assessment(o: FlexDCObservation, minimum: int = 1) -> dict:
+    numerical = feasible(o.metrics) if o.valid and o.metrics else None
+    evidence = o.qos_evidence
+    known = (
+        o.valid
+        and evidence is not None
+        and o.metrics is not None
+        and len(evidence) == len(o.metrics.pj)
+        and all(
+            e.job.index == i and e.pj == o.metrics.pj[i] and e.observation_count is not None
+            for i, e in enumerate(evidence)
+        )
+    )
+    sufficient = all(e.observation_count >= minimum for e in evidence) if known else None
+    qualified_value = bool(o.valid and numerical and sufficient)
+    return {
+        "execution_valid": o.valid,
+        "numerical_feasible": numerical,
+        "evidence_status": "SUFFICIENT" if sufficient else "INSUFFICIENT" if known else "UNKNOWN",
+        "evidence_sufficient": sufficient,
+        "evidence_qualified_feasible": qualified_value,
+        "min_qos_observations_per_type": minimum,
+        "statistical_reliability_established": False,
+    }
+
+
+def qualified(o: FlexDCObservation, minimum: int = 1) -> bool:
+    return assessment(o, minimum)["evidence_qualified_feasible"]
+
+
+def observation_rank(o: FlexDCObservation, minimum: int = 1) -> tuple:
+    if qualified(o, minimum):
+        return (0, o.metrics.objective, 0, 0)
+    if not o.valid or o.metrics is None:
+        return (3, float("inf"), 0, 0)
+    worst, total = violations(o.metrics)
+    return (
+        1 if assessment(o, minimum)["evidence_sufficient"] else 2,
+        worst,
+        total,
+        o.metrics.objective,
+    )

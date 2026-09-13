@@ -48,10 +48,12 @@ Distance is sqrt((delta_P^2 + delta_Rfraction^2 + mean(delta_weight^2))/3), so e
 of the P, R and weight blocks contributes equally. This is a declared heuristic
 geometry, not a claim of physically optimal distance.
 
-At each snapshot, feasible candidates are interleaved from three stable rankings:
-lowest objective, largest tracking margin, and largest worst-job QoS margin.
-If none are predicted feasible, normalized worst/total violation and objective
-rank the group. At most `promising_per_snapshot` distinct IDs survive. The union
+At each snapshot, round-robin quotas retain lowest-cost predicted-feasible bids,
+best tracking and worst-job QoS margins across all candidates, lowest normalized
+violation across all candidates, a dedicated lowest-violation infeasible quota,
+and geometric diversity. Quotas consume one unseen ID per round; short lists are
+skipped and ties use objective then candidate ID. With at least six slots all
+nonempty categories receive a turn. At most `promising_per_snapshot` IDs survive. The union
 starts with the best global feasibility/objective rank, then interleaves snapshot
 ranks. Near-identical configurations are removed. Greedy radius-separated
 representatives are selected up to `max_regions`; remaining members are assigned
@@ -148,3 +150,95 @@ estimator and output precision are inherited, including zero estimates with limi
 job evidence. Raw traces are preserved for later analysis. A general-purpose
 concurrent-episode lock, broad OOD validation, alternative-duration objective
 contracts, baseline experiments and a release license decision remain future work.
+
+
+## QoS estimator source trace (publication audit)
+
+Pinned FlexDC `src/peacsim/calculate_qos_cost.py:calculate_delay_prob`
+receives `sim_hour=1` from the exact-plan wizard. For each numeric job index,
+its sample contains finished jobs with arrival_time > 0, plus unfinished jobs
+with arrival_time > 0, arrival_time <= 3600, and arrival_time + minimum runtime
+< 3600. A finished job contributes end_time - arrival_time - minimum runtime;
+an eligible unfinished job contributes 3600 - arrival_time - minimum runtime.
+The strict exceedance threshold is qos_constraint * minimum runtime.
+For runs longer than two hours, upstream uses first_hour=1 and
+last_hour=sim_hour-1; the last_hour cutoff applies only to unfinished jobs.
+
+Let n be the sample size and m the number of strict exceedances. Upstream
+sorts the delays and constructs linspace(0, 1, n). For n >= 2 and m > 0,
+Pj = (m - 1)/(n - 1). With no exceedances Pj=0. For n=1, Pj is 1 if the
+single observation exceeds the threshold, otherwise 0. For n=0, upstream
+emits a zero sentinel: this is not evidence of satisfaction. Consequently
+Pj is not m/n, and one exceedance among n>=2 observations also yields zero.
+We retain sample counts, actual exceedance counts, and this estimator's
+separate numerator/denominator; empty samples have no numerator/denominator.
+A minimum of one observation only establishes a nonempty estimator, not a
+confidence interval or statistical reliability. Unfinished observations are
+censored sojourn estimates, not proof that those jobs eventually met QoS.
+
+JobProfileReader assigns numeric indices by INI section order. The exact-plan
+wizard writes those ordered section names in base_weights.csv and writes six
+physical/runtime/QoS/job-size descriptors in workload_mix. Both outputs must
+match the requested ordered workload. Raw job_table.csv preserves the final
+simulator table needed to reconstruct the estimator without simulator edits.
+
+Initial read-only W1 selected/confirmation reconstruction (job order Resnet,
+GPT2, Llama, Bloom): seed20 n=(1563,281,284,375), seed100020
+n=(1432,303,280,309), seed100021 n=(1412,317,323,335). All strict exceedance
+counts are zero. These results pass the minimum-n=1 evidence check. They do
+not establish long-horizon QoS or statistical confidence.
+
+
+## Explicit policy and integrity revisions
+
+The historical controller was fixed-budget and selected numerically feasible bids.
+Current selection uses evidence-qualified feasibility. `fixed_budget` remains the
+default; `early_stop` uses `qualified_local_patience_v1`: at least one qualified
+search observation, at least one completed later batch containing a local proposal,
+minimum two completed batches, and patience=1 without improvement greater than
+absolute epsilon=1e-6. Epsilon is a numerical tolerance, not tuned from W1 outcomes.
+The same function replays saved batches. Confirmation never updates this state.
+If independent slots or unused regions consume all guided capacity, stopping waits
+until a local proposal actually executes. Hard call/batch/wall limits take precedence;
+wall limits are checked between batches, not a mid-simulator cancellation deadline.
+
+Default local proposals are measured_random. Optional v3_screened builds a pool
+four times the remaining guided slots, scores it, and applies tradeoff retention.
+FixedRadius implements RadiusPolicy; no adaptive radius, GP, residual model, or
+reliability model was introduced. Policy versions are centralized in versions.py.
+
+The old retention rule excluded all infeasible candidates whenever feasible points
+existed. The new dedicated infeasible quota prevents that loss. This is a declared
+method change; historical episode artifacts are not regenerated. The search manifest
+hashes starts, snapshots, endpoints, trajectory, candidate_pool, regions and timing;
+CSV and candidate/region counts, snapshot settings and policy versions are checked
+before resume. Existing completed raw files, counts, and state/cache identities are
+also revalidated. These hashes detect accidental changes, not adversarial rewrites of
+both a file and every trusted hash anchor.
+
+Relative weight bounds are an explicit new ARGOS policy. The historical V4 claim
+could not be established in local condor_flexdc_v4 source or its zip archive.
+The actual pinned generic inference calculate_weight_bounds function documents
+relative_lower=.6/J, relative_upper=1.8/J, lower=max(relative_lower,1/N),
+upper=min(relative_upper,1-(J-1)*lower). Its paired-comparison notebook uses the
+same multipliers. This supports the implementation rationale (fraction of equal
+allocation plus at least one server), not attribution to a particular V4 experiment.
+Fixed bounds remain [.15,.45], and fixed J=8 is correctly infeasible.
+
+Zero-width legal reserve edges encode a deterministic zero reserve coordinate.
+Truly negative intervals are rejected; near-zero conditional sampling intervals
+collapse only within 1e-12 roundoff tolerance. No invalid interval is silently widened.
+
+The context contract explicitly records policy, node-count control, duration,
+control granularity, idle watts, cluster hash, ISO content hash, offset, granularity,
+normalization and randomization. No such fields appear in V3's feature lists, so
+unknown changes cannot be treated as conditioned predictions. N/U, workload's six
+ordered descriptors, J and bid variables do appear in the features. Replicate seed
+varies without conditioning; this does not model per-seed randomness. The context
+restriction is conservative and does not claim every trained context was recovered.
+
+Per-job evidence also reports threshold_sojourn_seconds and whether that threshold
+exceeds the simulation horizon. In W1, GPT2/Llama/Bloom require 4740/4968/4416 seconds
+to exceed QoS; the 3600-second run cannot observe those violations for new arrivals.
+Their nonempty censored estimators meet the declared n>=1 rule, but do not establish
+long-horizon QoS. Resnet's corresponding threshold is 1348 seconds.

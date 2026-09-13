@@ -1,3 +1,6 @@
+search_mode: fixed_budget
+run_mode: development
+weight_policy: fixed
 workload: configs/workload/W1-train-qos3333.ini
 experiment: configs/experiment/new_iso/traditional_signal/generated_server_counts/exp_traditional_iso16_servers_1000.ini
 cluster: configs/cluster/cluster.ini

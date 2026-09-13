@@ -17,11 +17,11 @@ from pathlib import Path
 import psutil
 
 from argos.config import Config
-from argos.contracts import feasible
+from argos.contracts import assessment
 from argos.provenance import read_json, sha256, write_json
 from argos.simulator.configuration import canonical_costs, gradient_config, overlay, read_ini
 from argos.simulator.output_parser import parse_output
-from argos.types import Candidate, FlexDCObservation, observation_from_dict
+from argos.types import Candidate, FlexDCObservation, evidence_from_dict, observation_from_dict
 
 
 class FlexDCRunner:
@@ -101,6 +101,7 @@ class FlexDCRunner:
     def evaluate(
         self, candidate: Candidate, seed: int, phase: str, batch: int
     ) -> FlexDCObservation:
+        weight_min, weight_max = self.config.weight_bounds(len(candidate.weights))
         identity = {
             "candidate": asdict(candidate),
             "seed": seed,
@@ -124,7 +125,7 @@ class FlexDCRunner:
             # Re-parse completed valid files. Recovery never creates another execution count.
             if observation.valid:
                 raw = observation.raw_paths
-                parsed, _ = parse_output(
+                parsed, parsed_reported = parse_output(
                     Path(raw["results"]),
                     Path(raw["diagnostics"]),
                     candidate,
@@ -137,6 +138,20 @@ class FlexDCRunner:
                 )
                 if parsed != observation.metrics:
                     raise ValueError("Cached simulator metrics changed")
+                if observation.schema_version < 2:
+                    raise ValueError("Legacy observation requires explicit audit; cannot resume")
+                if parsed_reported["qos_evidence"] != observation.reported.get("qos_evidence"):
+                    raise ValueError("Cached QoS evidence changed")
+                checked_evidence = (
+                    evidence_from_dict(parsed_reported["qos_evidence"])
+                    if parsed_reported["qos_evidence"] is not None
+                    else None
+                )
+                if checked_evidence != observation.qos_evidence:
+                    raise ValueError("Cached typed QoS evidence changed")
+                for path, expected in observation.reported.get("output_hashes", {}).items():
+                    if sha256(Path(path)) != expected:
+                        raise ValueError("Recovery output hash mismatch")
                 for path, expected in observation.reported["input_hashes"].items():
                     if sha256(Path(path)) != expected:
                         raise ValueError("Recovery input hash mismatch")
@@ -185,8 +200,8 @@ class FlexDCRunner:
                     "weights": list(candidate.weights),
                     "simulation_seed": seed,
                     "configured_r_over_p_max": self.config.r_over_p_max,
-                    "configured_weight_lower": self.config.weight_min,
-                    "configured_weight_upper": self.config.weight_max,
+                    "configured_weight_lower": weight_min,
+                    "configured_weight_upper": weight_max,
                 }
             ],
         )
@@ -217,9 +232,9 @@ class FlexDCRunner:
             "--r-over-p-max",
             str(self.config.r_over_p_max),
             "--configured-weight-lower",
-            str(self.config.weight_min),
+            str(weight_min),
             "--configured-weight-upper",
-            str(self.config.weight_max),
+            str(weight_max),
         ]
         env = os.environ.copy()
         env.update(
@@ -279,7 +294,12 @@ class FlexDCRunner:
                 raise ValueError("Expected exactly one simulator result file")
             result = result_paths[0]
             diag = result.with_name("grid_search_diagnostics.csv")
-            paths.update(results=str(result), diagnostics=str(diag))
+            paths.update(
+                results=str(result),
+                diagnostics=str(diag),
+                job_table=str(result.with_name("job_table.csv")),
+                base_weights=str(result.with_name("base_weights.csv")),
+            )
             for path, expected in inputs.items():
                 if sha256(Path(path)) != expected:
                     raise ValueError(f"Input changed during execution: {path}")
@@ -296,11 +316,12 @@ class FlexDCRunner:
             )
             reported["input_hashes"] = inputs
             valid = True
-            status = (
-                "SIMULATOR_OBSERVED_FEASIBLE"
-                if feasible(metrics)
-                else "SIMULATOR_OBSERVED_INFEASIBLE"
-            )
+            reported["output_hashes"] = {
+                str(Path(paths[k])): sha256(Path(paths[k]))
+                for k in ("results", "diagnostics", "job_table", "base_weights")
+                if Path(paths[k]).is_file()
+            }
+            status = "PARSED"
         except (OSError, ValueError, RuntimeError, KeyError, subprocess.TimeoutExpired) as exc:
             error = f"{type(exc).__name__}: {exc}"
             status = (
@@ -332,6 +353,21 @@ class FlexDCRunner:
             returncode,
             threading.current_thread().name,
             residuals,
+            evidence_from_dict(reported["qos_evidence"])
+            if reported.get("qos_evidence") is not None
+            else None,
         )
+        if valid:
+            from dataclasses import replace
+
+            a = assessment(observation, self.config.min_qos_observations_per_type)
+            status = (
+                "EVIDENCE_QUALIFIED_FEASIBLE"
+                if a["evidence_qualified_feasible"]
+                else "QOS_EVIDENCE_" + a["evidence_status"]
+                if not a["evidence_sufficient"]
+                else "SIMULATOR_OBSERVED_INFEASIBLE"
+            )
+            observation = replace(observation, status=status)
         write_json(cache, asdict(observation))
         return observation

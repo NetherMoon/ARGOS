@@ -15,6 +15,21 @@ FIXTURES = Path(__file__).resolve().parents[1] / "fixtures"
 def inputs(tmp_path):
     fixture = json.loads((FIXTURES / "flexdc_observation.json").read_text())
     workload = tmp_path / "W1-train-qos3333.ini"
+    mix = json.loads(pd.read_csv(FIXTURES / "flexdc_results.csv").iloc[0]["workload_mix"])
+    fields = [
+        "min_job_power_watts",
+        "max_job_power_watts",
+        "min_time_seconds",
+        "max_time_seconds",
+        "qos_constraint",
+        "job_size",
+    ]
+    workload.write_text(
+        "\n".join(
+            f"[job{i}]\n" + "\n".join(f"{k}={v}" for k, v in zip(fields, values))
+            for i, values in enumerate(mix)
+        )
+    )
     files = []
     for kind in ["results", "diagnostics"]:
         frame = pd.read_csv(FIXTURES / f"flexdc_{kind}.csv")

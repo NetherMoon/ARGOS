@@ -138,8 +138,8 @@ integration and finite confirmation; no baseline advantage is established.
 Core source was committed in `dc887cd`. The small run began with those source files
 staged before that commit, so its manifest truthfully records the earlier Git HEAD
 and dirty state as well as exact source hashes. The serious run records `dc887cd`
-and its clean source state. Later documentation, tests and export scripts do not
-alter the core scientific algorithm.
+and its clean source state. That describes the historical release. The publication-hardening revision changes
+evidence eligibility and optional search policies; it must not resume those old runs.
 
 To audit cached evidence without executing simulations:
 
@@ -150,3 +150,35 @@ To audit cached evidence without executing simulations:
 
 These audits revalidated all 10 small-episode and 34 serious-episode observations,
 including objective reconstruction and input hashes, with unchanged execution counts.
+
+
+## Publication-hardening release gate
+
+Use a fresh checkout without .deps, model files, runs, cached pytest directories,
+or a reused virtual environment. Create a new environment and install `.[dev]`:
+
+```powershell
+python -m venv .venv
+.\.venv\Scripts\python.exe -m pip install -e '.[dev]'
+.\.venv\Scripts\python.exe -m pytest -q
+.\.venv\Scripts\python.exe -m ruff check .
+.\.venv\Scripts\python.exe -m ruff format --check .
+.\.venv\Scripts\argos.exe --help
+```
+
+Pytest uses .pytest_tmp directly; no manual runs directory is needed. Artifact tests
+skip with an explicit reason. GitHub Actions runs the same artifact-free gate.
+A passing portable gate does not substitute for local artifact parity or real evidence.
+Current paper configs explicitly declare clean-tree mode, search mode, and evidence
+threshold. Doctor writes ignored runs/doctor_environment.json, preserving clean state.
+
+The new `argos audit` command checks objective reconstruction, raw counts, ordered
+identities, input/output hashes where available, budgets and confirmation isolation.
+Use --allow-legacy-audit for old search artifacts lacking a trusted V3 manifest;
+audit success does not retroactively grant resume integrity. Post-audit files are
+separate and original historical state/summary/raw files remain unchanged.
+
+The validation scope for this remediation is CPU parity, portable and full tests,
+historical raw-data audits, and one exact audit-only simulator invocation using a
+new seed. No W2, mixed-workload, or real variable-J campaign is authorized by this
+release gate. Historical fixed-budget results are not presented as early-stop runs.

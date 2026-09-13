@@ -12,6 +12,7 @@ from datetime import datetime, timezone
 from pathlib import Path
 
 from argos.config import Config
+from argos.context import check_context
 from argos.controller.argos_controller import Controller
 from argos.provenance import (
     ARTIFACT,
@@ -24,10 +25,11 @@ from argos.provenance import (
 )
 from argos.reporting.report import report
 from argos.search.candidates import Domain
+from argos.search.integrity import verify_search_manifest, write_search_manifest
 from argos.search.regions import extract_regions, from_snapshot, promising
 from argos.simulator.configuration import canonical_costs, read_ini
 from argos.simulator.flexdc_adapter import FlexDCRunner
-from argos.surrogate.v3_adapter import V3Adapter
+from argos.surrogate.v3_adapter import V3Adapter, resolve_device
 from argos.types import Candidate, Metrics, Region, candidate_from_dict
 
 
@@ -38,13 +40,16 @@ def source_identity(root: Path) -> dict:
 
 def doctor(root: Path, config: Config) -> dict:
     config.validate()
+    if config.run_mode == "paper" and git(root, "status", "--porcelain"):
+        raise ValueError("Paper mode requires a clean ARGOS working tree")
+    context = check_context(root, config)
     dependencies = verify_dependencies(root)
     manifest = read_json(root / "artifact_manifest.json")
     for name, expected in manifest["files"].items():
         if sha256(root / ARTIFACT / name) != expected["sha256"]:
             raise ValueError(f"Immutable artifact changed: {name}")
     costs = canonical_costs(root)
-    adapter = V3Adapter(root, config.torch_threads)
+    adapter = V3Adapter(root, config.torch_threads, config.device)
     constants = adapter.loaded.constants
     if [
         costs.psi1,
@@ -85,6 +90,10 @@ def doctor(root: Path, config: Config) -> dict:
     probe.unlink()
     result = {
         "status": "PASS",
+        "context": context,
+        "run_mode": config.run_mode,
+        "argos_dirty": bool(git(root, "status", "--porcelain")),
+        "device_metadata": adapter.device_metadata,
         "python": sys.version,
         "platform": platform.platform(),
         "device": str(adapter.loaded.device),
@@ -108,13 +117,15 @@ def doctor(root: Path, config: Config) -> dict:
         "checkpoint_sha256": manifest["files"][CHECKPOINT]["sha256"],
         "costs": asdict(costs),
     }
-    write_json(root / "reports/environment.json", result)
+    write_json(root / "runs/doctor_environment.json", result)
     return result
 
 
 def episode_identity(root: Path, config: Config) -> dict:
     flexdc = root / ".deps/FlexDC"
     return {
+        "context_contract": check_context(root, config),
+        "device_metadata": resolve_device(config.device, config.torch_threads)[1],
         "runtime": {
             n: importlib.metadata.version(n)
             for n in ["numpy", "pandas", "scipy", "torch", "PyYAML"]
@@ -138,6 +149,10 @@ def run_episode(root: Path, config_path: Path | None = None, resume: Path | None
         manifest = read_json(episode / "manifest.json")
         if sha256(episode / "resolved_config.yaml") != manifest["resolved_config_sha256"]:
             raise ValueError("Resolved episode configuration changed")
+        if "v3_search_manifest_sha256" not in manifest:
+            raise ValueError("LEGACY_UNTRUSTED_SEARCH: explicit audit only; cannot resume")
+        verify_search_manifest(episode / "v3", config, manifest["v3_search_manifest_sha256"])
+        doctor(root, config)
         if episode_identity(root, config) != manifest["input_identity"]:
             raise ValueError("Resume source/dependency/artifact/context identity changed")
     else:
@@ -159,7 +174,7 @@ def run_episode(root: Path, config_path: Path | None = None, resume: Path | None
         write_json(episode / "dependency_manifest.json", read_json(root / "dependency_lock.json"))
         write_json(episode / "artifact_manifest.json", read_json(root / "artifact_manifest.json"))
     print(f"Episode: {episode}", flush=True)
-    adapter = V3Adapter(root, config.torch_threads)
+    adapter = V3Adapter(root, config.torch_threads, config.device)
     workload, experiment = adapter.context(
         root / ".deps/FlexDC" / config.workload,
         root / ".deps/FlexDC" / config.experiment,
@@ -167,12 +182,13 @@ def run_episode(root: Path, config_path: Path | None = None, resume: Path | None
         config.utilization,
         config.search_seed,
     )
+    weight_min, weight_max = config.weight_bounds(workload.job_count)
     settings = adapter.api.OptimizationSettings(
         starts=config.starts,
         iterations=config.iterations,
         random_seed=config.candidate_seed,
-        weight_min=config.weight_min,
-        weight_max=config.weight_max,
+        weight_min=weight_min,
+        weight_max=weight_max,
         r_over_p_max=config.r_over_p_max,
     )
     bounds = adapter.api.calculate_pr_bounds(workload)
@@ -206,6 +222,10 @@ def run_episode(root: Path, config_path: Path | None = None, resume: Path | None
     v3dir = episode / "v3"
     v3dir.mkdir(exist_ok=True)
     if not (v3dir / "regions.json").exists():
+        if (episode / "state.json").exists() or any(
+            (episode / "flexdc_raw").glob("*/attempt-*/execution.json")
+        ):
+            raise ValueError("Cannot regenerate V3 candidates after simulator work")
         start = time.perf_counter()
         endpoints, snapshots, trajectory = adapter.optimize(
             workload=workload,
@@ -229,7 +249,7 @@ def run_episode(root: Path, config_path: Path | None = None, resume: Path | None
             frame.to_csv(v3dir / f"{name}.csv", index=False)
         candidates = [from_snapshot(row, config.iterations) for row in snapshots.to_dict("records")]
         pool, regions = extract_regions(
-            promising(candidates, config.promising_per_snapshot),
+            promising(candidates, config.promising_per_snapshot, domain),
             domain,
             config.max_regions,
             config.region_distance,
@@ -242,6 +262,7 @@ def run_episode(root: Path, config_path: Path | None = None, resume: Path | None
             {
                 "wall_seconds": v3_seconds,
                 "device": str(adapter.loaded.device),
+                "device_metadata": adapter.device_metadata,
                 "torch_threads": config.torch_threads,
                 "starts": config.starts,
                 "iterations": config.iterations,
@@ -251,11 +272,18 @@ def run_episode(root: Path, config_path: Path | None = None, resume: Path | None
                 "regions": len(regions),
             },
         )
+        manifest = read_json(episode / "manifest.json")
+        manifest["v3_search_manifest_sha256"] = write_search_manifest(v3dir, config)
+        manifest["device_metadata"] = adapter.device_metadata
+        write_json(episode / "manifest.json", manifest)
         print(
             f"V3: {len(snapshots)} snapshots, {len(pool)} distinct promising candidates, {len(regions)} regions, {v3_seconds:.2f} seconds",
             flush=True,
         )
     else:
+        verify_search_manifest(
+            v3dir, config, read_json(episode / "manifest.json")["v3_search_manifest_sha256"]
+        )
         regions = [
             Region(
                 r["region_id"],
@@ -268,6 +296,18 @@ def run_episode(root: Path, config_path: Path | None = None, resume: Path | None
         ]
     simulator = FlexDCRunner(root, episode, config)
     controller = Controller(episode, config, domain, regions, simulator, predict)
+    if resume:
+        for observation in controller.state.observations:
+            cache = episode / "flexdc_raw" / observation.execution_id / "observation.json"
+            if not cache.is_file():
+                raise ValueError("Missing completed observation cache on resume")
+            if (
+                simulator.evaluate(
+                    observation.candidate, observation.seed, observation.phase, observation.batch
+                )
+                != observation
+            ):
+                raise ValueError("Resume state/cache observation mismatch")
     try:
         state = controller.run()
     except Exception as exc:

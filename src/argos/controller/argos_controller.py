@@ -11,9 +11,11 @@ from typing import Protocol
 import numpy as np
 
 from argos.config import Config
-from argos.contracts import feasible, rank
+from argos.contracts import observation_rank, qualified
+from argos.controller.stopping import early_stop_details
 from argos.provenance import read_json, write_json
-from argos.search.candidates import Domain
+from argos.search.candidates import Domain, FixedRadius
+from argos.search.regions import tradeoff_select
 from argos.types import (
     Candidate,
     FlexDCObservation,
@@ -65,6 +67,7 @@ class Controller:
         self.episode = episode
         self.config = config
         self.domain = domain
+        self.radius_policy = FixedRadius(config.local_radius)
         self.regions = regions
         self.simulator = simulator
         self.predictor = predictor
@@ -85,7 +88,10 @@ class Controller:
     def measured(self) -> list[FlexDCObservation]:
         return sorted(
             [o for o in self.state.observations if o.phase == "search" and o.valid],
-            key=lambda o: (rank(o.metrics), o.candidate.candidate_id),
+            key=lambda o: (
+                observation_rank(o, self.config.min_qos_observations_per_type),
+                o.candidate.candidate_id,
+            ),
         )
 
     def next_batch(self) -> list[Candidate]:
@@ -133,13 +139,34 @@ class Controller:
                     anchors.append(observation.candidate)
                 if len(anchors) >= c.max_regions:
                     break
-            while len(chosen) < guided_slots and serial < 500:
+            local_pool = []
+            target = (guided_slots - len(chosen)) * c.local_screen_pool_factor
+            while (
+                len(local_pool) < target
+                if c.local_proposal_mode == "v3_screened"
+                else len(chosen) < guided_slots
+            ) and serial < 500:
                 anchor = anchors[serial % len(anchors)]
                 proposal = self.domain.local(
-                    anchor, rng, c.local_radius, f"b{batch:03d}-local-{serial:04d}"
+                    anchor,
+                    rng,
+                    self.radius_policy.radius(batch=batch, observations=tuple(s.observations)),
+                    f"b{batch:03d}-local-{serial:04d}",
                 )
-                add(proposal)
+                if c.local_proposal_mode == "v3_screened":
+                    if all(
+                        self.domain.distance(proposal, other) > c.dedupe_distance
+                        for other in used + chosen + local_pool
+                    ):
+                        local_pool.append(self.predictor(proposal))
+                else:
+                    add(proposal)
                 serial += 1
+            if local_pool:
+                for proposal in tradeoff_select(
+                    local_pool, guided_slots - len(chosen), self.domain
+                ):
+                    add(proposal)
         while len(chosen) < size and serial < 1500:
             add(self.domain.independent(rng, f"b{batch:03d}-independent-{serial:04d}"))
             serial += 1
@@ -156,8 +183,20 @@ class Controller:
                     or s.search_calls >= c.max_search_calls
                     or (c.max_wall_seconds is not None and elapsed >= c.max_wall_seconds)
                 )
-                if not s.pending and exhausted:
-                    self.select_for_confirmation("configured search budget exhausted")
+                early = (
+                    c.search_mode == "early_stop" and early_stop_details(s.observations, c)["stop"]
+                )
+                if not s.pending and (exhausted or early):
+                    reason = (
+                        "HARD_MAX_SEARCH_CALLS"
+                        if s.search_calls >= c.max_search_calls
+                        else "HARD_MAX_SEARCH_BATCHES"
+                        if s.completed_batches >= c.max_search_batches
+                        else "HARD_MAX_WALL_SECONDS"
+                        if exhausted
+                        else "EARLY_STOP_QUALIFIED_LOCAL_PATIENCE"
+                    )
+                    self.select_for_confirmation(reason)
                     continue
                 if not s.pending:
                     s.pending = self.next_batch()
@@ -191,14 +230,14 @@ class Controller:
                     },
                 )
                 valid = self.measured()
-                if valid and feasible(valid[0].metrics):
+                if valid and qualified(valid[0], self.config.min_qos_observations_per_type):
                     s.incumbent = valid[0].candidate
                 if any(not o.valid for o in results):
                     s.phase = "ERROR"
                     s.stop_reason = "invalid simulator evidence; inspect preserved raw outputs"
                 self.save()
                 print(
-                    f"Batch {batch}: {sum(o.valid for o in results)}/{len(results)} valid, {sum(o.valid and feasible(o.metrics) for o in results)} observed feasible; {s.search_calls}/{c.max_search_calls} search calls",
+                    f"Batch {batch}: {sum(o.valid for o in results)}/{len(results)} valid, {sum(qualified(o, c.min_qos_observations_per_type) for o in results)} observed feasible; {s.search_calls}/{c.max_search_calls} search calls",
                     flush=True,
                 )
             elif s.phase == "CONFIRM":
@@ -232,7 +271,7 @@ class Controller:
         s = self.state
         s.stop_reason = reason
         valid = self.measured()
-        if valid and feasible(valid[0].metrics):
+        if valid and qualified(valid[0], self.config.min_qos_observations_per_type):
             s.incumbent = replace(valid[0].candidate)
             s.phase = "CONFIRM"
             write_json(self.episode / "final/selected_candidate.json", asdict(s.incumbent))

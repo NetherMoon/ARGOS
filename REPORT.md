@@ -1,3 +1,5 @@
+> Historical implementation results below are preserved. Current scientific qualifications and release validation appear in the post-audit sections at the end.
+
 # ARGOS implementation and real-results report
 
 A simulator-observed feasible bid was found. The selected candidate in the serious
@@ -131,3 +133,54 @@ The parity command requires regenerating the known plan first; the exact command
 installation procedure and all declared inputs are in REPRODUCIBILITY.md.
 See reports/argos_20260913T024050_620101Z/summary.json and observations.csv for full
 machine-readable evidence. All original raw simulator files remain under runs/.
+
+
+## Post-audit evidence qualification
+
+Starting revision: d656070c5b0e8d7cf26f99afdfc86d681e5ff687. The source trace
+establishes a ranked-CDF statistic, not violations/n: for n>=2, Pj=max(m-1,0)/(n-1),
+where m is the strict delay exceedance count. For n=1 it is the indicator of an
+exceedance; for n=0 upstream emits zero without an estimator denominator.
+Counts are reconstructed from final job_table.csv using upstream finished/unfinished
+masks, with section identity checked against base_weights.csv and workload_mix.
+No dependency or original raw output was edited.
+
+The default evidence threshold is n>=1 for each type. This means a nonempty
+estimator only. Unknown or empty evidence is ineligible even if numerical metrics
+pass. No objective value or feasibility threshold was changed.
+
+| Serious W1 observation | Pj (Resnet, GPT2, Llama, Bloom) | Sample counts in that order | Numerical feasible | Evidence sufficient (n>=1) | Evidence-qualified |
+|---|---|---|---|---|---|
+| Search seed 20 | [0,0,0,0] | [1563,281,284,375] | Yes | Yes | Yes |
+| Confirmation 100020 | [0,0,0,0] | [1432,303,280,309] | Yes | Yes | Yes |
+| Confirmation 100021 | [0,0,0,0] | [1412,317,323,335] | Yes | Yes | Yes |
+
+Finished counts are [1302,0,0,90], [1140,0,6,80], and [1254,0,0,72], respectively.
+The remaining observations are eligible unfinished jobs, not completed jobs.
+All exceedance counts are zero. GPT2, Llama and Bloom sojourn thresholds exceed
+the one-hour horizon (4740, 4968 and 4416 seconds), so those zeros do not establish
+eventual QoS satisfaction. The result is qualified solely under the declared
+nonempty-estimator rule and must not be described as statistically reliable.
+
+All 34 serious and 10 small observations re-audit successfully; serious search
+has 16 qualified feasible observations and confirmations are ALL_PASS (2/2).
+No historical rerun or new confirmation seed was needed. Saved files lacked the
+new V3 manifest and remain explicitly LEGACY_UNTRUSTED_SEARCH for resume purposes.
+See reports/publication_audit for the complete separate per-observation audit.
+
+## Search-policy replay and remediation scope
+
+Historical behavior remains fixed_budget. Offline replay of serious W1 with the
+predeclared default early-stop rule finds first eligible call 1, winning batch 1,
+a later local-refinement batch 2 without objective improvement >1e-6, and a stop
+at 16 search calls. The actual run used 32: 16 calls would have been avoided.
+No simulations were executed for this replay and it does not claim a new result.
+Small W1 replay uses all 8 recorded calls and saves none.
+
+The release adds explicit context and paper-mode gates, CPU/CUDA/auto selection,
+relative-to-equal weight policy with J=3/4/5/6/8 domain tests, generated search
+hashes, full ordered job identities, and all/partial/none confirmation statuses.
+The prior feasible-only retention bug is fixed with all-candidate tradeoffs and
+a dedicated infeasible/diversity quota. Optional V3 local screening is tested;
+measured_random and fixed radius remain defaults. No broad scientific campaign,
+GP, residual model, or reliability model was introduced.

@@ -5,6 +5,8 @@ from __future__ import annotations
 from dataclasses import dataclass, field
 from typing import Any
 
+from argos.versions import OBSERVATION_SCHEMA
+
 
 @dataclass(frozen=True)
 class Metrics:
@@ -38,6 +40,54 @@ class Region:
 
 
 @dataclass(frozen=True)
+class JobIdentity:
+    index: int
+    section: str
+    descriptors: tuple[float, ...]
+
+
+@dataclass(frozen=True)
+class QoSEvidence:
+    job: JobIdentity
+    pj: float
+    observation_count: int | None = None
+    finished_count: int | None = None
+    unfinished_count: int | None = None
+    exceedance_count: int | None = None
+    estimator_numerator: int | None = None
+    estimator_denominator: int | None = None
+    estimator: str = "flexdc_rank_cdf_v1"
+    horizon_seconds: float = 3600.0
+    threshold_sojourn_seconds: float | None = None
+    threshold_exceeds_horizon: bool | None = None
+
+    def __post_init__(self) -> None:
+        n = self.observation_count
+        counts = (self.finished_count, self.unfinished_count, self.exceedance_count)
+        if n is None:
+            if any(
+                v is not None
+                for v in (*counts, self.estimator_numerator, self.estimator_denominator)
+            ):
+                raise ValueError("Unknown sample size cannot have known estimator counts")
+            return
+        if isinstance(n, bool) or not isinstance(n, int) or n < 0:
+            raise ValueError("Invalid QoS observation count")
+        if any(isinstance(v, bool) or not isinstance(v, int) or v < 0 for v in counts):
+            raise ValueError("Incomplete QoS count reconstruction")
+        if self.finished_count + self.unfinished_count != n or self.exceedance_count > n:
+            raise ValueError("Inconsistent QoS counts")
+        m = self.exceedance_count
+        numerator = max(m - 1, 0) if n >= 2 else m if n else None
+        denominator = n - 1 if n >= 2 else 1 if n else None
+        if (self.estimator_numerator, self.estimator_denominator) != (numerator, denominator):
+            raise ValueError("Inconsistent QoS estimator numerator/denominator")
+        expected = numerator / denominator if n else 0
+        if abs(self.pj - expected) > 1e-10:
+            raise ValueError("Inconsistent reconstructed QoS probability")
+
+
+@dataclass(frozen=True)
 class FlexDCObservation:
     candidate: Candidate
     seed: int
@@ -54,6 +104,8 @@ class FlexDCObservation:
     returncode: int | None = None
     worker: str = ""
     residuals: dict[str, Any] = field(default_factory=dict)
+    qos_evidence: tuple[QoSEvidence, ...] | None = None
+    schema_version: int = OBSERVATION_SCHEMA
 
 
 def candidate_from_dict(data: dict) -> Candidate:
@@ -73,4 +125,19 @@ def observation_from_dict(data: dict) -> FlexDCObservation:
         metrics = dict(data["metrics"])
         metrics["pj"] = tuple(metrics["pj"])
         data["metrics"] = Metrics(**metrics)
+    if data.get("qos_evidence") is not None:
+        data["qos_evidence"] = evidence_from_dict(data["qos_evidence"])
+    if "schema_version" not in data:
+        data["schema_version"] = 1  # Historical files never acquire evidence implicitly.
     return FlexDCObservation(**data)
+
+
+def evidence_from_dict(rows: list[dict]) -> tuple[QoSEvidence, ...]:
+    result = []
+    for row in rows:
+        row = dict(row)
+        job = dict(row["job"])
+        job["descriptors"] = tuple(job["descriptors"])
+        row["job"] = JobIdentity(**job)
+        result.append(QoSEvidence(**row))
+    return tuple(result)

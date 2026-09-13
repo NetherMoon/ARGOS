@@ -9,7 +9,9 @@ from pathlib import Path
 
 import pandas as pd
 
+from argos.contracts import assessment
 from argos.provenance import read_json, write_json
+from argos.types import observation_from_dict
 
 
 def portable(value, root: Path):
@@ -49,7 +51,11 @@ def main() -> None:
     summary["timing_semantics"] = (
         "Episode elapsed includes setup after manifest creation, V3, region extraction and controller; excludes preflight doctor. Active sum is V3 plus controller only."
     )
-    summary["recovery_audit"] = read_json(episode / "recovery_audit.json")
+    summary["recovery_audit"] = (
+        read_json(episode / "recovery_audit.json")
+        if (episode / "recovery_audit.json").is_file()
+        else None
+    )
     target = root / "reports" / episode.name
     target.mkdir(parents=True, exist_ok=True)
     write_json(target / "summary.json", portable(summary, root))
@@ -60,6 +66,12 @@ def main() -> None:
         p = c["prediction"]
         rows.append(
             {
+                **assessment(
+                    observation_from_dict(o),
+                    summary["config"].get("min_qos_observations_per_type", 1),
+                ),
+                "qos_evidence": json.dumps(o.get("qos_evidence")),
+                "actual_max_pj": max(m["pj"]) if m else None,
                 "candidate_id": c["candidate_id"],
                 "Pbar": c["Pbar"],
                 "R": c["R"],

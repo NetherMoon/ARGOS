@@ -1,0 +1,4689 @@
+{
+  "audit_schema": 2,
+  "episode_id": "argos_20260913T024050_620101Z",
+  "status": "PASS",
+  "historical_search_integrity": "LEGACY_UNTRUSTED_SEARCH",
+  "historical_records_modified": false,
+  "new_simulator_calls": 0,
+  "failures": [],
+  "observations": [
+    {
+      "execution_id": "b11562bb9799226fcdca2bd1",
+      "candidate_id": "v3-1500-0265",
+      "phase": "search",
+      "seed": 20,
+      "batch": 1,
+      "original_status": "SIMULATOR_OBSERVED_FEASIBLE",
+      "metrics": {
+        "mean_tracking": 0.001645,
+        "p90": 0.006,
+        "pj": [
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "objective": 62.603871176479714
+      },
+      "assessment": {
+        "execution_valid": true,
+        "numerical_feasible": true,
+        "evidence_status": "SUFFICIENT",
+        "evidence_sufficient": true,
+        "evidence_qualified_feasible": true,
+        "min_qos_observations_per_type": 1,
+        "statistical_reliability_established": false
+      },
+      "qos_evidence": [
+        {
+          "job": {
+            "index": 0,
+            "section": "Resnet.train.4",
+            "descriptors": [
+              199.0,
+              755.0,
+              337.0,
+              1321.0,
+              3.0,
+              1.0
+            ]
+          },
+          "pj": 0.0,
+          "observation_count": 1563,
+          "finished_count": 1302,
+          "unfinished_count": 261,
+          "exceedance_count": 0,
+          "estimator_numerator": 0,
+          "estimator_denominator": 1562,
+          "estimator": "flexdc_rank_cdf_v1",
+          "horizon_seconds": 3600,
+          "threshold_sojourn_seconds": 1348.0,
+          "threshold_exceeds_horizon": false
+        },
+        {
+          "job": {
+            "index": 1,
+            "section": "GPT2.train.4",
+            "descriptors": [
+              201.0,
+              763.0,
+              1185.0,
+              4592.0,
+              3.0,
+              1.0
+            ]
+          },
+          "pj": 0.0,
+          "observation_count": 281,
+          "finished_count": 0,
+          "unfinished_count": 281,
+          "exceedance_count": 0,
+          "estimator_numerator": 0,
+          "estimator_denominator": 280,
+          "estimator": "flexdc_rank_cdf_v1",
+          "horizon_seconds": 3600,
+          "threshold_sojourn_seconds": 4740.0,
+          "threshold_exceeds_horizon": true
+        },
+        {
+          "job": {
+            "index": 2,
+            "section": "Llama.train.4",
+            "descriptors": [
+              200.0,
+              742.0,
+              1242.0,
+              4921.0,
+              3.0,
+              1.0
+            ]
+          },
+          "pj": 0.0,
+          "observation_count": 284,
+          "finished_count": 0,
+          "unfinished_count": 284,
+          "exceedance_count": 0,
+          "estimator_numerator": 0,
+          "estimator_denominator": 283,
+          "estimator": "flexdc_rank_cdf_v1",
+          "horizon_seconds": 3600,
+          "threshold_sojourn_seconds": 4968.0,
+          "threshold_exceeds_horizon": true
+        },
+        {
+          "job": {
+            "index": 3,
+            "section": "Bloom.train.4",
+            "descriptors": [
+              202.0,
+              726.0,
+              1104.0,
+              4202.0,
+              3.0,
+              1.0
+            ]
+          },
+          "pj": 0.0,
+          "observation_count": 375,
+          "finished_count": 90,
+          "unfinished_count": 285,
+          "exceedance_count": 0,
+          "estimator_numerator": 0,
+          "estimator_denominator": 374,
+          "estimator": "flexdc_rank_cdf_v1",
+          "horizon_seconds": 3600,
+          "threshold_sojourn_seconds": 4416.0,
+          "threshold_exceeds_horizon": true
+        }
+      ],
+      "workload_fingerprint": "c27f7b07e02c1303065548d4900791a4f9d281d6223411d4400845c30085dd87",
+      "raw_hashes": {
+        "grid_search_results.csv": "52f5c52b686c486cb385c72a2f51669f21ca1097ec9b128b58d9fddd6d76ad49",
+        "grid_search_diagnostics.csv": "fdfa976573db3a87892603387de094388c6ddbf02ea20cd4dee5e7c2c2c45fc6",
+        "job_table.csv": "593e1a91f6c59b32fcc6592119cf39c7974dff40c9d6a480fcee5e10f0249ed7",
+        "base_weights.csv": "0c63c86082b3768f86b2c3dd763e76961ced4b46630ff3dd4e2dc706beb0db0e"
+      }
+    },
+    {
+      "execution_id": "8fab21e2b0d9a4e40af1b6da",
+      "candidate_id": "v3-0000-0270",
+      "phase": "search",
+      "seed": 20,
+      "batch": 1,
+      "original_status": "SIMULATOR_OBSERVED_FEASIBLE",
+      "metrics": {
+        "mean_tracking": 0.0338847222222222,
+        "p90": 0.216,
+        "pj": [
+          0.07106274007682467,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "objective": 75.27260508898158
+      },
+      "assessment": {
+        "execution_valid": true,
+        "numerical_feasible": true,
+        "evidence_status": "SUFFICIENT",
+        "evidence_sufficient": true,
+        "evidence_qualified_feasible": true,
+        "min_qos_observations_per_type": 1,
+        "statistical_reliability_established": false
+      },
+      "qos_evidence": [
+        {
+          "job": {
+            "index": 0,
+            "section": "Resnet.train.4",
+            "descriptors": [
+              199.0,
+              755.0,
+              337.0,
+              1321.0,
+              3.0,
+              1.0
+            ]
+          },
+          "pj": 0.07106274007682467,
+          "observation_count": 1563,
+          "finished_count": 1380,
+          "unfinished_count": 183,
+          "exceedance_count": 112,
+          "estimator_numerator": 111,
+          "estimator_denominator": 1562,
+          "estimator": "flexdc_rank_cdf_v1",
+          "horizon_seconds": 3600,
+          "threshold_sojourn_seconds": 1348.0,
+          "threshold_exceeds_horizon": false
+        },
+        {
+          "job": {
+            "index": 1,
+            "section": "GPT2.train.4",
+            "descriptors": [
+              201.0,
+              763.0,
+              1185.0,
+              4592.0,
+              3.0,
+              1.0
+            ]
+          },
+          "pj": 0.0,
+          "observation_count": 281,
+          "finished_count": 234,
+          "unfinished_count": 47,
+          "exceedance_count": 0,
+          "estimator_numerator": 0,
+          "estimator_denominator": 280,
+          "estimator": "flexdc_rank_cdf_v1",
+          "horizon_seconds": 3600,
+          "threshold_sojourn_seconds": 4740.0,
+          "threshold_exceeds_horizon": true
+        },
+        {
+          "job": {
+            "index": 2,
+            "section": "Llama.train.4",
+            "descriptors": [
+              200.0,
+              742.0,
+              1242.0,
+              4921.0,
+              3.0,
+              1.0
+            ]
+          },
+          "pj": 0.0,
+          "observation_count": 284,
+          "finished_count": 240,
+          "unfinished_count": 44,
+          "exceedance_count": 0,
+          "estimator_numerator": 0,
+          "estimator_denominator": 283,
+          "estimator": "flexdc_rank_cdf_v1",
+          "horizon_seconds": 3600,
+          "threshold_sojourn_seconds": 4968.0,
+          "threshold_exceeds_horizon": true
+        },
+        {
+          "job": {
+            "index": 3,
+            "section": "Bloom.train.4",
+            "descriptors": [
+              202.0,
+              726.0,
+              1104.0,
+              4202.0,
+              3.0,
+              1.0
+            ]
+          },
+          "pj": 0.0,
+          "observation_count": 375,
+          "finished_count": 271,
+          "unfinished_count": 104,
+          "exceedance_count": 0,
+          "estimator_numerator": 0,
+          "estimator_denominator": 374,
+          "estimator": "flexdc_rank_cdf_v1",
+          "horizon_seconds": 3600,
+          "threshold_sojourn_seconds": 4416.0,
+          "threshold_exceeds_horizon": true
+        }
+      ],
+      "workload_fingerprint": "c27f7b07e02c1303065548d4900791a4f9d281d6223411d4400845c30085dd87",
+      "raw_hashes": {
+        "grid_search_results.csv": "4dbb0e674a9f06ce434bff990a5d4770d48e30a3ef22a849a9de6099c31a6828",
+        "grid_search_diagnostics.csv": "8e038345e86f7ff74ce18dc8870bbaf81510e05d969a589c1d0a7dd1b1a266cc",
+        "job_table.csv": "116c7fdda6495ed8a76a017d2d9ce243b26aa0a36c58836f65afb9ee68478371",
+        "base_weights.csv": "c02326df31aeb79e42772c6b28733f67c3eb7fa4b00cca4bd5d49d1c9caaec4c"
+      }
+    },
+    {
+      "execution_id": "0934e0cb391c058ba2b26df5",
+      "candidate_id": "v3-0000-0276",
+      "phase": "search",
+      "seed": 20,
+      "batch": 1,
+      "original_status": "SIMULATOR_OBSERVED_INFEASIBLE",
+      "metrics": {
+        "mean_tracking": 0.0022797222222222,
+        "p90": 0.005,
+        "pj": [
+          0.33738796414852756,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "objective": 97.79082204155218
+      },
+      "assessment": {
+        "execution_valid": true,
+        "numerical_feasible": false,
+        "evidence_status": "SUFFICIENT",
+        "evidence_sufficient": true,
+        "evidence_qualified_feasible": false,
+        "min_qos_observations_per_type": 1,
+        "statistical_reliability_established": false
+      },
+      "qos_evidence": [
+        {
+          "job": {
+            "index": 0,
+            "section": "Resnet.train.4",
+            "descriptors": [
+              199.0,
+              755.0,
+              337.0,
+              1321.0,
+              3.0,
+              1.0
+            ]
+          },
+          "pj": 0.33738796414852756,
+          "observation_count": 1563,
+          "finished_count": 1098,
+          "unfinished_count": 465,
+          "exceedance_count": 528,
+          "estimator_numerator": 527,
+          "estimator_denominator": 1562,
+          "estimator": "flexdc_rank_cdf_v1",
+          "horizon_seconds": 3600,
+          "threshold_sojourn_seconds": 1348.0,
+          "threshold_exceeds_horizon": false
+        },
+        {
+          "job": {
+            "index": 1,
+            "section": "GPT2.train.4",
+            "descriptors": [
+              201.0,
+              763.0,
+              1185.0,
+              4592.0,
+              3.0,
+              1.0
+            ]
+          },
+          "pj": 0.0,
+          "observation_count": 281,
+          "finished_count": 200,
+          "unfinished_count": 81,
+          "exceedance_count": 0,
+          "estimator_numerator": 0,
+          "estimator_denominator": 280,
+          "estimator": "flexdc_rank_cdf_v1",
+          "horizon_seconds": 3600,
+          "threshold_sojourn_seconds": 4740.0,
+          "threshold_exceeds_horizon": true
+        },
+        {
+          "job": {
+            "index": 2,
+            "section": "Llama.train.4",
+            "descriptors": [
+              200.0,
+              742.0,
+              1242.0,
+              4921.0,
+              3.0,
+              1.0
+            ]
+          },
+          "pj": 0.0,
+          "observation_count": 284,
+          "finished_count": 207,
+          "unfinished_count": 77,
+          "exceedance_count": 0,
+          "estimator_numerator": 0,
+          "estimator_denominator": 283,
+          "estimator": "flexdc_rank_cdf_v1",
+          "horizon_seconds": 3600,
+          "threshold_sojourn_seconds": 4968.0,
+          "threshold_exceeds_horizon": true
+        },
+        {
+          "job": {
+            "index": 3,
+            "section": "Bloom.train.4",
+            "descriptors": [
+              202.0,
+              726.0,
+              1104.0,
+              4202.0,
+              3.0,
+              1.0
+            ]
+          },
+          "pj": 0.0,
+          "observation_count": 375,
+          "finished_count": 262,
+          "unfinished_count": 113,
+          "exceedance_count": 0,
+          "estimator_numerator": 0,
+          "estimator_denominator": 374,
+          "estimator": "flexdc_rank_cdf_v1",
+          "horizon_seconds": 3600,
+          "threshold_sojourn_seconds": 4416.0,
+          "threshold_exceeds_horizon": true
+        }
+      ],
+      "workload_fingerprint": "c27f7b07e02c1303065548d4900791a4f9d281d6223411d4400845c30085dd87",
+      "raw_hashes": {
+        "grid_search_results.csv": "27ab42e385f9a761febab1e1e981832763cdbdc7f5b42125f0ce78357c5f7a11",
+        "grid_search_diagnostics.csv": "9f4120999bef8f226e40fa4a3453e6d254f558969414a54c80ccb0cc51ec51a3",
+        "job_table.csv": "89a8f557ee1e8423fb9a23ef62b2febd03aee3aa14a5532227e927f0065b4df8",
+        "base_weights.csv": "d15860590ee5efbb3ac72e81d02a73aacb0595fe5879548648a3733f5869505b"
+      }
+    },
+    {
+      "execution_id": "5acbaa374e9eee0cbc84e72e",
+      "candidate_id": "v3-0100-0210",
+      "phase": "search",
+      "seed": 20,
+      "batch": 1,
+      "original_status": "SIMULATOR_OBSERVED_FEASIBLE",
+      "metrics": {
+        "mean_tracking": 0.0012733333333333,
+        "p90": 0.005,
+        "pj": [
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "objective": 71.78218428645023
+      },
+      "assessment": {
+        "execution_valid": true,
+        "numerical_feasible": true,
+        "evidence_status": "SUFFICIENT",
+        "evidence_sufficient": true,
+        "evidence_qualified_feasible": true,
+        "min_qos_observations_per_type": 1,
+        "statistical_reliability_established": false
+      },
+      "qos_evidence": [
+        {
+          "job": {
+            "index": 0,
+            "section": "Resnet.train.4",
+            "descriptors": [
+              199.0,
+              755.0,
+              337.0,
+              1321.0,
+              3.0,
+              1.0
+            ]
+          },
+          "pj": 0.0,
+          "observation_count": 1563,
+          "finished_count": 1364,
+          "unfinished_count": 199,
+          "exceedance_count": 0,
+          "estimator_numerator": 0,
+          "estimator_denominator": 1562,
+          "estimator": "flexdc_rank_cdf_v1",
+          "horizon_seconds": 3600,
+          "threshold_sojourn_seconds": 1348.0,
+          "threshold_exceeds_horizon": false
+        },
+        {
+          "job": {
+            "index": 1,
+            "section": "GPT2.train.4",
+            "descriptors": [
+              201.0,
+              763.0,
+              1185.0,
+              4592.0,
+              3.0,
+              1.0
+            ]
+          },
+          "pj": 0.0,
+          "observation_count": 281,
+          "finished_count": 176,
+          "unfinished_count": 105,
+          "exceedance_count": 0,
+          "estimator_numerator": 0,
+          "estimator_denominator": 280,
+          "estimator": "flexdc_rank_cdf_v1",
+          "horizon_seconds": 3600,
+          "threshold_sojourn_seconds": 4740.0,
+          "threshold_exceeds_horizon": true
+        },
+        {
+          "job": {
+            "index": 2,
+            "section": "Llama.train.4",
+            "descriptors": [
+              200.0,
+              742.0,
+              1242.0,
+              4921.0,
+              3.0,
+              1.0
+            ]
+          },
+          "pj": 0.0,
+          "observation_count": 284,
+          "finished_count": 93,
+          "unfinished_count": 191,
+          "exceedance_count": 0,
+          "estimator_numerator": 0,
+          "estimator_denominator": 283,
+          "estimator": "flexdc_rank_cdf_v1",
+          "horizon_seconds": 3600,
+          "threshold_sojourn_seconds": 4968.0,
+          "threshold_exceeds_horizon": true
+        },
+        {
+          "job": {
+            "index": 3,
+            "section": "Bloom.train.4",
+            "descriptors": [
+              202.0,
+              726.0,
+              1104.0,
+              4202.0,
+              3.0,
+              1.0
+            ]
+          },
+          "pj": 0.0,
+          "observation_count": 375,
+          "finished_count": 262,
+          "unfinished_count": 113,
+          "exceedance_count": 0,
+          "estimator_numerator": 0,
+          "estimator_denominator": 374,
+          "estimator": "flexdc_rank_cdf_v1",
+          "horizon_seconds": 3600,
+          "threshold_sojourn_seconds": 4416.0,
+          "threshold_exceeds_horizon": true
+        }
+      ],
+      "workload_fingerprint": "c27f7b07e02c1303065548d4900791a4f9d281d6223411d4400845c30085dd87",
+      "raw_hashes": {
+        "grid_search_results.csv": "16f7324b58e54305b93629fdd8e200a9baf5303ee94e25286077bcbfdff1f4ce",
+        "grid_search_diagnostics.csv": "36b37bbb116ac0d81b9d64edaf04fd4421660431386458a23714fd66ccc9de0c",
+        "job_table.csv": "1bc29d981c438662f21a4d30a797bd0d703e52983ba76fbe80744b0952036eb2",
+        "base_weights.csv": "e1115df0bb9cb1d01952e53db060fb2401223c88fd3449f198161411ff1641ee"
+      }
+    },
+    {
+      "execution_id": "01e4da0a7ba437a61d916d7c",
+      "candidate_id": "v3-0000-0226",
+      "phase": "search",
+      "seed": 20,
+      "batch": 1,
+      "original_status": "SIMULATOR_OBSERVED_FEASIBLE",
+      "metrics": {
+        "mean_tracking": 0.0875855555555555,
+        "p90": 0.119,
+        "pj": [
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "objective": 99.57000864735275
+      },
+      "assessment": {
+        "execution_valid": true,
+        "numerical_feasible": true,
+        "evidence_status": "SUFFICIENT",
+        "evidence_sufficient": true,
+        "evidence_qualified_feasible": true,
+        "min_qos_observations_per_type": 1,
+        "statistical_reliability_established": false
+      },
+      "qos_evidence": [
+        {
+          "job": {
+            "index": 0,
+            "section": "Resnet.train.4",
+            "descriptors": [
+              199.0,
+              755.0,
+              337.0,
+              1321.0,
+              3.0,
+              1.0
+            ]
+          },
+          "pj": 0.0,
+          "observation_count": 1563,
+          "finished_count": 1560,
+          "unfinished_count": 3,
+          "exceedance_count": 0,
+          "estimator_numerator": 0,
+          "estimator_denominator": 1562,
+          "estimator": "flexdc_rank_cdf_v1",
+          "horizon_seconds": 3600,
+          "threshold_sojourn_seconds": 1348.0,
+          "threshold_exceeds_horizon": false
+        },
+        {
+          "job": {
+            "index": 1,
+            "section": "GPT2.train.4",
+            "descriptors": [
+              201.0,
+              763.0,
+              1185.0,
+              4592.0,
+              3.0,
+              1.0
+            ]
+          },
+          "pj": 0.0,
+          "observation_count": 281,
+          "finished_count": 156,
+          "unfinished_count": 125,
+          "exceedance_count": 0,
+          "estimator_numerator": 0,
+          "estimator_denominator": 280,
+          "estimator": "flexdc_rank_cdf_v1",
+          "horizon_seconds": 3600,
+          "threshold_sojourn_seconds": 4740.0,
+          "threshold_exceeds_horizon": true
+        },
+        {
+          "job": {
+            "index": 2,
+            "section": "Llama.train.4",
+            "descriptors": [
+              200.0,
+              742.0,
+              1242.0,
+              4921.0,
+              3.0,
+              1.0
+            ]
+          },
+          "pj": 0.0,
+          "observation_count": 284,
+          "finished_count": 201,
+          "unfinished_count": 83,
+          "exceedance_count": 0,
+          "estimator_numerator": 0,
+          "estimator_denominator": 283,
+          "estimator": "flexdc_rank_cdf_v1",
+          "horizon_seconds": 3600,
+          "threshold_sojourn_seconds": 4968.0,
+          "threshold_exceeds_horizon": true
+        },
+        {
+          "job": {
+            "index": 3,
+            "section": "Bloom.train.4",
+            "descriptors": [
+              202.0,
+              726.0,
+              1104.0,
+              4202.0,
+              3.0,
+              1.0
+            ]
+          },
+          "pj": 0.0,
+          "observation_count": 375,
+          "finished_count": 270,
+          "unfinished_count": 105,
+          "exceedance_count": 0,
+          "estimator_numerator": 0,
+          "estimator_denominator": 374,
+          "estimator": "flexdc_rank_cdf_v1",
+          "horizon_seconds": 3600,
+          "threshold_sojourn_seconds": 4416.0,
+          "threshold_exceeds_horizon": true
+        }
+      ],
+      "workload_fingerprint": "c27f7b07e02c1303065548d4900791a4f9d281d6223411d4400845c30085dd87",
+      "raw_hashes": {
+        "grid_search_results.csv": "ff908734237f75dfac98bced3021cea6207df64051c462269a1ffdb4fae5bdcc",
+        "grid_search_diagnostics.csv": "4f3b6fd93f8230fc536524220885bf1106f95d87cb42dacefb9cf18e8445bd61",
+        "job_table.csv": "93772784dc4f3c11e45a50f0483289e00409a6d983b92e32a7dba1602b86f8f2",
+        "base_weights.csv": "69e60f6ffbd71cf5c8d25a732a4a57cc787c90c4ecefc9f51c35f7ba3e01d263"
+      }
+    },
+    {
+      "execution_id": "b28c5a6266f22cbba77500ff",
+      "candidate_id": "v3-0550-0467",
+      "phase": "search",
+      "seed": 20,
+      "batch": 1,
+      "original_status": "SIMULATOR_OBSERVED_FEASIBLE",
+      "metrics": {
+        "mean_tracking": 0.0586783333333333,
+        "p90": 0.018,
+        "pj": [
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "objective": 85.77164372270633
+      },
+      "assessment": {
+        "execution_valid": true,
+        "numerical_feasible": true,
+        "evidence_status": "SUFFICIENT",
+        "evidence_sufficient": true,
+        "evidence_qualified_feasible": true,
+        "min_qos_observations_per_type": 1,
+        "statistical_reliability_established": false
+      },
+      "qos_evidence": [
+        {
+          "job": {
+            "index": 0,
+            "section": "Resnet.train.4",
+            "descriptors": [
+              199.0,
+              755.0,
+              337.0,
+              1321.0,
+              3.0,
+              1.0
+            ]
+          },
+          "pj": 0.0,
+          "observation_count": 1563,
+          "finished_count": 1527,
+          "unfinished_count": 36,
+          "exceedance_count": 0,
+          "estimator_numerator": 0,
+          "estimator_denominator": 1562,
+          "estimator": "flexdc_rank_cdf_v1",
+          "horizon_seconds": 3600,
+          "threshold_sojourn_seconds": 1348.0,
+          "threshold_exceeds_horizon": false
+        },
+        {
+          "job": {
+            "index": 1,
+            "section": "GPT2.train.4",
+            "descriptors": [
+              201.0,
+              763.0,
+              1185.0,
+              4592.0,
+              3.0,
+              1.0
+            ]
+          },
+          "pj": 0.0,
+          "observation_count": 281,
+          "finished_count": 100,
+          "unfinished_count": 181,
+          "exceedance_count": 0,
+          "estimator_numerator": 0,
+          "estimator_denominator": 280,
+          "estimator": "flexdc_rank_cdf_v1",
+          "horizon_seconds": 3600,
+          "threshold_sojourn_seconds": 4740.0,
+          "threshold_exceeds_horizon": true
+        },
+        {
+          "job": {
+            "index": 2,
+            "section": "Llama.train.4",
+            "descriptors": [
+              200.0,
+              742.0,
+              1242.0,
+              4921.0,
+              3.0,
+              1.0
+            ]
+          },
+          "pj": 0.0,
+          "observation_count": 284,
+          "finished_count": 65,
+          "unfinished_count": 219,
+          "exceedance_count": 0,
+          "estimator_numerator": 0,
+          "estimator_denominator": 283,
+          "estimator": "flexdc_rank_cdf_v1",
+          "horizon_seconds": 3600,
+          "threshold_sojourn_seconds": 4968.0,
+          "threshold_exceeds_horizon": true
+        },
+        {
+          "job": {
+            "index": 3,
+            "section": "Bloom.train.4",
+            "descriptors": [
+              202.0,
+              726.0,
+              1104.0,
+              4202.0,
+              3.0,
+              1.0
+            ]
+          },
+          "pj": 0.0,
+          "observation_count": 375,
+          "finished_count": 45,
+          "unfinished_count": 330,
+          "exceedance_count": 0,
+          "estimator_numerator": 0,
+          "estimator_denominator": 374,
+          "estimator": "flexdc_rank_cdf_v1",
+          "horizon_seconds": 3600,
+          "threshold_sojourn_seconds": 4416.0,
+          "threshold_exceeds_horizon": true
+        }
+      ],
+      "workload_fingerprint": "c27f7b07e02c1303065548d4900791a4f9d281d6223411d4400845c30085dd87",
+      "raw_hashes": {
+        "grid_search_results.csv": "e6d43af06e37f462dacccb37dcf4c087774cde36924d6e01d56cc5ecbe1f15f2",
+        "grid_search_diagnostics.csv": "d31dd8a751a80d16d7a188733fd21e617b7f98a12f9ca8eb369293ca98a35016",
+        "job_table.csv": "126cfd0aa379b9a134774f2c44e3579d018864985c83f5166f72d75445e74fc8",
+        "base_weights.csv": "f468423f84ec0d12ae4dce0861b3b98a07c6b591f59f263f25e370335db1a29c"
+      }
+    },
+    {
+      "execution_id": "e409925f7d8def053451cdb2",
+      "candidate_id": "b001-independent-0000",
+      "phase": "search",
+      "seed": 20,
+      "batch": 1,
+      "original_status": "SIMULATOR_OBSERVED_INFEASIBLE",
+      "metrics": {
+        "mean_tracking": 0.0017875,
+        "p90": 0.006,
+        "pj": [
+          0.6952624839948784,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "objective": 105.07968346335815
+      },
+      "assessment": {
+        "execution_valid": true,
+        "numerical_feasible": false,
+        "evidence_status": "SUFFICIENT",
+        "evidence_sufficient": true,
+        "evidence_qualified_feasible": false,
+        "min_qos_observations_per_type": 1,
+        "statistical_reliability_established": false
+      },
+      "qos_evidence": [
+        {
+          "job": {
+            "index": 0,
+            "section": "Resnet.train.4",
+            "descriptors": [
+              199.0,
+              755.0,
+              337.0,
+              1321.0,
+              3.0,
+              1.0
+            ]
+          },
+          "pj": 0.6952624839948784,
+          "observation_count": 1563,
+          "finished_count": 568,
+          "unfinished_count": 995,
+          "exceedance_count": 1087,
+          "estimator_numerator": 1086,
+          "estimator_denominator": 1562,
+          "estimator": "flexdc_rank_cdf_v1",
+          "horizon_seconds": 3600,
+          "threshold_sojourn_seconds": 1348.0,
+          "threshold_exceeds_horizon": false
+        },
+        {
+          "job": {
+            "index": 1,
+            "section": "GPT2.train.4",
+            "descriptors": [
+              201.0,
+              763.0,
+              1185.0,
+              4592.0,
+              3.0,
+              1.0
+            ]
+          },
+          "pj": 0.0,
+          "observation_count": 281,
+          "finished_count": 160,
+          "unfinished_count": 121,
+          "exceedance_count": 0,
+          "estimator_numerator": 0,
+          "estimator_denominator": 280,
+          "estimator": "flexdc_rank_cdf_v1",
+          "horizon_seconds": 3600,
+          "threshold_sojourn_seconds": 4740.0,
+          "threshold_exceeds_horizon": true
+        },
+        {
+          "job": {
+            "index": 2,
+            "section": "Llama.train.4",
+            "descriptors": [
+              200.0,
+              742.0,
+              1242.0,
+              4921.0,
+              3.0,
+              1.0
+            ]
+          },
+          "pj": 0.0,
+          "observation_count": 284,
+          "finished_count": 105,
+          "unfinished_count": 179,
+          "exceedance_count": 0,
+          "estimator_numerator": 0,
+          "estimator_denominator": 283,
+          "estimator": "flexdc_rank_cdf_v1",
+          "horizon_seconds": 3600,
+          "threshold_sojourn_seconds": 4968.0,
+          "threshold_exceeds_horizon": true
+        },
+        {
+          "job": {
+            "index": 3,
+            "section": "Bloom.train.4",
+            "descriptors": [
+              202.0,
+              726.0,
+              1104.0,
+              4202.0,
+              3.0,
+              1.0
+            ]
+          },
+          "pj": 0.0,
+          "observation_count": 375,
+          "finished_count": 269,
+          "unfinished_count": 106,
+          "exceedance_count": 0,
+          "estimator_numerator": 0,
+          "estimator_denominator": 374,
+          "estimator": "flexdc_rank_cdf_v1",
+          "horizon_seconds": 3600,
+          "threshold_sojourn_seconds": 4416.0,
+          "threshold_exceeds_horizon": true
+        }
+      ],
+      "workload_fingerprint": "c27f7b07e02c1303065548d4900791a4f9d281d6223411d4400845c30085dd87",
+      "raw_hashes": {
+        "grid_search_results.csv": "77909e84bdd7a9ae0d83154b86acad9840d90e52e177174e9fba8cfc01bfa06d",
+        "grid_search_diagnostics.csv": "36218a64681d244e49bb26b5ac4e3d270f835a43c9e107458c1a559bb3215d6b",
+        "job_table.csv": "b35e9c4bf37d3803ff6ccb0c241767889d2e03ed0fae2486460eefa8f7ef02d1",
+        "base_weights.csv": "2e73c1913a4e6f8575a36708afc16179ca480553affddf2e38f973e119c1b703"
+      }
+    },
+    {
+      "execution_id": "57adb744c421730a163ac0bb",
+      "candidate_id": "b001-independent-0001",
+      "phase": "search",
+      "seed": 20,
+      "batch": 1,
+      "original_status": "SIMULATOR_OBSERVED_INFEASIBLE",
+      "metrics": {
+        "mean_tracking": 0.0022169444444444,
+        "p90": 0.007,
+        "pj": [
+          0.6952624839948784,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "objective": 110.06013104392613
+      },
+      "assessment": {
+        "execution_valid": true,
+        "numerical_feasible": false,
+        "evidence_status": "SUFFICIENT",
+        "evidence_sufficient": true,
+        "evidence_qualified_feasible": false,
+        "min_qos_observations_per_type": 1,
+        "statistical_reliability_established": false
+      },
+      "qos_evidence": [
+        {
+          "job": {
+            "index": 0,
+            "section": "Resnet.train.4",
+            "descriptors": [
+              199.0,
+              755.0,
+              337.0,
+              1321.0,
+              3.0,
+              1.0
+            ]
+          },
+          "pj": 0.6952624839948784,
+          "observation_count": 1563,
+          "finished_count": 584,
+          "unfinished_count": 979,
+          "exceedance_count": 1087,
+          "estimator_numerator": 1086,
+          "estimator_denominator": 1562,
+          "estimator": "flexdc_rank_cdf_v1",
+          "horizon_seconds": 3600,
+          "threshold_sojourn_seconds": 1348.0,
+          "threshold_exceeds_horizon": false
+        },
+        {
+          "job": {
+            "index": 1,
+            "section": "GPT2.train.4",
+            "descriptors": [
+              201.0,
+              763.0,
+              1185.0,
+              4592.0,
+              3.0,
+              1.0
+            ]
+          },
+          "pj": 0.0,
+          "observation_count": 281,
+          "finished_count": 152,
+          "unfinished_count": 129,
+          "exceedance_count": 0,
+          "estimator_numerator": 0,
+          "estimator_denominator": 280,
+          "estimator": "flexdc_rank_cdf_v1",
+          "horizon_seconds": 3600,
+          "threshold_sojourn_seconds": 4740.0,
+          "threshold_exceeds_horizon": true
+        },
+        {
+          "job": {
+            "index": 2,
+            "section": "Llama.train.4",
+            "descriptors": [
+              200.0,
+              742.0,
+              1242.0,
+              4921.0,
+              3.0,
+              1.0
+            ]
+          },
+          "pj": 0.0,
+          "observation_count": 284,
+          "finished_count": 199,
+          "unfinished_count": 85,
+          "exceedance_count": 0,
+          "estimator_numerator": 0,
+          "estimator_denominator": 283,
+          "estimator": "flexdc_rank_cdf_v1",
+          "horizon_seconds": 3600,
+          "threshold_sojourn_seconds": 4968.0,
+          "threshold_exceeds_horizon": true
+        },
+        {
+          "job": {
+            "index": 3,
+            "section": "Bloom.train.4",
+            "descriptors": [
+              202.0,
+              726.0,
+              1104.0,
+              4202.0,
+              3.0,
+              1.0
+            ]
+          },
+          "pj": 0.0,
+          "observation_count": 375,
+          "finished_count": 372,
+          "unfinished_count": 3,
+          "exceedance_count": 0,
+          "estimator_numerator": 0,
+          "estimator_denominator": 374,
+          "estimator": "flexdc_rank_cdf_v1",
+          "horizon_seconds": 3600,
+          "threshold_sojourn_seconds": 4416.0,
+          "threshold_exceeds_horizon": true
+        }
+      ],
+      "workload_fingerprint": "c27f7b07e02c1303065548d4900791a4f9d281d6223411d4400845c30085dd87",
+      "raw_hashes": {
+        "grid_search_results.csv": "c770ada22b0fe14ee1ec09bf5fb30d48741c76eb4b28c3864e673cab611cc0a3",
+        "grid_search_diagnostics.csv": "3f8608767efddfbb4d90120a9c4190d66296796dc7499fc258e6a5a3c63fe23d",
+        "job_table.csv": "c24929c3f72c0e40a5afc0a3c825adb1f4fee34aa4b896470f5e179775844402",
+        "base_weights.csv": "83fd62758546cbe4a4e0ebf1ca80e74a3afdf1bb86c7e7bc749b3139607c7ed4"
+      }
+    },
+    {
+      "execution_id": "8692be34194604d5d4c9e74a",
+      "candidate_id": "b002-local-0000",
+      "phase": "search",
+      "seed": 20,
+      "batch": 2,
+      "original_status": "SIMULATOR_OBSERVED_FEASIBLE",
+      "metrics": {
+        "mean_tracking": 0.001915,
+        "p90": 0.007,
+        "pj": [
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "objective": 64.96315398888105
+      },
+      "assessment": {
+        "execution_valid": true,
+        "numerical_feasible": true,
+        "evidence_status": "SUFFICIENT",
+        "evidence_sufficient": true,
+        "evidence_qualified_feasible": true,
+        "min_qos_observations_per_type": 1,
+        "statistical_reliability_established": false
+      },
+      "qos_evidence": [
+        {
+          "job": {
+            "index": 0,
+            "section": "Resnet.train.4",
+            "descriptors": [
+              199.0,
+              755.0,
+              337.0,
+              1321.0,
+              3.0,
+              1.0
+            ]
+          },
+          "pj": 0.0,
+          "observation_count": 1563,
+          "finished_count": 1440,
+          "unfinished_count": 123,
+          "exceedance_count": 0,
+          "estimator_numerator": 0,
+          "estimator_denominator": 1562,
+          "estimator": "flexdc_rank_cdf_v1",
+          "horizon_seconds": 3600,
+          "threshold_sojourn_seconds": 1348.0,
+          "threshold_exceeds_horizon": false
+        },
+        {
+          "job": {
+            "index": 1,
+            "section": "GPT2.train.4",
+            "descriptors": [
+              201.0,
+              763.0,
+              1185.0,
+              4592.0,
+              3.0,
+              1.0
+            ]
+          },
+          "pj": 0.0,
+          "observation_count": 281,
+          "finished_count": 16,
+          "unfinished_count": 265,
+          "exceedance_count": 0,
+          "estimator_numerator": 0,
+          "estimator_denominator": 280,
+          "estimator": "flexdc_rank_cdf_v1",
+          "horizon_seconds": 3600,
+          "threshold_sojourn_seconds": 4740.0,
+          "threshold_exceeds_horizon": true
+        },
+        {
+          "job": {
+            "index": 2,
+            "section": "Llama.train.4",
+            "descriptors": [
+              200.0,
+              742.0,
+              1242.0,
+              4921.0,
+              3.0,
+              1.0
+            ]
+          },
+          "pj": 0.0,
+          "observation_count": 284,
+          "finished_count": 49,
+          "unfinished_count": 235,
+          "exceedance_count": 0,
+          "estimator_numerator": 0,
+          "estimator_denominator": 283,
+          "estimator": "flexdc_rank_cdf_v1",
+          "horizon_seconds": 3600,
+          "threshold_sojourn_seconds": 4968.0,
+          "threshold_exceeds_horizon": true
+        },
+        {
+          "job": {
+            "index": 3,
+            "section": "Bloom.train.4",
+            "descriptors": [
+              202.0,
+              726.0,
+              1104.0,
+              4202.0,
+              3.0,
+              1.0
+            ]
+          },
+          "pj": 0.0,
+          "observation_count": 375,
+          "finished_count": 201,
+          "unfinished_count": 174,
+          "exceedance_count": 0,
+          "estimator_numerator": 0,
+          "estimator_denominator": 374,
+          "estimator": "flexdc_rank_cdf_v1",
+          "horizon_seconds": 3600,
+          "threshold_sojourn_seconds": 4416.0,
+          "threshold_exceeds_horizon": true
+        }
+      ],
+      "workload_fingerprint": "c27f7b07e02c1303065548d4900791a4f9d281d6223411d4400845c30085dd87",
+      "raw_hashes": {
+        "grid_search_results.csv": "50bf5f45597bc3f40d8036a5f2cfe12f377e712c3865aed7943c7609fd786a2c",
+        "grid_search_diagnostics.csv": "0fcb0c6587b625edc50e1317fd4c233639ba723c604bc04e9ce969db29d06afa",
+        "job_table.csv": "e706c301811de9d1dce0f5169d5efa61d47d3fbe5628308c72de15687dab3104",
+        "base_weights.csv": "c0a86a46f46b20f2672d891b25e0b324e961e6b9a2db1f8d8d6d84bcdf89b7fa"
+      }
+    },
+    {
+      "execution_id": "461d246e4f7fe02ba3b649a0",
+      "candidate_id": "b002-local-0001",
+      "phase": "search",
+      "seed": 20,
+      "batch": 2,
+      "original_status": "SIMULATOR_OBSERVED_INFEASIBLE",
+      "metrics": {
+        "mean_tracking": 0.0084241666666666,
+        "p90": 0.027,
+        "pj": [
+          0.24327784891165172,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "objective": 75.13957108798547
+      },
+      "assessment": {
+        "execution_valid": true,
+        "numerical_feasible": false,
+        "evidence_status": "SUFFICIENT",
+        "evidence_sufficient": true,
+        "evidence_qualified_feasible": false,
+        "min_qos_observations_per_type": 1,
+        "statistical_reliability_established": false
+      },
+      "qos_evidence": [
+        {
+          "job": {
+            "index": 0,
+            "section": "Resnet.train.4",
+            "descriptors": [
+              199.0,
+              755.0,
+              337.0,
+              1321.0,
+              3.0,
+              1.0
+            ]
+          },
+          "pj": 0.24327784891165172,
+          "observation_count": 1563,
+          "finished_count": 1015,
+          "unfinished_count": 548,
+          "exceedance_count": 381,
+          "estimator_numerator": 380,
+          "estimator_denominator": 1562,
+          "estimator": "flexdc_rank_cdf_v1",
+          "horizon_seconds": 3600,
+          "threshold_sojourn_seconds": 1348.0,
+          "threshold_exceeds_horizon": false
+        },
+        {
+          "job": {
+            "index": 1,
+            "section": "GPT2.train.4",
+            "descriptors": [
+              201.0,
+              763.0,
+              1185.0,
+              4592.0,
+              3.0,
+              1.0
+            ]
+          },
+          "pj": 0.0,
+          "observation_count": 281,
+          "finished_count": 184,
+          "unfinished_count": 97,
+          "exceedance_count": 0,
+          "estimator_numerator": 0,
+          "estimator_denominator": 280,
+          "estimator": "flexdc_rank_cdf_v1",
+          "horizon_seconds": 3600,
+          "threshold_sojourn_seconds": 4740.0,
+          "threshold_exceeds_horizon": true
+        },
+        {
+          "job": {
+            "index": 2,
+            "section": "Llama.train.4",
+            "descriptors": [
+              200.0,
+              742.0,
+              1242.0,
+              4921.0,
+              3.0,
+              1.0
+            ]
+          },
+          "pj": 0.0,
+          "observation_count": 284,
+          "finished_count": 226,
+          "unfinished_count": 58,
+          "exceedance_count": 0,
+          "estimator_numerator": 0,
+          "estimator_denominator": 283,
+          "estimator": "flexdc_rank_cdf_v1",
+          "horizon_seconds": 3600,
+          "threshold_sojourn_seconds": 4968.0,
+          "threshold_exceeds_horizon": true
+        },
+        {
+          "job": {
+            "index": 3,
+            "section": "Bloom.train.4",
+            "descriptors": [
+              202.0,
+              726.0,
+              1104.0,
+              4202.0,
+              3.0,
+              1.0
+            ]
+          },
+          "pj": 0.0,
+          "observation_count": 375,
+          "finished_count": 264,
+          "unfinished_count": 111,
+          "exceedance_count": 0,
+          "estimator_numerator": 0,
+          "estimator_denominator": 374,
+          "estimator": "flexdc_rank_cdf_v1",
+          "horizon_seconds": 3600,
+          "threshold_sojourn_seconds": 4416.0,
+          "threshold_exceeds_horizon": true
+        }
+      ],
+      "workload_fingerprint": "c27f7b07e02c1303065548d4900791a4f9d281d6223411d4400845c30085dd87",
+      "raw_hashes": {
+        "grid_search_results.csv": "d6dde106508a03c4d8b00638d4671c0592c087eccfb4005f1ce603bc9c609858",
+        "grid_search_diagnostics.csv": "e89429625a0e3d1668a4c0e00c1b739b7c6b860141a6b6d75eb0fef5f501e1f2",
+        "job_table.csv": "f38646b0297a54088aed39c2416814ced11b19f15d3380924a377f91d9e4e5e2",
+        "base_weights.csv": "bfb9c1fa1715288e7a337f36a67fe617ddfa63fcef60e3f855810bd3cc3ae682"
+      }
+    },
+    {
+      "execution_id": "2fcabbfbecd50476ce4eb0bb",
+      "candidate_id": "b002-local-0002",
+      "phase": "search",
+      "seed": 20,
+      "batch": 2,
+      "original_status": "SIMULATOR_OBSERVED_INFEASIBLE",
+      "metrics": {
+        "mean_tracking": 0.0902097222222222,
+        "p90": 0.391,
+        "pj": [
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "objective": 81.4714337890256
+      },
+      "assessment": {
+        "execution_valid": true,
+        "numerical_feasible": false,
+        "evidence_status": "SUFFICIENT",
+        "evidence_sufficient": true,
+        "evidence_qualified_feasible": false,
+        "min_qos_observations_per_type": 1,
+        "statistical_reliability_established": false
+      },
+      "qos_evidence": [
+        {
+          "job": {
+            "index": 0,
+            "section": "Resnet.train.4",
+            "descriptors": [
+              199.0,
+              755.0,
+              337.0,
+              1321.0,
+              3.0,
+              1.0
+            ]
+          },
+          "pj": 0.0,
+          "observation_count": 1563,
+          "finished_count": 1562,
+          "unfinished_count": 1,
+          "exceedance_count": 0,
+          "estimator_numerator": 0,
+          "estimator_denominator": 1562,
+          "estimator": "flexdc_rank_cdf_v1",
+          "horizon_seconds": 3600,
+          "threshold_sojourn_seconds": 1348.0,
+          "threshold_exceeds_horizon": false
+        },
+        {
+          "job": {
+            "index": 1,
+            "section": "GPT2.train.4",
+            "descriptors": [
+              201.0,
+              763.0,
+              1185.0,
+              4592.0,
+              3.0,
+              1.0
+            ]
+          },
+          "pj": 0.0,
+          "observation_count": 281,
+          "finished_count": 230,
+          "unfinished_count": 51,
+          "exceedance_count": 0,
+          "estimator_numerator": 0,
+          "estimator_denominator": 280,
+          "estimator": "flexdc_rank_cdf_v1",
+          "horizon_seconds": 3600,
+          "threshold_sojourn_seconds": 4740.0,
+          "threshold_exceeds_horizon": true
+        },
+        {
+          "job": {
+            "index": 2,
+            "section": "Llama.train.4",
+            "descriptors": [
+              200.0,
+              742.0,
+              1242.0,
+              4921.0,
+              3.0,
+              1.0
+            ]
+          },
+          "pj": 0.0,
+          "observation_count": 284,
+          "finished_count": 246,
+          "unfinished_count": 38,
+          "exceedance_count": 0,
+          "estimator_numerator": 0,
+          "estimator_denominator": 283,
+          "estimator": "flexdc_rank_cdf_v1",
+          "horizon_seconds": 3600,
+          "threshold_sojourn_seconds": 4968.0,
+          "threshold_exceeds_horizon": true
+        },
+        {
+          "job": {
+            "index": 3,
+            "section": "Bloom.train.4",
+            "descriptors": [
+              202.0,
+              726.0,
+              1104.0,
+              4202.0,
+              3.0,
+              1.0
+            ]
+          },
+          "pj": 0.0,
+          "observation_count": 375,
+          "finished_count": 289,
+          "unfinished_count": 86,
+          "exceedance_count": 0,
+          "estimator_numerator": 0,
+          "estimator_denominator": 374,
+          "estimator": "flexdc_rank_cdf_v1",
+          "horizon_seconds": 3600,
+          "threshold_sojourn_seconds": 4416.0,
+          "threshold_exceeds_horizon": true
+        }
+      ],
+      "workload_fingerprint": "c27f7b07e02c1303065548d4900791a4f9d281d6223411d4400845c30085dd87",
+      "raw_hashes": {
+        "grid_search_results.csv": "dcb50a7301aae0046715b0ea0e3b6c8bb8ff0031acab3cc112bffb04c4f04705",
+        "grid_search_diagnostics.csv": "fb48150d2f6faa763f9596af3797136cc070dfbc908d8e27b336f633e0897df9",
+        "job_table.csv": "c84896874a7c7f005f20fc4fa6582e35bf2a2c8020a40ff957b9b10ff5c58be9",
+        "base_weights.csv": "3c6a7a7515c041cc152304bf51ebe9b3a363b5860314f7a706e328003fd2cb52"
+      }
+    },
+    {
+      "execution_id": "01d3b17e80f5e65f0c72cc21",
+      "candidate_id": "b002-local-0003",
+      "phase": "search",
+      "seed": 20,
+      "batch": 2,
+      "original_status": "SIMULATOR_OBSERVED_FEASIBLE",
+      "metrics": {
+        "mean_tracking": 0.0528941666666666,
+        "p90": 0.012,
+        "pj": [
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "objective": 80.08419073298936
+      },
+      "assessment": {
+        "execution_valid": true,
+        "numerical_feasible": true,
+        "evidence_status": "SUFFICIENT",
+        "evidence_sufficient": true,
+        "evidence_qualified_feasible": true,
+        "min_qos_observations_per_type": 1,
+        "statistical_reliability_established": false
+      },
+      "qos_evidence": [
+        {
+          "job": {
+            "index": 0,
+            "section": "Resnet.train.4",
+            "descriptors": [
+              199.0,
+              755.0,
+              337.0,
+              1321.0,
+              3.0,
+              1.0
+            ]
+          },
+          "pj": 0.0,
+          "observation_count": 1563,
+          "finished_count": 1279,
+          "unfinished_count": 284,
+          "exceedance_count": 0,
+          "estimator_numerator": 0,
+          "estimator_denominator": 1562,
+          "estimator": "flexdc_rank_cdf_v1",
+          "horizon_seconds": 3600,
+          "threshold_sojourn_seconds": 1348.0,
+          "threshold_exceeds_horizon": false
+        },
+        {
+          "job": {
+            "index": 1,
+            "section": "GPT2.train.4",
+            "descriptors": [
+              201.0,
+              763.0,
+              1185.0,
+              4592.0,
+              3.0,
+              1.0
+            ]
+          },
+          "pj": 0.0,
+          "observation_count": 281,
+          "finished_count": 87,
+          "unfinished_count": 194,
+          "exceedance_count": 0,
+          "estimator_numerator": 0,
+          "estimator_denominator": 280,
+          "estimator": "flexdc_rank_cdf_v1",
+          "horizon_seconds": 3600,
+          "threshold_sojourn_seconds": 4740.0,
+          "threshold_exceeds_horizon": true
+        },
+        {
+          "job": {
+            "index": 2,
+            "section": "Llama.train.4",
+            "descriptors": [
+              200.0,
+              742.0,
+              1242.0,
+              4921.0,
+              3.0,
+              1.0
+            ]
+          },
+          "pj": 0.0,
+          "observation_count": 284,
+          "finished_count": 10,
+          "unfinished_count": 274,
+          "exceedance_count": 0,
+          "estimator_numerator": 0,
+          "estimator_denominator": 283,
+          "estimator": "flexdc_rank_cdf_v1",
+          "horizon_seconds": 3600,
+          "threshold_sojourn_seconds": 4968.0,
+          "threshold_exceeds_horizon": true
+        },
+        {
+          "job": {
+            "index": 3,
+            "section": "Bloom.train.4",
+            "descriptors": [
+              202.0,
+              726.0,
+              1104.0,
+              4202.0,
+              3.0,
+              1.0
+            ]
+          },
+          "pj": 0.0,
+          "observation_count": 375,
+          "finished_count": 0,
+          "unfinished_count": 375,
+          "exceedance_count": 0,
+          "estimator_numerator": 0,
+          "estimator_denominator": 374,
+          "estimator": "flexdc_rank_cdf_v1",
+          "horizon_seconds": 3600,
+          "threshold_sojourn_seconds": 4416.0,
+          "threshold_exceeds_horizon": true
+        }
+      ],
+      "workload_fingerprint": "c27f7b07e02c1303065548d4900791a4f9d281d6223411d4400845c30085dd87",
+      "raw_hashes": {
+        "grid_search_results.csv": "29a85e0a773f210e53f1c69c8ed96e0b024b4df4e47d0a8b85e0b10152f78c1c",
+        "grid_search_diagnostics.csv": "e1b4070fbaf2561e7ee413604ed0596db85918e86464a76c379500e2f80cbf69",
+        "job_table.csv": "4ff288c3dee7d4147d1b871e99576af97b8c3e38789614b8b83e6732c97c5d96",
+        "base_weights.csv": "601fabfdf654f6f945ca2e09d8ba11e3f2e23daf885104cee0070bf157146640"
+      }
+    },
+    {
+      "execution_id": "89a160d3a39b7b2dc08ad1f3",
+      "candidate_id": "b002-local-0004",
+      "phase": "search",
+      "seed": 20,
+      "batch": 2,
+      "original_status": "SIMULATOR_OBSERVED_FEASIBLE",
+      "metrics": {
+        "mean_tracking": 0.0736858333333333,
+        "p90": 0.023,
+        "pj": [
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "objective": 93.66582403510543
+      },
+      "assessment": {
+        "execution_valid": true,
+        "numerical_feasible": true,
+        "evidence_status": "SUFFICIENT",
+        "evidence_sufficient": true,
+        "evidence_qualified_feasible": true,
+        "min_qos_observations_per_type": 1,
+        "statistical_reliability_established": false
+      },
+      "qos_evidence": [
+        {
+          "job": {
+            "index": 0,
+            "section": "Resnet.train.4",
+            "descriptors": [
+              199.0,
+              755.0,
+              337.0,
+              1321.0,
+              3.0,
+              1.0
+            ]
+          },
+          "pj": 0.0,
+          "observation_count": 1563,
+          "finished_count": 1561,
+          "unfinished_count": 2,
+          "exceedance_count": 0,
+          "estimator_numerator": 0,
+          "estimator_denominator": 1562,
+          "estimator": "flexdc_rank_cdf_v1",
+          "horizon_seconds": 3600,
+          "threshold_sojourn_seconds": 1348.0,
+          "threshold_exceeds_horizon": false
+        },
+        {
+          "job": {
+            "index": 1,
+            "section": "GPT2.train.4",
+            "descriptors": [
+              201.0,
+              763.0,
+              1185.0,
+              4592.0,
+              3.0,
+              1.0
+            ]
+          },
+          "pj": 0.0,
+          "observation_count": 281,
+          "finished_count": 177,
+          "unfinished_count": 104,
+          "exceedance_count": 0,
+          "estimator_numerator": 0,
+          "estimator_denominator": 280,
+          "estimator": "flexdc_rank_cdf_v1",
+          "horizon_seconds": 3600,
+          "threshold_sojourn_seconds": 4740.0,
+          "threshold_exceeds_horizon": true
+        },
+        {
+          "job": {
+            "index": 2,
+            "section": "Llama.train.4",
+            "descriptors": [
+              200.0,
+              742.0,
+              1242.0,
+              4921.0,
+              3.0,
+              1.0
+            ]
+          },
+          "pj": 0.0,
+          "observation_count": 284,
+          "finished_count": 165,
+          "unfinished_count": 119,
+          "exceedance_count": 0,
+          "estimator_numerator": 0,
+          "estimator_denominator": 283,
+          "estimator": "flexdc_rank_cdf_v1",
+          "horizon_seconds": 3600,
+          "threshold_sojourn_seconds": 4968.0,
+          "threshold_exceeds_horizon": true
+        },
+        {
+          "job": {
+            "index": 3,
+            "section": "Bloom.train.4",
+            "descriptors": [
+              202.0,
+              726.0,
+              1104.0,
+              4202.0,
+              3.0,
+              1.0
+            ]
+          },
+          "pj": 0.0,
+          "observation_count": 375,
+          "finished_count": 209,
+          "unfinished_count": 166,
+          "exceedance_count": 0,
+          "estimator_numerator": 0,
+          "estimator_denominator": 374,
+          "estimator": "flexdc_rank_cdf_v1",
+          "horizon_seconds": 3600,
+          "threshold_sojourn_seconds": 4416.0,
+          "threshold_exceeds_horizon": true
+        }
+      ],
+      "workload_fingerprint": "c27f7b07e02c1303065548d4900791a4f9d281d6223411d4400845c30085dd87",
+      "raw_hashes": {
+        "grid_search_results.csv": "05c7a41228f8bc36fe0a6a9c242ed86ae3123cc75c90f5e85c1b875b1f9d29c4",
+        "grid_search_diagnostics.csv": "9064e80498cf59fed0fe3ecef1caebf619a2152626a9151245246b77b1d79ebf",
+        "job_table.csv": "0c8e0a415d7d68a8a81c7c68709a5d4f0e5927de9f30d678b87c4d771aa528c3",
+        "base_weights.csv": "8a3a2016396f20f944bd099ba7faf6cd84b77ebcb5190d4b73290b27fc71de82"
+      }
+    },
+    {
+      "execution_id": "b9322c2059c961c2539d41c2",
+      "candidate_id": "b002-local-0005",
+      "phase": "search",
+      "seed": 20,
+      "batch": 2,
+      "original_status": "SIMULATOR_OBSERVED_FEASIBLE",
+      "metrics": {
+        "mean_tracking": 0.0022572222222222,
+        "p90": 0.005,
+        "pj": [
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "objective": 92.38404954233911
+      },
+      "assessment": {
+        "execution_valid": true,
+        "numerical_feasible": true,
+        "evidence_status": "SUFFICIENT",
+        "evidence_sufficient": true,
+        "evidence_qualified_feasible": true,
+        "min_qos_observations_per_type": 1,
+        "statistical_reliability_established": false
+      },
+      "qos_evidence": [
+        {
+          "job": {
+            "index": 0,
+            "section": "Resnet.train.4",
+            "descriptors": [
+              199.0,
+              755.0,
+              337.0,
+              1321.0,
+              3.0,
+              1.0
+            ]
+          },
+          "pj": 0.0,
+          "observation_count": 1563,
+          "finished_count": 1362,
+          "unfinished_count": 201,
+          "exceedance_count": 0,
+          "estimator_numerator": 0,
+          "estimator_denominator": 1562,
+          "estimator": "flexdc_rank_cdf_v1",
+          "horizon_seconds": 3600,
+          "threshold_sojourn_seconds": 1348.0,
+          "threshold_exceeds_horizon": false
+        },
+        {
+          "job": {
+            "index": 1,
+            "section": "GPT2.train.4",
+            "descriptors": [
+              201.0,
+              763.0,
+              1185.0,
+              4592.0,
+              3.0,
+              1.0
+            ]
+          },
+          "pj": 0.0,
+          "observation_count": 281,
+          "finished_count": 187,
+          "unfinished_count": 94,
+          "exceedance_count": 0,
+          "estimator_numerator": 0,
+          "estimator_denominator": 280,
+          "estimator": "flexdc_rank_cdf_v1",
+          "horizon_seconds": 3600,
+          "threshold_sojourn_seconds": 4740.0,
+          "threshold_exceeds_horizon": true
+        },
+        {
+          "job": {
+            "index": 2,
+            "section": "Llama.train.4",
+            "descriptors": [
+              200.0,
+              742.0,
+              1242.0,
+              4921.0,
+              3.0,
+              1.0
+            ]
+          },
+          "pj": 0.0,
+          "observation_count": 284,
+          "finished_count": 219,
+          "unfinished_count": 65,
+          "exceedance_count": 0,
+          "estimator_numerator": 0,
+          "estimator_denominator": 283,
+          "estimator": "flexdc_rank_cdf_v1",
+          "horizon_seconds": 3600,
+          "threshold_sojourn_seconds": 4968.0,
+          "threshold_exceeds_horizon": true
+        },
+        {
+          "job": {
+            "index": 3,
+            "section": "Bloom.train.4",
+            "descriptors": [
+              202.0,
+              726.0,
+              1104.0,
+              4202.0,
+              3.0,
+              1.0
+            ]
+          },
+          "pj": 0.0,
+          "observation_count": 375,
+          "finished_count": 293,
+          "unfinished_count": 82,
+          "exceedance_count": 0,
+          "estimator_numerator": 0,
+          "estimator_denominator": 374,
+          "estimator": "flexdc_rank_cdf_v1",
+          "horizon_seconds": 3600,
+          "threshold_sojourn_seconds": 4416.0,
+          "threshold_exceeds_horizon": true
+        }
+      ],
+      "workload_fingerprint": "c27f7b07e02c1303065548d4900791a4f9d281d6223411d4400845c30085dd87",
+      "raw_hashes": {
+        "grid_search_results.csv": "056849b8b6d9b0a18f65fe60d059cf8e027fe1bd35155538e7e0d3187e8a7672",
+        "grid_search_diagnostics.csv": "8fed4597fc133d0ce32e8c8c1e25d7de3685f1f01da89fe88ee5ee2237238ae4",
+        "job_table.csv": "fa218eea4fc150bf412a54b9304e562d729c290a6abe1ac4884ea79454d1dba0",
+        "base_weights.csv": "bda3ab19d0bd434c3d318d999b0babe9f44b7ba02c070440daad0468f817b91c"
+      }
+    },
+    {
+      "execution_id": "41f64c5ae0fc4bb3dae519b3",
+      "candidate_id": "b002-independent-0006",
+      "phase": "search",
+      "seed": 20,
+      "batch": 2,
+      "original_status": "SIMULATOR_OBSERVED_INFEASIBLE",
+      "metrics": {
+        "mean_tracking": 0.00054,
+        "p90": 0.0,
+        "pj": [
+          0.6952624839948784,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "objective": 76.80127701647953
+      },
+      "assessment": {
+        "execution_valid": true,
+        "numerical_feasible": false,
+        "evidence_status": "SUFFICIENT",
+        "evidence_sufficient": true,
+        "evidence_qualified_feasible": false,
+        "min_qos_observations_per_type": 1,
+        "statistical_reliability_established": false
+      },
+      "qos_evidence": [
+        {
+          "job": {
+            "index": 0,
+            "section": "Resnet.train.4",
+            "descriptors": [
+              199.0,
+              755.0,
+              337.0,
+              1321.0,
+              3.0,
+              1.0
+            ]
+          },
+          "pj": 0.6952624839948784,
+          "observation_count": 1563,
+          "finished_count": 13,
+          "unfinished_count": 1550,
+          "exceedance_count": 1087,
+          "estimator_numerator": 1086,
+          "estimator_denominator": 1562,
+          "estimator": "flexdc_rank_cdf_v1",
+          "horizon_seconds": 3600,
+          "threshold_sojourn_seconds": 1348.0,
+          "threshold_exceeds_horizon": false
+        },
+        {
+          "job": {
+            "index": 1,
+            "section": "GPT2.train.4",
+            "descriptors": [
+              201.0,
+              763.0,
+              1185.0,
+              4592.0,
+              3.0,
+              1.0
+            ]
+          },
+          "pj": 0.0,
+          "observation_count": 281,
+          "finished_count": 0,
+          "unfinished_count": 281,
+          "exceedance_count": 0,
+          "estimator_numerator": 0,
+          "estimator_denominator": 280,
+          "estimator": "flexdc_rank_cdf_v1",
+          "horizon_seconds": 3600,
+          "threshold_sojourn_seconds": 4740.0,
+          "threshold_exceeds_horizon": true
+        },
+        {
+          "job": {
+            "index": 2,
+            "section": "Llama.train.4",
+            "descriptors": [
+              200.0,
+              742.0,
+              1242.0,
+              4921.0,
+              3.0,
+              1.0
+            ]
+          },
+          "pj": 0.0,
+          "observation_count": 284,
+          "finished_count": 0,
+          "unfinished_count": 284,
+          "exceedance_count": 0,
+          "estimator_numerator": 0,
+          "estimator_denominator": 283,
+          "estimator": "flexdc_rank_cdf_v1",
+          "horizon_seconds": 3600,
+          "threshold_sojourn_seconds": 4968.0,
+          "threshold_exceeds_horizon": true
+        },
+        {
+          "job": {
+            "index": 3,
+            "section": "Bloom.train.4",
+            "descriptors": [
+              202.0,
+              726.0,
+              1104.0,
+              4202.0,
+              3.0,
+              1.0
+            ]
+          },
+          "pj": 0.0,
+          "observation_count": 375,
+          "finished_count": 144,
+          "unfinished_count": 231,
+          "exceedance_count": 0,
+          "estimator_numerator": 0,
+          "estimator_denominator": 374,
+          "estimator": "flexdc_rank_cdf_v1",
+          "horizon_seconds": 3600,
+          "threshold_sojourn_seconds": 4416.0,
+          "threshold_exceeds_horizon": true
+        }
+      ],
+      "workload_fingerprint": "c27f7b07e02c1303065548d4900791a4f9d281d6223411d4400845c30085dd87",
+      "raw_hashes": {
+        "grid_search_results.csv": "d3f6fd05daf2124d4ada344f64b7476070bfc696fac71027ca9a600a61a5f404",
+        "grid_search_diagnostics.csv": "0211e1efc88e3d828c82b01911cf7abc07badc9cf3fd539620e4cd8a657888ce",
+        "job_table.csv": "d36f7e25ea83235a6c0324d7db7966fbd21cf787e9f8ddc2f3825f6f199d6a3a",
+        "base_weights.csv": "5d724bb2f4610ec978a98eaf026f72fd7cb80aa8f0d820e846d23741b7a264cb"
+      }
+    },
+    {
+      "execution_id": "e96ea4055edb6034470ea572",
+      "candidate_id": "b002-independent-0007",
+      "phase": "search",
+      "seed": 20,
+      "batch": 2,
+      "original_status": "SIMULATOR_OBSERVED_INFEASIBLE",
+      "metrics": {
+        "mean_tracking": 0.3565111111111111,
+        "p90": 1.039,
+        "pj": [
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "objective": 107.01567066930372
+      },
+      "assessment": {
+        "execution_valid": true,
+        "numerical_feasible": false,
+        "evidence_status": "SUFFICIENT",
+        "evidence_sufficient": true,
+        "evidence_qualified_feasible": false,
+        "min_qos_observations_per_type": 1,
+        "statistical_reliability_established": false
+      },
+      "qos_evidence": [
+        {
+          "job": {
+            "index": 0,
+            "section": "Resnet.train.4",
+            "descriptors": [
+              199.0,
+              755.0,
+              337.0,
+              1321.0,
+              3.0,
+              1.0
+            ]
+          },
+          "pj": 0.0,
+          "observation_count": 1563,
+          "finished_count": 1562,
+          "unfinished_count": 1,
+          "exceedance_count": 0,
+          "estimator_numerator": 0,
+          "estimator_denominator": 1562,
+          "estimator": "flexdc_rank_cdf_v1",
+          "horizon_seconds": 3600,
+          "threshold_sojourn_seconds": 1348.0,
+          "threshold_exceeds_horizon": false
+        },
+        {
+          "job": {
+            "index": 1,
+            "section": "GPT2.train.4",
+            "descriptors": [
+              201.0,
+              763.0,
+              1185.0,
+              4592.0,
+              3.0,
+              1.0
+            ]
+          },
+          "pj": 0.0,
+          "observation_count": 281,
+          "finished_count": 246,
+          "unfinished_count": 35,
+          "exceedance_count": 0,
+          "estimator_numerator": 0,
+          "estimator_denominator": 280,
+          "estimator": "flexdc_rank_cdf_v1",
+          "horizon_seconds": 3600,
+          "threshold_sojourn_seconds": 4740.0,
+          "threshold_exceeds_horizon": true
+        },
+        {
+          "job": {
+            "index": 2,
+            "section": "Llama.train.4",
+            "descriptors": [
+              200.0,
+              742.0,
+              1242.0,
+              4921.0,
+              3.0,
+              1.0
+            ]
+          },
+          "pj": 0.0,
+          "observation_count": 284,
+          "finished_count": 255,
+          "unfinished_count": 29,
+          "exceedance_count": 0,
+          "estimator_numerator": 0,
+          "estimator_denominator": 283,
+          "estimator": "flexdc_rank_cdf_v1",
+          "horizon_seconds": 3600,
+          "threshold_sojourn_seconds": 4968.0,
+          "threshold_exceeds_horizon": true
+        },
+        {
+          "job": {
+            "index": 3,
+            "section": "Bloom.train.4",
+            "descriptors": [
+              202.0,
+              726.0,
+              1104.0,
+              4202.0,
+              3.0,
+              1.0
+            ]
+          },
+          "pj": 0.0,
+          "observation_count": 375,
+          "finished_count": 370,
+          "unfinished_count": 5,
+          "exceedance_count": 0,
+          "estimator_numerator": 0,
+          "estimator_denominator": 374,
+          "estimator": "flexdc_rank_cdf_v1",
+          "horizon_seconds": 3600,
+          "threshold_sojourn_seconds": 4416.0,
+          "threshold_exceeds_horizon": true
+        }
+      ],
+      "workload_fingerprint": "c27f7b07e02c1303065548d4900791a4f9d281d6223411d4400845c30085dd87",
+      "raw_hashes": {
+        "grid_search_results.csv": "206d90af9dc495bea6f0b894190872d5ec31058945e9eb8b569f4d985a191aca",
+        "grid_search_diagnostics.csv": "ba5802f40da741d6653d8ba379c7ef150d20133bd021a27dea735c1fbd589e94",
+        "job_table.csv": "00686f685314ec53636afc99f817cb805b60abcf06445071c1e4c2c4a92397c9",
+        "base_weights.csv": "e437da09808ba9075e3f88ea4987f5484f90064657599e620dbf46eb01385029"
+      }
+    },
+    {
+      "execution_id": "77f53028a7761a361f983d0f",
+      "candidate_id": "b003-local-0000",
+      "phase": "search",
+      "seed": 20,
+      "batch": 3,
+      "original_status": "SIMULATOR_OBSERVED_INFEASIBLE",
+      "metrics": {
+        "mean_tracking": 0.0016827777777777,
+        "p90": 0.006,
+        "pj": [
+          0.1510883482714469,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "objective": 67.49444236055012
+      },
+      "assessment": {
+        "execution_valid": true,
+        "numerical_feasible": false,
+        "evidence_status": "SUFFICIENT",
+        "evidence_sufficient": true,
+        "evidence_qualified_feasible": false,
+        "min_qos_observations_per_type": 1,
+        "statistical_reliability_established": false
+      },
+      "qos_evidence": [
+        {
+          "job": {
+            "index": 0,
+            "section": "Resnet.train.4",
+            "descriptors": [
+              199.0,
+              755.0,
+              337.0,
+              1321.0,
+              3.0,
+              1.0
+            ]
+          },
+          "pj": 0.1510883482714469,
+          "observation_count": 1563,
+          "finished_count": 1173,
+          "unfinished_count": 390,
+          "exceedance_count": 237,
+          "estimator_numerator": 236,
+          "estimator_denominator": 1562,
+          "estimator": "flexdc_rank_cdf_v1",
+          "horizon_seconds": 3600,
+          "threshold_sojourn_seconds": 1348.0,
+          "threshold_exceeds_horizon": false
+        },
+        {
+          "job": {
+            "index": 1,
+            "section": "GPT2.train.4",
+            "descriptors": [
+              201.0,
+              763.0,
+              1185.0,
+              4592.0,
+              3.0,
+              1.0
+            ]
+          },
+          "pj": 0.0,
+          "observation_count": 281,
+          "finished_count": 0,
+          "unfinished_count": 281,
+          "exceedance_count": 0,
+          "estimator_numerator": 0,
+          "estimator_denominator": 280,
+          "estimator": "flexdc_rank_cdf_v1",
+          "horizon_seconds": 3600,
+          "threshold_sojourn_seconds": 4740.0,
+          "threshold_exceeds_horizon": true
+        },
+        {
+          "job": {
+            "index": 2,
+            "section": "Llama.train.4",
+            "descriptors": [
+              200.0,
+              742.0,
+              1242.0,
+              4921.0,
+              3.0,
+              1.0
+            ]
+          },
+          "pj": 0.0,
+          "observation_count": 284,
+          "finished_count": 0,
+          "unfinished_count": 284,
+          "exceedance_count": 0,
+          "estimator_numerator": 0,
+          "estimator_denominator": 283,
+          "estimator": "flexdc_rank_cdf_v1",
+          "horizon_seconds": 3600,
+          "threshold_sojourn_seconds": 4968.0,
+          "threshold_exceeds_horizon": true
+        },
+        {
+          "job": {
+            "index": 3,
+            "section": "Bloom.train.4",
+            "descriptors": [
+              202.0,
+              726.0,
+              1104.0,
+              4202.0,
+              3.0,
+              1.0
+            ]
+          },
+          "pj": 0.0,
+          "observation_count": 375,
+          "finished_count": 110,
+          "unfinished_count": 265,
+          "exceedance_count": 0,
+          "estimator_numerator": 0,
+          "estimator_denominator": 374,
+          "estimator": "flexdc_rank_cdf_v1",
+          "horizon_seconds": 3600,
+          "threshold_sojourn_seconds": 4416.0,
+          "threshold_exceeds_horizon": true
+        }
+      ],
+      "workload_fingerprint": "c27f7b07e02c1303065548d4900791a4f9d281d6223411d4400845c30085dd87",
+      "raw_hashes": {
+        "grid_search_results.csv": "0fec1c93e95e9cf22e3def87244d8566c3069f21841c743f61f075cb5cb65106",
+        "grid_search_diagnostics.csv": "29218d68fe1a219beebd5d4218488f85cc9405e3cd09f3aa948c798033b39e35",
+        "job_table.csv": "5fe4976efd1c0e92138f5775e5067ad5ffad3d3aeba4eb48384aeb8da089d6f4",
+        "base_weights.csv": "a704f5d83946193f95325fd2f9fb71264d382c54dee4cf0b2feded0e0268a9bd"
+      }
+    },
+    {
+      "execution_id": "f56184f4d1398c0b46f89092",
+      "candidate_id": "b003-local-0001",
+      "phase": "search",
+      "seed": 20,
+      "batch": 3,
+      "original_status": "SIMULATOR_OBSERVED_INFEASIBLE",
+      "metrics": {
+        "mean_tracking": 0.0267222222222222,
+        "p90": 0.17,
+        "pj": [
+          0.19974391805377723,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "objective": 76.46162408456478
+      },
+      "assessment": {
+        "execution_valid": true,
+        "numerical_feasible": false,
+        "evidence_status": "SUFFICIENT",
+        "evidence_sufficient": true,
+        "evidence_qualified_feasible": false,
+        "min_qos_observations_per_type": 1,
+        "statistical_reliability_established": false
+      },
+      "qos_evidence": [
+        {
+          "job": {
+            "index": 0,
+            "section": "Resnet.train.4",
+            "descriptors": [
+              199.0,
+              755.0,
+              337.0,
+              1321.0,
+              3.0,
+              1.0
+            ]
+          },
+          "pj": 0.19974391805377723,
+          "observation_count": 1563,
+          "finished_count": 1192,
+          "unfinished_count": 371,
+          "exceedance_count": 313,
+          "estimator_numerator": 312,
+          "estimator_denominator": 1562,
+          "estimator": "flexdc_rank_cdf_v1",
+          "horizon_seconds": 3600,
+          "threshold_sojourn_seconds": 1348.0,
+          "threshold_exceeds_horizon": false
+        },
+        {
+          "job": {
+            "index": 1,
+            "section": "GPT2.train.4",
+            "descriptors": [
+              201.0,
+              763.0,
+              1185.0,
+              4592.0,
+              3.0,
+              1.0
+            ]
+          },
+          "pj": 0.0,
+          "observation_count": 281,
+          "finished_count": 202,
+          "unfinished_count": 79,
+          "exceedance_count": 0,
+          "estimator_numerator": 0,
+          "estimator_denominator": 280,
+          "estimator": "flexdc_rank_cdf_v1",
+          "horizon_seconds": 3600,
+          "threshold_sojourn_seconds": 4740.0,
+          "threshold_exceeds_horizon": true
+        },
+        {
+          "job": {
+            "index": 2,
+            "section": "Llama.train.4",
+            "descriptors": [
+              200.0,
+              742.0,
+              1242.0,
+              4921.0,
+              3.0,
+              1.0
+            ]
+          },
+          "pj": 0.0,
+          "observation_count": 284,
+          "finished_count": 237,
+          "unfinished_count": 47,
+          "exceedance_count": 0,
+          "estimator_numerator": 0,
+          "estimator_denominator": 283,
+          "estimator": "flexdc_rank_cdf_v1",
+          "horizon_seconds": 3600,
+          "threshold_sojourn_seconds": 4968.0,
+          "threshold_exceeds_horizon": true
+        },
+        {
+          "job": {
+            "index": 3,
+            "section": "Bloom.train.4",
+            "descriptors": [
+              202.0,
+              726.0,
+              1104.0,
+              4202.0,
+              3.0,
+              1.0
+            ]
+          },
+          "pj": 0.0,
+          "observation_count": 375,
+          "finished_count": 277,
+          "unfinished_count": 98,
+          "exceedance_count": 0,
+          "estimator_numerator": 0,
+          "estimator_denominator": 374,
+          "estimator": "flexdc_rank_cdf_v1",
+          "horizon_seconds": 3600,
+          "threshold_sojourn_seconds": 4416.0,
+          "threshold_exceeds_horizon": true
+        }
+      ],
+      "workload_fingerprint": "c27f7b07e02c1303065548d4900791a4f9d281d6223411d4400845c30085dd87",
+      "raw_hashes": {
+        "grid_search_results.csv": "48f831595589720d3e468c982c346e03a6b837c6bc74a41916f34b71ce308fa4",
+        "grid_search_diagnostics.csv": "16618811d1338cd87f476cfea1d7871417b7ea07ff2984cf08dd2f1c7c712f6c",
+        "job_table.csv": "d197fb67539f8eaeae5c3a499f8f3a52530e04419321891df6cb87b129662f73",
+        "base_weights.csv": "792a9cb3327b710c77d389b7e5f569dae954c18c3472b0b31dd9ef550f02479b"
+      }
+    },
+    {
+      "execution_id": "0c5b9dda09ce316c3b50e942",
+      "candidate_id": "b003-local-0002",
+      "phase": "search",
+      "seed": 20,
+      "batch": 3,
+      "original_status": "SIMULATOR_OBSERVED_INFEASIBLE",
+      "metrics": {
+        "mean_tracking": 0.0152663888888888,
+        "p90": 0.079,
+        "pj": [
+          0.11971830985915499,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "objective": 71.28298656490786
+      },
+      "assessment": {
+        "execution_valid": true,
+        "numerical_feasible": false,
+        "evidence_status": "SUFFICIENT",
+        "evidence_sufficient": true,
+        "evidence_qualified_feasible": false,
+        "min_qos_observations_per_type": 1,
+        "statistical_reliability_established": false
+      },
+      "qos_evidence": [
+        {
+          "job": {
+            "index": 0,
+            "section": "Resnet.train.4",
+            "descriptors": [
+              199.0,
+              755.0,
+              337.0,
+              1321.0,
+              3.0,
+              1.0
+            ]
+          },
+          "pj": 0.11971830985915499,
+          "observation_count": 1563,
+          "finished_count": 1117,
+          "unfinished_count": 446,
+          "exceedance_count": 188,
+          "estimator_numerator": 187,
+          "estimator_denominator": 1562,
+          "estimator": "flexdc_rank_cdf_v1",
+          "horizon_seconds": 3600,
+          "threshold_sojourn_seconds": 1348.0,
+          "threshold_exceeds_horizon": false
+        },
+        {
+          "job": {
+            "index": 1,
+            "section": "GPT2.train.4",
+            "descriptors": [
+              201.0,
+              763.0,
+              1185.0,
+              4592.0,
+              3.0,
+              1.0
+            ]
+          },
+          "pj": 0.0,
+          "observation_count": 281,
+          "finished_count": 189,
+          "unfinished_count": 92,
+          "exceedance_count": 0,
+          "estimator_numerator": 0,
+          "estimator_denominator": 280,
+          "estimator": "flexdc_rank_cdf_v1",
+          "horizon_seconds": 3600,
+          "threshold_sojourn_seconds": 4740.0,
+          "threshold_exceeds_horizon": true
+        },
+        {
+          "job": {
+            "index": 2,
+            "section": "Llama.train.4",
+            "descriptors": [
+              200.0,
+              742.0,
+              1242.0,
+              4921.0,
+              3.0,
+              1.0
+            ]
+          },
+          "pj": 0.0,
+          "observation_count": 284,
+          "finished_count": 225,
+          "unfinished_count": 59,
+          "exceedance_count": 0,
+          "estimator_numerator": 0,
+          "estimator_denominator": 283,
+          "estimator": "flexdc_rank_cdf_v1",
+          "horizon_seconds": 3600,
+          "threshold_sojourn_seconds": 4968.0,
+          "threshold_exceeds_horizon": true
+        },
+        {
+          "job": {
+            "index": 3,
+            "section": "Bloom.train.4",
+            "descriptors": [
+              202.0,
+              726.0,
+              1104.0,
+              4202.0,
+              3.0,
+              1.0
+            ]
+          },
+          "pj": 0.0,
+          "observation_count": 375,
+          "finished_count": 253,
+          "unfinished_count": 122,
+          "exceedance_count": 0,
+          "estimator_numerator": 0,
+          "estimator_denominator": 374,
+          "estimator": "flexdc_rank_cdf_v1",
+          "horizon_seconds": 3600,
+          "threshold_sojourn_seconds": 4416.0,
+          "threshold_exceeds_horizon": true
+        }
+      ],
+      "workload_fingerprint": "c27f7b07e02c1303065548d4900791a4f9d281d6223411d4400845c30085dd87",
+      "raw_hashes": {
+        "grid_search_results.csv": "62ccf91dd5ebab561cdfc965630dc0c7e405e0ea1aad3e07c6396430056e8269",
+        "grid_search_diagnostics.csv": "89e9a18ce053e703842655a95aaa6b337349ee1f284315352885ec51b5f6fc61",
+        "job_table.csv": "db86afb915c5a0df89607ce4f5c2951aed25a18fb86b7275e8b6b7b579bba018",
+        "base_weights.csv": "bdde363b9a4ae3685ea752e000cb930f9f9dec4d673e3718dddad06903b68e7d"
+      }
+    },
+    {
+      "execution_id": "58b709a7c5a03d1bd2c93bdc",
+      "candidate_id": "b003-local-0003",
+      "phase": "search",
+      "seed": 20,
+      "batch": 3,
+      "original_status": "SIMULATOR_OBSERVED_FEASIBLE",
+      "metrics": {
+        "mean_tracking": 0.0433141666666666,
+        "p90": 0.009,
+        "pj": [
+          0.04417413572343154,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "objective": 80.96391628572432
+      },
+      "assessment": {
+        "execution_valid": true,
+        "numerical_feasible": true,
+        "evidence_status": "SUFFICIENT",
+        "evidence_sufficient": true,
+        "evidence_qualified_feasible": true,
+        "min_qos_observations_per_type": 1,
+        "statistical_reliability_established": false
+      },
+      "qos_evidence": [
+        {
+          "job": {
+            "index": 0,
+            "section": "Resnet.train.4",
+            "descriptors": [
+              199.0,
+              755.0,
+              337.0,
+              1321.0,
+              3.0,
+              1.0
+            ]
+          },
+          "pj": 0.04417413572343154,
+          "observation_count": 1563,
+          "finished_count": 1150,
+          "unfinished_count": 413,
+          "exceedance_count": 70,
+          "estimator_numerator": 69,
+          "estimator_denominator": 1562,
+          "estimator": "flexdc_rank_cdf_v1",
+          "horizon_seconds": 3600,
+          "threshold_sojourn_seconds": 1348.0,
+          "threshold_exceeds_horizon": false
+        },
+        {
+          "job": {
+            "index": 1,
+            "section": "GPT2.train.4",
+            "descriptors": [
+              201.0,
+              763.0,
+              1185.0,
+              4592.0,
+              3.0,
+              1.0
+            ]
+          },
+          "pj": 0.0,
+          "observation_count": 281,
+          "finished_count": 100,
+          "unfinished_count": 181,
+          "exceedance_count": 0,
+          "estimator_numerator": 0,
+          "estimator_denominator": 280,
+          "estimator": "flexdc_rank_cdf_v1",
+          "horizon_seconds": 3600,
+          "threshold_sojourn_seconds": 4740.0,
+          "threshold_exceeds_horizon": true
+        },
+        {
+          "job": {
+            "index": 2,
+            "section": "Llama.train.4",
+            "descriptors": [
+              200.0,
+              742.0,
+              1242.0,
+              4921.0,
+              3.0,
+              1.0
+            ]
+          },
+          "pj": 0.0,
+          "observation_count": 284,
+          "finished_count": 3,
+          "unfinished_count": 281,
+          "exceedance_count": 0,
+          "estimator_numerator": 0,
+          "estimator_denominator": 283,
+          "estimator": "flexdc_rank_cdf_v1",
+          "horizon_seconds": 3600,
+          "threshold_sojourn_seconds": 4968.0,
+          "threshold_exceeds_horizon": true
+        },
+        {
+          "job": {
+            "index": 3,
+            "section": "Bloom.train.4",
+            "descriptors": [
+              202.0,
+              726.0,
+              1104.0,
+              4202.0,
+              3.0,
+              1.0
+            ]
+          },
+          "pj": 0.0,
+          "observation_count": 375,
+          "finished_count": 21,
+          "unfinished_count": 354,
+          "exceedance_count": 0,
+          "estimator_numerator": 0,
+          "estimator_denominator": 374,
+          "estimator": "flexdc_rank_cdf_v1",
+          "horizon_seconds": 3600,
+          "threshold_sojourn_seconds": 4416.0,
+          "threshold_exceeds_horizon": true
+        }
+      ],
+      "workload_fingerprint": "c27f7b07e02c1303065548d4900791a4f9d281d6223411d4400845c30085dd87",
+      "raw_hashes": {
+        "grid_search_results.csv": "2659073add91ddafb6dcf52030c408ca15bbb886f3e8c3dda3ee2b44e8606892",
+        "grid_search_diagnostics.csv": "50dd963446c3a2e45aacaa6ee12f0e71cbd2e329aaadb6df8f7cfd373969ca5e",
+        "job_table.csv": "ba982512cb02d51dea06fb29ed3c541f20ca8d9cc55aba8484777239e78a846b",
+        "base_weights.csv": "042ab76e16663e106946935c223269b62fbc21eb4c099bf5734a6caefebaf917"
+      }
+    },
+    {
+      "execution_id": "f9dd2cf59eee6c7201fa49ae",
+      "candidate_id": "b003-local-0004",
+      "phase": "search",
+      "seed": 20,
+      "batch": 3,
+      "original_status": "SIMULATOR_OBSERVED_FEASIBLE",
+      "metrics": {
+        "mean_tracking": 0.0508663888888888,
+        "p90": 0.013,
+        "pj": [
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "objective": 81.02816050772427
+      },
+      "assessment": {
+        "execution_valid": true,
+        "numerical_feasible": true,
+        "evidence_status": "SUFFICIENT",
+        "evidence_sufficient": true,
+        "evidence_qualified_feasible": true,
+        "min_qos_observations_per_type": 1,
+        "statistical_reliability_established": false
+      },
+      "qos_evidence": [
+        {
+          "job": {
+            "index": 0,
+            "section": "Resnet.train.4",
+            "descriptors": [
+              199.0,
+              755.0,
+              337.0,
+              1321.0,
+              3.0,
+              1.0
+            ]
+          },
+          "pj": 0.0,
+          "observation_count": 1563,
+          "finished_count": 1167,
+          "unfinished_count": 396,
+          "exceedance_count": 0,
+          "estimator_numerator": 0,
+          "estimator_denominator": 1562,
+          "estimator": "flexdc_rank_cdf_v1",
+          "horizon_seconds": 3600,
+          "threshold_sojourn_seconds": 1348.0,
+          "threshold_exceeds_horizon": false
+        },
+        {
+          "job": {
+            "index": 1,
+            "section": "GPT2.train.4",
+            "descriptors": [
+              201.0,
+              763.0,
+              1185.0,
+              4592.0,
+              3.0,
+              1.0
+            ]
+          },
+          "pj": 0.0,
+          "observation_count": 281,
+          "finished_count": 57,
+          "unfinished_count": 224,
+          "exceedance_count": 0,
+          "estimator_numerator": 0,
+          "estimator_denominator": 280,
+          "estimator": "flexdc_rank_cdf_v1",
+          "horizon_seconds": 3600,
+          "threshold_sojourn_seconds": 4740.0,
+          "threshold_exceeds_horizon": true
+        },
+        {
+          "job": {
+            "index": 2,
+            "section": "Llama.train.4",
+            "descriptors": [
+              200.0,
+              742.0,
+              1242.0,
+              4921.0,
+              3.0,
+              1.0
+            ]
+          },
+          "pj": 0.0,
+          "observation_count": 284,
+          "finished_count": 17,
+          "unfinished_count": 267,
+          "exceedance_count": 0,
+          "estimator_numerator": 0,
+          "estimator_denominator": 283,
+          "estimator": "flexdc_rank_cdf_v1",
+          "horizon_seconds": 3600,
+          "threshold_sojourn_seconds": 4968.0,
+          "threshold_exceeds_horizon": true
+        },
+        {
+          "job": {
+            "index": 3,
+            "section": "Bloom.train.4",
+            "descriptors": [
+              202.0,
+              726.0,
+              1104.0,
+              4202.0,
+              3.0,
+              1.0
+            ]
+          },
+          "pj": 0.0,
+          "observation_count": 375,
+          "finished_count": 44,
+          "unfinished_count": 331,
+          "exceedance_count": 0,
+          "estimator_numerator": 0,
+          "estimator_denominator": 374,
+          "estimator": "flexdc_rank_cdf_v1",
+          "horizon_seconds": 3600,
+          "threshold_sojourn_seconds": 4416.0,
+          "threshold_exceeds_horizon": true
+        }
+      ],
+      "workload_fingerprint": "c27f7b07e02c1303065548d4900791a4f9d281d6223411d4400845c30085dd87",
+      "raw_hashes": {
+        "grid_search_results.csv": "0a6e45d903a761582860cf31654a03315df58e730b31859f2812bd7d186eaa45",
+        "grid_search_diagnostics.csv": "9bec14a4e04b5de38b82e9c01159d1d975fc445f29166b95b850756706d5ae65",
+        "job_table.csv": "2786c87c3a46e9b4998474990712ad7cc16770c737b6baaa480140dde4fdea9b",
+        "base_weights.csv": "b7daedfdf92af19e9650043177e6296f494bbe0b5f4f83e0333df4e8ab4ee2eb"
+      }
+    },
+    {
+      "execution_id": "4e1d3542280dc9fcfd2deb0c",
+      "candidate_id": "b003-local-0005",
+      "phase": "search",
+      "seed": 20,
+      "batch": 3,
+      "original_status": "SIMULATOR_OBSERVED_FEASIBLE",
+      "metrics": {
+        "mean_tracking": 0.0020241666666666,
+        "p90": 0.005,
+        "pj": [
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "objective": 89.92461561236689
+      },
+      "assessment": {
+        "execution_valid": true,
+        "numerical_feasible": true,
+        "evidence_status": "SUFFICIENT",
+        "evidence_sufficient": true,
+        "evidence_qualified_feasible": true,
+        "min_qos_observations_per_type": 1,
+        "statistical_reliability_established": false
+      },
+      "qos_evidence": [
+        {
+          "job": {
+            "index": 0,
+            "section": "Resnet.train.4",
+            "descriptors": [
+              199.0,
+              755.0,
+              337.0,
+              1321.0,
+              3.0,
+              1.0
+            ]
+          },
+          "pj": 0.0,
+          "observation_count": 1563,
+          "finished_count": 1517,
+          "unfinished_count": 46,
+          "exceedance_count": 0,
+          "estimator_numerator": 0,
+          "estimator_denominator": 1562,
+          "estimator": "flexdc_rank_cdf_v1",
+          "horizon_seconds": 3600,
+          "threshold_sojourn_seconds": 1348.0,
+          "threshold_exceeds_horizon": false
+        },
+        {
+          "job": {
+            "index": 1,
+            "section": "GPT2.train.4",
+            "descriptors": [
+              201.0,
+              763.0,
+              1185.0,
+              4592.0,
+              3.0,
+              1.0
+            ]
+          },
+          "pj": 0.0,
+          "observation_count": 281,
+          "finished_count": 183,
+          "unfinished_count": 98,
+          "exceedance_count": 0,
+          "estimator_numerator": 0,
+          "estimator_denominator": 280,
+          "estimator": "flexdc_rank_cdf_v1",
+          "horizon_seconds": 3600,
+          "threshold_sojourn_seconds": 4740.0,
+          "threshold_exceeds_horizon": true
+        },
+        {
+          "job": {
+            "index": 2,
+            "section": "Llama.train.4",
+            "descriptors": [
+              200.0,
+              742.0,
+              1242.0,
+              4921.0,
+              3.0,
+              1.0
+            ]
+          },
+          "pj": 0.0,
+          "observation_count": 284,
+          "finished_count": 84,
+          "unfinished_count": 200,
+          "exceedance_count": 0,
+          "estimator_numerator": 0,
+          "estimator_denominator": 283,
+          "estimator": "flexdc_rank_cdf_v1",
+          "horizon_seconds": 3600,
+          "threshold_sojourn_seconds": 4968.0,
+          "threshold_exceeds_horizon": true
+        },
+        {
+          "job": {
+            "index": 3,
+            "section": "Bloom.train.4",
+            "descriptors": [
+              202.0,
+              726.0,
+              1104.0,
+              4202.0,
+              3.0,
+              1.0
+            ]
+          },
+          "pj": 0.0,
+          "observation_count": 375,
+          "finished_count": 301,
+          "unfinished_count": 74,
+          "exceedance_count": 0,
+          "estimator_numerator": 0,
+          "estimator_denominator": 374,
+          "estimator": "flexdc_rank_cdf_v1",
+          "horizon_seconds": 3600,
+          "threshold_sojourn_seconds": 4416.0,
+          "threshold_exceeds_horizon": true
+        }
+      ],
+      "workload_fingerprint": "c27f7b07e02c1303065548d4900791a4f9d281d6223411d4400845c30085dd87",
+      "raw_hashes": {
+        "grid_search_results.csv": "fbeba977612fc73f6812f7cffb56439d52a82dd58bde758e0a96110f60e06c0f",
+        "grid_search_diagnostics.csv": "709e49697b640cb3bb0df25943aae31df8aaeae525e992da012f086f4fbc985e",
+        "job_table.csv": "f7515b4ebe014834b5e7483893afe9d3b5732af68093031b4619797f787bfeff",
+        "base_weights.csv": "e12d09e6e39ec7ecead20099765ae27622f49776ddaa93671f136eb71413d593"
+      }
+    },
+    {
+      "execution_id": "b359b30f8b007ce0b80ff405",
+      "candidate_id": "b003-independent-0006",
+      "phase": "search",
+      "seed": 20,
+      "batch": 3,
+      "original_status": "SIMULATOR_OBSERVED_INFEASIBLE",
+      "metrics": {
+        "mean_tracking": 1.0618719444444444,
+        "p90": 2.125,
+        "pj": [
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "objective": 143.03474792916626
+      },
+      "assessment": {
+        "execution_valid": true,
+        "numerical_feasible": false,
+        "evidence_status": "SUFFICIENT",
+        "evidence_sufficient": true,
+        "evidence_qualified_feasible": false,
+        "min_qos_observations_per_type": 1,
+        "statistical_reliability_established": false
+      },
+      "qos_evidence": [
+        {
+          "job": {
+            "index": 0,
+            "section": "Resnet.train.4",
+            "descriptors": [
+              199.0,
+              755.0,
+              337.0,
+              1321.0,
+              3.0,
+              1.0
+            ]
+          },
+          "pj": 0.0,
+          "observation_count": 1563,
+          "finished_count": 1562,
+          "unfinished_count": 1,
+          "exceedance_count": 0,
+          "estimator_numerator": 0,
+          "estimator_denominator": 1562,
+          "estimator": "flexdc_rank_cdf_v1",
+          "horizon_seconds": 3600,
+          "threshold_sojourn_seconds": 1348.0,
+          "threshold_exceeds_horizon": false
+        },
+        {
+          "job": {
+            "index": 1,
+            "section": "GPT2.train.4",
+            "descriptors": [
+              201.0,
+              763.0,
+              1185.0,
+              4592.0,
+              3.0,
+              1.0
+            ]
+          },
+          "pj": 0.0,
+          "observation_count": 281,
+          "finished_count": 281,
+          "unfinished_count": 0,
+          "exceedance_count": 0,
+          "estimator_numerator": 0,
+          "estimator_denominator": 280,
+          "estimator": "flexdc_rank_cdf_v1",
+          "horizon_seconds": 3600,
+          "threshold_sojourn_seconds": 4740.0,
+          "threshold_exceeds_horizon": true
+        },
+        {
+          "job": {
+            "index": 2,
+            "section": "Llama.train.4",
+            "descriptors": [
+              200.0,
+              742.0,
+              1242.0,
+              4921.0,
+              3.0,
+              1.0
+            ]
+          },
+          "pj": 0.0,
+          "observation_count": 284,
+          "finished_count": 284,
+          "unfinished_count": 0,
+          "exceedance_count": 0,
+          "estimator_numerator": 0,
+          "estimator_denominator": 283,
+          "estimator": "flexdc_rank_cdf_v1",
+          "horizon_seconds": 3600,
+          "threshold_sojourn_seconds": 4968.0,
+          "threshold_exceeds_horizon": true
+        },
+        {
+          "job": {
+            "index": 3,
+            "section": "Bloom.train.4",
+            "descriptors": [
+              202.0,
+              726.0,
+              1104.0,
+              4202.0,
+              3.0,
+              1.0
+            ]
+          },
+          "pj": 0.0,
+          "observation_count": 375,
+          "finished_count": 375,
+          "unfinished_count": 0,
+          "exceedance_count": 0,
+          "estimator_numerator": 0,
+          "estimator_denominator": 374,
+          "estimator": "flexdc_rank_cdf_v1",
+          "horizon_seconds": 3600,
+          "threshold_sojourn_seconds": 4416.0,
+          "threshold_exceeds_horizon": true
+        }
+      ],
+      "workload_fingerprint": "c27f7b07e02c1303065548d4900791a4f9d281d6223411d4400845c30085dd87",
+      "raw_hashes": {
+        "grid_search_results.csv": "8fe39e2164604d721b27fb88a62aa083293b1efe35d528eed1c41062303c952b",
+        "grid_search_diagnostics.csv": "87716b832aa1f059c90744da2c7a2f8475d882e4352f9e5f2e0f6d1c5ac4d901",
+        "job_table.csv": "5bddd6e138f02818fd73a4a0550a20b0fc3bf8ad11450be80ce2c8ee6ed7cf63",
+        "base_weights.csv": "4b1fd891cb37bc928eb8413835e9f2fd6bb4c8689a5162c844e82328cc6be0ae"
+      }
+    },
+    {
+      "execution_id": "14bc045c0a659e2a2fd760c2",
+      "candidate_id": "b003-independent-0007",
+      "phase": "search",
+      "seed": 20,
+      "batch": 3,
+      "original_status": "SIMULATOR_OBSERVED_INFEASIBLE",
+      "metrics": {
+        "mean_tracking": 0.0004091666666666,
+        "p90": 0.0,
+        "pj": [
+          0.6952624839948784,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "objective": 74.6276811753962
+      },
+      "assessment": {
+        "execution_valid": true,
+        "numerical_feasible": false,
+        "evidence_status": "SUFFICIENT",
+        "evidence_sufficient": true,
+        "evidence_qualified_feasible": false,
+        "min_qos_observations_per_type": 1,
+        "statistical_reliability_established": false
+      },
+      "qos_evidence": [
+        {
+          "job": {
+            "index": 0,
+            "section": "Resnet.train.4",
+            "descriptors": [
+              199.0,
+              755.0,
+              337.0,
+              1321.0,
+              3.0,
+              1.0
+            ]
+          },
+          "pj": 0.6952624839948784,
+          "observation_count": 1563,
+          "finished_count": 0,
+          "unfinished_count": 1563,
+          "exceedance_count": 1087,
+          "estimator_numerator": 1086,
+          "estimator_denominator": 1562,
+          "estimator": "flexdc_rank_cdf_v1",
+          "horizon_seconds": 3600,
+          "threshold_sojourn_seconds": 1348.0,
+          "threshold_exceeds_horizon": false
+        },
+        {
+          "job": {
+            "index": 1,
+            "section": "GPT2.train.4",
+            "descriptors": [
+              201.0,
+              763.0,
+              1185.0,
+              4592.0,
+              3.0,
+              1.0
+            ]
+          },
+          "pj": 0.0,
+          "observation_count": 281,
+          "finished_count": 0,
+          "unfinished_count": 281,
+          "exceedance_count": 0,
+          "estimator_numerator": 0,
+          "estimator_denominator": 280,
+          "estimator": "flexdc_rank_cdf_v1",
+          "horizon_seconds": 3600,
+          "threshold_sojourn_seconds": 4740.0,
+          "threshold_exceeds_horizon": true
+        },
+        {
+          "job": {
+            "index": 2,
+            "section": "Llama.train.4",
+            "descriptors": [
+              200.0,
+              742.0,
+              1242.0,
+              4921.0,
+              3.0,
+              1.0
+            ]
+          },
+          "pj": 0.0,
+          "observation_count": 284,
+          "finished_count": 0,
+          "unfinished_count": 284,
+          "exceedance_count": 0,
+          "estimator_numerator": 0,
+          "estimator_denominator": 283,
+          "estimator": "flexdc_rank_cdf_v1",
+          "horizon_seconds": 3600,
+          "threshold_sojourn_seconds": 4968.0,
+          "threshold_exceeds_horizon": true
+        },
+        {
+          "job": {
+            "index": 3,
+            "section": "Bloom.train.4",
+            "descriptors": [
+              202.0,
+              726.0,
+              1104.0,
+              4202.0,
+              3.0,
+              1.0
+            ]
+          },
+          "pj": 0.0,
+          "observation_count": 375,
+          "finished_count": 31,
+          "unfinished_count": 344,
+          "exceedance_count": 0,
+          "estimator_numerator": 0,
+          "estimator_denominator": 374,
+          "estimator": "flexdc_rank_cdf_v1",
+          "horizon_seconds": 3600,
+          "threshold_sojourn_seconds": 4416.0,
+          "threshold_exceeds_horizon": true
+        }
+      ],
+      "workload_fingerprint": "c27f7b07e02c1303065548d4900791a4f9d281d6223411d4400845c30085dd87",
+      "raw_hashes": {
+        "grid_search_results.csv": "e29d3a238d993237fe7903d2deb655f225716da2d5e246525313a0a299a08f20",
+        "grid_search_diagnostics.csv": "2a673fcb99af8bb2efe17858dcf4a79859fa2c52bbe60b154386067ff1feb57f",
+        "job_table.csv": "07a590a6130ddb83b10031c72d2884a9c4c082e4cac72660aec3360cfe6796f8",
+        "base_weights.csv": "f6761ebcd6d0993f1cf802764acff6d1b552d260e2a3db343a0e72dc7dd05c18"
+      }
+    },
+    {
+      "execution_id": "352db3f7ecb95df9b4dd89be",
+      "candidate_id": "b004-local-0000",
+      "phase": "search",
+      "seed": 20,
+      "batch": 4,
+      "original_status": "SIMULATOR_OBSERVED_FEASIBLE",
+      "metrics": {
+        "mean_tracking": 0.0017030555555555,
+        "p90": 0.006,
+        "pj": [
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "objective": 64.61455169611861
+      },
+      "assessment": {
+        "execution_valid": true,
+        "numerical_feasible": true,
+        "evidence_status": "SUFFICIENT",
+        "evidence_sufficient": true,
+        "evidence_qualified_feasible": true,
+        "min_qos_observations_per_type": 1,
+        "statistical_reliability_established": false
+      },
+      "qos_evidence": [
+        {
+          "job": {
+            "index": 0,
+            "section": "Resnet.train.4",
+            "descriptors": [
+              199.0,
+              755.0,
+              337.0,
+              1321.0,
+              3.0,
+              1.0
+            ]
+          },
+          "pj": 0.0,
+          "observation_count": 1563,
+          "finished_count": 1329,
+          "unfinished_count": 234,
+          "exceedance_count": 0,
+          "estimator_numerator": 0,
+          "estimator_denominator": 1562,
+          "estimator": "flexdc_rank_cdf_v1",
+          "horizon_seconds": 3600,
+          "threshold_sojourn_seconds": 1348.0,
+          "threshold_exceeds_horizon": false
+        },
+        {
+          "job": {
+            "index": 1,
+            "section": "GPT2.train.4",
+            "descriptors": [
+              201.0,
+              763.0,
+              1185.0,
+              4592.0,
+              3.0,
+              1.0
+            ]
+          },
+          "pj": 0.0,
+          "observation_count": 281,
+          "finished_count": 0,
+          "unfinished_count": 281,
+          "exceedance_count": 0,
+          "estimator_numerator": 0,
+          "estimator_denominator": 280,
+          "estimator": "flexdc_rank_cdf_v1",
+          "horizon_seconds": 3600,
+          "threshold_sojourn_seconds": 4740.0,
+          "threshold_exceeds_horizon": true
+        },
+        {
+          "job": {
+            "index": 2,
+            "section": "Llama.train.4",
+            "descriptors": [
+              200.0,
+              742.0,
+              1242.0,
+              4921.0,
+              3.0,
+              1.0
+            ]
+          },
+          "pj": 0.0,
+          "observation_count": 284,
+          "finished_count": 0,
+          "unfinished_count": 284,
+          "exceedance_count": 0,
+          "estimator_numerator": 0,
+          "estimator_denominator": 283,
+          "estimator": "flexdc_rank_cdf_v1",
+          "horizon_seconds": 3600,
+          "threshold_sojourn_seconds": 4968.0,
+          "threshold_exceeds_horizon": true
+        },
+        {
+          "job": {
+            "index": 3,
+            "section": "Bloom.train.4",
+            "descriptors": [
+              202.0,
+              726.0,
+              1104.0,
+              4202.0,
+              3.0,
+              1.0
+            ]
+          },
+          "pj": 0.0,
+          "observation_count": 375,
+          "finished_count": 76,
+          "unfinished_count": 299,
+          "exceedance_count": 0,
+          "estimator_numerator": 0,
+          "estimator_denominator": 374,
+          "estimator": "flexdc_rank_cdf_v1",
+          "horizon_seconds": 3600,
+          "threshold_sojourn_seconds": 4416.0,
+          "threshold_exceeds_horizon": true
+        }
+      ],
+      "workload_fingerprint": "c27f7b07e02c1303065548d4900791a4f9d281d6223411d4400845c30085dd87",
+      "raw_hashes": {
+        "grid_search_results.csv": "bdc3ffd9c94b96c42967ccb16f404afaef9210390285997d64db0132762187ba",
+        "grid_search_diagnostics.csv": "03a44d57419f5fe1ab39ab766bcff53a4826e2088aee99b264091b7fd936b989",
+        "job_table.csv": "b6e5a0b1452555e8c6822ff23e54ca47bf744bc4fbbd11d3a4a19ba9c6eb70c1",
+        "base_weights.csv": "c677a3d46769cb88c347c7725ff6a719c96d906ebcc30752bf29f6c0628e928d"
+      }
+    },
+    {
+      "execution_id": "6d3b8b68d99403efe64c7d1f",
+      "candidate_id": "b004-local-0001",
+      "phase": "search",
+      "seed": 20,
+      "batch": 4,
+      "original_status": "SIMULATOR_OBSERVED_FEASIBLE",
+      "metrics": {
+        "mean_tracking": 0.0259136111111111,
+        "p90": 0.166,
+        "pj": [
+          0.05633802816901412,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "objective": 76.77405274191368
+      },
+      "assessment": {
+        "execution_valid": true,
+        "numerical_feasible": true,
+        "evidence_status": "SUFFICIENT",
+        "evidence_sufficient": true,
+        "evidence_qualified_feasible": true,
+        "min_qos_observations_per_type": 1,
+        "statistical_reliability_established": false
+      },
+      "qos_evidence": [
+        {
+          "job": {
+            "index": 0,
+            "section": "Resnet.train.4",
+            "descriptors": [
+              199.0,
+              755.0,
+              337.0,
+              1321.0,
+              3.0,
+              1.0
+            ]
+          },
+          "pj": 0.05633802816901412,
+          "observation_count": 1563,
+          "finished_count": 1427,
+          "unfinished_count": 136,
+          "exceedance_count": 89,
+          "estimator_numerator": 88,
+          "estimator_denominator": 1562,
+          "estimator": "flexdc_rank_cdf_v1",
+          "horizon_seconds": 3600,
+          "threshold_sojourn_seconds": 1348.0,
+          "threshold_exceeds_horizon": false
+        },
+        {
+          "job": {
+            "index": 1,
+            "section": "GPT2.train.4",
+            "descriptors": [
+              201.0,
+              763.0,
+              1185.0,
+              4592.0,
+              3.0,
+              1.0
+            ]
+          },
+          "pj": 0.0,
+          "observation_count": 281,
+          "finished_count": 209,
+          "unfinished_count": 72,
+          "exceedance_count": 0,
+          "estimator_numerator": 0,
+          "estimator_denominator": 280,
+          "estimator": "flexdc_rank_cdf_v1",
+          "horizon_seconds": 3600,
+          "threshold_sojourn_seconds": 4740.0,
+          "threshold_exceeds_horizon": true
+        },
+        {
+          "job": {
+            "index": 2,
+            "section": "Llama.train.4",
+            "descriptors": [
+              200.0,
+              742.0,
+              1242.0,
+              4921.0,
+              3.0,
+              1.0
+            ]
+          },
+          "pj": 0.0,
+          "observation_count": 284,
+          "finished_count": 208,
+          "unfinished_count": 76,
+          "exceedance_count": 0,
+          "estimator_numerator": 0,
+          "estimator_denominator": 283,
+          "estimator": "flexdc_rank_cdf_v1",
+          "horizon_seconds": 3600,
+          "threshold_sojourn_seconds": 4968.0,
+          "threshold_exceeds_horizon": true
+        },
+        {
+          "job": {
+            "index": 3,
+            "section": "Bloom.train.4",
+            "descriptors": [
+              202.0,
+              726.0,
+              1104.0,
+              4202.0,
+              3.0,
+              1.0
+            ]
+          },
+          "pj": 0.0,
+          "observation_count": 375,
+          "finished_count": 264,
+          "unfinished_count": 111,
+          "exceedance_count": 0,
+          "estimator_numerator": 0,
+          "estimator_denominator": 374,
+          "estimator": "flexdc_rank_cdf_v1",
+          "horizon_seconds": 3600,
+          "threshold_sojourn_seconds": 4416.0,
+          "threshold_exceeds_horizon": true
+        }
+      ],
+      "workload_fingerprint": "c27f7b07e02c1303065548d4900791a4f9d281d6223411d4400845c30085dd87",
+      "raw_hashes": {
+        "grid_search_results.csv": "4e9a9f1e495fd0e40bdafe224da9bed8f973c8032108974f4bc4de94feb69f8b",
+        "grid_search_diagnostics.csv": "777559dc058329d72e102fe5c2a05e13257cfbe6dd99d5b987c6d7d3f04d63c9",
+        "job_table.csv": "993641f50448b47847e70a0921414dc6d4504f9c727160818fda3b3c94a8c898",
+        "base_weights.csv": "b1d9eaed70771bc0b9688ef1e684b8ee9f453304f215c34d15d3e338f0894150"
+      }
+    },
+    {
+      "execution_id": "12516013665a5c1df59cbc1b",
+      "candidate_id": "b004-local-0002",
+      "phase": "search",
+      "seed": 20,
+      "batch": 4,
+      "original_status": "SIMULATOR_OBSERVED_INFEASIBLE",
+      "metrics": {
+        "mean_tracking": 0.0040802777777777,
+        "p90": 0.011,
+        "pj": [
+          0.3284250960307299,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "objective": 80.46600079906842
+      },
+      "assessment": {
+        "execution_valid": true,
+        "numerical_feasible": false,
+        "evidence_status": "SUFFICIENT",
+        "evidence_sufficient": true,
+        "evidence_qualified_feasible": false,
+        "min_qos_observations_per_type": 1,
+        "statistical_reliability_established": false
+      },
+      "qos_evidence": [
+        {
+          "job": {
+            "index": 0,
+            "section": "Resnet.train.4",
+            "descriptors": [
+              199.0,
+              755.0,
+              337.0,
+              1321.0,
+              3.0,
+              1.0
+            ]
+          },
+          "pj": 0.3284250960307299,
+          "observation_count": 1563,
+          "finished_count": 1053,
+          "unfinished_count": 510,
+          "exceedance_count": 514,
+          "estimator_numerator": 513,
+          "estimator_denominator": 1562,
+          "estimator": "flexdc_rank_cdf_v1",
+          "horizon_seconds": 3600,
+          "threshold_sojourn_seconds": 1348.0,
+          "threshold_exceeds_horizon": false
+        },
+        {
+          "job": {
+            "index": 1,
+            "section": "GPT2.train.4",
+            "descriptors": [
+              201.0,
+              763.0,
+              1185.0,
+              4592.0,
+              3.0,
+              1.0
+            ]
+          },
+          "pj": 0.0,
+          "observation_count": 281,
+          "finished_count": 222,
+          "unfinished_count": 59,
+          "exceedance_count": 0,
+          "estimator_numerator": 0,
+          "estimator_denominator": 280,
+          "estimator": "flexdc_rank_cdf_v1",
+          "horizon_seconds": 3600,
+          "threshold_sojourn_seconds": 4740.0,
+          "threshold_exceeds_horizon": true
+        },
+        {
+          "job": {
+            "index": 2,
+            "section": "Llama.train.4",
+            "descriptors": [
+              200.0,
+              742.0,
+              1242.0,
+              4921.0,
+              3.0,
+              1.0
+            ]
+          },
+          "pj": 0.0,
+          "observation_count": 284,
+          "finished_count": 227,
+          "unfinished_count": 57,
+          "exceedance_count": 0,
+          "estimator_numerator": 0,
+          "estimator_denominator": 283,
+          "estimator": "flexdc_rank_cdf_v1",
+          "horizon_seconds": 3600,
+          "threshold_sojourn_seconds": 4968.0,
+          "threshold_exceeds_horizon": true
+        },
+        {
+          "job": {
+            "index": 3,
+            "section": "Bloom.train.4",
+            "descriptors": [
+              202.0,
+              726.0,
+              1104.0,
+              4202.0,
+              3.0,
+              1.0
+            ]
+          },
+          "pj": 0.0,
+          "observation_count": 375,
+          "finished_count": 243,
+          "unfinished_count": 132,
+          "exceedance_count": 0,
+          "estimator_numerator": 0,
+          "estimator_denominator": 374,
+          "estimator": "flexdc_rank_cdf_v1",
+          "horizon_seconds": 3600,
+          "threshold_sojourn_seconds": 4416.0,
+          "threshold_exceeds_horizon": true
+        }
+      ],
+      "workload_fingerprint": "c27f7b07e02c1303065548d4900791a4f9d281d6223411d4400845c30085dd87",
+      "raw_hashes": {
+        "grid_search_results.csv": "1f99241e76a0e773b5ae577cf110e9184d46d91a46f57278504ee28d4f53df42",
+        "grid_search_diagnostics.csv": "7e71d0adba43d4aeb27d2a15bf813462f92262ff5a7cb65e13f0696b300bb2c9",
+        "job_table.csv": "e01a1ce97bf119ec78a18abfc9fb2bf3e25773d49045bd23eb7d975b9f43875e",
+        "base_weights.csv": "f1160865bf26598c61bac53dfda78c23574f982be5e7047a6f5aa5810dcfac2c"
+      }
+    },
+    {
+      "execution_id": "dbbcb062a52306da019453bb",
+      "candidate_id": "b004-local-0003",
+      "phase": "search",
+      "seed": 20,
+      "batch": 4,
+      "original_status": "SIMULATOR_OBSERVED_FEASIBLE",
+      "metrics": {
+        "mean_tracking": 0.0523769444444444,
+        "p90": 0.016,
+        "pj": [
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "objective": 82.7358416187461
+      },
+      "assessment": {
+        "execution_valid": true,
+        "numerical_feasible": true,
+        "evidence_status": "SUFFICIENT",
+        "evidence_sufficient": true,
+        "evidence_qualified_feasible": true,
+        "min_qos_observations_per_type": 1,
+        "statistical_reliability_established": false
+      },
+      "qos_evidence": [
+        {
+          "job": {
+            "index": 0,
+            "section": "Resnet.train.4",
+            "descriptors": [
+              199.0,
+              755.0,
+              337.0,
+              1321.0,
+              3.0,
+              1.0
+            ]
+          },
+          "pj": 0.0,
+          "observation_count": 1563,
+          "finished_count": 1311,
+          "unfinished_count": 252,
+          "exceedance_count": 0,
+          "estimator_numerator": 0,
+          "estimator_denominator": 1562,
+          "estimator": "flexdc_rank_cdf_v1",
+          "horizon_seconds": 3600,
+          "threshold_sojourn_seconds": 1348.0,
+          "threshold_exceeds_horizon": false
+        },
+        {
+          "job": {
+            "index": 1,
+            "section": "GPT2.train.4",
+            "descriptors": [
+              201.0,
+              763.0,
+              1185.0,
+              4592.0,
+              3.0,
+              1.0
+            ]
+          },
+          "pj": 0.0,
+          "observation_count": 281,
+          "finished_count": 7,
+          "unfinished_count": 274,
+          "exceedance_count": 0,
+          "estimator_numerator": 0,
+          "estimator_denominator": 280,
+          "estimator": "flexdc_rank_cdf_v1",
+          "horizon_seconds": 3600,
+          "threshold_sojourn_seconds": 4740.0,
+          "threshold_exceeds_horizon": true
+        },
+        {
+          "job": {
+            "index": 2,
+            "section": "Llama.train.4",
+            "descriptors": [
+              200.0,
+              742.0,
+              1242.0,
+              4921.0,
+              3.0,
+              1.0
+            ]
+          },
+          "pj": 0.0,
+          "observation_count": 284,
+          "finished_count": 35,
+          "unfinished_count": 249,
+          "exceedance_count": 0,
+          "estimator_numerator": 0,
+          "estimator_denominator": 283,
+          "estimator": "flexdc_rank_cdf_v1",
+          "horizon_seconds": 3600,
+          "threshold_sojourn_seconds": 4968.0,
+          "threshold_exceeds_horizon": true
+        },
+        {
+          "job": {
+            "index": 3,
+            "section": "Bloom.train.4",
+            "descriptors": [
+              202.0,
+              726.0,
+              1104.0,
+              4202.0,
+              3.0,
+              1.0
+            ]
+          },
+          "pj": 0.0,
+          "observation_count": 375,
+          "finished_count": 0,
+          "unfinished_count": 375,
+          "exceedance_count": 0,
+          "estimator_numerator": 0,
+          "estimator_denominator": 374,
+          "estimator": "flexdc_rank_cdf_v1",
+          "horizon_seconds": 3600,
+          "threshold_sojourn_seconds": 4416.0,
+          "threshold_exceeds_horizon": true
+        }
+      ],
+      "workload_fingerprint": "c27f7b07e02c1303065548d4900791a4f9d281d6223411d4400845c30085dd87",
+      "raw_hashes": {
+        "grid_search_results.csv": "1402ba6f6fd6b349621eb581eaf8f6493de2278030aa598b2d55633190b5a9cd",
+        "grid_search_diagnostics.csv": "e78ed773ecca2c58459a2dae49ec7ff3301b1e47fb72f7e55f70705012a4d410",
+        "job_table.csv": "dd715ecf790e2aac2d95cd5d115b8adc32c747ac0650636ebcc0c3220c7ee6cc",
+        "base_weights.csv": "67617fbfbb375eb732f61bcbb76cc7d5f0a405838984186ff1341c4db52ca04b"
+      }
+    },
+    {
+      "execution_id": "272fe88d15bc6ca9eb329e6a",
+      "candidate_id": "b004-local-0004",
+      "phase": "search",
+      "seed": 20,
+      "batch": 4,
+      "original_status": "SIMULATOR_OBSERVED_FEASIBLE",
+      "metrics": {
+        "mean_tracking": 0.0046958333333333,
+        "p90": 0.009,
+        "pj": [
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "objective": 79.6163092516779
+      },
+      "assessment": {
+        "execution_valid": true,
+        "numerical_feasible": true,
+        "evidence_status": "SUFFICIENT",
+        "evidence_sufficient": true,
+        "evidence_qualified_feasible": true,
+        "min_qos_observations_per_type": 1,
+        "statistical_reliability_established": false
+      },
+      "qos_evidence": [
+        {
+          "job": {
+            "index": 0,
+            "section": "Resnet.train.4",
+            "descriptors": [
+              199.0,
+              755.0,
+              337.0,
+              1321.0,
+              3.0,
+              1.0
+            ]
+          },
+          "pj": 0.0,
+          "observation_count": 1563,
+          "finished_count": 1258,
+          "unfinished_count": 305,
+          "exceedance_count": 0,
+          "estimator_numerator": 0,
+          "estimator_denominator": 1562,
+          "estimator": "flexdc_rank_cdf_v1",
+          "horizon_seconds": 3600,
+          "threshold_sojourn_seconds": 1348.0,
+          "threshold_exceeds_horizon": false
+        },
+        {
+          "job": {
+            "index": 1,
+            "section": "GPT2.train.4",
+            "descriptors": [
+              201.0,
+              763.0,
+              1185.0,
+              4592.0,
+              3.0,
+              1.0
+            ]
+          },
+          "pj": 0.0,
+          "observation_count": 281,
+          "finished_count": 70,
+          "unfinished_count": 211,
+          "exceedance_count": 0,
+          "estimator_numerator": 0,
+          "estimator_denominator": 280,
+          "estimator": "flexdc_rank_cdf_v1",
+          "horizon_seconds": 3600,
+          "threshold_sojourn_seconds": 4740.0,
+          "threshold_exceeds_horizon": true
+        },
+        {
+          "job": {
+            "index": 2,
+            "section": "Llama.train.4",
+            "descriptors": [
+              200.0,
+              742.0,
+              1242.0,
+              4921.0,
+              3.0,
+              1.0
+            ]
+          },
+          "pj": 0.0,
+          "observation_count": 284,
+          "finished_count": 21,
+          "unfinished_count": 263,
+          "exceedance_count": 0,
+          "estimator_numerator": 0,
+          "estimator_denominator": 283,
+          "estimator": "flexdc_rank_cdf_v1",
+          "horizon_seconds": 3600,
+          "threshold_sojourn_seconds": 4968.0,
+          "threshold_exceeds_horizon": true
+        },
+        {
+          "job": {
+            "index": 3,
+            "section": "Bloom.train.4",
+            "descriptors": [
+              202.0,
+              726.0,
+              1104.0,
+              4202.0,
+              3.0,
+              1.0
+            ]
+          },
+          "pj": 0.0,
+          "observation_count": 375,
+          "finished_count": 112,
+          "unfinished_count": 263,
+          "exceedance_count": 0,
+          "estimator_numerator": 0,
+          "estimator_denominator": 374,
+          "estimator": "flexdc_rank_cdf_v1",
+          "horizon_seconds": 3600,
+          "threshold_sojourn_seconds": 4416.0,
+          "threshold_exceeds_horizon": true
+        }
+      ],
+      "workload_fingerprint": "c27f7b07e02c1303065548d4900791a4f9d281d6223411d4400845c30085dd87",
+      "raw_hashes": {
+        "grid_search_results.csv": "4d545a71a6b4dffd96fd0f18d8f8372728029f8041393e4ee7e1b3b5fcfe6f24",
+        "grid_search_diagnostics.csv": "5a1c563970b2357c39e361a44bd5fc96224b3151b2663edbaaea4f07107e5b64",
+        "job_table.csv": "9ae884ef788aba77b2a08661ffbab41b483ae9d6bb0cffb8c34b7d538c1a01e9",
+        "base_weights.csv": "c05683afcbd621ec9c2e499698856f81d628a3367680f71305a3a7358fc745f7"
+      }
+    },
+    {
+      "execution_id": "aef950aea1421d4c4378afce",
+      "candidate_id": "b004-local-0005",
+      "phase": "search",
+      "seed": 20,
+      "batch": 4,
+      "original_status": "SIMULATOR_OBSERVED_INFEASIBLE",
+      "metrics": {
+        "mean_tracking": 0.0567627777777777,
+        "p90": 0.011,
+        "pj": [
+          0.17477592829705513,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "objective": 96.29412719660978
+      },
+      "assessment": {
+        "execution_valid": true,
+        "numerical_feasible": false,
+        "evidence_status": "SUFFICIENT",
+        "evidence_sufficient": true,
+        "evidence_qualified_feasible": false,
+        "min_qos_observations_per_type": 1,
+        "statistical_reliability_established": false
+      },
+      "qos_evidence": [
+        {
+          "job": {
+            "index": 0,
+            "section": "Resnet.train.4",
+            "descriptors": [
+              199.0,
+              755.0,
+              337.0,
+              1321.0,
+              3.0,
+              1.0
+            ]
+          },
+          "pj": 0.17477592829705513,
+          "observation_count": 1563,
+          "finished_count": 1211,
+          "unfinished_count": 352,
+          "exceedance_count": 274,
+          "estimator_numerator": 273,
+          "estimator_denominator": 1562,
+          "estimator": "flexdc_rank_cdf_v1",
+          "horizon_seconds": 3600,
+          "threshold_sojourn_seconds": 1348.0,
+          "threshold_exceeds_horizon": false
+        },
+        {
+          "job": {
+            "index": 1,
+            "section": "GPT2.train.4",
+            "descriptors": [
+              201.0,
+              763.0,
+              1185.0,
+              4592.0,
+              3.0,
+              1.0
+            ]
+          },
+          "pj": 0.0,
+          "observation_count": 281,
+          "finished_count": 203,
+          "unfinished_count": 78,
+          "exceedance_count": 0,
+          "estimator_numerator": 0,
+          "estimator_denominator": 280,
+          "estimator": "flexdc_rank_cdf_v1",
+          "horizon_seconds": 3600,
+          "threshold_sojourn_seconds": 4740.0,
+          "threshold_exceeds_horizon": true
+        },
+        {
+          "job": {
+            "index": 2,
+            "section": "Llama.train.4",
+            "descriptors": [
+              200.0,
+              742.0,
+              1242.0,
+              4921.0,
+              3.0,
+              1.0
+            ]
+          },
+          "pj": 0.0,
+          "observation_count": 284,
+          "finished_count": 170,
+          "unfinished_count": 114,
+          "exceedance_count": 0,
+          "estimator_numerator": 0,
+          "estimator_denominator": 283,
+          "estimator": "flexdc_rank_cdf_v1",
+          "horizon_seconds": 3600,
+          "threshold_sojourn_seconds": 4968.0,
+          "threshold_exceeds_horizon": true
+        },
+        {
+          "job": {
+            "index": 3,
+            "section": "Bloom.train.4",
+            "descriptors": [
+              202.0,
+              726.0,
+              1104.0,
+              4202.0,
+              3.0,
+              1.0
+            ]
+          },
+          "pj": 0.0,
+          "observation_count": 375,
+          "finished_count": 321,
+          "unfinished_count": 54,
+          "exceedance_count": 0,
+          "estimator_numerator": 0,
+          "estimator_denominator": 374,
+          "estimator": "flexdc_rank_cdf_v1",
+          "horizon_seconds": 3600,
+          "threshold_sojourn_seconds": 4416.0,
+          "threshold_exceeds_horizon": true
+        }
+      ],
+      "workload_fingerprint": "c27f7b07e02c1303065548d4900791a4f9d281d6223411d4400845c30085dd87",
+      "raw_hashes": {
+        "grid_search_results.csv": "4851fb45093fb998f2b5d08f9154305f1285d2bbfbe0f3b1cc29bb37005b961d",
+        "grid_search_diagnostics.csv": "228476b3ac24c32fc2f7fa56770291cc6b6f40dcb4f1f7aa606abeefcbbc8ae7",
+        "job_table.csv": "1997bbf7fe11e1baa82c7ae2900fb43dd827cd7afcdac1412cb432cd2ffa45e0",
+        "base_weights.csv": "0db2ffbd78beced165ecbe28c27dc8f3fb1f14d40c95d0e1273d1d92fa1e52c6"
+      }
+    },
+    {
+      "execution_id": "b8351d2a7e5b6a32234a648f",
+      "candidate_id": "b004-independent-0006",
+      "phase": "search",
+      "seed": 20,
+      "batch": 4,
+      "original_status": "SIMULATOR_OBSERVED_INFEASIBLE",
+      "metrics": {
+        "mean_tracking": 0.0038333333333333,
+        "p90": 0.012,
+        "pj": [
+          0.4014084507042254,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "objective": 95.57579713481684
+      },
+      "assessment": {
+        "execution_valid": true,
+        "numerical_feasible": false,
+        "evidence_status": "SUFFICIENT",
+        "evidence_sufficient": true,
+        "evidence_qualified_feasible": false,
+        "min_qos_observations_per_type": 1,
+        "statistical_reliability_established": false
+      },
+      "qos_evidence": [
+        {
+          "job": {
+            "index": 0,
+            "section": "Resnet.train.4",
+            "descriptors": [
+              199.0,
+              755.0,
+              337.0,
+              1321.0,
+              3.0,
+              1.0
+            ]
+          },
+          "pj": 0.4014084507042254,
+          "observation_count": 1563,
+          "finished_count": 974,
+          "unfinished_count": 589,
+          "exceedance_count": 628,
+          "estimator_numerator": 627,
+          "estimator_denominator": 1562,
+          "estimator": "flexdc_rank_cdf_v1",
+          "horizon_seconds": 3600,
+          "threshold_sojourn_seconds": 1348.0,
+          "threshold_exceeds_horizon": false
+        },
+        {
+          "job": {
+            "index": 1,
+            "section": "GPT2.train.4",
+            "descriptors": [
+              201.0,
+              763.0,
+              1185.0,
+              4592.0,
+              3.0,
+              1.0
+            ]
+          },
+          "pj": 0.0,
+          "observation_count": 281,
+          "finished_count": 37,
+          "unfinished_count": 244,
+          "exceedance_count": 0,
+          "estimator_numerator": 0,
+          "estimator_denominator": 280,
+          "estimator": "flexdc_rank_cdf_v1",
+          "horizon_seconds": 3600,
+          "threshold_sojourn_seconds": 4740.0,
+          "threshold_exceeds_horizon": true
+        },
+        {
+          "job": {
+            "index": 2,
+            "section": "Llama.train.4",
+            "descriptors": [
+              200.0,
+              742.0,
+              1242.0,
+              4921.0,
+              3.0,
+              1.0
+            ]
+          },
+          "pj": 0.0,
+          "observation_count": 284,
+          "finished_count": 148,
+          "unfinished_count": 136,
+          "exceedance_count": 0,
+          "estimator_numerator": 0,
+          "estimator_denominator": 283,
+          "estimator": "flexdc_rank_cdf_v1",
+          "horizon_seconds": 3600,
+          "threshold_sojourn_seconds": 4968.0,
+          "threshold_exceeds_horizon": true
+        },
+        {
+          "job": {
+            "index": 3,
+            "section": "Bloom.train.4",
+            "descriptors": [
+              202.0,
+              726.0,
+              1104.0,
+              4202.0,
+              3.0,
+              1.0
+            ]
+          },
+          "pj": 0.0,
+          "observation_count": 375,
+          "finished_count": 15,
+          "unfinished_count": 360,
+          "exceedance_count": 0,
+          "estimator_numerator": 0,
+          "estimator_denominator": 374,
+          "estimator": "flexdc_rank_cdf_v1",
+          "horizon_seconds": 3600,
+          "threshold_sojourn_seconds": 4416.0,
+          "threshold_exceeds_horizon": true
+        }
+      ],
+      "workload_fingerprint": "c27f7b07e02c1303065548d4900791a4f9d281d6223411d4400845c30085dd87",
+      "raw_hashes": {
+        "grid_search_results.csv": "f0c3df653544e8dc4222f1b9ea57c201b79ce556a17e0db6dd854d11e11db78d",
+        "grid_search_diagnostics.csv": "cd1713d241e3adde257a9f7c42ada20bf36054967d6aa9f98df1af5db86b70e3",
+        "job_table.csv": "0aabe0acc8a93fef6bad098c6291f802e74782cf35e9e8b8f7317ef2464a2b21",
+        "base_weights.csv": "38dc4cd7b5980bf8ad33d3a09400933b83aef300153a4acdbef616018022c62c"
+      }
+    },
+    {
+      "execution_id": "390e722d758d05f511a565bb",
+      "candidate_id": "b004-independent-0007",
+      "phase": "search",
+      "seed": 20,
+      "batch": 4,
+      "original_status": "SIMULATOR_OBSERVED_INFEASIBLE",
+      "metrics": {
+        "mean_tracking": 0.3678527777777777,
+        "p90": 1.117,
+        "pj": [
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "objective": 109.8576494893351
+      },
+      "assessment": {
+        "execution_valid": true,
+        "numerical_feasible": false,
+        "evidence_status": "SUFFICIENT",
+        "evidence_sufficient": true,
+        "evidence_qualified_feasible": false,
+        "min_qos_observations_per_type": 1,
+        "statistical_reliability_established": false
+      },
+      "qos_evidence": [
+        {
+          "job": {
+            "index": 0,
+            "section": "Resnet.train.4",
+            "descriptors": [
+              199.0,
+              755.0,
+              337.0,
+              1321.0,
+              3.0,
+              1.0
+            ]
+          },
+          "pj": 0.0,
+          "observation_count": 1563,
+          "finished_count": 1562,
+          "unfinished_count": 1,
+          "exceedance_count": 0,
+          "estimator_numerator": 0,
+          "estimator_denominator": 1562,
+          "estimator": "flexdc_rank_cdf_v1",
+          "horizon_seconds": 3600,
+          "threshold_sojourn_seconds": 1348.0,
+          "threshold_exceeds_horizon": false
+        },
+        {
+          "job": {
+            "index": 1,
+            "section": "GPT2.train.4",
+            "descriptors": [
+              201.0,
+              763.0,
+              1185.0,
+              4592.0,
+              3.0,
+              1.0
+            ]
+          },
+          "pj": 0.0,
+          "observation_count": 281,
+          "finished_count": 253,
+          "unfinished_count": 28,
+          "exceedance_count": 0,
+          "estimator_numerator": 0,
+          "estimator_denominator": 280,
+          "estimator": "flexdc_rank_cdf_v1",
+          "horizon_seconds": 3600,
+          "threshold_sojourn_seconds": 4740.0,
+          "threshold_exceeds_horizon": true
+        },
+        {
+          "job": {
+            "index": 2,
+            "section": "Llama.train.4",
+            "descriptors": [
+              200.0,
+              742.0,
+              1242.0,
+              4921.0,
+              3.0,
+              1.0
+            ]
+          },
+          "pj": 0.0,
+          "observation_count": 284,
+          "finished_count": 264,
+          "unfinished_count": 20,
+          "exceedance_count": 0,
+          "estimator_numerator": 0,
+          "estimator_denominator": 283,
+          "estimator": "flexdc_rank_cdf_v1",
+          "horizon_seconds": 3600,
+          "threshold_sojourn_seconds": 4968.0,
+          "threshold_exceeds_horizon": true
+        },
+        {
+          "job": {
+            "index": 3,
+            "section": "Bloom.train.4",
+            "descriptors": [
+              202.0,
+              726.0,
+              1104.0,
+              4202.0,
+              3.0,
+              1.0
+            ]
+          },
+          "pj": 0.0,
+          "observation_count": 375,
+          "finished_count": 375,
+          "unfinished_count": 0,
+          "exceedance_count": 0,
+          "estimator_numerator": 0,
+          "estimator_denominator": 374,
+          "estimator": "flexdc_rank_cdf_v1",
+          "horizon_seconds": 3600,
+          "threshold_sojourn_seconds": 4416.0,
+          "threshold_exceeds_horizon": true
+        }
+      ],
+      "workload_fingerprint": "c27f7b07e02c1303065548d4900791a4f9d281d6223411d4400845c30085dd87",
+      "raw_hashes": {
+        "grid_search_results.csv": "5b76a38e936684184b2b01c1074b26270e57637a3d6216bbdf5896a176c247e6",
+        "grid_search_diagnostics.csv": "91387aec055f96a098b2544e2632fbd30aa1865a57ac3486d3c6e368ec2c3559",
+        "job_table.csv": "191590b804f6774cfa1a9f8cdc42bb25072d4295ca76d62ea26e2d810412aeb1",
+        "base_weights.csv": "2f818c159ba6fdb54cb2b05b8bbfe81cef7b3089ab1665a58c785336924e752f"
+      }
+    },
+    {
+      "execution_id": "4ef251a5b859b2be4ada9fa7",
+      "candidate_id": "v3-1500-0265",
+      "phase": "confirmation",
+      "seed": 100020,
+      "batch": 1,
+      "original_status": "SIMULATOR_OBSERVED_FEASIBLE",
+      "metrics": {
+        "mean_tracking": 0.0017425,
+        "p90": 0.006,
+        "pj": [
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "objective": 62.60601356347972
+      },
+      "assessment": {
+        "execution_valid": true,
+        "numerical_feasible": true,
+        "evidence_status": "SUFFICIENT",
+        "evidence_sufficient": true,
+        "evidence_qualified_feasible": true,
+        "min_qos_observations_per_type": 1,
+        "statistical_reliability_established": false
+      },
+      "qos_evidence": [
+        {
+          "job": {
+            "index": 0,
+            "section": "Resnet.train.4",
+            "descriptors": [
+              199.0,
+              755.0,
+              337.0,
+              1321.0,
+              3.0,
+              1.0
+            ]
+          },
+          "pj": 0.0,
+          "observation_count": 1432,
+          "finished_count": 1140,
+          "unfinished_count": 292,
+          "exceedance_count": 0,
+          "estimator_numerator": 0,
+          "estimator_denominator": 1431,
+          "estimator": "flexdc_rank_cdf_v1",
+          "horizon_seconds": 3600,
+          "threshold_sojourn_seconds": 1348.0,
+          "threshold_exceeds_horizon": false
+        },
+        {
+          "job": {
+            "index": 1,
+            "section": "GPT2.train.4",
+            "descriptors": [
+              201.0,
+              763.0,
+              1185.0,
+              4592.0,
+              3.0,
+              1.0
+            ]
+          },
+          "pj": 0.0,
+          "observation_count": 303,
+          "finished_count": 0,
+          "unfinished_count": 303,
+          "exceedance_count": 0,
+          "estimator_numerator": 0,
+          "estimator_denominator": 302,
+          "estimator": "flexdc_rank_cdf_v1",
+          "horizon_seconds": 3600,
+          "threshold_sojourn_seconds": 4740.0,
+          "threshold_exceeds_horizon": true
+        },
+        {
+          "job": {
+            "index": 2,
+            "section": "Llama.train.4",
+            "descriptors": [
+              200.0,
+              742.0,
+              1242.0,
+              4921.0,
+              3.0,
+              1.0
+            ]
+          },
+          "pj": 0.0,
+          "observation_count": 280,
+          "finished_count": 6,
+          "unfinished_count": 274,
+          "exceedance_count": 0,
+          "estimator_numerator": 0,
+          "estimator_denominator": 279,
+          "estimator": "flexdc_rank_cdf_v1",
+          "horizon_seconds": 3600,
+          "threshold_sojourn_seconds": 4968.0,
+          "threshold_exceeds_horizon": true
+        },
+        {
+          "job": {
+            "index": 3,
+            "section": "Bloom.train.4",
+            "descriptors": [
+              202.0,
+              726.0,
+              1104.0,
+              4202.0,
+              3.0,
+              1.0
+            ]
+          },
+          "pj": 0.0,
+          "observation_count": 309,
+          "finished_count": 80,
+          "unfinished_count": 229,
+          "exceedance_count": 0,
+          "estimator_numerator": 0,
+          "estimator_denominator": 308,
+          "estimator": "flexdc_rank_cdf_v1",
+          "horizon_seconds": 3600,
+          "threshold_sojourn_seconds": 4416.0,
+          "threshold_exceeds_horizon": true
+        }
+      ],
+      "workload_fingerprint": "c27f7b07e02c1303065548d4900791a4f9d281d6223411d4400845c30085dd87",
+      "raw_hashes": {
+        "grid_search_results.csv": "ba56b9b6fa1b79617d244157dda3c46a9c2512a20733af501bf32829ca4aa99b",
+        "grid_search_diagnostics.csv": "dcdb9a2746538cb8c86f294afac534f9cc54328eb2948890ac895d73ad33c0d7",
+        "job_table.csv": "73194a65b217e387220fade540a3918a1745033bfdc8c26bb9a18210575414dd",
+        "base_weights.csv": "0c63c86082b3768f86b2c3dd763e76961ced4b46630ff3dd4e2dc706beb0db0e"
+      }
+    },
+    {
+      "execution_id": "adf370e9c5d3dbdb8a18e879",
+      "candidate_id": "v3-1500-0265",
+      "phase": "confirmation",
+      "seed": 100021,
+      "batch": 2,
+      "original_status": "SIMULATOR_OBSERVED_FEASIBLE",
+      "metrics": {
+        "mean_tracking": 0.0016130555555555,
+        "p90": 0.006,
+        "pj": [
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "objective": 62.60316925481305
+      },
+      "assessment": {
+        "execution_valid": true,
+        "numerical_feasible": true,
+        "evidence_status": "SUFFICIENT",
+        "evidence_sufficient": true,
+        "evidence_qualified_feasible": true,
+        "min_qos_observations_per_type": 1,
+        "statistical_reliability_established": false
+      },
+      "qos_evidence": [
+        {
+          "job": {
+            "index": 0,
+            "section": "Resnet.train.4",
+            "descriptors": [
+              199.0,
+              755.0,
+              337.0,
+              1321.0,
+              3.0,
+              1.0
+            ]
+          },
+          "pj": 0.0,
+          "observation_count": 1412,
+          "finished_count": 1254,
+          "unfinished_count": 158,
+          "exceedance_count": 0,
+          "estimator_numerator": 0,
+          "estimator_denominator": 1411,
+          "estimator": "flexdc_rank_cdf_v1",
+          "horizon_seconds": 3600,
+          "threshold_sojourn_seconds": 1348.0,
+          "threshold_exceeds_horizon": false
+        },
+        {
+          "job": {
+            "index": 1,
+            "section": "GPT2.train.4",
+            "descriptors": [
+              201.0,
+              763.0,
+              1185.0,
+              4592.0,
+              3.0,
+              1.0
+            ]
+          },
+          "pj": 0.0,
+          "observation_count": 317,
+          "finished_count": 0,
+          "unfinished_count": 317,
+          "exceedance_count": 0,
+          "estimator_numerator": 0,
+          "estimator_denominator": 316,
+          "estimator": "flexdc_rank_cdf_v1",
+          "horizon_seconds": 3600,
+          "threshold_sojourn_seconds": 4740.0,
+          "threshold_exceeds_horizon": true
+        },
+        {
+          "job": {
+            "index": 2,
+            "section": "Llama.train.4",
+            "descriptors": [
+              200.0,
+              742.0,
+              1242.0,
+              4921.0,
+              3.0,
+              1.0
+            ]
+          },
+          "pj": 0.0,
+          "observation_count": 323,
+          "finished_count": 0,
+          "unfinished_count": 323,
+          "exceedance_count": 0,
+          "estimator_numerator": 0,
+          "estimator_denominator": 322,
+          "estimator": "flexdc_rank_cdf_v1",
+          "horizon_seconds": 3600,
+          "threshold_sojourn_seconds": 4968.0,
+          "threshold_exceeds_horizon": true
+        },
+        {
+          "job": {
+            "index": 3,
+            "section": "Bloom.train.4",
+            "descriptors": [
+              202.0,
+              726.0,
+              1104.0,
+              4202.0,
+              3.0,
+              1.0
+            ]
+          },
+          "pj": 0.0,
+          "observation_count": 335,
+          "finished_count": 72,
+          "unfinished_count": 263,
+          "exceedance_count": 0,
+          "estimator_numerator": 0,
+          "estimator_denominator": 334,
+          "estimator": "flexdc_rank_cdf_v1",
+          "horizon_seconds": 3600,
+          "threshold_sojourn_seconds": 4416.0,
+          "threshold_exceeds_horizon": true
+        }
+      ],
+      "workload_fingerprint": "c27f7b07e02c1303065548d4900791a4f9d281d6223411d4400845c30085dd87",
+      "raw_hashes": {
+        "grid_search_results.csv": "18d096dc21338cd66420fc9d7dce0593a877df7b94702d2c0ab625109e679971",
+        "grid_search_diagnostics.csv": "d411f89abae046226394ca1de37c4f85742598988539f61d17fdcfb908d3b4c6",
+        "job_table.csv": "fd13e93fbaa293ad599f1f9f028d88ff082ce6bea66d49edf02519d96c8d15f1",
+        "base_weights.csv": "0c63c86082b3768f86b2c3dd763e76961ced4b46630ff3dd4e2dc706beb0db0e"
+      }
+    }
+  ],
+  "confirmation_status": "CONFIRMATION_ALL_PASS",
+  "confirmation_passes": 2,
+  "confirmation_runs": 2,
+  "qualified_search_count": 16,
+  "search_attempts": 32,
+  "selected_candidate_id": "v3-1500-0265",
+  "early_stop_replay": {
+    "mode": "offline_replay_no_simulator_calls",
+    "would_have_search_calls": 16,
+    "recorded_search_calls": 32,
+    "avoidable_extra_calls": 16,
+    "reason": "EARLY_STOP_QUALIFIED_LOCAL_PATIENCE",
+    "stop": true,
+    "first_eligible_call": 1,
+    "first_eligible_batch": 1,
+    "winning_batch": 1,
+    "stale_batches": 1,
+    "subsequent_local_refinement": true,
+    "best_objective": 62.603871176479714
+  }
+}

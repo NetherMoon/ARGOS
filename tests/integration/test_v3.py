@@ -42,3 +42,45 @@ def test_real_checkpoint_prediction_and_snapshot_parity():
     pd.testing.assert_frame_equal(original, captured, check_exact=True)
     assert set(snapshots.Iteration) == {0, 2, 4}
     assert len(snapshots) == 12
+
+
+@pytest.mark.parametrize("j", [3, 4, 5, 6, 8])
+def test_relative_bounds_intersect_upstream(j):
+    from dataclasses import replace
+
+    from argos.config import Config
+
+    adapter = V3Adapter(ROOT)
+    config = replace(Config(), weight_policy="relative_to_equal")
+    lo, hi = config.weight_bounds(j)
+    settings = adapter.api.OptimizationSettings(weight_min=lo, weight_max=hi)
+    bounds = adapter.api.resolve_effective_weight_bounds(settings, job_count=j, server_count=1000)
+    assert bounds.final_lower >= max(lo, 1 / 1000)
+    assert bounds.final_upper <= hi
+
+
+def test_cuda_prediction_if_available():
+    import torch
+
+    if not torch.cuda.is_available():
+        pytest.skip("CUDA unavailable; CPU parity is the release authority")
+    cpu = V3Adapter(ROOT, device="cpu")
+    gpu = V3Adapter(ROOT, device="cuda")
+    from argos.config import Config
+
+    config = Config()
+    w, e = cpu.context(
+        ROOT / ".deps/FlexDC" / config.workload,
+        ROOT / ".deps/FlexDC" / config.experiment,
+        1000,
+        0.6,
+        20,
+    )
+    a = cpu.predict(w, e, 0.4, 0.1, [0.25] * 4)
+    b = gpu.predict(w, e, 0.4, 0.1, [0.25] * 4)
+    for key in [
+        "Predicted_P90_Tracking",
+        "Predicted_QoS_Probabilities",
+        "Predicted_Full_Objective",
+    ]:
+        np.testing.assert_allclose(a[key], b[key], rtol=5e-4, atol=1e-4)

@@ -6,7 +6,7 @@ from dataclasses import replace
 
 import numpy as np
 
-from argos.contracts import feasible, rank
+from argos.contracts import feasible, rank, violations
 from argos.search.candidates import Domain
 from argos.types import Candidate, Metrics, Region
 
@@ -32,32 +32,62 @@ def from_snapshot(row: dict, final_iteration: int) -> Candidate:
     )
 
 
-def promising(candidates: list[Candidate], count: int) -> list[Candidate]:
+def tradeoff_select(
+    candidates: list[Candidate], count: int, domain: Domain | None = None
+) -> list[Candidate]:
+    """Stable round-robin quotas; infeasible and geometric coverage remain explicit."""
+    if not candidates or count <= 0:
+        return []
+    tie = lambda c: (c.prediction.objective, c.candidate_id)
+    good = [c for c in candidates if feasible(c.prediction)]
+    bad = [c for c in candidates if not feasible(c.prediction)]
+    violation_key = lambda c: (*violations(c.prediction), *tie(c))
+    orders = [
+        sorted(good, key=tie),
+        sorted(candidates, key=lambda c: (c.prediction.p90, *tie(c))),
+        sorted(candidates, key=lambda c: (max(c.prediction.pj), *tie(c))),
+        sorted(candidates, key=violation_key),
+        sorted(bad, key=violation_key),
+    ]
+    # The sixth quota is farthest from the retained set, in the legal geometry.
+    selected, seen = [], set()
+    cursors = [0] * len(orders)
+    while len(selected) < min(count, len(candidates)):
+        before = len(selected)
+        for i, order in enumerate(orders):
+            while cursors[i] < len(order) and order[cursors[i]].candidate_id in seen:
+                cursors[i] += 1
+            if cursors[i] < len(order) and len(selected) < count:
+                c = order[cursors[i]]
+                selected.append(c)
+                seen.add(c.candidate_id)
+        remaining = [c for c in candidates if c.candidate_id not in seen]
+        if remaining and len(selected) < count:
+            c = (
+                min(
+                    remaining,
+                    key=lambda c: (-min(domain.distance(c, s) for s in selected), c.candidate_id),
+                )
+                if domain and selected
+                else min(remaining, key=lambda c: c.candidate_id)
+            )
+            selected.append(c)
+            seen.add(c.candidate_id)
+        if before == len(selected):
+            break
+    return selected
+
+
+def promising(
+    candidates: list[Candidate], count: int, domain: Domain | None = None
+) -> list[Candidate]:
     selected = []
-    for iteration in sorted({c.iteration for c in candidates}):
-        group = [c for c in candidates if c.iteration == iteration]
-        good = [c for c in group if feasible(c.prediction)]
-        if good:
-            orders = [
-                sorted(good, key=lambda c: (c.prediction.objective, c.candidate_id)),
-                sorted(
-                    good, key=lambda c: (c.prediction.p90, c.prediction.objective, c.candidate_id)
-                ),
-                sorted(
-                    good,
-                    key=lambda c: (max(c.prediction.pj), c.prediction.objective, c.candidate_id),
-                ),
-            ]
-        else:
-            orders = [sorted(group, key=lambda c: (rank(c.prediction), c.candidate_id))]
-        seen = set()
-        retained = []
-        for row in zip(*orders):
-            for c in row:
-                if c.candidate_id not in seen and len(retained) < count:
-                    retained.append(c)
-                    seen.add(c.candidate_id)
-        selected.extend(retained)
+    for iteration in sorted(
+        {c.iteration for c in candidates}, key=lambda i: -1 if i is None else i
+    ):
+        selected.extend(
+            tradeoff_select([c for c in candidates if c.iteration == iteration], count, domain)
+        )
     return selected
 
 

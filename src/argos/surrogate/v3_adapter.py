@@ -22,8 +22,9 @@ class V3Adapter:
     the dependency module and optimizer bytecode remain unmodified.
     """
 
-    def __init__(self, root: Path, threads: int = 4):
+    def __init__(self, root: Path, threads: int = 4, device: str = "cpu"):
         torch.set_num_threads(threads)
+        resolved, self.device_metadata = resolve_device(device, threads)
         artifact = root / ARTIFACT
         self.training = import_file(
             "_argos_v3_training", artifact / "am_flexdc_behavior_training_utilities_v3.py"
@@ -49,7 +50,7 @@ class V3Adapter:
                     sys.modules.pop(name, None)
                 else:
                     sys.modules[name] = module
-        self.loaded = self.api.load_behavior_model(artifact / CHECKPOINT, device_name="cpu")
+        self.loaded = self.api.load_behavior_model(artifact / CHECKPOINT, device_name=resolved)
         c = self.loaded.checkpoint
         if c.get("format_version") != 3 or c["epoch"] != c["best_epochs"]["best_feasibility"]:
             raise ValueError("Selected artifact is not the recorded V3 best-feasibility checkpoint")
@@ -61,6 +62,13 @@ class V3Adapter:
     ) -> tuple[Any, Any]:
         w = self.api.read_workload_config(workload)
         e = self.api.read_experiment_config(experiment)
+        from argos.simulator.evidence import ordered_jobs
+
+        jobs = ordered_jobs(workload)
+        if w.job_names != [j.section for j in jobs] or w.mix.tolist() != [
+            list(j.descriptors) for j in jobs
+        ]:
+            raise ValueError("V3 token/workload identity order mismatch")
         return w, replace(e, server_count=server_count, utilization=utilization, random_seed=seed)
 
     def predict(
@@ -151,3 +159,22 @@ class V3Adapter:
         if iteration != settings.iterations + 1:
             raise ValueError("Upstream optimizer call sequence changed; snapshot contract failed")
         return endpoints, pd.DataFrame(rows), trajectory
+
+
+def resolve_device(requested: str, threads: int) -> tuple[str, dict]:
+    if requested not in {"cpu", "cuda", "auto"}:
+        raise ValueError("Device must be cpu, cuda, or auto")
+    available = torch.cuda.is_available()
+    if requested == "cuda" and not available:
+        raise RuntimeError("CUDA explicitly requested but unavailable")
+    resolved = "cuda" if available and requested != "cpu" else "cpu"
+    return resolved, {
+        "requested": requested,
+        "resolved": resolved,
+        "torch_version": str(torch.__version__),
+        "cuda_available": available,
+        "cuda_runtime": torch.version.cuda,
+        "gpu_name": torch.cuda.get_device_name(0) if resolved == "cuda" else None,
+        "dtype": "float32",
+        "torch_threads": threads,
+    }

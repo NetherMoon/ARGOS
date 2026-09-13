@@ -1,0 +1,32 @@
+{
+  "version": 1,
+  "policy": "AQA",
+  "node_count_control": true,
+  "locked_experiment": {
+    "system.time_granularity": "1",
+    "system.simulation_duration": "3600",
+    "system.idle_watts": "120.0",
+    "iso.normalize_iso_signal": "True",
+    "iso.randomize_iso_start": "False",
+    "iso.iso_signal_granularity": "2",
+    "iso.iso_signal_start_hour": "16"
+  },
+  "iso_sha256": "b33e986fa6410b715fc86cd7f3c2e868c42a7379e6cd8eeea99fa81211000413",
+  "cluster_sha256": "da8643388be4618a538d6dc6c0a006ee2d62d64064f47d3a209d83c05d3393d5",
+  "conditioned_variables": [
+    "Pbar",
+    "R",
+    "weights",
+    "server_count",
+    "utilization",
+    "job_count",
+    "ordered_workload_descriptors"
+  ],
+  "replicate_variable": "system.random_seed (not a V3 feature)",
+  "source_evidence": {
+    "features": "immutable V3 training utility TOKEN_FEATURE_NAMES, GLOBAL_FEATURE_NAMES, build_token_features_raw, build_global_features_raw",
+    "reviewed_experiment": "pinned FlexDC configs/experiment/new_iso/traditional_signal/generated_server_counts/exp_traditional_iso16_servers_1000.ini",
+    "training_lineage": "artifact flexdc_sweep_v3_final_audit.json plus saved prediction contexts; unconditioned values conservatively restricted to reviewed reproduction context",
+    "limitation": "Feature support alone is not evidence of training coverage for arbitrary conditioned values. No variable-J generalization claim."
+  }
+}

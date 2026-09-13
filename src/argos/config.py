@@ -11,6 +11,20 @@ import yaml
 
 @dataclass(frozen=True)
 class Config:
+    min_qos_observations_per_type: int = 1
+    search_mode: str = "fixed_budget"
+    early_stop_patience: int = 1
+    early_stop_min_batches: int = 2
+    objective_improvement_epsilon: float = 1e-6
+    weight_policy: str = "fixed"
+    weight_lower_multiplier: float = 0.6
+    weight_upper_multiplier: float = 1.8
+    device: str = "cpu"
+    allow_context_ood: bool = False
+    run_mode: str = "development"
+    local_proposal_mode: str = "measured_random"
+    local_screen_pool_factor: int = 4
+    local_radius_mode: str = "fixed"
     workload: str = "configs/workload/W1-train-qos3333.ini"
     experiment: str = "configs/experiment/new_iso/traditional_signal/generated_server_counts/exp_traditional_iso16_servers_1000.ini"
     cluster: str = "configs/cluster/cluster.ini"
@@ -42,6 +56,10 @@ class Config:
 
     def validate(self) -> None:
         for name in [
+            "min_qos_observations_per_type",
+            "early_stop_patience",
+            "early_stop_min_batches",
+            "local_screen_pool_factor",
             "server_count",
             "starts",
             "iterations",
@@ -65,8 +83,28 @@ class Config:
             self.confirmation_seeds
         ):
             raise ValueError("Confirmation seeds must be fresh and distinct")
-        if self.policy != "AQA":
-            raise ValueError("This validated V3 context supports AQA only")
+        for name, choices in {
+            "search_mode": {"fixed_budget", "early_stop"},
+            "weight_policy": {"fixed", "relative_to_equal"},
+            "device": {"cpu", "cuda", "auto"},
+            "run_mode": {"development", "paper"},
+            "local_proposal_mode": {"measured_random", "v3_screened"},
+            "local_radius_mode": {"fixed"},
+        }.items():
+            if getattr(self, name) not in choices:
+                raise ValueError(f"Invalid {name}")
+        if not isinstance(self.allow_context_ood, bool):
+            raise TypeError("allow_context_ood must be boolean")
+        if (
+            not math.isfinite(self.objective_improvement_epsilon)
+            or self.objective_improvement_epsilon < 0
+        ):
+            raise ValueError("Invalid objective improvement epsilon")
+        if not (
+            0 <= self.weight_lower_multiplier <= 1 <= self.weight_upper_multiplier
+            and math.isfinite(self.weight_upper_multiplier)
+        ):
+            raise ValueError("Invalid relative weight multipliers")
         if not 0 < self.utilization <= 1 or not 0 <= self.weight_min <= self.weight_max <= 1:
             raise ValueError("Invalid utilization or weight bounds")
         if self.r_over_p_max != 0.6:
@@ -85,6 +123,22 @@ class Config:
             not math.isfinite(self.max_wall_seconds) or self.max_wall_seconds <= 0
         ):
             raise ValueError("Wall budget must be finite and positive")
+
+    def weight_bounds(self, job_count: int) -> tuple[float, float]:
+        if job_count < 1:
+            raise ValueError("Positive job count required")
+        lo, hi = (
+            (self.weight_min, self.weight_max)
+            if self.weight_policy == "fixed"
+            else (
+                self.weight_lower_multiplier / job_count,
+                self.weight_upper_multiplier / job_count,
+            )
+        )
+        hi = min(1.0, hi)
+        if job_count * lo > 1 + 1e-12 or job_count * hi < 1 - 1e-12:
+            raise ValueError("Infeasible configured weight simplex")
+        return lo, hi
 
     @classmethod
     def load(cls, path: Path) -> Config:

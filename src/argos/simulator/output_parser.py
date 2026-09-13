@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 import json
+from dataclasses import asdict
 from pathlib import Path
 
 import numpy as np
@@ -10,6 +11,7 @@ import pandas as pd
 
 from argos.config import Config
 from argos.contracts import Costs, validate_metrics
+from argos.simulator.evidence import ordered_jobs, reconstruct, verify_order, workload_fingerprint
 from argos.types import Candidate, Metrics
 
 
@@ -95,5 +97,21 @@ def parse_output(
             "workload_mix",
         ]
     }
+    jobs = ordered_jobs(workload)
+    identity_known = verify_order(
+        jobs,
+        json.loads(raw["workload_mix"]),
+        results.with_name("base_weights.csv"),
+        candidate.weights,
+    )
+    table_path = results.with_name("job_table.csv")
+    evidence = (
+        reconstruct(pd.read_csv(table_path), jobs, probs)
+        if table_path.is_file() and identity_known
+        else None
+    )
+    reported["ordered_jobs"] = [asdict(j) for j in jobs]
+    reported["workload_fingerprint"] = workload_fingerprint(jobs)
+    reported["qos_evidence"] = [asdict(e) for e in evidence] if evidence is not None else None
     reported["weights"] = [float(raw[f"Weight_{j}"]) for j in range(len(candidate.weights))]
     return metrics, reported

@@ -1,5 +1,5 @@
-search_mode: fixed_budget
-run_mode: development
+search_mode: early_stop
+run_mode: paper
 weight_policy: fixed
 workload: configs/workload/W1-train-qos3333.ini
 experiment: configs/experiment/new_iso/traditional_signal/generated_server_counts/exp_traditional_iso16_servers_1000.ini
@@ -31,3 +31,8 @@ max_search_calls: 32
 local_radius: 0.12
 max_wall_seconds: null
 simulator_timeout_seconds: 1800.0
+device: cpu
+early_stop_patience: 1
+early_stop_min_batches: 2
+objective_improvement_epsilon: 0.000001
+min_qos_observations_per_type: 1

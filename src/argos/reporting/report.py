@@ -9,16 +9,18 @@ from pathlib import Path
 import pandas as pd
 
 from argos.config import Config
-from argos.contracts import QOS_LIMIT, TRACKING_LIMIT, feasible, violations
+from argos.contracts import QOS_LIMIT, TRACKING_LIMIT, assessment, feasible, qualified, violations
 from argos.controller.argos_controller import SearchState
-from argos.provenance import write_json
+from argos.provenance import read_json, write_json
 
 
 def report(episode: Path, config: Config, state: SearchState) -> dict:
+    manifest = read_json(episode / "manifest.json") if (episode / "manifest.json").is_file() else {}
+    context = manifest.get("input_identity", {}).get("context_contract", {})
     searches = [o for o in state.observations if o.phase == "search"]
     confirms = [o for o in state.observations if o.phase == "confirmation"]
-    feasible_search = [o for o in searches if o.valid and feasible(o.metrics)]
-    passes = sum(o.valid and feasible(o.metrics) for o in confirms)
+    feasible_search = [o for o in searches if qualified(o, config.min_qos_observations_per_type)]
+    passes = sum(qualified(o, config.min_qos_observations_per_type) for o in confirms)
     if state.phase not in {"DONE", "NO_BID"}:
         status = "INSUFFICIENT_EVIDENCE"
     elif not feasible_search:
@@ -26,9 +28,9 @@ def report(episode: Path, config: Config, state: SearchState) -> dict:
     elif not confirms:
         status = "SIMULATOR_OBSERVED_FEASIBLE"
     elif passes == len(confirms) == len(config.confirmation_seeds):
-        status = f"CONFIRMATION_{passes}_OF_{len(confirms)}_PASS"
+        status = "CONFIRMATION_ALL_PASS"
     else:
-        status = "CONFIRMATION_MIXED"
+        status = "CONFIRMATION_PARTIAL_PASS" if passes else "CONFIRMATION_NONE_PASS"
     selected = next(
         (
             o
@@ -40,7 +42,24 @@ def report(episode: Path, config: Config, state: SearchState) -> dict:
         None,
     )
     summary = {
+        "schema_version": 2,
+        "run_mode": config.run_mode,
+        "argos_dirty": manifest.get("argos_dirty"),
+        "context_ood": context.get("context_ood"),
+        "context_label": context.get("label", "UNKNOWN"),
+        "device_metadata": manifest.get("device_metadata"),
         "episode_id": episode.name,
+        "numerically_feasible_count": sum(o.valid and feasible(o.metrics) for o in searches),
+        "evidence_qualified_feasible_count": len(feasible_search),
+        "confirmation_numerical_passes": sum(o.valid and feasible(o.metrics) for o in confirms),
+        "confirmation_evidence_sufficient": sum(
+            assessment(o, config.min_qos_observations_per_type)["evidence_sufficient"] is True
+            for o in confirms
+        ),
+        "assessments": {
+            o.execution_id: assessment(o, config.min_qos_observations_per_type)
+            for o in state.observations
+        },
         "status": status,
         "phase": state.phase,
         "stop_reason": state.stop_reason,
@@ -49,6 +68,13 @@ def report(episode: Path, config: Config, state: SearchState) -> dict:
         "completed_search_observations": len(searches),
         "valid_search_observations": sum(o.valid for o in searches),
         "observed_feasible_count": len(feasible_search),
+        "confirmation_status": (
+            "CONFIRMATION_ALL_PASS"
+            if confirms and passes == len(confirms) == len(config.confirmation_seeds)
+            else "CONFIRMATION_PARTIAL_PASS"
+            if passes
+            else "CONFIRMATION_NONE_PASS"
+        ),
         "confirmation_passes": passes,
         "confirmation_runs": len(confirms),
         "max_workers": config.max_workers,
@@ -64,6 +90,10 @@ def report(episode: Path, config: Config, state: SearchState) -> dict:
     rows = []
     for o in state.observations:
         row = {
+            **assessment(o, config.min_qos_observations_per_type),
+            "qos_evidence": json.dumps([asdict(e) for e in o.qos_evidence])
+            if o.qos_evidence is not None
+            else None,
             "candidate_id": o.candidate.candidate_id,
             "execution_id": o.execution_id,
             "Pbar": o.candidate.Pbar,
@@ -94,6 +124,7 @@ def report(episode: Path, config: Config, state: SearchState) -> dict:
                         f"{prefix}_mean_tracking": metrics.mean_tracking,
                         f"{prefix}_p90": metrics.p90,
                         f"{prefix}_pj": json.dumps(metrics.pj),
+                        f"{prefix}_max_pj": max(metrics.pj),
                         f"{prefix}_objective": metrics.objective,
                         f"{prefix}_tracking_pass": metrics.p90 <= TRACKING_LIMIT,
                         f"{prefix}_qos_pass": max(metrics.pj) <= QOS_LIMIT,
@@ -115,6 +146,7 @@ def report(episode: Path, config: Config, state: SearchState) -> dict:
     text = [
         f"# ARGOS episode {episode.name}",
         f"\nStatus: **{status}**",
+        f"\nRun mode: **{config.run_mode}**; source dirty: **{manifest.get('argos_dirty', 'UNKNOWN')}**; context: **{context.get('label', 'UNKNOWN')}**.",
         f"\nContext: {config.workload}; N={config.server_count}, utilization={config.utilization}, policy={config.policy}.",
         f"\nSearch: {state.search_calls} reserved calls, {state.completed_batches} completed batches, {config.max_workers} workers.",
         f"Controller wall time: {state.elapsed_seconds:.3f} s. See v3/search_timing.json for surrogate time.",
@@ -125,11 +157,13 @@ def report(episode: Path, config: Config, state: SearchState) -> dict:
         text.extend(
             [
                 f"\nFrozen candidate: Pbar={selected.candidate.Pbar:.9g}, R={selected.candidate.R:.9g}, weights={selected.candidate.weights}.",
-                f"Selection seed={selected.seed}: p90={selected.metrics.p90}, Pj={selected.metrics.pj}, actual objective={selected.metrics.objective}.",
+                f"Selection assessment={assessment(selected, config.min_qos_observations_per_type)}; QoS evidence={selected.qos_evidence}. Selection seed={selected.seed}: p90={selected.metrics.p90}, Pj={selected.metrics.pj}, actual objective={selected.metrics.objective}.",
             ]
         )
     for o in confirms:
-        text.append(f"\nConfirmation seed {o.seed}: {o.status}; metrics={o.metrics}.")
+        text.append(
+            f"\nConfirmation seed {o.seed}: {o.status}; metrics={o.metrics}; assessment={assessment(o, config.min_qos_observations_per_type)}; QoS evidence={o.qos_evidence}."
+        )
     for failure in summary["failures"]:
         text.append(f"\nInvalid observation: {failure}.")
     text.append(

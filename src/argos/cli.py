@@ -23,7 +23,27 @@ def main() -> None:
     run.add_argument("--config", type=Path, required=True)
     resume = commands.add_parser("resume")
     resume.add_argument("episode_dir", type=Path)
+    audit = commands.add_parser("audit", help="Reconstruct evidence without simulator calls")
+    audit.add_argument("episode_dir", type=Path)
+    audit.add_argument("--allow-legacy-audit", action="store_true")
+    audit.add_argument("--output", type=Path)
     args = parser.parse_args()
+    if args.command == "audit":
+        from argos.audit import audit_episode
+        from argos.provenance import write_json
+
+        result = audit_episode(args.root, args.episode_dir, args.allow_legacy_audit)
+        if args.output:
+            # Avoid silently replacing historical episode records.
+            if args.output.exists() or args.output.resolve().is_relative_to(
+                args.episode_dir.resolve()
+            ):
+                raise ValueError("Audit output must be a new file outside the historical episode")
+            write_json(args.output, result)
+        print(json.dumps(result, indent=2))
+        if result["status"] != "PASS":
+            raise SystemExit(1)
+        return
     if args.command == "bootstrap":
         result = bootstrap(args.root, args.refresh_lock)
     elif args.command == "inspect-artifact":
