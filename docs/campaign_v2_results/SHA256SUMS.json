@@ -1,0 +1,20 @@
+{
+  ".gitattributes": "a41c0afbbfdc1bb9784775421d7bc48fcc809db0b718585f80f8a7e950219059",
+  "analysis_supplement.json": "435696b5cc8d0ff5b91f93ba5eb54d97840e16e8a1b53844076d2485f2214d6d",
+  "ANALYSIS_SUPPLEMENT.md": "087b472f90e00c173063908af84a5c5988e504e29a79b18513c4ab704659a10b",
+  "campaign_cases.csv": "1b1d786b5e9269266fd92650d871bf3cf465d86e8ce3a25616d3359870cdbe7c",
+  "campaign_confirmations.csv": "678d7747d1f4651664c020b5c244b23473e36faa94f34fa74a381d1dfa905718",
+  "campaign_failures.csv": "944573a7573033a74acc0e37be435f609175db6b9c8d45cfd930ffd966336330",
+  "campaign_results.csv": "91a52f1d00e99ceedd57480fef2d7c39b07177fd4051f75ec8dc23c3d6749fa6",
+  "candidate_bank_manifest.csv": "ae4d7382c708c1fbd92b0a42db49bcbe9f0085b0e57fd5d943c9b1cfe2a5fde1",
+  "early_stop_comparison.csv": "ff255079d9e5dc4b41e445cfde205678ab5c7523fe3676ea2a3d1ca127d4cccd",
+  "FAILURE_DIAGNOSTICS.md": "bb4b60f06a09e3e462bbb7d9d7c07eba3bb361610058ad478cc706538d34488f",
+  "FINAL_AUDIT.json": "8a5137ebf3560ea4542f79d83f20b27dfd3c0b42ddf60aab436b4469efa5a456",
+  "paired_interpretation.json": "5c9824f058cb57dee541b2a247db8c9aa0516c3264809885c45e098f8a381407",
+  "PAIRED_INTERPRETATION.md": "6f2f4f28dce3b985f3fb15b5085ea97d1656216b6f7f9246ce4656a13e86c4a8",
+  "PHASE1_REVIEW.md": "1f33085228c2f8d2eaf4dc0ce5602169618b81a743ba77cf2b94892fa7f45371",
+  "PHASE2_REVIEW.md": "d28bf8305cfffed8375102688764a6ad2ff73cd32e946ec722a24c7fc633b28a",
+  "prediction_error_summary.csv": "420a235b53cf39394c08d5850963c80679729434065edf949e72b1fe7114466a",
+  "USER_CLOSED_CAMPAIGN.json": "461f406877965cba1984c48b906dc9a2f1198bb60a7b6dcc2317ade772fca1a3",
+  "winner_sources.csv": "cee5c2a1a7fbb2fcd0197419f90dd465e8aaf60d25206269877f93222dc03b9d"
+}

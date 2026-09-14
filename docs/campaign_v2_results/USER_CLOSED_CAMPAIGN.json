@@ -1,0 +1,8 @@
+{
+  "status": "CLOSED_EARLY_BY_USER",
+  "utc": "2026-09-14T16:20:23.116125+00:00",
+  "reason": "User decided further testing is not worthwhile and requested a report of completed evidence. Do not execute remaining cases.",
+  "completed_method_cases": 121,
+  "planned_method_cases": 227,
+  "future_action": "Review and report saved evidence only. Reopening scientific execution requires a new explicit user request."
+}
