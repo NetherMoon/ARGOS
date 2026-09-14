@@ -426,3 +426,64 @@ def test_no_bid_retained_in_report_denominator(tmp_path):
     assert summary.success_fraction_descriptive == 0
     failures = pd.read_csv(tmp_path / "campaign_failures.csv")
     assert failures.iloc[0].kind == "NO_BID"
+
+
+def test_failed_bank_preserves_raw_optimizer_evidence(tmp_path, monkeypatch):
+    from dataclasses import dataclass
+    from types import SimpleNamespace
+
+    import pandas as pd
+
+    from argos.campaign import candidate_bank
+
+    config, domain, candidate, _, _, _, _ = environment(tmp_path)
+    row = {
+        "Start_Index": 0,
+        "Iteration": 4,
+        "Pbar_kw_per_server": candidate.Pbar,
+        "R_kw_per_server": candidate.R,
+        "weights": list(candidate.weights),
+        "Predicted_Mean_Tracking": 0.1,
+        "Predicted_P90_Tracking": 0.2,
+        "Predicted_QoS_Probabilities": [0.0] * 4,
+        "Predicted_Full_Objective": 1.0,
+    }
+
+    @dataclass
+    class Settings:
+        iterations: int = 4
+        top_k: int = 5
+        candidate_distance: float = 0.03
+        mode: str = "margin_constrained"
+
+    adapter = SimpleNamespace(
+        api=SimpleNamespace(select_distinct_top_k=lambda endpoints, **kw: endpoints),
+        optimize=lambda **kw: (
+            pd.DataFrame([row]),
+            pd.DataFrame([row]),
+            pd.DataFrame({"loss": [1.0]}),
+        ),
+    )
+
+    def fail(*args, **kwargs):
+        raise ValueError("injected region failure")
+
+    monkeypatch.setattr(candidate_bank, "extract_regions", fail)
+    case = {"bank_identity": {"test": "failed"}, "bank_id": digest({"test": "failed"})}
+    values = (SimpleNamespace(job_count=4), None, Settings(), None, domain, None)
+    with pytest.raises(ValueError, match="injected region failure"):
+        candidate_bank.get_bank(tmp_path, case, adapter, config, values)
+    bank = tmp_path / "cache/v3_banks" / case["bank_id"]
+    assert not (bank / "manifest.json").exists()
+    receipt_path = next(bank.glob("attempt-*/raw_optimizer.json"))
+    receipt = read_json(receipt_path)
+    assert receipt["status"] == "OPTIMIZER_COMPLETE_UNVALIDATED"
+    assert receipt["wall_seconds"] >= 0
+    assert set(receipt["files"]) == {
+        "starts.csv",
+        "snapshots.csv",
+        "endpoints.csv",
+        "trajectory.csv",
+    }
+    verify_files(receipt_path.parent, receipt["files"])
+    assert len(pd.read_csv(receipt_path.parent / "snapshots.csv")) == 1

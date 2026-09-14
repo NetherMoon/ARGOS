@@ -39,16 +39,16 @@ def file_manifest(base: Path) -> dict:
     }
 
 
-def frozen_core(root: Path) -> dict:
-    if git(root, "rev-parse", "v0.2.0-pretest^{commit}") != CORE:
+def frozen_core(root: Path, core: str = CORE, tag: str = "v0.2.0-pretest") -> dict:
+    if git(root, "rev-parse", f"{tag}^{{commit}}") != core:
         raise ValueError("Frozen core tag mismatch")
-    names = git(root, "ls-tree", "-r", "--name-only", CORE, "src/argos").splitlines()
+    names = git(root, "ls-tree", "-r", "--name-only", core, "src/argos").splitlines()
     changed = []
     hashes = {}
     for name in names:
-        original = git(root, "show", f"{CORE}:{name}")
+        original = git(root, "show", f"{core}:{name}")
         actual = (root / name).read_text(encoding="utf-8").strip()
-        if name == "src/argos/cli.py":
+        if core == CORE and name == "src/argos/cli.py":
             start = "    # CAMPAIGN ROUTING START"
             end = "    # CAMPAIGN ROUTING END"
             while start in actual:
@@ -60,4 +60,4 @@ def frozen_core(root: Path) -> dict:
         hashes[name] = sha256(root / name)
     if changed:
         raise ValueError(f"Frozen core changed: {changed}")
-    return {"commit": CORE, "files": hashes}
+    return {"commit": core, "tag": tag, "files": hashes}

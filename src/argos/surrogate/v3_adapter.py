@@ -12,14 +12,16 @@ import pandas as pd
 import torch
 
 from argos.provenance import ARTIFACT, CHECKPOINT, import_file
+from argos.surrogate.weights import parameterize_weights
 
 
 class V3Adapter:
     """Use exact bundled model/features and pinned generic inference machinery.
 
     Temporary import aliases bind the generic inference imports to artifact code.
-    A private function-global namespace supplies observation hooks during search;
-    the dependency module and optimizer bytecode remain unmodified.
+    A private function-global namespace supplies observation hooks and the v0.3.0
+    corrected weight solve. The dependency module and optimizer bytecode remain
+    unmodified; optimization trajectories intentionally differ from v0.2.0.
     """
 
     def __init__(self, root: Path, threads: int = 4, device: str = "cpu"):
@@ -104,17 +106,26 @@ class V3Adapter:
             "bounds": self.api.calculate_pr_bounds(workload),
             "safety": self.api.resolve_safety_limits(self.loaded.constants),
         }
-        if not capture:
-            endpoints, _, trajectory = original(self.loaded, **kwargs)
-            return endpoints, pd.DataFrame(), trajectory
         namespace = dict(original.__globals__)
+        namespace["parameterize_weights"] = parameterize_weights
+        if not capture:
+            wrapped = FunctionType(
+                original.__code__,
+                namespace,
+                original.__name__,
+                original.__defaults__,
+                original.__closure__,
+            )
+            wrapped.__kwdefaults__ = original.__kwdefaults__
+            endpoints, _, trajectory = wrapped(self.loaded, **kwargs)
+            return endpoints, pd.DataFrame(), trajectory
         latest_weights = None
         iteration = 0
         rows = []
 
         def weights_hook(*args: Any, **kw: Any) -> torch.Tensor:
             nonlocal latest_weights
-            latest_weights = self.api.parameterize_weights(*args, **kw)
+            latest_weights = parameterize_weights(*args, **kw)
             return latest_weights
 
         def output_hook(**kw: Any) -> dict:

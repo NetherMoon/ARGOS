@@ -99,7 +99,32 @@ def get_bank(directory: Path, case: dict, adapter, config, setup_values):
         snapshot_every=config.snapshot_every,
     )
     seconds = time.perf_counter() - start
+    for name, frame in [
+        ("endpoints", endpoints),
+        ("snapshots", snapshots),
+        ("starts", snapshots[snapshots.Iteration == 0]),
+        ("trajectory", trajectory),
+    ]:
+        frame = frame.copy()
+        for col in frame:
+            if any(isinstance(v, (list, tuple)) for v in frame[col]):
+                frame[col] = frame[col].map(
+                    lambda v: json.dumps(v) if isinstance(v, (list, tuple)) else v
+                )
+        frame.to_csv(attempt / (name + ".csv"), index=False)
+    write_json(
+        attempt / "raw_optimizer.json",
+        {
+            "status": "OPTIMIZER_COMPLETE_UNVALIDATED",
+            "bank_id": case["bank_id"],
+            "wall_seconds": seconds,
+            "settings": asdict(settings),
+            "domain": asdict(domain),
+            "files": file_manifest(attempt),
+        },
+    )
     top = original_selection(adapter.api, endpoints, bounds, workload.job_count, settings)
+    top.to_csv(attempt / "original_top_k.csv", index=False)
     selected = None
     if not top.empty:
         row = top.iloc[0].to_dict()
@@ -114,20 +139,6 @@ def get_bank(directory: Path, case: dict, adapter, config, setup_values):
         config.region_distance,
         config.dedupe_distance,
     )
-    for name, frame in [
-        ("endpoints", endpoints),
-        ("snapshots", snapshots),
-        ("starts", snapshots[snapshots.Iteration == 0]),
-        ("trajectory", trajectory),
-        ("original_top_k", top),
-    ]:
-        frame = frame.copy()
-        for col in frame:
-            if any(isinstance(v, (list, tuple)) for v in frame[col]):
-                frame[col] = frame[col].map(
-                    lambda v: json.dumps(v) if isinstance(v, (list, tuple)) else v
-                )
-        frame.to_csv(attempt / (name + ".csv"), index=False)
     write_json(attempt / "selection.json", asdict(selected) if selected else None)
     write_json(attempt / "regions.json", [asdict(r) for r in regions])
     write_json(attempt / "pool.json", [asdict(c) for c in pool])

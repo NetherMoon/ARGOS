@@ -59,7 +59,7 @@ def audit_plan(root, directory):
         read_json(Path(manifest["protocol_path"]))
     ) != digest(protocol):
         raise ValueError("Frozen protocol changed")
-    if campaign_identity(root) != manifest["identity"]:
+    if campaign_identity(root, protocol) != manifest["identity"]:
         raise ValueError("Campaign source/runtime/artifact identity changed")
     ledger = validate_ledger(root / protocol["ledger"], manifest["ledger_sha256"])
     for case in manifest["cases"]:

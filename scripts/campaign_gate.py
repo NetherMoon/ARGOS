@@ -1,5 +1,6 @@
 """Run and preserve the mandatory pre-execution gate against a clean campaign commit."""
 
+import argparse
 import json
 import subprocess
 import sys
@@ -16,7 +17,9 @@ def main():
     root = Path(__file__).resolve().parents[1]
     if git(root, "status", "--porcelain"):
         raise ValueError("Commit campaign infrastructure before gate")
-    config = root / "configs/campaigns/controlled_v1.json"
+    parser = argparse.ArgumentParser()
+    parser.add_argument("--config", type=Path, required=True)
+    config = parser.parse_args().config.resolve()
     directory = plan(root, config)
     receipts = []
     for label, arguments in [

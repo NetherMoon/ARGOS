@@ -11,6 +11,7 @@ from argos.config import Config
 from argos.context import check_context
 from argos.environment import package_versions
 from argos.provenance import ARTIFACT, CHECKPOINT, read_json, sha256, verify_dependencies
+from argos.surrogate.weights import WEIGHT_PARAMETERIZATION
 from argos.versions import OBSERVATION_SCHEMA
 
 
@@ -29,19 +30,20 @@ def source_files(root):
     }
 
 
-def campaign_identity(root):
+def campaign_identity(root, protocol):
     artifact = read_json(root / "artifact_manifest.json")
     for name, record in artifact["files"].items():
         if sha256(root / ARTIFACT / name) != record["sha256"]:
             raise ValueError("Artifact changed")
     return {
-        "core": frozen_core(root),
+        "core": frozen_core(root, protocol["frozen_core"], protocol["core_tag"]),
         "dependencies": verify_dependencies(root),
         "artifact_manifest_sha256": sha256(root / "artifact_manifest.json"),
         "checkpoint_sha256": sha256(root / ARTIFACT / CHECKPOINT),
         "source_files": source_files(root),
         "runtime": package_versions(),
         "extraction_schema": OBSERVATION_SCHEMA,
+        "weight_parameterization": WEIGHT_PARAMETERIZATION,
     }
 
 
@@ -78,7 +80,7 @@ def plan(root: Path, config_path: Path) -> Path:
     ledger = validate_ledger(root / protocol["ledger"], protocol["ledger_sha256"])
     if sha256(root / protocol["provenance"]) != protocol["provenance_sha256"]:
         raise ValueError("Provenance changed")
-    identity = campaign_identity(root)
+    identity = campaign_identity(root, protocol)
     workloads = generate(root, directory / "workloads", protocol)
     cases = []
     for declared in protocol["cases"]:

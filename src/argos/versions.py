@@ -1,6 +1,6 @@
 """Central persisted-contract versions: increment when semantics change."""
 
-SOFTWARE_VERSION = "0.2.0"
+SOFTWARE_VERSION = "0.3.0"
 OBSERVATION_SCHEMA = 3
 AUDIT_SCHEMA = 3
 REPORT_SCHEMA = 3

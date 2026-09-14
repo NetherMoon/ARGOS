@@ -335,7 +335,7 @@ def campaign_report(directory: Path):
         f"\nCompleted method cases: {completed}/{len(results)}.",
         "\nThis is controlled development testing. Two confirmations provide descriptive evidence only. No reserved benchmark seed was used.",
         "\n## Protocol and frozen identities",
-        f"Core: {manifest['identity']['core']['commit']}. Tag: v0.2.0-pretest.",
+        f"Core: {manifest['identity']['core']['commit']}. Tag: {manifest['identity']['core'].get('tag', 'v0.2.0-pretest')}.",
         f"Protocol SHA256: {manifest['protocol_sha256']}. Ledger SHA256: {manifest['ledger_sha256']}.",
         f"Checkpoint SHA256: {manifest['identity']['checkpoint_sha256']}.",
         "Dependencies: " + json.dumps(manifest["identity"]["dependencies"]),

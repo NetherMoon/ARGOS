@@ -4,6 +4,7 @@ This diagnostic changes no optimizer source and performs no FlexDC evaluations.
 Run with the pinned paper Python from the ARGOS repository.
 """
 
+import argparse
 import json
 from pathlib import Path
 
@@ -13,6 +14,9 @@ from argos.surrogate.v3_adapter import V3Adapter
 
 
 def main():
+    parser = argparse.ArgumentParser()
+    parser.add_argument("--corrected", action="store_true")
+    args = parser.parse_args()
     root = Path(__file__).resolve().parents[2]
     adapter = V3Adapter(root, threads=4, device="cpu")
     logits = torch.tensor(
@@ -23,7 +27,10 @@ def main():
         ],
         dtype=torch.float32,
     )
-    weights = adapter.api.parameterize_weights(logits, 0.15, 0.45)
+    from argos.surrogate.weights import parameterize_weights
+
+    transform = parameterize_weights if args.corrected else adapter.api.parameterize_weights
+    weights = transform(logits, 0.15, 0.45)
     sums = weights.double().sum(dim=1)
     legal = (
         torch.isfinite(weights).all(dim=1)
@@ -34,6 +41,7 @@ def main():
     print(
         json.dumps(
             {
+                "implementation": "corrected" if args.corrected else "pinned_upstream",
                 "logits": logits.tolist(),
                 "weights": weights.tolist(),
                 "sums": sums.tolist(),

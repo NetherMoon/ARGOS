@@ -72,3 +72,28 @@ def test_scenario_seed_invariance_features_predictions_and_search():
         np.testing.assert_array_equal(predictions[0][key], predictions[1][key])
     for x, y in zip(*searches):
         pd.testing.assert_frame_equal(x, y, check_exact=True)
+
+
+def test_corrected_optimizer_survives_original_failing_snapshot():
+    from argos.campaign.candidate_bank import setup
+    from argos.search.regions import from_snapshot
+
+    a = V3Adapter(ROOT)
+    c = replace(Config(), starts=512, iterations=200, candidate_seed=300001)
+    w, e, settings, _, domain, _ = setup(a, ROOT, c)
+    endpoints, snapshots, _ = a.optimize(
+        workload=w, experiment=e, settings=settings, snapshot_every=50
+    )
+    assert len(snapshots) == 512 * 5
+    assert 150 in set(snapshots.Iteration)
+    for row in snapshots.to_dict("records") + endpoints.to_dict("records"):
+        domain.validate(
+            from_snapshot(
+                dict(row, Iteration=row.get("Iteration", settings.iterations)), settings.iterations
+            )
+        )
+    # The pinned dependency stays untouched; the correction belongs to ARGOS.
+    bad = torch.tensor(
+        [[-4.956484794616699, 3.278822898864746, -5.34633207321167, 2.506721258163452]]
+    )
+    assert abs(float(a.api.parameterize_weights(bad, 0.15, 0.45).sum()) - 1) > 0.1
