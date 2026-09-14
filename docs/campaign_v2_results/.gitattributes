@@ -1,2 +1,2 @@
-# Preserve the exact bytes covered by SHA256SUMS.json.
-* -text
+# Canonical LF archive text; source evidence remains unchanged.
+* text eol=lf
