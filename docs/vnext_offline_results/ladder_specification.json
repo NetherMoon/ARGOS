@@ -1,0 +1,126 @@
+{
+  "specs": [
+    {
+      "model": "C0",
+      "space": "physical",
+      "bandwidth": 0.24,
+      "ridge_alpha": 0.1,
+      "gp_noise": 0.05,
+      "gp_length": 0.24,
+      "gp_bounds": [
+        0.03,
+        0.8
+      ],
+      "tracking_floor": [
+        1e-06,
+        0.001
+      ],
+      "fallback": "C2"
+    },
+    {
+      "model": "C1",
+      "space": "physical",
+      "bandwidth": 0.24,
+      "ridge_alpha": 0.1,
+      "gp_noise": 0.05,
+      "gp_length": 0.24,
+      "gp_bounds": [
+        0.03,
+        0.8
+      ],
+      "tracking_floor": [
+        1e-06,
+        0.001
+      ],
+      "fallback": "C2"
+    },
+    {
+      "model": "C2",
+      "space": "physical",
+      "bandwidth": 0.24,
+      "ridge_alpha": 0.1,
+      "gp_noise": 0.05,
+      "gp_length": 0.24,
+      "gp_bounds": [
+        0.03,
+        0.8
+      ],
+      "tracking_floor": [
+        1e-06,
+        0.001
+      ],
+      "fallback": "C2"
+    },
+    {
+      "model": "C3",
+      "space": "physical",
+      "bandwidth": 0.24,
+      "ridge_alpha": 0.1,
+      "gp_noise": 0.05,
+      "gp_length": 0.24,
+      "gp_bounds": [
+        0.03,
+        0.8
+      ],
+      "tracking_floor": [
+        1e-06,
+        0.001
+      ],
+      "fallback": "C2"
+    },
+    {
+      "model": "C1",
+      "space": "tracking_log",
+      "bandwidth": 0.24,
+      "ridge_alpha": 0.1,
+      "gp_noise": 0.05,
+      "gp_length": 0.24,
+      "gp_bounds": [
+        0.03,
+        0.8
+      ],
+      "tracking_floor": [
+        1e-06,
+        0.001
+      ],
+      "fallback": "C2"
+    },
+    {
+      "model": "C2",
+      "space": "tracking_log",
+      "bandwidth": 0.24,
+      "ridge_alpha": 0.1,
+      "gp_noise": 0.05,
+      "gp_length": 0.24,
+      "gp_bounds": [
+        0.03,
+        0.8
+      ],
+      "tracking_floor": [
+        1e-06,
+        0.001
+      ],
+      "fallback": "C2"
+    },
+    {
+      "model": "C3",
+      "space": "tracking_log",
+      "bandwidth": 0.24,
+      "ridge_alpha": 0.1,
+      "gp_noise": 0.05,
+      "gp_length": 0.24,
+      "gp_bounds": [
+        0.03,
+        0.8
+      ],
+      "tracking_floor": [
+        1e-06,
+        0.001
+      ],
+      "fallback": "C2"
+    }
+  ],
+  "stream": "argos_fixed_budget search only, each context separately",
+  "folds": "fit B1->B2; B1+B2->B3; B1+B2+B3->B4",
+  "selection": "Require positive W2 mean rank improvement and no loss of top2 feasible hits versus C0; normalized constraint MAE improvement >=5%; W1 rank loss <=0.05, W1 normalized MAE increase <=10%, no W1 top2 loss. Choose simplest eligible model; choose space by W2 rank then MAE. GP must beat best simpler eligible model by >=0.05 W2 rank and >=10% normalized MAE in >=3/4 W2 contexts; otherwise reject GP."
+}

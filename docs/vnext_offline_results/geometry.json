@@ -1,0 +1,5550 @@
+[
+  {
+    "case": "c001",
+    "workload": "W1-train-qos3333",
+    "utilization": 0.6,
+    "counts": {
+      "starts": 512,
+      "snapshots": 15872,
+      "endpoints": 512
+    },
+    "pool_size": 520,
+    "regions": 6,
+    "selected": {
+      "candidate_id": "v3-1500-0206",
+      "Pbar": 0.3663891553878784,
+      "R": 0.21971264481544495,
+      "weights": [
+        0.44967254996299744,
+        0.16022250056266785,
+        0.16323883831501007,
+        0.22686611115932465
+      ],
+      "source": "V3 endpoint",
+      "start_id": 206,
+      "iteration": 1500,
+      "region_id": null,
+      "prediction": {
+        "mean_tracking": 0.003522302722558379,
+        "p90": 0.006302312016487122,
+        "pj": [
+          0.046085506677627563,
+          3.520462996675633e-07,
+          1.6782247485025437e-06,
+          1.4649201318661653e-07
+        ],
+        "objective": 63.49878692626953
+      },
+      "provenance": {}
+    },
+    "selected_in_pool": true,
+    "selected_region_distance": 0.0,
+    "selected_first_batch_distance": 0.0,
+    "selected_later_batch_distance": 0.06001682754080897,
+    "known_qualified_physical_evaluations": 16,
+    "known_qualified_sources": [
+      {
+        "method_sources": [
+          "v3_only",
+          "v3_fixed_probing",
+          "argos_fixed_budget",
+          "argos_early_stop"
+        ],
+        "candidate": {
+          "candidate_id": "v3-1500-0206",
+          "Pbar": 0.3663891553878784,
+          "R": 0.21971264481544495,
+          "weights": [
+            0.44967254996299744,
+            0.16022250056266785,
+            0.16323883831501007,
+            0.22686611115932465
+          ],
+          "source": "V3 endpoint",
+          "start_id": 206,
+          "iteration": 1500,
+          "region_id": "region-01",
+          "prediction": {
+            "mean_tracking": 0.003522302722558379,
+            "p90": 0.006302312016487122,
+            "pj": [
+              0.046085506677627563,
+              3.520462996675633e-07,
+              1.6782247485025437e-06,
+              1.4649201318661653e-07
+            ],
+            "objective": 63.49878692626953
+          },
+          "provenance": {}
+        },
+        "phase": "search",
+        "metrics": {
+          "mean_tracking": 0.0014361111111111,
+          "p90": 0.005,
+          "pj": [
+            0.0700416088765603,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "objective": 63.911250866053024
+        },
+        "execution_id": "fa55933c8597fd41b1a707ee"
+      },
+      {
+        "method_sources": [
+          "v3_only",
+          "v3_fixed_probing",
+          "argos_fixed_budget",
+          "argos_early_stop"
+        ],
+        "candidate": {
+          "candidate_id": "v3-1500-0206",
+          "Pbar": 0.3663891553878784,
+          "R": 0.21971264481544495,
+          "weights": [
+            0.44967254996299744,
+            0.16022250056266785,
+            0.16323883831501007,
+            0.22686611115932465
+          ],
+          "source": "V3 endpoint",
+          "start_id": 206,
+          "iteration": 1500,
+          "region_id": "region-01",
+          "prediction": {
+            "mean_tracking": 0.003522302722558379,
+            "p90": 0.006302312016487122,
+            "pj": [
+              0.046085506677627563,
+              3.520462996675633e-07,
+              1.6782247485025437e-06,
+              1.4649201318661653e-07
+            ],
+            "objective": 63.49878692626953
+          },
+          "provenance": {}
+        },
+        "phase": "confirmation",
+        "metrics": {
+          "mean_tracking": 0.00142,
+          "p90": 0.006,
+          "pj": [
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "objective": 62.60142450847972
+        },
+        "execution_id": "d305427023d01f708e6074e9"
+      },
+      {
+        "method_sources": [
+          "v3_only",
+          "v3_fixed_probing",
+          "argos_fixed_budget",
+          "argos_early_stop"
+        ],
+        "candidate": {
+          "candidate_id": "v3-1500-0206",
+          "Pbar": 0.3663891553878784,
+          "R": 0.21971264481544495,
+          "weights": [
+            0.44967254996299744,
+            0.16022250056266785,
+            0.16323883831501007,
+            0.22686611115932465
+          ],
+          "source": "V3 endpoint",
+          "start_id": 206,
+          "iteration": 1500,
+          "region_id": "region-01",
+          "prediction": {
+            "mean_tracking": 0.003522302722558379,
+            "p90": 0.006302312016487122,
+            "pj": [
+              0.046085506677627563,
+              3.520462996675633e-07,
+              1.6782247485025437e-06,
+              1.4649201318661653e-07
+            ],
+            "objective": 63.49878692626953
+          },
+          "provenance": {}
+        },
+        "phase": "confirmation",
+        "metrics": {
+          "mean_tracking": 0.0017038888888888,
+          "p90": 0.006,
+          "pj": [
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "objective": 62.60766191642416
+        },
+        "execution_id": "3338f8cecbb8e4fb97656549"
+      },
+      {
+        "method_sources": [
+          "v3_fixed_probing",
+          "argos_fixed_budget",
+          "argos_early_stop"
+        ],
+        "candidate": {
+          "candidate_id": "v3-0000-0353",
+          "Pbar": 0.44500499963760376,
+          "R": 0.2280929684638977,
+          "weights": [
+            0.3664550185203552,
+            0.20927482843399048,
+            0.22671392560005188,
+            0.1975562423467636
+          ],
+          "source": "V3 snapshot",
+          "start_id": 353,
+          "iteration": 0,
+          "region_id": "region-02",
+          "prediction": {
+            "mean_tracking": 0.0017572115175426006,
+            "p90": 0.005277795251458883,
+            "pj": [
+              0.07027284801006317,
+              3.858095709574627e-08,
+              1.337714593319106e-06,
+              1.9114754223892305e-10
+            ],
+            "objective": 70.94802856445312
+          },
+          "provenance": {}
+        },
+        "phase": "search",
+        "metrics": {
+          "mean_tracking": 0.0014452777777777,
+          "p90": 0.005,
+          "pj": [
+            0.061026352288488184,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "objective": 70.76217017926236
+        },
+        "execution_id": "f3bd015435bf9a69463b69bc"
+      },
+      {
+        "method_sources": [
+          "v3_fixed_probing",
+          "argos_fixed_budget",
+          "argos_early_stop"
+        ],
+        "candidate": {
+          "candidate_id": "v3-0050-0240",
+          "Pbar": 0.5666365027427673,
+          "R": 0.08479813486337662,
+          "weights": [
+            0.3257821500301361,
+            0.2647094428539276,
+            0.17599165439605713,
+            0.23351678252220154
+          ],
+          "source": "V3 snapshot",
+          "start_id": 240,
+          "iteration": 50,
+          "region_id": "region-06",
+          "prediction": {
+            "mean_tracking": 0.020797310397028923,
+            "p90": 0.022399310022592545,
+            "pj": [
+              1.0303816688761458e-09,
+              2.1591275144012267e-20,
+              7.009842230602196e-15,
+              1.81481111560694e-23
+            ],
+            "objective": 96.271728515625
+          },
+          "provenance": {}
+        },
+        "phase": "search",
+        "metrics": {
+          "mean_tracking": 0.0204525,
+          "p90": 0.041,
+          "pj": [
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "objective": 96.28078196337307
+        },
+        "execution_id": "ebe336130c82c5932d35525a"
+      },
+      {
+        "method_sources": [
+          "v3_fixed_probing"
+        ],
+        "candidate": {
+          "candidate_id": "fixed-b002-local-0005",
+          "Pbar": 0.5182099241185033,
+          "R": 0.06615619931433019,
+          "weights": [
+            0.3330016001075383,
+            0.2840245825165838,
+            0.15575681153375542,
+            0.22721700584212262
+          ],
+          "source": "local",
+          "start_id": null,
+          "iteration": null,
+          "region_id": "region-06",
+          "prediction": {
+            "mean_tracking": 0.011575021781027317,
+            "p90": 0.014404851011931896,
+            "pj": [
+              9.092609332128632e-08,
+              1.868678924170992e-17,
+              4.3330058985269204e-10,
+              1.8594684128068212e-19
+            ],
+            "objective": 93.18896827723697
+          },
+          "provenance": {
+            "anchor": "v3-0050-0240",
+            "radius": 0.12
+          }
+        },
+        "phase": "search",
+        "metrics": {
+          "mean_tracking": 0.0203191666666666,
+          "p90": 0.033,
+          "pj": [
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "objective": 93.25789257883721
+        },
+        "execution_id": "7feaabb15b120555a081506a"
+      },
+      {
+        "method_sources": [
+          "v3_fixed_probing",
+          "simulator_only_adaptive",
+          "argos_fixed_budget"
+        ],
+        "candidate": {
+          "candidate_id": "b003-independent-0006",
+          "Pbar": 0.5402756698221085,
+          "R": 0.1495923600845304,
+          "weights": [
+            0.322505763127408,
+            0.2713446694419377,
+            0.2246919532930569,
+            0.18145761413759742
+          ],
+          "source": "independent",
+          "start_id": null,
+          "iteration": null,
+          "region_id": null,
+          "prediction": {
+            "mean_tracking": 0.004348418675363064,
+            "p90": 0.009877186268568039,
+            "pj": [
+              0.0006270529702305794,
+              9.753982493118478e-15,
+              4.791665397796407e-10,
+              3.125503802710143e-14
+            ],
+            "objective": 87.04928332611127
+          },
+          "provenance": {}
+        },
+        "phase": "search",
+        "metrics": {
+          "mean_tracking": 0.0061330555555555,
+          "p90": 0.013,
+          "pj": [
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "objective": 87.06640498383537
+        },
+        "execution_id": "3e9bfa882a26c991a62e198d"
+      },
+      {
+        "method_sources": [
+          "v3_fixed_probing",
+          "argos_fixed_budget"
+        ],
+        "candidate": {
+          "candidate_id": "b004-local-0000",
+          "Pbar": 0.41475392237635555,
+          "R": 0.23460798729173996,
+          "weights": [
+            0.45,
+            0.16247031395818462,
+            0.15311838907939485,
+            0.23441129696242058
+          ],
+          "source": "local",
+          "start_id": null,
+          "iteration": null,
+          "region_id": "region-01",
+          "prediction": {
+            "mean_tracking": 0.002432760549709201,
+            "p90": 0.00661385478451848,
+            "pj": [
+              0.003444069065153599,
+              2.0655033239336262e-08,
+              2.840230592937587e-07,
+              9.13120601353512e-09
+            ],
+            "objective": 66.03674162831888
+          },
+          "provenance": {
+            "anchor": "v3-1500-0206",
+            "radius": 0.12
+          }
+        },
+        "phase": "search",
+        "metrics": {
+          "mean_tracking": 0.0013772222222222,
+          "p90": 0.005,
+          "pj": [
+            0.00832177531206657,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "objective": 66.09956948691655
+        },
+        "execution_id": "4ca0151f1e56d4e2f72f4eba"
+      },
+      {
+        "method_sources": [
+          "v3_fixed_probing",
+          "argos_fixed_budget"
+        ],
+        "candidate": {
+          "candidate_id": "b004-local-0001",
+          "Pbar": 0.44465365437521187,
+          "R": 0.2154243320098615,
+          "weights": [
+            0.38536431239893043,
+            0.18354435099740934,
+            0.19645771622769898,
+            0.2346336203759613
+          ],
+          "source": "local",
+          "start_id": null,
+          "iteration": null,
+          "region_id": "region-02",
+          "prediction": {
+            "mean_tracking": 0.002120718127116561,
+            "p90": 0.006621700711548328,
+            "pj": [
+              0.007387256249785423,
+              1.0594606969505094e-08,
+              2.0810469436582935e-07,
+              1.1637929508978573e-10
+            ],
+            "objective": 71.00512017461497
+          },
+          "provenance": {
+            "anchor": "v3-0000-0353",
+            "radius": 0.12
+          }
+        },
+        "phase": "search",
+        "metrics": {
+          "mean_tracking": 0.001795,
+          "p90": 0.006,
+          "pj": [
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "objective": 70.86429387047971
+        },
+        "execution_id": "9b4671c5d3bb347e827108e1"
+      },
+      {
+        "method_sources": [
+          "v3_fixed_probing",
+          "simulator_only_adaptive",
+          "argos_fixed_budget"
+        ],
+        "candidate": {
+          "candidate_id": "b004-independent-0007",
+          "Pbar": 0.5880136885898483,
+          "R": 0.21339234855330563,
+          "weights": [
+            0.32111120591620823,
+            0.33003142306941424,
+            0.1696734841121453,
+            0.17918388690223222
+          ],
+          "source": "independent",
+          "start_id": null,
+          "iteration": null,
+          "region_id": null,
+          "prediction": {
+            "mean_tracking": 0.08804059028625488,
+            "p90": 0.36412513256073,
+            "pj": [
+              0.0002261280023958534,
+              1.3469788899974329e-20,
+              8.859966579843892e-12,
+              1.12893134372385e-18
+            ],
+            "objective": 88.2603506960345
+          },
+          "provenance": {}
+        },
+        "phase": "search",
+        "metrics": {
+          "mean_tracking": 0.0887741666666666,
+          "p90": 0.259,
+          "pj": [
+            0.057558945908460446,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "objective": 88.78604554954656
+        },
+        "execution_id": "b74e570a46d85efb70e87f00"
+      },
+      {
+        "method_sources": [
+          "simulator_only_adaptive"
+        ],
+        "candidate": {
+          "candidate_id": "b004-local-0000",
+          "Pbar": 0.5886404368105855,
+          "R": 0.15124475900817516,
+          "weights": [
+            0.36055254961063266,
+            0.2610193706887138,
+            0.201998391908701,
+            0.17642968779195267
+          ],
+          "source": "local",
+          "start_id": null,
+          "iteration": null,
+          "region_id": null,
+          "prediction": null,
+          "provenance": {
+            "anchor": "b003-independent-0006",
+            "radius": 0.12
+          }
+        },
+        "phase": "search",
+        "metrics": {
+          "mean_tracking": 0.0654188888888888,
+          "p90": 0.27,
+          "pj": [
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "objective": 93.13439277999588
+        },
+        "execution_id": "539ff505674b105b490da845"
+      },
+      {
+        "method_sources": [
+          "simulator_only_adaptive"
+        ],
+        "candidate": {
+          "candidate_id": "b003-independent-0006",
+          "Pbar": 0.5402756698221085,
+          "R": 0.1495923600845304,
+          "weights": [
+            0.322505763127408,
+            0.2713446694419377,
+            0.2246919532930569,
+            0.18145761413759742
+          ],
+          "source": "independent",
+          "start_id": null,
+          "iteration": null,
+          "region_id": null,
+          "prediction": null,
+          "provenance": {}
+        },
+        "phase": "confirmation",
+        "metrics": {
+          "mean_tracking": 0.0059383333333333,
+          "p90": 0.014,
+          "pj": [
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "objective": 87.06403120813903
+        },
+        "execution_id": "84505f35b69c2d3e464e28fa"
+      },
+      {
+        "method_sources": [
+          "simulator_only_adaptive"
+        ],
+        "candidate": {
+          "candidate_id": "b003-independent-0006",
+          "Pbar": 0.5402756698221085,
+          "R": 0.1495923600845304,
+          "weights": [
+            0.322505763127408,
+            0.2713446694419377,
+            0.2246919532930569,
+            0.18145761413759742
+          ],
+          "source": "independent",
+          "start_id": null,
+          "iteration": null,
+          "region_id": null,
+          "prediction": null,
+          "provenance": {}
+        },
+        "phase": "confirmation",
+        "metrics": {
+          "mean_tracking": 0.0061177777777777,
+          "p90": 0.014,
+          "pj": [
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "objective": 87.06671555347236
+        },
+        "execution_id": "2661346f7cdf16d738fbcbc4"
+      },
+      {
+        "method_sources": [
+          "argos_fixed_budget",
+          "argos_early_stop"
+        ],
+        "candidate": {
+          "candidate_id": "b002-local-0002",
+          "Pbar": 0.6000881573078861,
+          "R": 0.07221340085319859,
+          "weights": [
+            0.3258392197587362,
+            0.23615968801092344,
+            0.15731117005242554,
+            0.2806899221779149
+          ],
+          "source": "local",
+          "start_id": null,
+          "iteration": null,
+          "region_id": "region-06",
+          "prediction": {
+            "mean_tracking": 0.061598457396030426,
+            "p90": 0.12578348815441132,
+            "pj": [
+              2.0681354307057476e-13,
+              3.2303175648421943e-23,
+              2.5428902047769612e-20,
+              2.5146135656180187e-30
+            ],
+            "objective": 101.24479656665122
+          },
+          "provenance": {
+            "anchor": "v3-0050-0240",
+            "radius": 0.12
+          }
+        },
+        "phase": "search",
+        "metrics": {
+          "mean_tracking": 0.0570588888888888,
+          "p90": 0.23,
+          "pj": [
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "objective": 101.45383495374615
+        },
+        "execution_id": "9716f10844650b87f22499cc"
+      },
+      {
+        "method_sources": [
+          "argos_fixed_budget"
+        ],
+        "candidate": {
+          "candidate_id": "b004-local-0002",
+          "Pbar": 0.5659735412652998,
+          "R": 0.1943101585957471,
+          "weights": [
+            0.3402340969973844,
+            0.2793138959723078,
+            0.23045200703030802,
+            0.15
+          ],
+          "source": "local",
+          "start_id": null,
+          "iteration": null,
+          "region_id": null,
+          "prediction": {
+            "mean_tracking": 0.019945327192544937,
+            "p90": 0.060591015964746475,
+            "pj": [
+              0.000100000761449337,
+              5.4336325003745585e-15,
+              1.991041533033755e-11,
+              5.959434470426475e-14
+            ],
+            "objective": 85.49413561362672
+          },
+          "provenance": {
+            "anchor": "b003-independent-0006",
+            "radius": 0.12
+          }
+        },
+        "phase": "search",
+        "metrics": {
+          "mean_tracking": 0.0220605555555555,
+          "p90": 0.068,
+          "pj": [
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "objective": 85.5399076847948
+        },
+        "execution_id": "d74038cdf91477f04d751cab"
+      },
+      {
+        "method_sources": [
+          "argos_fixed_budget"
+        ],
+        "candidate": {
+          "candidate_id": "b004-local-0003",
+          "Pbar": 0.5211956425496318,
+          "R": 0.08498853624288026,
+          "weights": [
+            0.3247452802543538,
+            0.26930941157382127,
+            0.15,
+            0.25594530817182504
+          ],
+          "source": "local",
+          "start_id": null,
+          "iteration": null,
+          "region_id": "region-06",
+          "prediction": {
+            "mean_tracking": 0.012703336775302887,
+            "p90": 0.012585408054292202,
+            "pj": [
+              4.0207928577729035e-06,
+              4.681598745077801e-16,
+              1.1579304182163241e-09,
+              2.351017583759617e-20
+            ],
+            "objective": 91.6347842113214
+          },
+          "provenance": {
+            "anchor": "v3-0050-0240",
+            "radius": 0.12
+          }
+        },
+        "phase": "search",
+        "metrics": {
+          "mean_tracking": 0.0094886111111111,
+          "p90": 0.014,
+          "pj": [
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "objective": 91.60814124911127
+        },
+        "execution_id": "3d9ddf549ca935c65bca4bdf"
+      }
+    ],
+    "selected_exact_observations": [
+      {
+        "phase": "search",
+        "qualified": true,
+        "metrics": {
+          "mean_tracking": 0.0014361111111111,
+          "p90": 0.005,
+          "pj": [
+            0.0700416088765603,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "objective": 63.911250866053024
+        },
+        "execution_id": "fa55933c8597fd41b1a707ee"
+      },
+      {
+        "phase": "confirmation",
+        "qualified": true,
+        "metrics": {
+          "mean_tracking": 0.00142,
+          "p90": 0.006,
+          "pj": [
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "objective": 62.60142450847972
+        },
+        "execution_id": "d305427023d01f708e6074e9"
+      },
+      {
+        "phase": "confirmation",
+        "qualified": true,
+        "metrics": {
+          "mean_tracking": 0.0017038888888888,
+          "p90": 0.006,
+          "pj": [
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "objective": 62.60766191642416
+        },
+        "execution_id": "3338f8cecbb8e4fb97656549"
+      }
+    ],
+    "unknown_unqueried_outcomes": true
+  },
+  {
+    "case": "c002",
+    "workload": "W1-train-qos3333",
+    "utilization": 0.8,
+    "counts": {
+      "starts": 512,
+      "snapshots": 15872,
+      "endpoints": 512
+    },
+    "pool_size": 443,
+    "regions": 6,
+    "selected": null,
+    "selected_in_pool": null,
+    "selected_region_distance": null,
+    "selected_first_batch_distance": null,
+    "selected_later_batch_distance": null,
+    "known_qualified_physical_evaluations": 27,
+    "known_qualified_sources": [
+      {
+        "method_sources": [
+          "v3_fixed_probing",
+          "argos_fixed_budget",
+          "argos_early_stop"
+        ],
+        "candidate": {
+          "candidate_id": "v3-0000-0371",
+          "Pbar": 0.6033233404159546,
+          "R": 0.20155231654644012,
+          "weights": [
+            0.35699212551116943,
+            0.23489515483379364,
+            0.2442539483308792,
+            0.16385877132415771
+          ],
+          "source": "V3 snapshot",
+          "start_id": 371,
+          "iteration": 0,
+          "region_id": "region-02",
+          "prediction": {
+            "mean_tracking": 0.03357676789164543,
+            "p90": 0.20873337984085083,
+            "pj": [
+              0.0033670635893940926,
+              1.1847463454728313e-08,
+              9.115078825061573e-08,
+              5.169569633478588e-12
+            ],
+            "objective": 89.10321044921875
+          },
+          "provenance": {}
+        },
+        "phase": "search",
+        "metrics": {
+          "mean_tracking": 0.0354575,
+          "p90": 0.221,
+          "pj": [
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "objective": 89.11707418466911
+        },
+        "execution_id": "e306494f5bde86df09a2ba09"
+      },
+      {
+        "method_sources": [
+          "v3_fixed_probing",
+          "argos_fixed_budget",
+          "argos_early_stop"
+        ],
+        "candidate": {
+          "candidate_id": "v3-0000-0002",
+          "Pbar": 0.6843191385269165,
+          "R": 0.022085487842559814,
+          "weights": [
+            0.23750364780426025,
+            0.23387962579727173,
+            0.2503081262111664,
+            0.27830860018730164
+          ],
+          "source": "V3 snapshot",
+          "start_id": 2,
+          "iteration": 0,
+          "region_id": "region-03",
+          "prediction": {
+            "mean_tracking": 0.005520400125533342,
+            "p90": 0.0003394889645278454,
+            "pj": [
+              2.306913593486115e-08,
+              9.964854351605819e-23,
+              1.908766973773659e-23,
+              4.49696938294642e-28
+            ],
+            "objective": 114.13542175292969
+          },
+          "provenance": {}
+        },
+        "phase": "search",
+        "metrics": {
+          "mean_tracking": 0.0055041666666666,
+          "p90": 0.004,
+          "pj": [
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "objective": 114.13718647014471
+        },
+        "execution_id": "cf6b18cfaeaa2289c0ca5cff"
+      },
+      {
+        "method_sources": [
+          "v3_fixed_probing",
+          "simulator_only_adaptive",
+          "argos_fixed_budget",
+          "argos_early_stop"
+        ],
+        "candidate": {
+          "candidate_id": "b001-independent-0001",
+          "Pbar": 0.6543805604243199,
+          "R": 0.12804198457796534,
+          "weights": [
+            0.25540724185553254,
+            0.16220716183518769,
+            0.43217874433143055,
+            0.15020685197784922
+          ],
+          "source": "independent",
+          "start_id": null,
+          "iteration": null,
+          "region_id": null,
+          "prediction": {
+            "mean_tracking": 0.04476706311106682,
+            "p90": 0.25554347038269043,
+            "pj": [
+              0.0441136509180069,
+              1.4926204803394905e-12,
+              2.977108547750095e-25,
+              1.3750690039740499e-12
+            ],
+            "objective": 102.36719785215368
+          },
+          "provenance": {}
+        },
+        "phase": "search",
+        "metrics": {
+          "mean_tracking": 0.0345088888888888,
+          "p90": 0.213,
+          "pj": [
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "objective": 101.27678651894004
+        },
+        "execution_id": "538237f84982211c18761e1a"
+      },
+      {
+        "method_sources": [
+          "v3_fixed_probing",
+          "simulator_only_adaptive",
+          "argos_fixed_budget",
+          "argos_early_stop"
+        ],
+        "candidate": {
+          "candidate_id": "b003-independent-0006",
+          "Pbar": 0.5305295655783967,
+          "R": 0.14411440184908852,
+          "weights": [
+            0.3796486780168886,
+            0.19458503932527388,
+            0.25800058365646866,
+            0.16776569900136884
+          ],
+          "source": "independent",
+          "start_id": null,
+          "iteration": null,
+          "region_id": null,
+          "prediction": {
+            "mean_tracking": 0.01786704733967781,
+            "p90": 0.010440169833600521,
+            "pj": [
+              0.00022395573614630848,
+              8.102790140240845e-12,
+              3.747920800378779e-07,
+              8.37580560464346e-11
+            ],
+            "objective": 86.8079485647901
+          },
+          "provenance": {}
+        },
+        "phase": "search",
+        "metrics": {
+          "mean_tracking": 0.0046441666666666,
+          "p90": 0.016,
+          "pj": [
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "objective": 86.61642107732945
+        },
+        "execution_id": "52debad29afbe746bfc331d2"
+      },
+      {
+        "method_sources": [
+          "v3_fixed_probing",
+          "simulator_only_adaptive",
+          "argos_fixed_budget",
+          "argos_early_stop"
+        ],
+        "candidate": {
+          "candidate_id": "b003-independent-0007",
+          "Pbar": 0.4904700195692575,
+          "R": 0.18637171017248522,
+          "weights": [
+            0.3684401600357865,
+            0.23768461069184732,
+            0.16747258826248163,
+            0.22640264100988455
+          ],
+          "source": "independent",
+          "start_id": null,
+          "iteration": null,
+          "region_id": null,
+          "prediction": {
+            "mean_tracking": 0.0029800015036016703,
+            "p90": 0.006462225690484047,
+            "pj": [
+              0.06244443729519844,
+              3.280372993685887e-06,
+              1.2775717550539412e-06,
+              4.769510564273105e-09
+            ],
+            "objective": 79.53146561679674
+          },
+          "provenance": {}
+        },
+        "phase": "search",
+        "metrics": {
+          "mean_tracking": 0.0024911111111111,
+          "p90": 0.008,
+          "pj": [
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "objective": 78.35986641939247
+        },
+        "execution_id": "01352f321cf2dec36597eb7f"
+      },
+      {
+        "method_sources": [
+          "v3_fixed_probing"
+        ],
+        "candidate": {
+          "candidate_id": "fixed-b003-independent-0007",
+          "Pbar": 0.4904700195692575,
+          "R": 0.18637171017248522,
+          "weights": [
+            0.3684401600357865,
+            0.23768461069184732,
+            0.16747258826248163,
+            0.22640264100988455
+          ],
+          "source": "independent",
+          "start_id": null,
+          "iteration": null,
+          "region_id": null,
+          "prediction": {
+            "mean_tracking": 0.0029800015036016703,
+            "p90": 0.006462225690484047,
+            "pj": [
+              0.06244443729519844,
+              3.280372993685887e-06,
+              1.2775717550539412e-06,
+              4.769510564273105e-09
+            ],
+            "objective": 79.53146561679674
+          },
+          "provenance": {}
+        },
+        "phase": "confirmation",
+        "metrics": {
+          "mean_tracking": 0.0023363888888888,
+          "p90": 0.007,
+          "pj": [
+            0.013095861707700274,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "objective": 78.59398539234445
+        },
+        "execution_id": "e91f82e924a6a62f2fd50be1"
+      },
+      {
+        "method_sources": [
+          "v3_fixed_probing"
+        ],
+        "candidate": {
+          "candidate_id": "fixed-b003-independent-0007",
+          "Pbar": 0.4904700195692575,
+          "R": 0.18637171017248522,
+          "weights": [
+            0.3684401600357865,
+            0.23768461069184732,
+            0.16747258826248163,
+            0.22640264100988455
+          ],
+          "source": "independent",
+          "start_id": null,
+          "iteration": null,
+          "region_id": null,
+          "prediction": {
+            "mean_tracking": 0.0029800015036016703,
+            "p90": 0.006462225690484047,
+            "pj": [
+              0.06244443729519844,
+              3.280372993685887e-06,
+              1.2775717550539412e-06,
+              4.769510564273105e-09
+            ],
+            "objective": 79.53146561679674
+          },
+          "provenance": {}
+        },
+        "phase": "confirmation",
+        "metrics": {
+          "mean_tracking": 0.0025461111111111,
+          "p90": 0.008,
+          "pj": [
+            0.004160166406656174,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "objective": 78.43597348216976
+        },
+        "execution_id": "4f9809e6dd6eaf8836cffabd"
+      },
+      {
+        "method_sources": [
+          "simulator_only_adaptive"
+        ],
+        "candidate": {
+          "candidate_id": "b001-independent-0005",
+          "Pbar": 0.446960995311218,
+          "R": 0.16582017859528564,
+          "weights": [
+            0.40771714070765497,
+            0.2745234166416066,
+            0.15584271156275367,
+            0.16191673108798474
+          ],
+          "source": "independent",
+          "start_id": null,
+          "iteration": null,
+          "region_id": null,
+          "prediction": null,
+          "provenance": {}
+        },
+        "phase": "search",
+        "metrics": {
+          "mean_tracking": 0.0026022222222222,
+          "p90": 0.008,
+          "pj": [
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "objective": 76.06088913228136
+        },
+        "execution_id": "0de6a746919609d43eb6840f"
+      },
+      {
+        "method_sources": [
+          "simulator_only_adaptive"
+        ],
+        "candidate": {
+          "candidate_id": "b002-local-0000",
+          "Pbar": 0.40545299951657043,
+          "R": 0.1286009288046738,
+          "weights": [
+            0.42288041660090225,
+            0.2753562110973018,
+            0.15,
+            0.15176337230179607
+          ],
+          "source": "local",
+          "start_id": null,
+          "iteration": null,
+          "region_id": null,
+          "prediction": null,
+          "provenance": {
+            "anchor": "b001-independent-0005",
+            "radius": 0.12
+          }
+        },
+        "phase": "search",
+        "metrics": {
+          "mean_tracking": 0.0023902777777777,
+          "p90": 0.007,
+          "pj": [
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "objective": 75.61906897813104
+        },
+        "execution_id": "bfb63c88c5b59450eccb6ccc"
+      },
+      {
+        "method_sources": [
+          "simulator_only_adaptive"
+        ],
+        "candidate": {
+          "candidate_id": "b004-local-0000",
+          "Pbar": 0.4341095402061499,
+          "R": 0.1604119168148952,
+          "weights": [
+            0.42496280885544646,
+            0.22428427107212323,
+            0.15,
+            0.20075292007243045
+          ],
+          "source": "local",
+          "start_id": null,
+          "iteration": null,
+          "region_id": null,
+          "prediction": null,
+          "provenance": {
+            "anchor": "b002-local-0000",
+            "radius": 0.12
+          }
+        },
+        "phase": "search",
+        "metrics": {
+          "mean_tracking": 0.0033669444444444,
+          "p90": 0.011,
+          "pj": [
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "objective": 75.32900617067082
+        },
+        "execution_id": "04cb17f4d564f58372674013"
+      },
+      {
+        "method_sources": [
+          "simulator_only_adaptive"
+        ],
+        "candidate": {
+          "candidate_id": "b004-local-0001",
+          "Pbar": 0.4773338413718654,
+          "R": 0.17912254768037644,
+          "weights": [
+            0.39428205043904907,
+            0.305717949560951,
+            0.15,
+            0.15
+          ],
+          "source": "local",
+          "start_id": null,
+          "iteration": null,
+          "region_id": null,
+          "prediction": null,
+          "provenance": {
+            "anchor": "b001-independent-0005",
+            "radius": 0.12
+          }
+        },
+        "phase": "search",
+        "metrics": {
+          "mean_tracking": 0.0026730555555555,
+          "p90": 0.007,
+          "pj": [
+            0.05848261327713389,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "objective": 78.85916081343157
+        },
+        "execution_id": "0b9b170cd8c32e288163da14"
+      },
+      {
+        "method_sources": [
+          "simulator_only_adaptive"
+        ],
+        "candidate": {
+          "candidate_id": "b004-local-0003",
+          "Pbar": 0.5263488818658497,
+          "R": 0.11489258141497519,
+          "weights": [
+            0.36133336424600737,
+            0.22604218606596696,
+            0.23626594984332785,
+            0.17635849984469795
+          ],
+          "source": "local",
+          "start_id": null,
+          "iteration": null,
+          "region_id": null,
+          "prediction": null,
+          "provenance": {
+            "anchor": "b003-independent-0006",
+            "radius": 0.12
+          }
+        },
+        "phase": "search",
+        "metrics": {
+          "mean_tracking": 0.0703375,
+          "p90": 0.019,
+          "pj": [
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "objective": 89.86330046775349
+        },
+        "execution_id": "b34448b7503d4484fa36e4b3"
+      },
+      {
+        "method_sources": [
+          "simulator_only_adaptive"
+        ],
+        "candidate": {
+          "candidate_id": "b004-local-0000",
+          "Pbar": 0.4341095402061499,
+          "R": 0.1604119168148952,
+          "weights": [
+            0.42496280885544646,
+            0.22428427107212323,
+            0.15,
+            0.20075292007243045
+          ],
+          "source": "local",
+          "start_id": null,
+          "iteration": null,
+          "region_id": null,
+          "prediction": null,
+          "provenance": {
+            "anchor": "b002-local-0000",
+            "radius": 0.12
+          }
+        },
+        "phase": "confirmation",
+        "metrics": {
+          "mean_tracking": 0.0029244444444444,
+          "p90": 0.01,
+          "pj": [
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "objective": 75.32138392496753
+        },
+        "execution_id": "7b9a51e3801beaa3ff3b8ac4"
+      },
+      {
+        "method_sources": [
+          "simulator_only_adaptive"
+        ],
+        "candidate": {
+          "candidate_id": "b004-local-0000",
+          "Pbar": 0.4341095402061499,
+          "R": 0.1604119168148952,
+          "weights": [
+            0.42496280885544646,
+            0.22428427107212323,
+            0.15,
+            0.20075292007243045
+          ],
+          "source": "local",
+          "start_id": null,
+          "iteration": null,
+          "region_id": null,
+          "prediction": null,
+          "provenance": {
+            "anchor": "b002-local-0000",
+            "radius": 0.12
+          }
+        },
+        "phase": "confirmation",
+        "metrics": {
+          "mean_tracking": 0.0027988888888888,
+          "p90": 0.009,
+          "pj": [
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "objective": 75.31885079187235
+        },
+        "execution_id": "3c7116cc6a2b5224455be708"
+      },
+      {
+        "method_sources": [
+          "argos_fixed_budget",
+          "argos_early_stop"
+        ],
+        "candidate": {
+          "candidate_id": "b002-local-0000",
+          "Pbar": 0.561815344621307,
+          "R": 0.18616415520908505,
+          "weights": [
+            0.3851895418334842,
+            0.24876208971855632,
+            0.19930881548092302,
+            0.16673955296703658
+          ],
+          "source": "local",
+          "start_id": null,
+          "iteration": null,
+          "region_id": "region-02",
+          "prediction": {
+            "mean_tracking": 0.005547050386667252,
+            "p90": 0.009278375655412674,
+            "pj": [
+              0.0013909280532971025,
+              6.989386491795813e-08,
+              1.231556012726287e-08,
+              2.9658414613109585e-10
+            ],
+            "objective": 85.59774897732467
+          },
+          "provenance": {
+            "anchor": "v3-0000-0371",
+            "radius": 0.12
+          }
+        },
+        "phase": "search",
+        "metrics": {
+          "mean_tracking": 0.0031858333333333,
+          "p90": 0.01,
+          "pj": [
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "objective": 85.529081074412
+        },
+        "execution_id": "3175e33ed63e80afa6f10cff"
+      },
+      {
+        "method_sources": [
+          "argos_fixed_budget",
+          "argos_early_stop"
+        ],
+        "candidate": {
+          "candidate_id": "b002-local-0003",
+          "Pbar": 0.5113223453726953,
+          "R": 0.2785320093030812,
+          "weights": [
+            0.45,
+            0.17672775642998445,
+            0.22327224357001568,
+            0.15
+          ],
+          "source": "local",
+          "start_id": null,
+          "iteration": null,
+          "region_id": "region-01",
+          "prediction": {
+            "mean_tracking": 0.017239362001419067,
+            "p90": 0.0866735503077507,
+            "pj": [
+              0.024178989231586456,
+              6.371366367829978e-08,
+              6.112334631325211e-06,
+              2.280842608115563e-07
+            ],
+            "objective": 72.16355293856682
+          },
+          "provenance": {
+            "anchor": "v3-1500-0333",
+            "radius": 0.12
+          }
+        },
+        "phase": "search",
+        "metrics": {
+          "mean_tracking": 0.0168122222222222,
+          "p90": 0.089,
+          "pj": [
+            0.06954689146469972,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "objective": 73.01319367856682
+        },
+        "execution_id": "14ddab24c84ffe1c126694dd"
+      },
+      {
+        "method_sources": [
+          "argos_fixed_budget",
+          "argos_early_stop"
+        ],
+        "candidate": {
+          "candidate_id": "b003-local-0000",
+          "Pbar": 0.5062222410237033,
+          "R": 0.2449222067052873,
+          "weights": [
+            0.414191071418443,
+            0.20759807410349934,
+            0.2282108544780578,
+            0.15
+          ],
+          "source": "local",
+          "start_id": null,
+          "iteration": null,
+          "region_id": "region-01",
+          "prediction": {
+            "mean_tracking": 0.0030856903176754713,
+            "p90": 0.007033344358205795,
+            "pj": [
+              0.05989231541752815,
+              2.988911873558209e-08,
+              6.993192528170766e-06,
+              1.670499472083975e-07
+            ],
+            "objective": 75.2229494671339
+          },
+          "provenance": {
+            "anchor": "b002-local-0003",
+            "radius": 0.12
+          }
+        },
+        "phase": "search",
+        "metrics": {
+          "mean_tracking": 0.0029480555555555,
+          "p90": 0.009,
+          "pj": [
+            0.04478398314014764,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "objective": 74.93267611378238
+        },
+        "execution_id": "483677487d8bda4d34ad2575"
+      },
+      {
+        "method_sources": [
+          "argos_fixed_budget",
+          "argos_early_stop"
+        ],
+        "candidate": {
+          "candidate_id": "b003-local-0001",
+          "Pbar": 0.5045189506769377,
+          "R": 0.1460832701596248,
+          "weights": [
+            0.3664936716899535,
+            0.289868850614004,
+            0.18773428923617477,
+            0.1559031884598678
+          ],
+          "source": "local",
+          "start_id": null,
+          "iteration": null,
+          "region_id": "region-02",
+          "prediction": {
+            "mean_tracking": 0.012378213927149773,
+            "p90": 0.009225706569850445,
+            "pj": [
+              0.007678392343223095,
+              1.3348697791570885e-07,
+              1.479482278909927e-07,
+              2.6492201765648815e-09
+            ],
+            "objective": 84.06751420778713
+          },
+          "provenance": {
+            "anchor": "b002-local-0000",
+            "radius": 0.12
+          }
+        },
+        "phase": "search",
+        "metrics": {
+          "mean_tracking": 0.0040605555555555,
+          "p90": 0.01,
+          "pj": [
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "objective": 83.80759014046754
+        },
+        "execution_id": "02119977cf1e3afdac8a5feb"
+      },
+      {
+        "method_sources": [
+          "argos_fixed_budget",
+          "argos_early_stop"
+        ],
+        "candidate": {
+          "candidate_id": "b003-local-0003",
+          "Pbar": 0.6489310446580964,
+          "R": 0.11422492743267232,
+          "weights": [
+            0.25123961909621273,
+            0.24809317555366642,
+            0.3506672053501211,
+            0.15
+          ],
+          "source": "local",
+          "start_id": null,
+          "iteration": null,
+          "region_id": null,
+          "prediction": {
+            "mean_tracking": 0.03253163397312164,
+            "p90": 0.14434629678726196,
+            "pj": [
+              0.10180328786373138,
+              1.700917534919954e-19,
+              4.809852966505321e-24,
+              1.037567167599951e-11
+            ],
+            "objective": 103.82091312816593
+          },
+          "provenance": {
+            "anchor": "b001-independent-0001",
+            "radius": 0.12
+          }
+        },
+        "phase": "search",
+        "metrics": {
+          "mean_tracking": 0.0963225,
+          "p90": 0.146,
+          "pj": [
+            0.035300316122234054,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "objective": 103.26419173674792
+        },
+        "execution_id": "001b1e6b93d208e0d8484ec9"
+      },
+      {
+        "method_sources": [
+          "argos_fixed_budget",
+          "argos_early_stop"
+        ],
+        "candidate": {
+          "candidate_id": "b003-local-0004",
+          "Pbar": 0.696543918384058,
+          "R": 0.04618705385642934,
+          "weights": [
+            0.242994108051705,
+            0.27098374831285543,
+            0.21967535842724006,
+            0.26634678520819965
+          ],
+          "source": "local",
+          "start_id": null,
+          "iteration": null,
+          "region_id": "region-03",
+          "prediction": {
+            "mean_tracking": 0.016546251252293587,
+            "p90": 0.0419977642595768,
+            "pj": [
+              3.22461224389059e-11,
+              6.4409264167991095e-27,
+              4.965220206472344e-25,
+              9.724478261810234e-31
+            ],
+            "objective": 113.0362570951194
+          },
+          "provenance": {
+            "anchor": "v3-0000-0002",
+            "radius": 0.12
+          }
+        },
+        "phase": "search",
+        "metrics": {
+          "mean_tracking": 0.0760175,
+          "p90": 0.021,
+          "pj": [
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "objective": 113.29752035571907
+        },
+        "execution_id": "0b2f8e94a654a9f6065db597"
+      },
+      {
+        "method_sources": [
+          "argos_fixed_budget"
+        ],
+        "candidate": {
+          "candidate_id": "b004-local-0000",
+          "Pbar": 0.5399788860622747,
+          "R": 0.3161329464894464,
+          "weights": [
+            0.45,
+            0.15,
+            0.2008257449230676,
+            0.19917425507693254
+          ],
+          "source": "local",
+          "start_id": null,
+          "iteration": null,
+          "region_id": "region-01",
+          "prediction": {
+            "mean_tracking": 0.04793698713183403,
+            "p90": 0.29901400208473206,
+            "pj": [
+              0.02567954547703266,
+              1.927399353007786e-06,
+              3.556160379503126e-07,
+              3.5882925430996693e-07
+            ],
+            "objective": 72.90836817922245
+          },
+          "provenance": {
+            "anchor": "b002-local-0003",
+            "radius": 0.12
+          }
+        },
+        "phase": "search",
+        "metrics": {
+          "mean_tracking": 0.0440563888888888,
+          "p90": 0.284,
+          "pj": [
+            0.08535300316122241,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "objective": 73.85419271768063
+        },
+        "execution_id": "9b61f72fdb8cbbf6274a6e0d"
+      },
+      {
+        "method_sources": [
+          "argos_fixed_budget"
+        ],
+        "candidate": {
+          "candidate_id": "b004-local-0001",
+          "Pbar": 0.5365950870843507,
+          "R": 0.2620971281076846,
+          "weights": [
+            0.41973873602943,
+            0.25777536190243644,
+            0.1724859020681338,
+            0.15
+          ],
+          "source": "local",
+          "start_id": null,
+          "iteration": null,
+          "region_id": "region-01",
+          "prediction": {
+            "mean_tracking": 0.025189153850078583,
+            "p90": 0.142483651638031,
+            "pj": [
+              0.014109254814684391,
+              9.037356903718319e-06,
+              3.2401297289652575e-07,
+              4.06067677261035e-08
+            ],
+            "objective": 76.40542439190452
+          },
+          "provenance": {
+            "anchor": "b003-local-0000",
+            "radius": 0.12
+          }
+        },
+        "phase": "search",
+        "metrics": {
+          "mean_tracking": 0.0235708333333333,
+          "p90": 0.126,
+          "pj": [
+            0.04741833508956805,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "objective": 76.95657347373653
+        },
+        "execution_id": "0150988437de90b44518d974"
+      },
+      {
+        "method_sources": [
+          "argos_fixed_budget"
+        ],
+        "candidate": {
+          "candidate_id": "b004-local-0003",
+          "Pbar": 0.5003382669643908,
+          "R": 0.11822199598217129,
+          "weights": [
+            0.34817835791907226,
+            0.3213259973546971,
+            0.1659996554230339,
+            0.16449598930319687
+          ],
+          "source": "local",
+          "start_id": null,
+          "iteration": null,
+          "region_id": "region-02",
+          "prediction": {
+            "mean_tracking": 0.016126180067658424,
+            "p90": 0.009998258203268051,
+            "pj": [
+              0.20181743800640106,
+              1.3683192356950258e-08,
+              1.0817600923473947e-05,
+              1.3203389492844053e-09
+            ],
+            "objective": 90.34714476293183
+          },
+          "provenance": {
+            "anchor": "b003-local-0001",
+            "radius": 0.12
+          }
+        },
+        "phase": "search",
+        "metrics": {
+          "mean_tracking": 0.0640652777777777,
+          "p90": 0.011,
+          "pj": [
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "objective": 86.87418886839305
+        },
+        "execution_id": "9c1461a79ae12fedb1d47702"
+      },
+      {
+        "method_sources": [
+          "argos_fixed_budget"
+        ],
+        "candidate": {
+          "candidate_id": "b004-local-0004",
+          "Pbar": 0.5147949556371822,
+          "R": 0.16927201513001278,
+          "weights": [
+            0.3697388485138059,
+            0.2524168873102244,
+            0.19923607237283814,
+            0.17860819180313164
+          ],
+          "source": "local",
+          "start_id": null,
+          "iteration": null,
+          "region_id": "region-02",
+          "prediction": {
+            "mean_tracking": 0.0033995914272964,
+            "p90": 0.007430992089211941,
+            "pj": [
+              0.0032846967224031687,
+              4.921767526866461e-08,
+              3.4904655876744073e-07,
+              4.334427816665709e-10
+            ],
+            "objective": 82.5724486801812
+          },
+          "provenance": {
+            "anchor": "b002-local-0000",
+            "radius": 0.12
+          }
+        },
+        "phase": "search",
+        "metrics": {
+          "mean_tracking": 0.0026863888888888,
+          "p90": 0.008,
+          "pj": [
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "objective": 82.50141212539248
+        },
+        "execution_id": "19cce9259b7343310dc78aa9"
+      },
+      {
+        "method_sources": [
+          "argos_fixed_budget"
+        ],
+        "candidate": {
+          "candidate_id": "b004-local-0005",
+          "Pbar": 0.547726351802261,
+          "R": 0.11711159853873847,
+          "weights": [
+            0.4411600096169827,
+            0.1664093782028077,
+            0.23615918894325832,
+            0.15627142323695137
+          ],
+          "source": "local",
+          "start_id": null,
+          "iteration": null,
+          "region_id": null,
+          "prediction": {
+            "mean_tracking": 0.013040648773312569,
+            "p90": 0.011407763697206974,
+            "pj": [
+              3.741020648817539e-08,
+              2.048606700943978e-10,
+              5.697242144719894e-08,
+              2.671825538591577e-10
+            ],
+            "objective": 91.11960960143603
+          },
+          "provenance": {
+            "anchor": "b003-independent-0006",
+            "radius": 0.12
+          }
+        },
+        "phase": "search",
+        "metrics": {
+          "mean_tracking": 0.0759652777777777,
+          "p90": 0.037,
+          "pj": [
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "objective": 91.87175336399557
+        },
+        "execution_id": "d4e42afc3cc08c6e7d585d62"
+      },
+      {
+        "method_sources": [
+          "argos_fixed_budget",
+          "argos_early_stop"
+        ],
+        "candidate": {
+          "candidate_id": "b002-local-0003",
+          "Pbar": 0.5113223453726953,
+          "R": 0.2785320093030812,
+          "weights": [
+            0.45,
+            0.17672775642998445,
+            0.22327224357001568,
+            0.15
+          ],
+          "source": "local",
+          "start_id": null,
+          "iteration": null,
+          "region_id": "region-01",
+          "prediction": {
+            "mean_tracking": 0.017239362001419067,
+            "p90": 0.0866735503077507,
+            "pj": [
+              0.024178989231586456,
+              6.371366367829978e-08,
+              6.112334631325211e-06,
+              2.280842608115563e-07
+            ],
+            "objective": 72.16355293856682
+          },
+          "provenance": {
+            "anchor": "v3-1500-0333",
+            "radius": 0.12
+          }
+        },
+        "phase": "confirmation",
+        "metrics": {
+          "mean_tracking": 0.0166474999999999,
+          "p90": 0.089,
+          "pj": [
+            0.0597171293871136,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "objective": 72.81896062079389
+        },
+        "execution_id": "1f410689f20e1c391328b40e"
+      },
+      {
+        "method_sources": [
+          "argos_fixed_budget",
+          "argos_early_stop"
+        ],
+        "candidate": {
+          "candidate_id": "b002-local-0003",
+          "Pbar": 0.5113223453726953,
+          "R": 0.2785320093030812,
+          "weights": [
+            0.45,
+            0.17672775642998445,
+            0.22327224357001568,
+            0.15
+          ],
+          "source": "local",
+          "start_id": null,
+          "iteration": null,
+          "region_id": "region-01",
+          "prediction": {
+            "mean_tracking": 0.017239362001419067,
+            "p90": 0.0866735503077507,
+            "pj": [
+              0.024178989231586456,
+              6.371366367829978e-08,
+              6.112334631325211e-06,
+              2.280842608115563e-07
+            ],
+            "objective": 72.16355293856682
+          },
+          "provenance": {
+            "anchor": "v3-1500-0333",
+            "radius": 0.12
+          }
+        },
+        "phase": "confirmation",
+        "metrics": {
+          "mean_tracking": 0.0179174999999999,
+          "p90": 0.09,
+          "pj": [
+            0.060842433697347764,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "objective": 72.87703291538523
+        },
+        "execution_id": "73cd2fdc5c1c56df227b0e11"
+      }
+    ],
+    "selected_exact_observations": [],
+    "unknown_unqueried_outcomes": true
+  },
+  {
+    "case": "c003",
+    "workload": "W1-train-qos4444",
+    "utilization": 0.6,
+    "counts": {
+      "starts": 512,
+      "snapshots": 15872,
+      "endpoints": 512
+    },
+    "pool_size": 484,
+    "regions": 6,
+    "selected": {
+      "candidate_id": "v3-1500-0383",
+      "Pbar": 0.3352040648460388,
+      "R": 0.2009887546300888,
+      "weights": [
+        0.44960519671440125,
+        0.1697465032339096,
+        0.18469057977199554,
+        0.1959577351808548
+      ],
+      "source": "V3 endpoint",
+      "start_id": 383,
+      "iteration": 1500,
+      "region_id": null,
+      "prediction": {
+        "mean_tracking": 0.0054026138968765736,
+        "p90": 0.006256770342588425,
+        "pj": [
+          0.014538722112774849,
+          1.4524989637720864e-06,
+          2.38591451307002e-06,
+          1.4128749725728085e-08
+        ],
+        "objective": 61.69683074951172
+      },
+      "provenance": {}
+    },
+    "selected_in_pool": true,
+    "selected_region_distance": 0.0,
+    "selected_first_batch_distance": 0.0,
+    "selected_later_batch_distance": 0.0737686222070444,
+    "known_qualified_physical_evaluations": 29,
+    "known_qualified_sources": [
+      {
+        "method_sources": [
+          "v3_only",
+          "v3_fixed_probing",
+          "argos_fixed_budget",
+          "argos_early_stop"
+        ],
+        "candidate": {
+          "candidate_id": "v3-1500-0383",
+          "Pbar": 0.3352040648460388,
+          "R": 0.2009887546300888,
+          "weights": [
+            0.44960519671440125,
+            0.1697465032339096,
+            0.18469057977199554,
+            0.1959577351808548
+          ],
+          "source": "V3 endpoint",
+          "start_id": 383,
+          "iteration": 1500,
+          "region_id": "region-01",
+          "prediction": {
+            "mean_tracking": 0.0054026138968765736,
+            "p90": 0.006256770342588425,
+            "pj": [
+              0.014538722112774849,
+              1.4524989637720864e-06,
+              2.38591451307002e-06,
+              1.4128749725728085e-08
+            ],
+            "objective": 61.69683074951172
+          },
+          "provenance": {}
+        },
+        "phase": "search",
+        "metrics": {
+          "mean_tracking": 0.0104125,
+          "p90": 0.006,
+          "pj": [
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "objective": 61.53340505872971
+        },
+        "execution_id": "bd9cd859e524f77eda7e4e77"
+      },
+      {
+        "method_sources": [
+          "v3_only",
+          "v3_fixed_probing",
+          "argos_fixed_budget",
+          "argos_early_stop"
+        ],
+        "candidate": {
+          "candidate_id": "v3-1500-0383",
+          "Pbar": 0.3352040648460388,
+          "R": 0.2009887546300888,
+          "weights": [
+            0.44960519671440125,
+            0.1697465032339096,
+            0.18469057977199554,
+            0.1959577351808548
+          ],
+          "source": "V3 endpoint",
+          "start_id": 383,
+          "iteration": 1500,
+          "region_id": "region-01",
+          "prediction": {
+            "mean_tracking": 0.0054026138968765736,
+            "p90": 0.006256770342588425,
+            "pj": [
+              0.014538722112774849,
+              1.4524989637720864e-06,
+              2.38591451307002e-06,
+              1.4128749725728085e-08
+            ],
+            "objective": 61.69683074951172
+          },
+          "provenance": {}
+        },
+        "phase": "confirmation",
+        "metrics": {
+          "mean_tracking": 0.0013847222222222,
+          "p90": 0.005,
+          "pj": [
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "objective": 61.35145692058911
+        },
+        "execution_id": "702b53ea39ec8377ac06f0a9"
+      },
+      {
+        "method_sources": [
+          "v3_only",
+          "v3_fixed_probing",
+          "argos_fixed_budget",
+          "argos_early_stop"
+        ],
+        "candidate": {
+          "candidate_id": "v3-1500-0383",
+          "Pbar": 0.3352040648460388,
+          "R": 0.2009887546300888,
+          "weights": [
+            0.44960519671440125,
+            0.1697465032339096,
+            0.18469057977199554,
+            0.1959577351808548
+          ],
+          "source": "V3 endpoint",
+          "start_id": 383,
+          "iteration": 1500,
+          "region_id": "region-01",
+          "prediction": {
+            "mean_tracking": 0.0054026138968765736,
+            "p90": 0.006256770342588425,
+            "pj": [
+              0.014538722112774849,
+              1.4524989637720864e-06,
+              2.38591451307002e-06,
+              1.4128749725728085e-08
+            ],
+            "objective": 61.69683074951172
+          },
+          "provenance": {}
+        },
+        "phase": "confirmation",
+        "metrics": {
+          "mean_tracking": 0.0106219444444444,
+          "p90": 0.006,
+          "pj": [
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "objective": 61.537614661674155
+        },
+        "execution_id": "35b4c305a3a2387dce4c2ad8"
+      },
+      {
+        "method_sources": [
+          "v3_fixed_probing",
+          "argos_fixed_budget",
+          "argos_early_stop"
+        ],
+        "candidate": {
+          "candidate_id": "v3-0000-0444",
+          "Pbar": 0.46769627928733826,
+          "R": 0.2606895864009857,
+          "weights": [
+            0.3346402645111084,
+            0.22551482915878296,
+            0.21744081377983093,
+            0.2224041223526001
+          ],
+          "source": "V3 snapshot",
+          "start_id": 444,
+          "iteration": 0,
+          "region_id": "region-02",
+          "prediction": {
+            "mean_tracking": 0.00176188163459301,
+            "p90": 0.004824115429073572,
+            "pj": [
+              0.05735564976930618,
+              8.051515898443995e-09,
+              5.751862772740424e-07,
+              5.389983459558323e-10
+            ],
+            "objective": 69.71410369873047
+          },
+          "provenance": {}
+        },
+        "phase": "search",
+        "metrics": {
+          "mean_tracking": 0.0020797222222222,
+          "p90": 0.006,
+          "pj": [
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "objective": 68.65744154109083
+        },
+        "execution_id": "9ff4fab7f284e9b621b102f9"
+      },
+      {
+        "method_sources": [
+          "v3_fixed_probing",
+          "argos_fixed_budget",
+          "argos_early_stop"
+        ],
+        "candidate": {
+          "candidate_id": "b002-local-0001",
+          "Pbar": 0.43374178621835646,
+          "R": 0.24411764500202643,
+          "weights": [
+            0.38015835557138095,
+            0.15571397198991238,
+            0.22636453761600822,
+            0.23776313482269862
+          ],
+          "source": "local",
+          "start_id": null,
+          "iteration": null,
+          "region_id": "region-02",
+          "prediction": {
+            "mean_tracking": 0.0018093946855515242,
+            "p90": 0.005211702082306147,
+            "pj": [
+              0.002876157872378826,
+              3.403861370543382e-08,
+              1.0265770811201946e-07,
+              1.78185424748456e-10
+            ],
+            "objective": 66.9606898858992
+          },
+          "provenance": {
+            "anchor": "v3-0000-0444",
+            "radius": 0.12
+          }
+        },
+        "phase": "search",
+        "metrics": {
+          "mean_tracking": 0.0023430555555555,
+          "p90": 0.006,
+          "pj": [
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "objective": 66.92222346609083
+        },
+        "execution_id": "e6bedff248dff3b558d0f29b"
+      },
+      {
+        "method_sources": [
+          "v3_fixed_probing",
+          "simulator_only_adaptive",
+          "argos_fixed_budget",
+          "argos_early_stop"
+        ],
+        "candidate": {
+          "candidate_id": "b002-independent-0006",
+          "Pbar": 0.484684085213559,
+          "R": 0.05719009725113388,
+          "weights": [
+            0.24591609433251177,
+            0.33197369039119595,
+            0.16121823688538328,
+            0.26089197839090894
+          ],
+          "source": "independent",
+          "start_id": null,
+          "iteration": null,
+          "region_id": null,
+          "prediction": {
+            "mean_tracking": 0.015577472746372223,
+            "p90": 0.023532580584287643,
+            "pj": [
+              0.18074245750904083,
+              7.183918217180995e-20,
+              5.092566812692212e-09,
+              4.027171980702633e-19
+            ],
+            "objective": 94.33082618158502
+          },
+          "provenance": {}
+        },
+        "phase": "search",
+        "metrics": {
+          "mean_tracking": 0.0191533333333333,
+          "p90": 0.035,
+          "pj": [
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "objective": 90.7783145375432
+        },
+        "execution_id": "7c7ff1b808ba0bc7e81b4921"
+      },
+      {
+        "method_sources": [
+          "v3_fixed_probing",
+          "argos_fixed_budget"
+        ],
+        "candidate": {
+          "candidate_id": "b003-local-0000",
+          "Pbar": 0.37907867606884127,
+          "R": 0.22231108042802544,
+          "weights": [
+            0.4243492346430317,
+            0.20951258161340142,
+            0.15,
+            0.21613818374356697
+          ],
+          "source": "local",
+          "start_id": null,
+          "iteration": null,
+          "region_id": "region-01",
+          "prediction": {
+            "mean_tracking": 0.002765945391729474,
+            "p90": 0.006378337740898132,
+            "pj": [
+              0.0003665297699626535,
+              3.274310600431818e-08,
+              6.30891292985325e-07,
+              3.7826755616698904e-10
+            ],
+            "objective": 63.647678423731435
+          },
+          "provenance": {
+            "anchor": "v3-1500-0383",
+            "radius": 0.12
+          }
+        },
+        "phase": "search",
+        "metrics": {
+          "mean_tracking": 0.0015630555555555,
+          "p90": 0.006,
+          "pj": [
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "objective": 63.61417370684083
+        },
+        "execution_id": "124ef13b5fd3f7de44438e07"
+      },
+      {
+        "method_sources": [
+          "v3_fixed_probing"
+        ],
+        "candidate": {
+          "candidate_id": "fixed-b003-local-0001",
+          "Pbar": 0.49477429635460746,
+          "R": 0.27719892835485815,
+          "weights": [
+            0.3179190524872959,
+            0.25493913554309816,
+            0.234946039890212,
+            0.1921957720793941
+          ],
+          "source": "local",
+          "start_id": null,
+          "iteration": null,
+          "region_id": "region-02",
+          "prediction": {
+            "mean_tracking": 0.009990877471864223,
+            "p90": 0.033314064145088196,
+            "pj": [
+              0.02498171478509903,
+              1.875149813201915e-08,
+              1.453539510976043e-07,
+              5.602975305940561e-10
+            ],
+            "objective": 70.40878387026743
+          },
+          "provenance": {
+            "anchor": "v3-0000-0444",
+            "radius": 0.12
+          }
+        },
+        "phase": "search",
+        "metrics": {
+          "mean_tracking": 0.0099113888888888,
+          "p90": 0.035,
+          "pj": [
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "objective": 69.95161933307097
+        },
+        "execution_id": "aed070ee9992d1cef36f73ad"
+      },
+      {
+        "method_sources": [
+          "v3_fixed_probing"
+        ],
+        "candidate": {
+          "candidate_id": "fixed-b004-local-0001",
+          "Pbar": 0.5128574762662159,
+          "R": 0.28378065004717556,
+          "weights": [
+            0.30458861438788637,
+            0.24104211262767777,
+            0.2308025464560332,
+            0.22356672652840276
+          ],
+          "source": "local",
+          "start_id": null,
+          "iteration": null,
+          "region_id": "region-02",
+          "prediction": {
+            "mean_tracking": 0.019697515293955803,
+            "p90": 0.11295506358146667,
+            "pj": [
+              0.013551914133131504,
+              4.377901152707864e-09,
+              3.894381706004424e-08,
+              1.5000245837115678e-11
+            ],
+            "objective": 71.70689597050051
+          },
+          "provenance": {
+            "anchor": "v3-0000-0444",
+            "radius": 0.12
+          }
+        },
+        "phase": "search",
+        "metrics": {
+          "mean_tracking": 0.0203686111111111,
+          "p90": 0.12,
+          "pj": [
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "objective": 71.48970964402565
+        },
+        "execution_id": "56b79c57de8cb0ca83988895"
+      },
+      {
+        "method_sources": [
+          "v3_fixed_probing",
+          "simulator_only_adaptive",
+          "argos_fixed_budget"
+        ],
+        "candidate": {
+          "candidate_id": "b004-independent-0006",
+          "Pbar": 0.393904216220758,
+          "R": 0.10703426099198214,
+          "weights": [
+            0.39687004797589387,
+            0.16246627041482375,
+            0.28376180784866734,
+            0.15690187376061504
+          ],
+          "source": "independent",
+          "start_id": null,
+          "iteration": null,
+          "region_id": null,
+          "prediction": {
+            "mean_tracking": 0.07902588695287704,
+            "p90": 0.013884375803172588,
+            "pj": [
+              6.910408501425991e-06,
+              1.0026697694343056e-08,
+              3.929161440652251e-10,
+              1.575512914575583e-10
+            ],
+            "objective": 77.43970378453344
+          },
+          "provenance": {}
+        },
+        "phase": "search",
+        "metrics": {
+          "mean_tracking": 0.0517327777777777,
+          "p90": 0.011,
+          "pj": [
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "objective": 77.14591295511528
+        },
+        "execution_id": "a4314142ef3476c1ca6e2566"
+      },
+      {
+        "method_sources": [
+          "simulator_only_adaptive"
+        ],
+        "candidate": {
+          "candidate_id": "b001-independent-0004",
+          "Pbar": 0.459596444247363,
+          "R": 0.036303603134577346,
+          "weights": [
+            0.2557966671696633,
+            0.15714583935983958,
+            0.3687199484665312,
+            0.21833754500396588
+          ],
+          "source": "independent",
+          "start_id": null,
+          "iteration": null,
+          "region_id": null,
+          "prediction": null,
+          "provenance": {}
+        },
+        "phase": "search",
+        "metrics": {
+          "mean_tracking": 0.0193038888888888,
+          "p90": 0.016,
+          "pj": [
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "objective": 90.30717297205166
+        },
+        "execution_id": "f0beddda62072f06338bf6bd"
+      },
+      {
+        "method_sources": [
+          "simulator_only_adaptive"
+        ],
+        "candidate": {
+          "candidate_id": "b001-independent-0005",
+          "Pbar": 0.40759571574706854,
+          "R": 0.011823163320249633,
+          "weights": [
+            0.3376279495532042,
+            0.23221452526879116,
+            0.2393148883827571,
+            0.19084263679524754
+          ],
+          "source": "independent",
+          "start_id": null,
+          "iteration": null,
+          "region_id": null,
+          "prediction": null,
+          "provenance": {}
+        },
+        "phase": "search",
+        "metrics": {
+          "mean_tracking": 0.0026225,
+          "p90": 0.0,
+          "pj": [
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "objective": 87.4800974838511
+        },
+        "execution_id": "f2dfc1bebe5974c5c87caf10"
+      },
+      {
+        "method_sources": [
+          "simulator_only_adaptive"
+        ],
+        "candidate": {
+          "candidate_id": "b002-local-0000",
+          "Pbar": 0.4024232246771604,
+          "R": 0.01538420347458834,
+          "weights": [
+            0.29450152037973387,
+            0.24472029029658238,
+            0.29464964578144076,
+            0.16612854354224316
+          ],
+          "source": "local",
+          "start_id": null,
+          "iteration": null,
+          "region_id": null,
+          "prediction": null,
+          "provenance": {
+            "anchor": "b001-independent-0005",
+            "radius": 0.12
+          }
+        },
+        "phase": "search",
+        "metrics": {
+          "mean_tracking": 0.0031847222222222,
+          "p90": 0.006,
+          "pj": [
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "objective": 86.61142463914638
+        },
+        "execution_id": "49d93e6ec476213e17bc64a2"
+      },
+      {
+        "method_sources": [
+          "simulator_only_adaptive"
+        ],
+        "candidate": {
+          "candidate_id": "b002-local-0001",
+          "Pbar": 0.4256419511783812,
+          "R": 0.04585002840965011,
+          "weights": [
+            0.28042976222769966,
+            0.15,
+            0.3567586763004723,
+            0.2128115614718282
+          ],
+          "source": "local",
+          "start_id": null,
+          "iteration": null,
+          "region_id": null,
+          "prediction": null,
+          "provenance": {
+            "anchor": "b001-independent-0004",
+            "radius": 0.12
+          }
+        },
+        "phase": "search",
+        "metrics": {
+          "mean_tracking": 0.0145969444444444,
+          "p90": 0.013,
+          "pj": [
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "objective": 85.95238636944647
+        },
+        "execution_id": "1c9b8ad479c4ad91e6198e93"
+      },
+      {
+        "method_sources": [
+          "simulator_only_adaptive"
+        ],
+        "candidate": {
+          "candidate_id": "b003-local-0000",
+          "Pbar": 0.46951656240118367,
+          "R": 0.06953994061208607,
+          "weights": [
+            0.2665679408015599,
+            0.2011602190247215,
+            0.28788568949394877,
+            0.24438615067977007
+          ],
+          "source": "local",
+          "start_id": null,
+          "iteration": null,
+          "region_id": null,
+          "prediction": null,
+          "provenance": {
+            "anchor": "b002-local-0001",
+            "radius": 0.12
+          }
+        },
+        "phase": "search",
+        "metrics": {
+          "mean_tracking": 0.0097897222222222,
+          "p90": 0.009,
+          "pj": [
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "objective": 87.96993098376124
+        },
+        "execution_id": "9c1dae5518154da38865569e"
+      },
+      {
+        "method_sources": [
+          "simulator_only_adaptive"
+        ],
+        "candidate": {
+          "candidate_id": "b003-local-0001",
+          "Pbar": 0.4295012417444296,
+          "R": 0.032923125453770886,
+          "weights": [
+            0.27308704937970785,
+            0.2694513377046841,
+            0.30746161291560836,
+            0.15
+          ],
+          "source": "local",
+          "start_id": null,
+          "iteration": null,
+          "region_id": null,
+          "prediction": null,
+          "provenance": {
+            "anchor": "b002-local-0000",
+            "radius": 0.12
+          }
+        },
+        "phase": "search",
+        "metrics": {
+          "mean_tracking": 0.0137358333333333,
+          "p90": 0.015,
+          "pj": [
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "objective": 87.61036521248917
+        },
+        "execution_id": "623a9150ecdb9ab87c752f53"
+      },
+      {
+        "method_sources": [
+          "simulator_only_adaptive"
+        ],
+        "candidate": {
+          "candidate_id": "b003-local-0002",
+          "Pbar": 0.37991105849353246,
+          "R": 0.034372330281731214,
+          "weights": [
+            0.39288564359087436,
+            0.24294320105749623,
+            0.19490520571479436,
+            0.16926594963683528
+          ],
+          "source": "local",
+          "start_id": null,
+          "iteration": null,
+          "region_id": null,
+          "prediction": null,
+          "provenance": {
+            "anchor": "b001-independent-0005",
+            "radius": 0.12
+          }
+        },
+        "phase": "search",
+        "metrics": {
+          "mean_tracking": 0.0023555555555555,
+          "p90": 0.01,
+          "pj": [
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "objective": 82.46666884230089
+        },
+        "execution_id": "f3c9419118d24100dc38cf3c"
+      },
+      {
+        "method_sources": [
+          "simulator_only_adaptive",
+          "argos_fixed_budget"
+        ],
+        "candidate": {
+          "candidate_id": "b003-local-0003",
+          "Pbar": 0.4388289276433456,
+          "R": 0.0693737322178939,
+          "weights": [
+            0.2563668854817853,
+            0.33114754637274946,
+            0.16087814755648097,
+            0.2516074205889843
+          ],
+          "source": "local",
+          "start_id": null,
+          "iteration": null,
+          "region_id": null,
+          "prediction": {
+            "mean_tracking": 0.004577137064188719,
+            "p90": 0.008490336127579212,
+            "pj": [
+              0.3276244103908539,
+              1.0500232680981603e-16,
+              1.2125080672831245e-07,
+              1.917503021598918e-15
+            ],
+            "objective": 91.84753535285897
+          },
+          "provenance": {
+            "anchor": "b002-independent-0006",
+            "radius": 0.12
+          }
+        },
+        "phase": "search",
+        "metrics": {
+          "mean_tracking": 0.0069686111111111,
+          "p90": 0.009,
+          "pj": [
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "objective": 84.89799729815013
+        },
+        "execution_id": "b4801fc01723068949c727b8"
+      },
+      {
+        "method_sources": [
+          "simulator_only_adaptive"
+        ],
+        "candidate": {
+          "candidate_id": "b004-local-0000",
+          "Pbar": 0.3313112457060497,
+          "R": 0.04175651290653405,
+          "weights": [
+            0.38902548465566733,
+            0.20597480498111215,
+            0.18297723956916362,
+            0.22202247079405701
+          ],
+          "source": "local",
+          "start_id": null,
+          "iteration": null,
+          "region_id": null,
+          "prediction": null,
+          "provenance": {
+            "anchor": "b003-local-0002",
+            "radius": 0.12
+          }
+        },
+        "phase": "search",
+        "metrics": {
+          "mean_tracking": 0.0053327777777777,
+          "p90": 0.013,
+          "pj": [
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "objective": 76.88392745933537
+        },
+        "execution_id": "80c2259da980807ff52ec375"
+      },
+      {
+        "method_sources": [
+          "simulator_only_adaptive"
+        ],
+        "candidate": {
+          "candidate_id": "b004-local-0004",
+          "Pbar": 0.46771612029960696,
+          "R": 0.014527098624867944,
+          "weights": [
+            0.36352118587636184,
+            0.23585368976632848,
+            0.24087730552478476,
+            0.15974781883252503
+          ],
+          "source": "local",
+          "start_id": null,
+          "iteration": null,
+          "region_id": null,
+          "prediction": null,
+          "provenance": {
+            "anchor": "b001-independent-0005",
+            "radius": 0.12
+          }
+        },
+        "phase": "search",
+        "metrics": {
+          "mean_tracking": 0.00597,
+          "p90": 0.0,
+          "pj": [
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "objective": 93.2272695211011
+        },
+        "execution_id": "dd6f1567a98a2c45e0f8940c"
+      },
+      {
+        "method_sources": [
+          "simulator_only_adaptive"
+        ],
+        "candidate": {
+          "candidate_id": "b004-local-0005",
+          "Pbar": 0.40449012094767767,
+          "R": 0.014765479118704303,
+          "weights": [
+            0.27255281564143824,
+            0.24749212777073348,
+            0.31661314749372665,
+            0.1633419090941018
+          ],
+          "source": "local",
+          "start_id": null,
+          "iteration": null,
+          "region_id": null,
+          "prediction": null,
+          "provenance": {
+            "anchor": "b003-local-0001",
+            "radius": 0.12
+          }
+        },
+        "phase": "search",
+        "metrics": {
+          "mean_tracking": 0.0028397222222222,
+          "p90": 0.001,
+          "pj": [
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "objective": 86.87686627635597
+        },
+        "execution_id": "edc37f23eff74b9887305ac2"
+      },
+      {
+        "method_sources": [
+          "simulator_only_adaptive"
+        ],
+        "candidate": {
+          "candidate_id": "b004-local-0000",
+          "Pbar": 0.3313112457060497,
+          "R": 0.04175651290653405,
+          "weights": [
+            0.38902548465566733,
+            0.20597480498111215,
+            0.18297723956916362,
+            0.22202247079405701
+          ],
+          "source": "local",
+          "start_id": null,
+          "iteration": null,
+          "region_id": null,
+          "prediction": null,
+          "provenance": {
+            "anchor": "b003-local-0002",
+            "radius": 0.12
+          }
+        },
+        "phase": "confirmation",
+        "metrics": {
+          "mean_tracking": 0.0054330555555555,
+          "p90": 0.013,
+          "pj": [
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "objective": 76.88434618925203
+        },
+        "execution_id": "7d4c8fed52ddb5c329778ec2"
+      },
+      {
+        "method_sources": [
+          "simulator_only_adaptive"
+        ],
+        "candidate": {
+          "candidate_id": "b004-local-0000",
+          "Pbar": 0.3313112457060497,
+          "R": 0.04175651290653405,
+          "weights": [
+            0.38902548465566733,
+            0.20597480498111215,
+            0.18297723956916362,
+            0.22202247079405701
+          ],
+          "source": "local",
+          "start_id": null,
+          "iteration": null,
+          "region_id": null,
+          "prediction": null,
+          "provenance": {
+            "anchor": "b003-local-0002",
+            "radius": 0.12
+          }
+        },
+        "phase": "confirmation",
+        "metrics": {
+          "mean_tracking": 0.0053352777777777,
+          "p90": 0.013,
+          "pj": [
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "objective": 76.88393789858537
+        },
+        "execution_id": "e3054a7fe0ab22cbbbb40db0"
+      },
+      {
+        "method_sources": [
+          "argos_fixed_budget"
+        ],
+        "candidate": {
+          "candidate_id": "b003-local-0001",
+          "Pbar": 0.46081980328562566,
+          "R": 0.2590901813889308,
+          "weights": [
+            0.363437150998149,
+            0.18513828582480812,
+            0.24386977117696979,
+            0.20755479200007315
+          ],
+          "source": "local",
+          "start_id": null,
+          "iteration": null,
+          "region_id": "region-02",
+          "prediction": {
+            "mean_tracking": 0.0020214763935655355,
+            "p90": 0.005519232712686062,
+            "pj": [
+              0.00773326912894845,
+              2.6027374033787964e-08,
+              5.6459242614437244e-08,
+              7.297486226409688e-11
+            ],
+            "objective": 68.26756514467748
+          },
+          "provenance": {
+            "anchor": "b002-local-0001",
+            "radius": 0.12
+          }
+        },
+        "phase": "search",
+        "metrics": {
+          "mean_tracking": 0.0013555555555555,
+          "p90": 0.005,
+          "pj": [
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "objective": 68.11024661600578
+        },
+        "execution_id": "111a5650c08e8c97c9fc8f39"
+      },
+      {
+        "method_sources": [
+          "argos_fixed_budget"
+        ],
+        "candidate": {
+          "candidate_id": "b003-local-0002",
+          "Pbar": 0.4400116220338022,
+          "R": 0.25786870688235763,
+          "weights": [
+            0.3898979510981979,
+            0.23624349749690737,
+            0.17303112366128753,
+            0.20082742774360718
+          ],
+          "source": "local",
+          "start_id": null,
+          "iteration": null,
+          "region_id": "region-02",
+          "prediction": {
+            "mean_tracking": 0.0019345928449183702,
+            "p90": 0.005481507629156113,
+            "pj": [
+              0.0009905711049214005,
+              1.608436939193325e-09,
+              6.097403115745692e-08,
+              1.0164014768720975e-10
+            ],
+            "objective": 66.18439187316467
+          },
+          "provenance": {
+            "anchor": "v3-0000-0444",
+            "radius": 0.12
+          }
+        },
+        "phase": "search",
+        "metrics": {
+          "mean_tracking": 0.0017397222222222,
+          "p90": 0.007,
+          "pj": [
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "objective": 66.16229180985326
+        },
+        "execution_id": "f9461dd3efc1e3bc5d1ed0d9"
+      },
+      {
+        "method_sources": [
+          "argos_fixed_budget"
+        ],
+        "candidate": {
+          "candidate_id": "b004-local-0001",
+          "Pbar": 0.424239873047719,
+          "R": 0.23996282361540072,
+          "weights": [
+            0.39429759197039027,
+            0.22503987253287683,
+            0.16336174012678287,
+            0.2173007953699502
+          ],
+          "source": "local",
+          "start_id": null,
+          "iteration": null,
+          "region_id": "region-01",
+          "prediction": {
+            "mean_tracking": 0.0018889561761170626,
+            "p90": 0.005398983135819435,
+            "pj": [
+              0.0003739955718629062,
+              2.1750199419301453e-09,
+              7.372245391934484e-08,
+              4.932774674837326e-11
+            ],
+            "objective": 66.38209436912395
+          },
+          "provenance": {
+            "anchor": "b003-local-0000",
+            "radius": 0.12
+          }
+        },
+        "phase": "search",
+        "metrics": {
+          "mean_tracking": 0.0018108333333333,
+          "p90": 0.006,
+          "pj": [
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "objective": 66.37377856239638
+        },
+        "execution_id": "f80560b6be261792b936deec"
+      },
+      {
+        "method_sources": [
+          "argos_fixed_budget"
+        ],
+        "candidate": {
+          "candidate_id": "b004-local-0002",
+          "Pbar": 0.37292493464465437,
+          "R": 0.22292011668279957,
+          "weights": [
+            0.4175120057492983,
+            0.2383258027064209,
+            0.194162191544281,
+            0.15
+          ],
+          "source": "local",
+          "start_id": null,
+          "iteration": null,
+          "region_id": "region-02",
+          "prediction": {
+            "mean_tracking": 0.00279816472902894,
+            "p90": 0.005914969369769096,
+            "pj": [
+              0.005469450727105141,
+              2.4981821056258013e-08,
+              3.1305944503401406e-07,
+              1.0179389775544223e-08
+            ],
+            "objective": 63.06423008629912
+          },
+          "provenance": {
+            "anchor": "b003-local-0002",
+            "radius": 0.12
+          }
+        },
+        "phase": "search",
+        "metrics": {
+          "mean_tracking": 0.0013608333333333,
+          "p90": 0.006,
+          "pj": [
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "objective": 62.93346095914639
+        },
+        "execution_id": "55efcc02c70b41cab2fd03c4"
+      },
+      {
+        "method_sources": [
+          "argos_fixed_budget"
+        ],
+        "candidate": {
+          "candidate_id": "b004-local-0003",
+          "Pbar": 0.3814560611930429,
+          "R": 0.22150312745887105,
+          "weights": [
+            0.3554119182130395,
+            0.15685441517923276,
+            0.22946108941391302,
+            0.2582725771938149
+          ],
+          "source": "local",
+          "start_id": null,
+          "iteration": null,
+          "region_id": "region-02",
+          "prediction": {
+            "mean_tracking": 0.0014652609825134277,
+            "p90": 0.00554142240434885,
+            "pj": [
+              0.24713389575481415,
+              2.519450390536804e-07,
+              1.8926525626739021e-06,
+              1.5488918592154732e-08
+            ],
+            "objective": 68.98873512763844
+          },
+          "provenance": {
+            "anchor": "b002-local-0001",
+            "radius": 0.12
+          }
+        },
+        "phase": "search",
+        "metrics": {
+          "mean_tracking": 0.0015580555555555,
+          "p90": 0.005,
+          "pj": [
+            0.03561643835616435,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "objective": 64.58585573909662
+        },
+        "execution_id": "458ab844a40aacb5177fbdaf"
+      },
+      {
+        "method_sources": [
+          "argos_fixed_budget"
+        ],
+        "candidate": {
+          "candidate_id": "b004-local-0004",
+          "Pbar": 0.5278166838398766,
+          "R": 0.26507767533132104,
+          "weights": [
+            0.36053349338368545,
+            0.22915398620573968,
+            0.21900322347127799,
+            0.191309296939297
+          ],
+          "source": "local",
+          "start_id": null,
+          "iteration": null,
+          "region_id": "region-02",
+          "prediction": {
+            "mean_tracking": 0.020130882039666176,
+            "p90": 0.11728637665510178,
+            "pj": [
+              8.619877189630643e-05,
+              3.194881859069909e-12,
+              5.612869058424508e-10,
+              5.084714658869227e-13
+            ],
+            "objective": 74.80936021322749
+          },
+          "provenance": {
+            "anchor": "v3-0000-0444",
+            "radius": 0.12
+          }
+        },
+        "phase": "search",
+        "metrics": {
+          "mean_tracking": 0.0201427777777777,
+          "p90": 0.118,
+          "pj": [
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "objective": 74.80911509436184
+        },
+        "execution_id": "2416e1fb773bdf254e1c2f1b"
+      }
+    ],
+    "selected_exact_observations": [
+      {
+        "phase": "search",
+        "qualified": true,
+        "metrics": {
+          "mean_tracking": 0.0104125,
+          "p90": 0.006,
+          "pj": [
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "objective": 61.53340505872971
+        },
+        "execution_id": "bd9cd859e524f77eda7e4e77"
+      },
+      {
+        "phase": "confirmation",
+        "qualified": true,
+        "metrics": {
+          "mean_tracking": 0.0013847222222222,
+          "p90": 0.005,
+          "pj": [
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "objective": 61.35145692058911
+        },
+        "execution_id": "702b53ea39ec8377ac06f0a9"
+      },
+      {
+        "phase": "confirmation",
+        "qualified": true,
+        "metrics": {
+          "mean_tracking": 0.0106219444444444,
+          "p90": 0.006,
+          "pj": [
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "objective": 61.537614661674155
+        },
+        "execution_id": "35b4c305a3a2387dce4c2ad8"
+      }
+    ],
+    "unknown_unqueried_outcomes": true
+  },
+  {
+    "case": "c004",
+    "workload": "W1-train-qos4444",
+    "utilization": 0.8,
+    "counts": {
+      "starts": 512,
+      "snapshots": 15872,
+      "endpoints": 512
+    },
+    "pool_size": 552,
+    "regions": 6,
+    "selected": {
+      "candidate_id": "v3-1500-0275",
+      "Pbar": 0.38349318504333496,
+      "R": 0.22992466390132904,
+      "weights": [
+        0.44805729389190674,
+        0.2322375327348709,
+        0.15970204770565033,
+        0.16000311076641083
+      ],
+      "source": "V3 endpoint",
+      "start_id": 275,
+      "iteration": 1500,
+      "region_id": null,
+      "prediction": {
+        "mean_tracking": 0.0024591777473688126,
+        "p90": 0.005444679409265518,
+        "pj": [
+          0.03400452435016632,
+          1.808837077987846e-05,
+          1.9863728084601462e-05,
+          8.604611707596632e-07
+        ],
+        "objective": 63.940216064453125
+      },
+      "provenance": {}
+    },
+    "selected_in_pool": true,
+    "selected_region_distance": 0.0,
+    "selected_first_batch_distance": 0.0,
+    "selected_later_batch_distance": 0.07199670654321537,
+    "known_qualified_physical_evaluations": 29,
+    "known_qualified_sources": [
+      {
+        "method_sources": [
+          "v3_fixed_probing",
+          "argos_fixed_budget",
+          "argos_early_stop"
+        ],
+        "candidate": {
+          "candidate_id": "v3-0000-0152",
+          "Pbar": 0.41670292615890503,
+          "R": 0.1618143916130066,
+          "weights": [
+            0.3846343457698822,
+            0.18412812054157257,
+            0.2350703328847885,
+            0.1961672008037567
+          ],
+          "source": "V3 snapshot",
+          "start_id": 152,
+          "iteration": 0,
+          "region_id": "region-02",
+          "prediction": {
+            "mean_tracking": 0.002654026495292783,
+            "p90": 0.007166857831180096,
+            "pj": [
+              0.010175726376473904,
+              3.155987542413641e-07,
+              2.898331786127528e-06,
+              1.3656022979091631e-08
+            ],
+            "objective": 73.61932373046875
+          },
+          "provenance": {}
+        },
+        "phase": "search",
+        "metrics": {
+          "mean_tracking": 0.0019108333333333,
+          "p90": 0.006,
+          "pj": [
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "objective": 73.42244522097971
+        },
+        "execution_id": "793da3c7428a5dc1cb5dba8c"
+      },
+      {
+        "method_sources": [
+          "v3_fixed_probing",
+          "argos_fixed_budget",
+          "argos_early_stop"
+        ],
+        "candidate": {
+          "candidate_id": "v3-0000-0438",
+          "Pbar": 0.6983261108398438,
+          "R": 0.021516071632504463,
+          "weights": [
+            0.16641855239868164,
+            0.25095611810684204,
+            0.24232690036296844,
+            0.3402984142303467
+          ],
+          "source": "V3 snapshot",
+          "start_id": 438,
+          "iteration": 0,
+          "region_id": "region-03",
+          "prediction": {
+            "mean_tracking": 0.013666283339262009,
+            "p90": 0.0,
+            "pj": [
+              3.417891321078059e-07,
+              7.854395207674633e-30,
+              2.144565941312947e-27,
+              1.267611896747854e-34
+            ],
+            "objective": 115.610107421875
+          },
+          "provenance": {}
+        },
+        "phase": "search",
+        "metrics": {
+          "mean_tracking": 0.0142058333333333,
+          "p90": 0.0,
+          "pj": [
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "objective": 115.61126217310111
+        },
+        "execution_id": "44603b80b3beddf267fe4dab"
+      },
+      {
+        "method_sources": [
+          "v3_fixed_probing"
+        ],
+        "candidate": {
+          "candidate_id": "fixed-b002-local-0001",
+          "Pbar": 0.395020548012305,
+          "R": 0.14523422546867507,
+          "weights": [
+            0.4225892432056177,
+            0.15,
+            0.1893719392322168,
+            0.23803881756216572
+          ],
+          "source": "local",
+          "start_id": null,
+          "iteration": null,
+          "region_id": "region-02",
+          "prediction": {
+            "mean_tracking": 0.0032260373700410128,
+            "p90": 0.008864074014127254,
+            "pj": [
+              0.009566625580191612,
+              9.627186045690905e-06,
+              1.153837456513429e-05,
+              1.1314170933474088e-06
+            ],
+            "objective": 73.10313939179433
+          },
+          "provenance": {
+            "anchor": "v3-0000-0152",
+            "radius": 0.12
+          }
+        },
+        "phase": "search",
+        "metrics": {
+          "mean_tracking": 0.0025566666666666,
+          "p90": 0.009,
+          "pj": [
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "objective": 72.91998474809458
+        },
+        "execution_id": "5d4b9860c20646a98310c16f"
+      },
+      {
+        "method_sources": [
+          "v3_fixed_probing"
+        ],
+        "candidate": {
+          "candidate_id": "fixed-b002-local-0002",
+          "Pbar": 0.6634129037044263,
+          "R": 0.032279748278982716,
+          "weights": [
+            0.15,
+            0.24783221576653072,
+            0.27295047877900913,
+            0.32921730545446026
+          ],
+          "source": "local",
+          "start_id": null,
+          "iteration": null,
+          "region_id": "region-03",
+          "prediction": {
+            "mean_tracking": 0.007399557624012232,
+            "p90": 0.0004924855893477798,
+            "pj": [
+              0.02916114218533039,
+              1.4638644313077303e-24,
+              7.694923978455729e-24,
+              6.732638816199056e-30
+            ],
+            "objective": 111.57066073616531
+          },
+          "provenance": {
+            "anchor": "v3-0000-0438",
+            "radius": 0.12
+          }
+        },
+        "phase": "search",
+        "metrics": {
+          "mean_tracking": 0.0084216666666666,
+          "p90": 0.001,
+          "pj": [
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "objective": 111.04065856649487
+        },
+        "execution_id": "6f5a2bdb9f3786e14b2f2d2e"
+      },
+      {
+        "method_sources": [
+          "v3_fixed_probing",
+          "argos_fixed_budget"
+        ],
+        "candidate": {
+          "candidate_id": "b003-local-0002",
+          "Pbar": 0.6513294037662395,
+          "R": 0.03400104979576634,
+          "weights": [
+            0.15,
+            0.2411874493913779,
+            0.2682824246650186,
+            0.34053012594360366
+          ],
+          "source": "local",
+          "start_id": null,
+          "iteration": null,
+          "region_id": "region-03",
+          "prediction": {
+            "mean_tracking": 0.006363496650010347,
+            "p90": 0.0007512875599786639,
+            "pj": [
+              0.13279806077480316,
+              7.525684441976691e-23,
+              2.300306535156456e-22,
+              2.2259320518244356e-28
+            ],
+            "objective": 112.22140907726066
+          },
+          "provenance": {
+            "anchor": "v3-0000-0438",
+            "radius": 0.12
+          }
+        },
+        "phase": "search",
+        "metrics": {
+          "mean_tracking": 0.0071825,
+          "p90": 0.001,
+          "pj": [
+            0.07378335949764514,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "objective": 111.04010039347122
+        },
+        "execution_id": "dddbca64df695bf55340277c"
+      },
+      {
+        "method_sources": [
+          "v3_fixed_probing"
+        ],
+        "candidate": {
+          "candidate_id": "fixed-b004-local-0000",
+          "Pbar": 0.44014372991348494,
+          "R": 0.2605855241349975,
+          "weights": [
+            0.45,
+            0.21000219222135136,
+            0.18471882269225776,
+            0.15527898508639104
+          ],
+          "source": "local",
+          "start_id": null,
+          "iteration": null,
+          "region_id": "region-01",
+          "prediction": {
+            "mean_tracking": 0.0016106462571769953,
+            "p90": 0.0047057312913239,
+            "pj": [
+              0.005843785125762224,
+              1.7674035746040317e-07,
+              2.2808455923950532e-06,
+              8.985707040665147e-07
+            ],
+            "objective": 66.00539666444762
+          },
+          "provenance": {
+            "anchor": "v3-1500-0275",
+            "radius": 0.12
+          }
+        },
+        "phase": "search",
+        "metrics": {
+          "mean_tracking": 0.0016797222222222,
+          "p90": 0.005,
+          "pj": [
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "objective": 65.90169673661688
+        },
+        "execution_id": "c94cd177ff0852f5c7e6bd7b"
+      },
+      {
+        "method_sources": [
+          "v3_fixed_probing",
+          "argos_fixed_budget"
+        ],
+        "candidate": {
+          "candidate_id": "b004-local-0001",
+          "Pbar": 0.48467143605450047,
+          "R": 0.16733573570928104,
+          "weights": [
+            0.3737378651604597,
+            0.21016150806414552,
+            0.19651244525259332,
+            0.21958818152280168
+          ],
+          "source": "local",
+          "start_id": null,
+          "iteration": null,
+          "region_id": "region-02",
+          "prediction": {
+            "mean_tracking": 0.0026764762587845325,
+            "p90": 0.006875031627714634,
+            "pj": [
+              4.0437014831695706e-05,
+              3.321534158828854e-10,
+              1.2445741504052421e-06,
+              1.229236712418924e-09
+            ],
+            "objective": 79.68217409416928
+          },
+          "provenance": {
+            "anchor": "v3-0000-0152",
+            "radius": 0.12
+          }
+        },
+        "phase": "search",
+        "metrics": {
+          "mean_tracking": 0.0031661111111111,
+          "p90": 0.01,
+          "pj": [
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "objective": 79.6911527636342
+        },
+        "execution_id": "0dc41df8ef2fce075877c47c"
+      },
+      {
+        "method_sources": [
+          "v3_fixed_probing"
+        ],
+        "candidate": {
+          "candidate_id": "fixed-b004-local-0002",
+          "Pbar": 0.629959893435092,
+          "R": 0.02617154093819425,
+          "weights": [
+            0.1925668075208289,
+            0.26493584944577325,
+            0.23725151520236076,
+            0.3052458278310372
+          ],
+          "source": "local",
+          "start_id": null,
+          "iteration": null,
+          "region_id": "region-03",
+          "prediction": {
+            "mean_tracking": 0.004299704451113939,
+            "p90": 0.0001871816348284483,
+            "pj": [
+              0.0058194794692099094,
+              1.0938956710550532e-21,
+              2.2630064066892844e-19,
+              1.8278013177154983e-25
+            ],
+            "objective": 108.39499869206826
+          },
+          "provenance": {
+            "anchor": "v3-0000-0438",
+            "radius": 0.12
+          }
+        },
+        "phase": "search",
+        "metrics": {
+          "mean_tracking": 0.0032247222222222,
+          "p90": 0.001,
+          "pj": [
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "objective": 108.28741316949487
+        },
+        "execution_id": "bbbf73e6a0972028702d5d1c"
+      },
+      {
+        "method_sources": [
+          "v3_fixed_probing",
+          "simulator_only_adaptive",
+          "argos_fixed_budget"
+        ],
+        "candidate": {
+          "candidate_id": "b004-independent-0006",
+          "Pbar": 0.6839473731542716,
+          "R": 0.04677163815355227,
+          "weights": [
+            0.34837718834369313,
+            0.20065047077555148,
+            0.2753878054393433,
+            0.17558453544141203
+          ],
+          "source": "independent",
+          "start_id": null,
+          "iteration": null,
+          "region_id": null,
+          "prediction": {
+            "mean_tracking": 0.08097158372402191,
+            "p90": 0.13169899582862854,
+            "pj": [
+              2.037496395589592e-18,
+              1.741202780642084e-24,
+              7.176696597912758e-25,
+              6.489896820558295e-23
+            ],
+            "objective": 112.117829723976
+          },
+          "provenance": {}
+        },
+        "phase": "search",
+        "metrics": {
+          "mean_tracking": 0.1028547222222222,
+          "p90": 0.067,
+          "pj": [
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "objective": 112.14253039851668
+        },
+        "execution_id": "dea903b20be4fd64e8b242c2"
+      },
+      {
+        "method_sources": [
+          "v3_fixed_probing"
+        ],
+        "candidate": {
+          "candidate_id": "fixed-b004-local-0000",
+          "Pbar": 0.44014372991348494,
+          "R": 0.2605855241349975,
+          "weights": [
+            0.45,
+            0.21000219222135136,
+            0.18471882269225776,
+            0.15527898508639104
+          ],
+          "source": "local",
+          "start_id": null,
+          "iteration": null,
+          "region_id": "region-01",
+          "prediction": {
+            "mean_tracking": 0.0016106462571769953,
+            "p90": 0.0047057312913239,
+            "pj": [
+              0.005843785125762224,
+              1.7674035746040317e-07,
+              2.2808455923950532e-06,
+              8.985707040665147e-07
+            ],
+            "objective": 66.00539666444762
+          },
+          "provenance": {
+            "anchor": "v3-1500-0275",
+            "radius": 0.12
+          }
+        },
+        "phase": "confirmation",
+        "metrics": {
+          "mean_tracking": 0.0013997222222222,
+          "p90": 0.005,
+          "pj": [
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "objective": 65.89440032861688
+        },
+        "execution_id": "691c85e008da72da72c1e401"
+      },
+      {
+        "method_sources": [
+          "v3_fixed_probing"
+        ],
+        "candidate": {
+          "candidate_id": "fixed-b004-local-0000",
+          "Pbar": 0.44014372991348494,
+          "R": 0.2605855241349975,
+          "weights": [
+            0.45,
+            0.21000219222135136,
+            0.18471882269225776,
+            0.15527898508639104
+          ],
+          "source": "local",
+          "start_id": null,
+          "iteration": null,
+          "region_id": "region-01",
+          "prediction": {
+            "mean_tracking": 0.0016106462571769953,
+            "p90": 0.0047057312913239,
+            "pj": [
+              0.005843785125762224,
+              1.7674035746040317e-07,
+              2.2808455923950532e-06,
+              8.985707040665147e-07
+            ],
+            "objective": 66.00539666444762
+          },
+          "provenance": {
+            "anchor": "v3-1500-0275",
+            "radius": 0.12
+          }
+        },
+        "phase": "confirmation",
+        "metrics": {
+          "mean_tracking": 0.0014733333333333,
+          "p90": 0.005,
+          "pj": [
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "objective": 65.89631853111689
+        },
+        "execution_id": "a3bfb8674b4b174d2b446a67"
+      },
+      {
+        "method_sources": [
+          "simulator_only_adaptive"
+        ],
+        "candidate": {
+          "candidate_id": "b001-independent-0005",
+          "Pbar": 0.3831387446160304,
+          "R": 0.046908318876812904,
+          "weights": [
+            0.42405619337892786,
+            0.21571194249512232,
+            0.1679484498813003,
+            0.1922834142446495
+          ],
+          "source": "independent",
+          "start_id": null,
+          "iteration": null,
+          "region_id": null,
+          "prediction": null,
+          "provenance": {}
+        },
+        "phase": "search",
+        "metrics": {
+          "mean_tracking": 0.0067347222222222,
+          "p90": 0.013,
+          "pj": [
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "objective": 81.56095061416869
+        },
+        "execution_id": "a55fdd5e04c69a909f088fb7"
+      },
+      {
+        "method_sources": [
+          "simulator_only_adaptive"
+        ],
+        "candidate": {
+          "candidate_id": "b003-local-0000",
+          "Pbar": 0.4065320700637996,
+          "R": 0.06381511336064924,
+          "weights": [
+            0.3940341537923516,
+            0.1912855377175618,
+            0.21293020081197972,
+            0.20175010767810692
+          ],
+          "source": "local",
+          "start_id": null,
+          "iteration": null,
+          "region_id": null,
+          "prediction": null,
+          "provenance": {
+            "anchor": "b001-independent-0005",
+            "radius": 0.12
+          }
+        },
+        "phase": "search",
+        "metrics": {
+          "mean_tracking": 0.0058769444444444,
+          "p90": 0.01,
+          "pj": [
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "objective": 82.21387604771755
+        },
+        "execution_id": "4a424687b2bbb030590e063a"
+      },
+      {
+        "method_sources": [
+          "simulator_only_adaptive"
+        ],
+        "candidate": {
+          "candidate_id": "b004-local-0000",
+          "Pbar": 0.43978928948618035,
+          "R": 0.07612806379484131,
+          "weights": [
+            0.43277054711817603,
+            0.19121938113749737,
+            0.1907080040238024,
+            0.18530206772052438
+          ],
+          "source": "local",
+          "start_id": null,
+          "iteration": null,
+          "region_id": null,
+          "prediction": null,
+          "provenance": {
+            "anchor": "b001-independent-0005",
+            "radius": 0.12
+          }
+        },
+        "phase": "search",
+        "metrics": {
+          "mean_tracking": 0.0067725,
+          "p90": 0.008,
+          "pj": [
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "objective": 84.32129677139247
+        },
+        "execution_id": "a045b60ccc7af6040ec0c983"
+      },
+      {
+        "method_sources": [
+          "simulator_only_adaptive"
+        ],
+        "candidate": {
+          "candidate_id": "b004-local-0001",
+          "Pbar": 0.4745005799593952,
+          "R": 0.053364917781336216,
+          "weights": [
+            0.38313767318292913,
+            0.2173189252401347,
+            0.17437231317978447,
+            0.22517108839715183
+          ],
+          "source": "local",
+          "start_id": null,
+          "iteration": null,
+          "region_id": null,
+          "prediction": null,
+          "provenance": {
+            "anchor": "b003-local-0000",
+            "radius": 0.12
+          }
+        },
+        "phase": "search",
+        "metrics": {
+          "mean_tracking": 0.0123541666666666,
+          "p90": 0.012,
+          "pj": [
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "objective": 90.08525335440603
+        },
+        "execution_id": "17ae880727d526f151c00e31"
+      },
+      {
+        "method_sources": [
+          "simulator_only_adaptive"
+        ],
+        "candidate": {
+          "candidate_id": "b004-local-0005",
+          "Pbar": 0.3877365263666729,
+          "R": 0.04058665104875652,
+          "weights": [
+            0.3902811959976564,
+            0.16741547870479428,
+            0.20830242976133628,
+            0.23400089553621306
+          ],
+          "source": "local",
+          "start_id": null,
+          "iteration": null,
+          "region_id": null,
+          "prediction": null,
+          "provenance": {
+            "anchor": "b002-local-0000",
+            "radius": 0.12
+          }
+        },
+        "phase": "search",
+        "metrics": {
+          "mean_tracking": 0.0121433333333333,
+          "p90": 0.014,
+          "pj": [
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "objective": 82.67108463913902
+        },
+        "execution_id": "5eef1199d8cec33974140dc1"
+      },
+      {
+        "method_sources": [
+          "simulator_only_adaptive"
+        ],
+        "candidate": {
+          "candidate_id": "b001-independent-0005",
+          "Pbar": 0.3831387446160304,
+          "R": 0.046908318876812904,
+          "weights": [
+            0.42405619337892786,
+            0.21571194249512232,
+            0.1679484498813003,
+            0.1922834142446495
+          ],
+          "source": "independent",
+          "start_id": null,
+          "iteration": null,
+          "region_id": null,
+          "prediction": null,
+          "provenance": {}
+        },
+        "phase": "confirmation",
+        "metrics": {
+          "mean_tracking": 0.0067188888888888,
+          "p90": 0.013,
+          "pj": [
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "objective": 81.5608763431687
+        },
+        "execution_id": "47c48fa3e0f8c04195089011"
+      },
+      {
+        "method_sources": [
+          "simulator_only_adaptive"
+        ],
+        "candidate": {
+          "candidate_id": "b001-independent-0005",
+          "Pbar": 0.3831387446160304,
+          "R": 0.046908318876812904,
+          "weights": [
+            0.42405619337892786,
+            0.21571194249512232,
+            0.1679484498813003,
+            0.1922834142446495
+          ],
+          "source": "independent",
+          "start_id": null,
+          "iteration": null,
+          "region_id": null,
+          "prediction": null,
+          "provenance": {}
+        },
+        "phase": "confirmation",
+        "metrics": {
+          "mean_tracking": 0.0067197222222222,
+          "p90": 0.013,
+          "pj": [
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "objective": 81.56088025216869
+        },
+        "execution_id": "40713009c5fb613443b93bf0"
+      },
+      {
+        "method_sources": [
+          "argos_fixed_budget",
+          "argos_early_stop"
+        ],
+        "candidate": {
+          "candidate_id": "b002-local-0001",
+          "Pbar": 0.6747812747428812,
+          "R": 0.024049560265139193,
+          "weights": [
+            0.20807144095164704,
+            0.20573403911474075,
+            0.20032649782762663,
+            0.38586802210598564
+          ],
+          "source": "local",
+          "start_id": null,
+          "iteration": null,
+          "region_id": "region-03",
+          "prediction": {
+            "mean_tracking": 0.010292928665876389,
+            "p90": 1.0986928828060627e-05,
+            "pj": [
+              2.5726899366418365e-07,
+              1.0150817265958999e-22,
+              3.1924795422897937e-21,
+              4.225198305188851e-31
+            ],
+            "objective": 112.9976322341712
+          },
+          "provenance": {
+            "anchor": "v3-0000-0438",
+            "radius": 0.12
+          }
+        },
+        "phase": "search",
+        "metrics": {
+          "mean_tracking": 0.0092186111111111,
+          "p90": 0.0,
+          "pj": [
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "objective": 112.99496766182332
+        },
+        "execution_id": "3cf59ccf16a1d2a5e7679b57"
+      },
+      {
+        "method_sources": [
+          "argos_fixed_budget"
+        ],
+        "candidate": {
+          "candidate_id": "b003-local-0000",
+          "Pbar": 0.4400962516066742,
+          "R": 0.18649569258136475,
+          "weights": [
+            0.35461230618330597,
+            0.1597017157640121,
+            0.2800520838154679,
+            0.20563389423721412
+          ],
+          "source": "local",
+          "start_id": null,
+          "iteration": null,
+          "region_id": "region-02",
+          "prediction": {
+            "mean_tracking": 0.003058017697185278,
+            "p90": 0.007457551546394825,
+            "pj": [
+              0.10054409503936768,
+              9.034771210281178e-06,
+              1.460531962038658e-06,
+              5.019769560021814e-07
+            ],
+            "objective": 75.23169793066329
+          },
+          "provenance": {
+            "anchor": "v3-0000-0152",
+            "radius": 0.12
+          }
+        },
+        "phase": "search",
+        "metrics": {
+          "mean_tracking": 0.0017802777777777,
+          "p90": 0.007,
+          "pj": [
+            0.023547880690737766,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "objective": 73.72584748815554
+        },
+        "execution_id": "b5de709a9122c4a23a8d45bc"
+      },
+      {
+        "method_sources": [
+          "argos_fixed_budget"
+        ],
+        "candidate": {
+          "candidate_id": "b003-local-0001",
+          "Pbar": 0.6141713435684223,
+          "R": 0.048064384020943436,
+          "weights": [
+            0.2098545331969323,
+            0.16380393944873803,
+            0.25760253710931724,
+            0.36873899024501255
+          ],
+          "source": "local",
+          "start_id": null,
+          "iteration": null,
+          "region_id": "region-03",
+          "prediction": {
+            "mean_tracking": 0.0038082515820860863,
+            "p90": 0.005472193006426096,
+            "pj": [
+              0.031208548694849014,
+              8.426565001329323e-12,
+              1.2939856189841857e-18,
+              1.644768775106181e-24
+            ],
+            "objective": 105.10298354699877
+          },
+          "provenance": {
+            "anchor": "b002-local-0001",
+            "radius": 0.12
+          }
+        },
+        "phase": "search",
+        "metrics": {
+          "mean_tracking": 0.0027344444444444,
+          "p90": 0.008,
+          "pj": [
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "objective": 104.52748191717026
+        },
+        "execution_id": "0add258423d6e1de87ca72bf"
+      },
+      {
+        "method_sources": [
+          "argos_fixed_budget"
+        ],
+        "candidate": {
+          "candidate_id": "b003-local-0004",
+          "Pbar": 0.41174303269223467,
+          "R": 0.1770082240109149,
+          "weights": [
+            0.42018931768411494,
+            0.27981068231588513,
+            0.15,
+            0.15
+          ],
+          "source": "local",
+          "start_id": null,
+          "iteration": null,
+          "region_id": null,
+          "prediction": {
+            "mean_tracking": 0.002438510535284877,
+            "p90": 0.005827088840305805,
+            "pj": [
+              0.004668578039854765,
+              5.480809340951964e-05,
+              1.1598048331507016e-05,
+              4.2146882606175495e-07
+            ],
+            "objective": 71.5046676565395
+          },
+          "provenance": {
+            "anchor": "b002-local-0003",
+            "radius": 0.12
+          }
+        },
+        "phase": "search",
+        "metrics": {
+          "mean_tracking": 0.0023388888888888,
+          "p90": 0.006,
+          "pj": [
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "objective": 71.41752546692416
+        },
+        "execution_id": "d1834a0f73fab608da56bf0d"
+      },
+      {
+        "method_sources": [
+          "argos_fixed_budget"
+        ],
+        "candidate": {
+          "candidate_id": "b004-local-0000",
+          "Pbar": 0.46839357756238453,
+          "R": 0.22605972561131102,
+          "weights": [
+            0.42657655591532134,
+            0.25299100545021846,
+            0.17043243863446028,
+            0.15
+          ],
+          "source": "local",
+          "start_id": null,
+          "iteration": null,
+          "region_id": null,
+          "prediction": {
+            "mean_tracking": 0.0020300361793488264,
+            "p90": 0.0053829592652618885,
+            "pj": [
+              0.0001638768590055406,
+              2.1092459064675495e-05,
+              1.578902583787567e-06,
+              3.3567545187906944e-07
+            ],
+            "objective": 72.18495790332445
+          },
+          "provenance": {
+            "anchor": "b003-local-0004",
+            "radius": 0.12
+          }
+        },
+        "phase": "search",
+        "metrics": {
+          "mean_tracking": 0.0019394444444444,
+          "p90": 0.006,
+          "pj": [
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "objective": 72.17986834359084
+        },
+        "execution_id": "2860958c53e8fcced9b628bc"
+      },
+      {
+        "method_sources": [
+          "argos_fixed_budget"
+        ],
+        "candidate": {
+          "candidate_id": "b004-local-0003",
+          "Pbar": 0.5806633948123131,
+          "R": 0.08064133428418446,
+          "weights": [
+            0.2397604209144178,
+            0.15,
+            0.2438000962306825,
+            0.3664394828548999
+          ],
+          "source": "local",
+          "start_id": null,
+          "iteration": null,
+          "region_id": "region-03",
+          "prediction": {
+            "mean_tracking": 0.002742635551840067,
+            "p90": 0.007800964638590813,
+            "pj": [
+              0.07000821828842163,
+              5.857236828887835e-07,
+              6.175454028353733e-13,
+              9.008624364745275e-20
+            ],
+            "objective": 99.23719521536847
+          },
+          "provenance": {
+            "anchor": "b003-local-0001",
+            "radius": 0.12
+          }
+        },
+        "phase": "search",
+        "metrics": {
+          "mean_tracking": 0.0028227777777777,
+          "p90": 0.008,
+          "pj": [
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "objective": 97.92860224567025
+        },
+        "execution_id": "23105c0b566362fa06e85c69"
+      },
+      {
+        "method_sources": [
+          "argos_fixed_budget"
+        ],
+        "candidate": {
+          "candidate_id": "b004-local-0004",
+          "Pbar": 0.682678018634954,
+          "R": 0.042686430944525094,
+          "weights": [
+            0.17692032727038876,
+            0.21539790684319504,
+            0.26598173329985686,
+            0.34170003258655945
+          ],
+          "source": "local",
+          "start_id": null,
+          "iteration": null,
+          "region_id": "region-03",
+          "prediction": {
+            "mean_tracking": 0.006158143747597933,
+            "p90": 0.003978383727371693,
+            "pj": [
+              1.3036622476647608e-05,
+              6.394296956543572e-25,
+              4.797787699494051e-27,
+              9.550942293624965e-33
+            ],
+            "objective": 111.92730030395896
+          },
+          "provenance": {
+            "anchor": "b003-local-0002",
+            "radius": 0.12
+          }
+        },
+        "phase": "search",
+        "metrics": {
+          "mean_tracking": 0.0061983333333333,
+          "p90": 0.004,
+          "pj": [
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "objective": 111.92728872372805
+        },
+        "execution_id": "d10cad60b1af344871039ef7"
+      },
+      {
+        "method_sources": [
+          "argos_fixed_budget"
+        ],
+        "candidate": {
+          "candidate_id": "b003-local-0004",
+          "Pbar": 0.41174303269223467,
+          "R": 0.1770082240109149,
+          "weights": [
+            0.42018931768411494,
+            0.27981068231588513,
+            0.15,
+            0.15
+          ],
+          "source": "local",
+          "start_id": null,
+          "iteration": null,
+          "region_id": null,
+          "prediction": {
+            "mean_tracking": 0.002438510535284877,
+            "p90": 0.005827088840305805,
+            "pj": [
+              0.004668578039854765,
+              5.480809340951964e-05,
+              1.1598048331507016e-05,
+              4.2146882606175495e-07
+            ],
+            "objective": 71.5046676565395
+          },
+          "provenance": {
+            "anchor": "b002-local-0003",
+            "radius": 0.12
+          }
+        },
+        "phase": "confirmation",
+        "metrics": {
+          "mean_tracking": 0.00253,
+          "p90": 0.007,
+          "pj": [
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "objective": 71.42141279088104
+        },
+        "execution_id": "f909d2dd0a1b068dc30b84c4"
+      },
+      {
+        "method_sources": [
+          "argos_fixed_budget"
+        ],
+        "candidate": {
+          "candidate_id": "b003-local-0004",
+          "Pbar": 0.41174303269223467,
+          "R": 0.1770082240109149,
+          "weights": [
+            0.42018931768411494,
+            0.27981068231588513,
+            0.15,
+            0.15
+          ],
+          "source": "local",
+          "start_id": null,
+          "iteration": null,
+          "region_id": null,
+          "prediction": {
+            "mean_tracking": 0.002438510535284877,
+            "p90": 0.005827088840305805,
+            "pj": [
+              0.004668578039854765,
+              5.480809340951964e-05,
+              1.1598048331507016e-05,
+              4.2146882606175495e-07
+            ],
+            "objective": 71.5046676565395
+          },
+          "provenance": {
+            "anchor": "b002-local-0003",
+            "radius": 0.12
+          }
+        },
+        "phase": "confirmation",
+        "metrics": {
+          "mean_tracking": 0.0020133333333333,
+          "p90": 0.006,
+          "pj": [
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "objective": 71.41176287314639
+        },
+        "execution_id": "2f1aff9fc80c8630105ec25e"
+      },
+      {
+        "method_sources": [
+          "argos_early_stop"
+        ],
+        "candidate": {
+          "candidate_id": "v3-0000-0152",
+          "Pbar": 0.41670292615890503,
+          "R": 0.1618143916130066,
+          "weights": [
+            0.3846343457698822,
+            0.18412812054157257,
+            0.2350703328847885,
+            0.1961672008037567
+          ],
+          "source": "V3 snapshot",
+          "start_id": 152,
+          "iteration": 0,
+          "region_id": "region-02",
+          "prediction": {
+            "mean_tracking": 0.002654026495292783,
+            "p90": 0.007166857831180096,
+            "pj": [
+              0.010175726376473904,
+              3.155987542413641e-07,
+              2.898331786127528e-06,
+              1.3656022979091631e-08
+            ],
+            "objective": 73.61932373046875
+          },
+          "provenance": {}
+        },
+        "phase": "confirmation",
+        "metrics": {
+          "mean_tracking": 0.0020497222222222,
+          "p90": 0.006,
+          "pj": [
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "objective": 73.42469263764639
+        },
+        "execution_id": "32b6eec1e6259cf1080f16f8"
+      },
+      {
+        "method_sources": [
+          "argos_early_stop"
+        ],
+        "candidate": {
+          "candidate_id": "v3-0000-0152",
+          "Pbar": 0.41670292615890503,
+          "R": 0.1618143916130066,
+          "weights": [
+            0.3846343457698822,
+            0.18412812054157257,
+            0.2350703328847885,
+            0.1961672008037567
+          ],
+          "source": "V3 snapshot",
+          "start_id": 152,
+          "iteration": 0,
+          "region_id": "region-02",
+          "prediction": {
+            "mean_tracking": 0.002654026495292783,
+            "p90": 0.007166857831180096,
+            "pj": [
+              0.010175726376473904,
+              3.155987542413641e-07,
+              2.898331786127528e-06,
+              1.3656022979091631e-08
+            ],
+            "objective": 73.61932373046875
+          },
+          "provenance": {}
+        },
+        "phase": "confirmation",
+        "metrics": {
+          "mean_tracking": 0.0021455555555555,
+          "p90": 0.007,
+          "pj": [
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "objective": 73.4267478595477
+        },
+        "execution_id": "d998b49fd0893a65d80580a2"
+      }
+    ],
+    "selected_exact_observations": [
+      {
+        "phase": "search",
+        "qualified": false,
+        "metrics": {
+          "mean_tracking": 0.0015927777777777,
+          "p90": 0.005,
+          "pj": [
+            0.10099424385138667,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "objective": 65.21560845597398
+        },
+        "execution_id": "dd189c4127bada45cb0f8b7b"
+      }
+    ],
+    "unknown_unqueried_outcomes": true
+  },
+  {
+    "case": "c005",
+    "workload": "W2-short-qos5_4.5_4_3.5",
+    "utilization": 0.6,
+    "counts": {
+      "starts": 512,
+      "snapshots": 15872,
+      "endpoints": 512
+    },
+    "pool_size": 316,
+    "regions": 6,
+    "selected": {
+      "candidate_id": "v3-1500-0027",
+      "Pbar": 0.47381454706192017,
+      "R": 0.10080268979072571,
+      "weights": [
+        0.26256445050239563,
+        0.2516682744026184,
+        0.24889235198497772,
+        0.23687492311000824
+      ],
+      "source": "V3 endpoint",
+      "start_id": 27,
+      "iteration": 1500,
+      "region_id": null,
+      "prediction": {
+        "mean_tracking": 0.06484528630971909,
+        "p90": 0.1812742054462433,
+        "pj": [
+          0.007200670428574085,
+          0.00989101454615593,
+          0.01339554600417614,
+          0.005288861691951752
+        ],
+        "objective": 86.71994018554688
+      },
+      "provenance": {}
+    },
+    "selected_in_pool": true,
+    "selected_region_distance": 0.04893196930439439,
+    "selected_first_batch_distance": 0.04893196930439439,
+    "selected_later_batch_distance": 0.06554046112696665,
+    "known_qualified_physical_evaluations": 4,
+    "known_qualified_sources": [
+      {
+        "method_sources": [
+          "v3_only"
+        ],
+        "candidate": {
+          "candidate_id": "v3-1500-0027",
+          "Pbar": 0.47381454706192017,
+          "R": 0.10080268979072571,
+          "weights": [
+            0.26256445050239563,
+            0.2516682744026184,
+            0.24889235198497772,
+            0.23687492311000824
+          ],
+          "source": "V3 endpoint",
+          "start_id": 27,
+          "iteration": 1500,
+          "region_id": null,
+          "prediction": {
+            "mean_tracking": 0.06484528630971909,
+            "p90": 0.1812742054462433,
+            "pj": [
+              0.007200670428574085,
+              0.00989101454615593,
+              0.01339554600417614,
+              0.005288861691951752
+            ],
+            "objective": 86.71994018554688
+          },
+          "provenance": {}
+        },
+        "phase": "search",
+        "metrics": {
+          "mean_tracking": 0.0768,
+          "p90": 0.25,
+          "pj": [
+            0.0,
+            0.02411950827325071,
+            0.0,
+            0.058054912338736275
+          ],
+          "objective": 87.91948650142828
+        },
+        "execution_id": "7e3eb14b76ec0539a27bd834"
+      },
+      {
+        "method_sources": [
+          "v3_only"
+        ],
+        "candidate": {
+          "candidate_id": "v3-1500-0027",
+          "Pbar": 0.47381454706192017,
+          "R": 0.10080268979072571,
+          "weights": [
+            0.26256445050239563,
+            0.2516682744026184,
+            0.24889235198497772,
+            0.23687492311000824
+          ],
+          "source": "V3 endpoint",
+          "start_id": 27,
+          "iteration": 1500,
+          "region_id": null,
+          "prediction": {
+            "mean_tracking": 0.06484528630971909,
+            "p90": 0.1812742054462433,
+            "pj": [
+              0.007200670428574085,
+              0.00989101454615593,
+              0.01339554600417614,
+              0.005288861691951752
+            ],
+            "objective": 86.71994018554688
+          },
+          "provenance": {}
+        },
+        "phase": "confirmation",
+        "metrics": {
+          "mean_tracking": 0.0805997222222222,
+          "p90": 0.257,
+          "pj": [
+            0.0,
+            0.0,
+            0.0,
+            0.026841709173007766
+          ],
+          "objective": 86.95633680098949
+        },
+        "execution_id": "dfa495c23369e505ee6674dc"
+      },
+      {
+        "method_sources": [
+          "v3_fixed_probing",
+          "argos_fixed_budget",
+          "argos_early_stop"
+        ],
+        "candidate": {
+          "candidate_id": "v3-0150-0493",
+          "Pbar": 0.47513556480407715,
+          "R": 0.12436037510633469,
+          "weights": [
+            0.263502836227417,
+            0.25144970417022705,
+            0.24786745011806488,
+            0.23718000948429108
+          ],
+          "source": "V3 snapshot",
+          "start_id": 493,
+          "iteration": 150,
+          "region_id": "region-01",
+          "prediction": {
+            "mean_tracking": 0.07864179462194443,
+            "p90": 0.2875605821609497,
+            "pj": [
+              0.011407111771404743,
+              0.02089453861117363,
+              0.0282614566385746,
+              0.00853043794631958
+            ],
+            "objective": 85.79791259765625
+          },
+          "provenance": {}
+        },
+        "phase": "search",
+        "metrics": {
+          "mean_tracking": 0.0960877777777777,
+          "p90": 0.278,
+          "pj": [
+            0.0,
+            0.08086519010322113,
+            0.0,
+            0.0745947734039033
+          ],
+          "objective": 87.63248863849995
+        },
+        "execution_id": "ad25304fe6ae8d4d48538089"
+      },
+      {
+        "method_sources": [
+          "v3_fixed_probing",
+          "argos_fixed_budget",
+          "argos_early_stop"
+        ],
+        "candidate": {
+          "candidate_id": "v3-0150-0051",
+          "Pbar": 0.4740418791770935,
+          "R": 0.060927897691726685,
+          "weights": [
+            0.26254522800445557,
+            0.2513628602027893,
+            0.24999547004699707,
+            0.23609644174575806
+          ],
+          "source": "V3 snapshot",
+          "start_id": 51,
+          "iteration": 150,
+          "region_id": "region-06",
+          "prediction": {
+            "mean_tracking": 0.03979421779513359,
+            "p90": 0.06508506834506989,
+            "pj": [
+              0.003115297295153141,
+              0.005251024384051561,
+              0.005219853483140469,
+              0.0038566363509744406
+            ],
+            "objective": 89.81100463867188
+          },
+          "provenance": {}
+        },
+        "phase": "search",
+        "metrics": {
+          "mean_tracking": 0.0672763888888889,
+          "p90": 0.257,
+          "pj": [
+            0.0,
+            0.0,
+            0.0,
+            0.09485610320873294
+          ],
+          "objective": 91.87104779864612
+        },
+        "execution_id": "7474a4293a67784826c64f85"
+      }
+    ],
+    "selected_exact_observations": [
+      {
+        "phase": "search",
+        "qualified": true,
+        "metrics": {
+          "mean_tracking": 0.0768,
+          "p90": 0.25,
+          "pj": [
+            0.0,
+            0.02411950827325071,
+            0.0,
+            0.058054912338736275
+          ],
+          "objective": 87.91948650142828
+        },
+        "execution_id": "7e3eb14b76ec0539a27bd834"
+      },
+      {
+        "phase": "confirmation",
+        "qualified": false,
+        "metrics": {
+          "mean_tracking": 0.0757877777777777,
+          "p90": 0.303,
+          "pj": [
+            0.0,
+            0.009126466753585416,
+            0.0007404914170313637,
+            0.03699700698370478
+          ],
+          "objective": 87.482807998262
+        },
+        "execution_id": "17a83f7789401f90d7d98e43"
+      },
+      {
+        "phase": "confirmation",
+        "qualified": true,
+        "metrics": {
+          "mean_tracking": 0.0805997222222222,
+          "p90": 0.257,
+          "pj": [
+            0.0,
+            0.0,
+            0.0,
+            0.026841709173007766
+          ],
+          "objective": 86.95633680098949
+        },
+        "execution_id": "dfa495c23369e505ee6674dc"
+      }
+    ],
+    "unknown_unqueried_outcomes": true
+  },
+  {
+    "case": "c006",
+    "workload": "W2-short-qos5_4.5_4_3.5",
+    "utilization": 0.8,
+    "counts": {
+      "starts": 512,
+      "snapshots": 15872,
+      "endpoints": 512
+    },
+    "pool_size": 391,
+    "regions": 6,
+    "selected": {
+      "candidate_id": "v3-1500-0070",
+      "Pbar": 0.5874885320663452,
+      "R": 0.1329021453857422,
+      "weights": [
+        0.25882488489151,
+        0.25588127970695496,
+        0.24318400025367737,
+        0.24210983514785767
+      ],
+      "source": "V3 endpoint",
+      "start_id": 70,
+      "iteration": 1500,
+      "region_id": null,
+      "prediction": {
+        "mean_tracking": 0.0588018074631691,
+        "p90": 0.25910234451293945,
+        "pj": [
+          0.007024616003036499,
+          0.01439825538545847,
+          0.010679561644792557,
+          0.007189899682998657
+        ],
+        "objective": 95.31236267089844
+      },
+      "provenance": {}
+    },
+    "selected_in_pool": true,
+    "selected_region_distance": 0.007650849392417724,
+    "selected_first_batch_distance": 0.007650849392417724,
+    "selected_later_batch_distance": 0.07327466903482849,
+    "known_qualified_physical_evaluations": 0,
+    "known_qualified_sources": [],
+    "selected_exact_observations": [
+      {
+        "phase": "search",
+        "qualified": false,
+        "metrics": {
+          "mean_tracking": 0.0737744444444444,
+          "p90": 0.386,
+          "pj": [
+            0.0,
+            0.0,
+            0.09279129514885898,
+            0.010135970333745248
+          ],
+          "objective": 97.44321227417493
+        },
+        "execution_id": "92645a16fe6f5e0e0e41dd04"
+      }
+    ],
+    "unknown_unqueried_outcomes": true
+  },
+  {
+    "case": "c007",
+    "workload": "W2-short-qos5555",
+    "utilization": 0.6,
+    "counts": {
+      "starts": 512,
+      "snapshots": 15872,
+      "endpoints": 512
+    },
+    "pool_size": 334,
+    "regions": 6,
+    "selected": {
+      "candidate_id": "v3-1500-0076",
+      "Pbar": 0.47039520740509033,
+      "R": 0.11621902137994766,
+      "weights": [
+        0.26825445890426636,
+        0.25292664766311646,
+        0.24729259312152863,
+        0.23152630031108856
+      ],
+      "source": "V3 endpoint",
+      "start_id": 76,
+      "iteration": 1500,
+      "region_id": null,
+      "prediction": {
+        "mean_tracking": 0.062026094645261765,
+        "p90": 0.14592349529266357,
+        "pj": [
+          0.008881406858563423,
+          0.008699615485966206,
+          0.008243548683822155,
+          0.00530523294582963
+        ],
+        "objective": 84.74671936035156
+      },
+      "provenance": {}
+    },
+    "selected_in_pool": true,
+    "selected_region_distance": 0.06300288079904186,
+    "selected_first_batch_distance": 0.06300288079904186,
+    "selected_later_batch_distance": 0.052394777336900074,
+    "known_qualified_physical_evaluations": 3,
+    "known_qualified_sources": [
+      {
+        "method_sources": [
+          "v3_fixed_probing",
+          "argos_fixed_budget",
+          "argos_early_stop"
+        ],
+        "candidate": {
+          "candidate_id": "v3-0100-0424",
+          "Pbar": 0.4750674366950989,
+          "R": 0.04684286564588547,
+          "weights": [
+            0.2608281075954437,
+            0.25420162081718445,
+            0.24530282616615295,
+            0.23966743052005768
+          ],
+          "source": "V3 snapshot",
+          "start_id": 424,
+          "iteration": 100,
+          "region_id": "region-04",
+          "prediction": {
+            "mean_tracking": 0.024970564991235733,
+            "p90": 0.03527947887778282,
+            "pj": [
+              0.0071610151790082455,
+              0.00047681303112767637,
+              0.0037896980065852404,
+              4.180257019470446e-05
+            ],
+            "objective": 91.066162109375
+          },
+          "provenance": {}
+        },
+        "phase": "search",
+        "metrics": {
+          "mean_tracking": 0.0516383333333333,
+          "p90": 0.254,
+          "pj": [
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "objective": 91.40476621283497
+        },
+        "execution_id": "11141add87f5c520a16d0d31"
+      },
+      {
+        "method_sources": [
+          "v3_fixed_probing",
+          "argos_fixed_budget",
+          "argos_early_stop"
+        ],
+        "candidate": {
+          "candidate_id": "v3-0100-0424",
+          "Pbar": 0.4750674366950989,
+          "R": 0.04684286564588547,
+          "weights": [
+            0.2608281075954437,
+            0.25420162081718445,
+            0.24530282616615295,
+            0.23966743052005768
+          ],
+          "source": "V3 snapshot",
+          "start_id": 424,
+          "iteration": 100,
+          "region_id": "region-04",
+          "prediction": {
+            "mean_tracking": 0.024970564991235733,
+            "p90": 0.03527947887778282,
+            "pj": [
+              0.0071610151790082455,
+              0.00047681303112767637,
+              0.0037896980065852404,
+              4.180257019470446e-05
+            ],
+            "objective": 91.066162109375
+          },
+          "provenance": {}
+        },
+        "phase": "confirmation",
+        "metrics": {
+          "mean_tracking": 0.0510080555555555,
+          "p90": 0.233,
+          "pj": [
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "objective": 91.32568710478776
+        },
+        "execution_id": "20c9ad0369f80466bdfa557a"
+      },
+      {
+        "method_sources": [
+          "v3_fixed_probing",
+          "argos_fixed_budget",
+          "argos_early_stop"
+        ],
+        "candidate": {
+          "candidate_id": "v3-0100-0424",
+          "Pbar": 0.4750674366950989,
+          "R": 0.04684286564588547,
+          "weights": [
+            0.2608281075954437,
+            0.25420162081718445,
+            0.24530282616615295,
+            0.23966743052005768
+          ],
+          "source": "V3 snapshot",
+          "start_id": 424,
+          "iteration": 100,
+          "region_id": "region-04",
+          "prediction": {
+            "mean_tracking": 0.024970564991235733,
+            "p90": 0.03527947887778282,
+            "pj": [
+              0.0071610151790082455,
+              0.00047681303112767637,
+              0.0037896980065852404,
+              4.180257019470446e-05
+            ],
+            "objective": 91.066162109375
+          },
+          "provenance": {}
+        },
+        "phase": "confirmation",
+        "metrics": {
+          "mean_tracking": 0.0482216666666666,
+          "p90": 0.213,
+          "pj": [
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "objective": 91.24931255699559
+        },
+        "execution_id": "0adc1719e9eb06cc8341d712"
+      }
+    ],
+    "selected_exact_observations": [
+      {
+        "phase": "search",
+        "qualified": false,
+        "metrics": {
+          "mean_tracking": 0.0695041666666666,
+          "p90": 0.274,
+          "pj": [
+            0.0,
+            0.0003651729354686717,
+            0.0,
+            0.2135143979057591
+          ],
+          "objective": 88.95366395600176
+        },
+        "execution_id": "251f6636aa38aeea3cf03a0f"
+      }
+    ],
+    "unknown_unqueried_outcomes": true
+  },
+  {
+    "case": "c008",
+    "workload": "W2-short-qos5555",
+    "utilization": 0.8,
+    "counts": {
+      "starts": 512,
+      "snapshots": 15872,
+      "endpoints": 512
+    },
+    "pool_size": 345,
+    "regions": 6,
+    "selected": {
+      "candidate_id": "v3-1500-0030",
+      "Pbar": 0.582560658454895,
+      "R": 0.13437432050704956,
+      "weights": [
+        0.2637091279029846,
+        0.2574663758277893,
+        0.24094831943511963,
+        0.23787617683410645
+      ],
+      "source": "V3 endpoint",
+      "start_id": 30,
+      "iteration": 1500,
+      "region_id": null,
+      "prediction": {
+        "mean_tracking": 0.04375568777322769,
+        "p90": 0.2051696926355362,
+        "pj": [
+          0.007458193227648735,
+          0.013249521143734455,
+          0.008735332638025284,
+          0.005884178448468447
+        ],
+        "objective": 94.22465515136719
+      },
+      "provenance": {}
+    },
+    "selected_in_pool": true,
+    "selected_region_distance": 0.025615677940686095,
+    "selected_first_batch_distance": 0.025615677940686095,
+    "selected_later_batch_distance": 0.05522510878601363,
+    "known_qualified_physical_evaluations": 2,
+    "known_qualified_sources": [
+      {
+        "method_sources": [
+          "v3_only"
+        ],
+        "candidate": {
+          "candidate_id": "v3-1500-0030",
+          "Pbar": 0.582560658454895,
+          "R": 0.13437432050704956,
+          "weights": [
+            0.2637091279029846,
+            0.2574663758277893,
+            0.24094831943511963,
+            0.23787617683410645
+          ],
+          "source": "V3 endpoint",
+          "start_id": 30,
+          "iteration": 1500,
+          "region_id": null,
+          "prediction": {
+            "mean_tracking": 0.04375568777322769,
+            "p90": 0.2051696926355362,
+            "pj": [
+              0.007458193227648735,
+              0.013249521143734455,
+              0.008735332638025284,
+              0.005884178448468447
+            ],
+            "objective": 94.22465515136719
+          },
+          "provenance": {}
+        },
+        "phase": "search",
+        "metrics": {
+          "mean_tracking": 0.0688569444444444,
+          "p90": 0.286,
+          "pj": [
+            0.0,
+            0.0,
+            0.06827551533433895,
+            0.0
+          ],
+          "objective": 95.49640230990984
+        },
+        "execution_id": "63dd2737aadf8d7bb8977e86"
+      },
+      {
+        "method_sources": [
+          "v3_only"
+        ],
+        "candidate": {
+          "candidate_id": "v3-1500-0030",
+          "Pbar": 0.582560658454895,
+          "R": 0.13437432050704956,
+          "weights": [
+            0.2637091279029846,
+            0.2574663758277893,
+            0.24094831943511963,
+            0.23787617683410645
+          ],
+          "source": "V3 endpoint",
+          "start_id": 30,
+          "iteration": 1500,
+          "region_id": null,
+          "prediction": {
+            "mean_tracking": 0.04375568777322769,
+            "p90": 0.2051696926355362,
+            "pj": [
+              0.007458193227648735,
+              0.013249521143734455,
+              0.008735332638025284,
+              0.005884178448468447
+            ],
+            "objective": 94.22465515136719
+          },
+          "provenance": {}
+        },
+        "phase": "confirmation",
+        "metrics": {
+          "mean_tracking": 0.0545716666666666,
+          "p90": 0.226,
+          "pj": [
+            0.0,
+            0.0003894232641458162,
+            0.0,
+            0.0
+          ],
+          "objective": 93.80021469709894
+        },
+        "execution_id": "3e4a8854597257403c2fe9dc"
+      }
+    ],
+    "selected_exact_observations": [
+      {
+        "phase": "search",
+        "qualified": true,
+        "metrics": {
+          "mean_tracking": 0.0688569444444444,
+          "p90": 0.286,
+          "pj": [
+            0.0,
+            0.0,
+            0.06827551533433895,
+            0.0
+          ],
+          "objective": 95.49640230990984
+        },
+        "execution_id": "63dd2737aadf8d7bb8977e86"
+      },
+      {
+        "phase": "confirmation",
+        "qualified": true,
+        "metrics": {
+          "mean_tracking": 0.0545716666666666,
+          "p90": 0.226,
+          "pj": [
+            0.0,
+            0.0003894232641458162,
+            0.0,
+            0.0
+          ],
+          "objective": 93.80021469709894
+        },
+        "execution_id": "3e4a8854597257403c2fe9dc"
+      },
+      {
+        "phase": "confirmation",
+        "qualified": false,
+        "metrics": {
+          "mean_tracking": 0.0633616666666666,
+          "p90": 0.322,
+          "pj": [
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "objective": 94.33041062914464
+        },
+        "execution_id": "877eb8ce7d78bc56689e1af6"
+      }
+    ],
+    "unknown_unqueried_outcomes": true
+  }
+]

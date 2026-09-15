@@ -1,0 +1,14 @@
+{
+  "src/argos/vnext/cli.py": "2075e2b96a6bccdd4d3a6c9d8b151f1618d0e5544e4f5b0b684c2b9b6cde5e1e",
+  "src/argos/vnext/controller.py": "b799060e31e1cf62df2ed156185ecdbbf563c5f41062a15a02d569b2efcbccd5",
+  "src/argos/vnext/correction.py": "9061b5aec886acfc08102a14fd4a70ccc43093ea2e9e1b9c27524381c2ec23b6",
+  "src/argos/vnext/costs.py": "9d9c5ba7f86765b612f1086870172d595f45317b7246282a2c3e3fac6004a737",
+  "src/argos/vnext/counterfactual.py": "e022298dc946d7c779826b2fe81b79580d0d476c8bd5dc363f6226cbec9d82dd",
+  "src/argos/vnext/device.py": "370955173990474aaafe427a0bf246199efec5f1e4a65b61a0d46bb28b947081",
+  "src/argos/vnext/historical.py": "411afee9e802041fef6ab1c76fa91772fbd6a390a2093c1b3959cc0ad43f82dc",
+  "src/argos/vnext/mechanisms.py": "755c060c2f663c207ebebcf80e06c4df5abef51a3bae26c55880ebe78348e3ab",
+  "src/argos/vnext/offline.py": "0e11263510ae7108ce28be50d5f0d9ecea9112e818af6c572aae17a961866214",
+  "src/argos/vnext/protocol.py": "19cdb38abbc7299a553640ffe06ccec26eb581161518ed82bd7d0a62df6c6f36",
+  "src/argos/vnext/reporting.py": "0841d88cddae795ffd2a798b0e45d0c80811bc1813fbb76c3d41cb1db70fc9bb",
+  "src/argos/vnext/__init__.py": "4fb2a48e3b2726f873ba9b60d8dc8613380e09feeb5f8427c43a3ec58fb7589a"
+}

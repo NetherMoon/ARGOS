@@ -1,0 +1,525 @@
+{
+  "c008_distance": {
+    "current_candidate": {
+      "candidate_id": "v3-1500-0030",
+      "Pbar": 0.582560658454895,
+      "R": 0.13437432050704956,
+      "weights": [
+        0.2637091279029846,
+        0.2574663758277893,
+        0.24094831943511963,
+        0.23787617683410645
+      ],
+      "source": "V3 endpoint",
+      "start_id": 30,
+      "iteration": 1500,
+      "region_id": null,
+      "prediction": {
+        "mean_tracking": 0.04375568777322769,
+        "p90": 0.2051696926355362,
+        "pj": [
+          0.007458193227648735,
+          0.013249521143734455,
+          0.008735332638025284,
+          0.005884178448468447
+        ],
+        "objective": 94.22465515136719
+      },
+      "provenance": {}
+    },
+    "historical_point": {
+      "candidate_id": "historical-diagnostic-only",
+      "Pbar": 0.579596996,
+      "R": 0.144009009,
+      "weights": [
+        0.2608986720442772,
+        0.2564973756670952,
+        0.2425877079367637,
+        0.2400162443518638
+      ],
+      "source": "historical diagnostic",
+      "start_id": null,
+      "iteration": null,
+      "region_id": null,
+      "prediction": null,
+      "provenance": {}
+    },
+    "signed_difference_P_R_weights": [
+      0.0029636624548949886,
+      -0.009634688492950433,
+      0.002810455858707428,
+      0.0009690001606941223,
+      -0.001639388501644079,
+      -0.0021400675177573603
+    ],
+    "P_R_l2_kw_per_server": 0.010080204239138494,
+    "weight_l2": 0.004013116879066832,
+    "normalized_domain_distance": 0.017400494338757712,
+    "normalized_coordinate_difference": [
+      0.00535150316882449,
+      -0.028895615843305578,
+      0.009368186195691464,
+      0.003230000535647093,
+      -0.005464628338813615,
+      -0.007133558392524497
+    ],
+    "historical_verdict": {
+      "best_sim_feasible_seed20": {
+        "Pbar_kw_per_server": 0.579596996,
+        "R_kw_per_server": 0.144009009,
+        "weights": [
+          0.2608986720442772,
+          0.2564973756670952,
+          0.2425877079367637,
+          0.2400162443518638
+        ],
+        "C": 92.61486417844213,
+        "eps90": 0.256,
+        "maxpj": 0.002624804401595071
+      },
+      "replication": {
+        "seeds": {
+          "20": true,
+          "21": true,
+          "22": true
+        },
+        "n_feasible_of_3": 3,
+        "C_by_seed": {
+          "20": 92.61486417844213,
+          "21": 93.03740120598027,
+          "22": 92.69843059112625
+        },
+        "is_win": true
+      },
+      "n_sims_total": 18
+    },
+    "provenance_limit": "Different historical model/search, includes anchors and known feasible rows; not a fair V3/H1 baseline. Numerical historical feasibility; original per-job count evidence is not asserted from this summary."
+  },
+  "dense_W2": {
+    "c005": {
+      "rows": 15620,
+      "numerical_feasible": 391,
+      "best_objective": 85.6014093091571
+    },
+    "c006": {
+      "rows": 10100,
+      "numerical_feasible": 0,
+      "best_objective": null
+    },
+    "c007": {
+      "rows": 10100,
+      "numerical_feasible": 0,
+      "best_objective": null
+    },
+    "c008": {
+      "rows": 15700,
+      "numerical_feasible": 342,
+      "best_objective": 92.39008560652736
+    }
+  },
+  "training_provenance": [
+    {
+      "split": "train",
+      "path": "C:\\Users\\Achuthan Menon\\Desktop\\Research Work\\ARGOS Hybrid\\condor_set_transformer_sweep_v3_behavior_v3_best_feasibility_artifacts\\condor_set_transformer_sweep_v3_behavior_v3_best_feasibility_train_predictions.csv",
+      "matches_pinned_hash": true,
+      "rows": 142034,
+      "seed_counts": {
+        "20": 129024,
+        "21": 6505,
+        "22": 6505
+      },
+      "columns": [
+        "Plan_Row_ID",
+        "Workload_Name",
+        "Context_ID",
+        "server_count",
+        "utilization",
+        "Actual_Mean_Tracking",
+        "Predicted_Mean_Tracking",
+        "Actual_P90_Tracking",
+        "Predicted_P90_Tracking",
+        "Actual_Max_Pj",
+        "Predicted_Max_Pj",
+        "Actual_M_RSR",
+        "Predicted_M_RSR",
+        "Actual_Full_Objective",
+        "Predicted_Full_Objective",
+        "Actual_Tracking_Pass",
+        "Predicted_Tracking_Pass",
+        "Actual_QoS_Pass",
+        "Predicted_QoS_Pass",
+        "Actual_Both_Pass",
+        "Predicted_Both_Pass"
+      ],
+      "original_W2_counts": {
+        "c005": {
+          "rows": 8908,
+          "numerical_feasible": 0
+        },
+        "c006": {
+          "rows": 8836,
+          "numerical_feasible": 2
+        },
+        "c007": {
+          "rows": 8866,
+          "numerical_feasible": 2
+        },
+        "c008": {
+          "rows": 8894,
+          "numerical_feasible": 3
+        }
+      }
+    },
+    {
+      "split": "validation",
+      "path": "C:\\Users\\Achuthan Menon\\Desktop\\Research Work\\ARGOS Hybrid\\condor_set_transformer_sweep_v3_behavior_v3_best_feasibility_artifacts\\condor_set_transformer_sweep_v3_behavior_v3_best_feasibility_validation_predictions.csv",
+      "matches_pinned_hash": true,
+      "rows": 40504,
+      "seed_counts": {
+        "20": 36864,
+        "21": 1820,
+        "22": 1820
+      },
+      "columns": [
+        "Plan_Row_ID",
+        "Workload_Name",
+        "Context_ID",
+        "server_count",
+        "utilization",
+        "Actual_Mean_Tracking",
+        "Predicted_Mean_Tracking",
+        "Actual_P90_Tracking",
+        "Predicted_P90_Tracking",
+        "Actual_Max_Pj",
+        "Predicted_Max_Pj",
+        "Actual_M_RSR",
+        "Predicted_M_RSR",
+        "Actual_Full_Objective",
+        "Predicted_Full_Objective",
+        "Actual_Tracking_Pass",
+        "Predicted_Tracking_Pass",
+        "Actual_QoS_Pass",
+        "Predicted_QoS_Pass",
+        "Actual_Both_Pass",
+        "Predicted_Both_Pass"
+      ],
+      "original_W2_counts": {
+        "c005": {
+          "rows": 2514,
+          "numerical_feasible": 1
+        },
+        "c006": {
+          "rows": 2536,
+          "numerical_feasible": 0
+        },
+        "c007": {
+          "rows": 2530,
+          "numerical_feasible": 0
+        },
+        "c008": {
+          "rows": 2506,
+          "numerical_feasible": 0
+        }
+      }
+    },
+    {
+      "split": "test",
+      "path": "C:\\Users\\Achuthan Menon\\Desktop\\Research Work\\ARGOS Hybrid\\condor_set_transformer_sweep_v3_behavior_v3_best_feasibility_artifacts\\condor_set_transformer_sweep_v3_behavior_v3_best_feasibility_test_predictions.csv",
+      "matches_pinned_hash": true,
+      "rows": 20214,
+      "seed_counts": {
+        "20": 18432,
+        "21": 891,
+        "22": 891
+      },
+      "columns": [
+        "Plan_Row_ID",
+        "Workload_Name",
+        "Context_ID",
+        "server_count",
+        "utilization",
+        "Actual_Mean_Tracking",
+        "Predicted_Mean_Tracking",
+        "Actual_P90_Tracking",
+        "Predicted_P90_Tracking",
+        "Actual_Max_Pj",
+        "Predicted_Max_Pj",
+        "Actual_M_RSR",
+        "Predicted_M_RSR",
+        "Actual_Full_Objective",
+        "Predicted_Full_Objective",
+        "Actual_Tracking_Pass",
+        "Predicted_Tracking_Pass",
+        "Actual_QoS_Pass",
+        "Predicted_QoS_Pass",
+        "Actual_Both_Pass",
+        "Predicted_Both_Pass"
+      ],
+      "original_W2_counts": {
+        "c005": {
+          "rows": 1250,
+          "numerical_feasible": 1
+        },
+        "c006": {
+          "rows": 1300,
+          "numerical_feasible": 0
+        },
+        "c007": {
+          "rows": 1276,
+          "numerical_feasible": 0
+        },
+        "c008": {
+          "rows": 1272,
+          "numerical_feasible": 0
+        }
+      }
+    }
+  ],
+  "racing": [
+    {
+      "case": "c005",
+      "method": "v3_only",
+      "observations": [
+        {
+          "phase": "search",
+          "seed": 3335555103,
+          "qualified": true,
+          "metrics": {
+            "mean_tracking": 0.0768,
+            "p90": 0.25,
+            "pj": [
+              0.0,
+              0.02411950827325071,
+              0.0,
+              0.058054912338736275
+            ],
+            "objective": 87.91948650142828
+          },
+          "execution_id": "7e3eb14b76ec0539a27bd834"
+        },
+        {
+          "phase": "confirmation",
+          "seed": 1724203793,
+          "qualified": false,
+          "metrics": {
+            "mean_tracking": 0.0757877777777777,
+            "p90": 0.303,
+            "pj": [
+              0.0,
+              0.009126466753585416,
+              0.0007404914170313637,
+              0.03699700698370478
+            ],
+            "objective": 87.482807998262
+          },
+          "execution_id": "17a83f7789401f90d7d98e43"
+        },
+        {
+          "phase": "confirmation",
+          "seed": 2381187650,
+          "qualified": true,
+          "metrics": {
+            "mean_tracking": 0.0805997222222222,
+            "p90": 0.257,
+            "pj": [
+              0.0,
+              0.0,
+              0.0,
+              0.026841709173007766
+            ],
+            "objective": 86.95633680098949
+          },
+          "execution_id": "dfa495c23369e505ee6674dc"
+        }
+      ],
+      "retrospective_state_after_all": "SCENARIO_FRAGILE",
+      "diagnostic_only": true,
+      "confirmation_not_available_to_historical_controller": true,
+      "order_dependence": "With two passes and one fail, two-pass screening accepts if failure comes third, rejects if it comes first/second. Full observed record is fragile."
+    },
+    {
+      "case": "c005",
+      "method": "argos_fixed_budget",
+      "observations": [
+        {
+          "phase": "search",
+          "seed": 3335555103,
+          "qualified": true,
+          "metrics": {
+            "mean_tracking": 0.0960877777777777,
+            "p90": 0.278,
+            "pj": [
+              0.0,
+              0.08086519010322113,
+              0.0,
+              0.0745947734039033
+            ],
+            "objective": 87.63248863849995
+          },
+          "execution_id": "ad25304fe6ae8d4d48538089"
+        },
+        {
+          "phase": "confirmation",
+          "seed": 1724203793,
+          "qualified": false,
+          "metrics": {
+            "mean_tracking": 0.0958730555555555,
+            "p90": 0.318,
+            "pj": [
+              0.0,
+              0.042711864406779654,
+              0.0281386738471896,
+              0.045560359161955555
+            ],
+            "objective": 87.05091481693387
+          },
+          "execution_id": "a035f320fbd076f2fd2bca02"
+        },
+        {
+          "phase": "confirmation",
+          "seed": 2381187650,
+          "qualified": false,
+          "metrics": {
+            "mean_tracking": 0.1002116666666666,
+            "p90": 0.419,
+            "pj": [
+              0.0,
+              0.0,
+              0.0,
+              0.0396354210218246
+            ],
+            "objective": 86.35983932697434
+          },
+          "execution_id": "dc04b6a54c22add4b6d13664"
+        }
+      ],
+      "retrospective_state_after_all": "SCENARIO_FRAGILE",
+      "diagnostic_only": true,
+      "confirmation_not_available_to_historical_controller": true,
+      "order_dependence": null
+    },
+    {
+      "case": "c007",
+      "method": "argos_fixed_budget",
+      "observations": [
+        {
+          "phase": "search",
+          "seed": 2166014542,
+          "qualified": true,
+          "metrics": {
+            "mean_tracking": 0.0516383333333333,
+            "p90": 0.254,
+            "pj": [
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "objective": 91.40476621283497
+          },
+          "execution_id": "11141add87f5c520a16d0d31"
+        },
+        {
+          "phase": "confirmation",
+          "seed": 286413294,
+          "qualified": true,
+          "metrics": {
+            "mean_tracking": 0.0510080555555555,
+            "p90": 0.233,
+            "pj": [
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "objective": 91.32568710478776
+          },
+          "execution_id": "20c9ad0369f80466bdfa557a"
+        },
+        {
+          "phase": "confirmation",
+          "seed": 2621783785,
+          "qualified": true,
+          "metrics": {
+            "mean_tracking": 0.0482216666666666,
+            "p90": 0.213,
+            "pj": [
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "objective": 91.24931255699559
+          },
+          "execution_id": "0adc1719e9eb06cc8341d712"
+        }
+      ],
+      "retrospective_state_after_all": "SEARCH_ROBUST_FEASIBLE",
+      "diagnostic_only": true,
+      "confirmation_not_available_to_historical_controller": true,
+      "order_dependence": null
+    },
+    {
+      "case": "c008",
+      "method": "v3_only",
+      "observations": [
+        {
+          "phase": "search",
+          "seed": 3629940106,
+          "qualified": true,
+          "metrics": {
+            "mean_tracking": 0.0688569444444444,
+            "p90": 0.286,
+            "pj": [
+              0.0,
+              0.0,
+              0.06827551533433895,
+              0.0
+            ],
+            "objective": 95.49640230990984
+          },
+          "execution_id": "63dd2737aadf8d7bb8977e86"
+        },
+        {
+          "phase": "confirmation",
+          "seed": 2238113419,
+          "qualified": true,
+          "metrics": {
+            "mean_tracking": 0.0545716666666666,
+            "p90": 0.226,
+            "pj": [
+              0.0,
+              0.0003894232641458162,
+              0.0,
+              0.0
+            ],
+            "objective": 93.80021469709894
+          },
+          "execution_id": "3e4a8854597257403c2fe9dc"
+        },
+        {
+          "phase": "confirmation",
+          "seed": 367509909,
+          "qualified": false,
+          "metrics": {
+            "mean_tracking": 0.0633616666666666,
+            "p90": 0.322,
+            "pj": [
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "objective": 94.33041062914464
+          },
+          "execution_id": "877eb8ce7d78bc56689e1af6"
+        }
+      ],
+      "retrospective_state_after_all": "SCENARIO_FRAGILE",
+      "diagnostic_only": true,
+      "confirmation_not_available_to_historical_controller": true,
+      "order_dependence": "With two passes and one fail, two-pass screening accepts if failure comes third, rejects if it comes first/second. Full observed record is fragile."
+    }
+  ],
+  "dense_evidence_limit": "Counts are numerical feasibility from historical aggregate CSV; no claim of new H1-contract-qualified replications; no warm starts."
+}

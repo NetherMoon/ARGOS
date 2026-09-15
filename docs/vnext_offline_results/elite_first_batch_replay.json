@@ -1,0 +1,2885 @@
+[
+  {
+    "case": "c001",
+    "observed_first_batch_qualified": 3,
+    "counterfactual_known_qualified": 2,
+    "unknown_candidates": 1,
+    "batch": [
+      {
+        "candidate": {
+          "candidate_id": "v3-1500-0206",
+          "Pbar": 0.3663891553878784,
+          "R": 0.21971264481544495,
+          "weights": [
+            0.44967254996299744,
+            0.16022250056266785,
+            0.16323883831501007,
+            0.22686611115932465
+          ],
+          "source": "protected_v3_elite",
+          "start_id": 206,
+          "iteration": 1500,
+          "region_id": null,
+          "prediction": {
+            "mean_tracking": 0.003522302722558379,
+            "p90": 0.006302312016487122,
+            "pj": [
+              0.046085506677627563,
+              3.520462996675633e-07,
+              1.6782247485025437e-06,
+              1.4649201318661653e-07
+            ],
+            "objective": 63.49878692626953
+          },
+          "provenance": {
+            "v3_rank": 1,
+            "original_candidate_id": "v3-1500-0206",
+            "original_source": "V3 endpoint",
+            "original_selection": true
+          }
+        },
+        "outcome_known": true,
+        "actual": [
+          {
+            "qualified": true,
+            "metrics": {
+              "mean_tracking": 0.0014361111111111,
+              "p90": 0.005,
+              "pj": [
+                0.0700416088765603,
+                0.0,
+                0.0,
+                0.0
+              ],
+              "objective": 63.911250866053024
+            },
+            "execution_id": "fa55933c8597fd41b1a707ee"
+          }
+        ]
+      },
+      {
+        "candidate": {
+          "candidate_id": "v3-1500-0400",
+          "Pbar": 0.3705069422721863,
+          "R": 0.2221341729164123,
+          "weights": [
+            0.4497634470462799,
+            0.15500499308109283,
+            0.23379220068454742,
+            0.16143935918807983
+          ],
+          "source": "protected_v3_elite",
+          "start_id": 400,
+          "iteration": 1500,
+          "region_id": null,
+          "prediction": {
+            "mean_tracking": 0.0028915375005453,
+            "p90": 0.0062959739007055,
+            "pj": [
+              0.04873284325003624,
+              3.6500523492577486e-07,
+              7.075423582136864e-06,
+              1.0091469881956527e-08
+            ],
+            "objective": 63.705509185791016
+          },
+          "provenance": {
+            "v3_selection_safe": true,
+            "tracking_slack": 0.2537040114402771,
+            "qos_slack": 0.0412671567499637,
+            "v3_rank": 2,
+            "original_candidate_id": "v3-1500-0400",
+            "original_source": "V3 endpoint",
+            "original_selection": false
+          }
+        },
+        "outcome_known": false,
+        "actual": []
+      },
+      {
+        "candidate": {
+          "candidate_id": "v3-0000-0353",
+          "Pbar": 0.44500499963760376,
+          "R": 0.2280929684638977,
+          "weights": [
+            0.3664550185203552,
+            0.20927482843399048,
+            0.22671392560005188,
+            0.1975562423467636
+          ],
+          "source": "V3 snapshot",
+          "start_id": 353,
+          "iteration": 0,
+          "region_id": "region-02",
+          "prediction": {
+            "mean_tracking": 0.0017572115175426006,
+            "p90": 0.005277795251458883,
+            "pj": [
+              0.07027284801006317,
+              3.858095709574627e-08,
+              1.337714593319106e-06,
+              1.9114754223892305e-10
+            ],
+            "objective": 70.94802856445312
+          },
+          "provenance": {}
+        },
+        "outcome_known": true,
+        "actual": [
+          {
+            "qualified": true,
+            "metrics": {
+              "mean_tracking": 0.0014452777777777,
+              "p90": 0.005,
+              "pj": [
+                0.061026352288488184,
+                0.0,
+                0.0,
+                0.0
+              ],
+              "objective": 70.76217017926236
+            },
+            "execution_id": "f3bd015435bf9a69463b69bc"
+          }
+        ]
+      },
+      {
+        "candidate": {
+          "candidate_id": "v3-0000-0471",
+          "Pbar": 0.24694068729877472,
+          "R": 0.13390544056892395,
+          "weights": [
+            0.16290663182735443,
+            0.30834686756134033,
+            0.34414437413215637,
+            0.18460211157798767
+          ],
+          "source": "V3 snapshot",
+          "start_id": 471,
+          "iteration": 0,
+          "region_id": "region-03",
+          "prediction": {
+            "mean_tracking": 0.0005969246849417686,
+            "p90": 0.0002515404485166073,
+            "pj": [
+              0.6964009404182434,
+              4.882852954324335e-05,
+              0.0002774470776785165,
+              9.431723846375917e-09
+            ],
+            "objective": 76.40953063964844
+          },
+          "provenance": {}
+        },
+        "outcome_known": true,
+        "actual": [
+          {
+            "qualified": false,
+            "metrics": {
+              "mean_tracking": 0.0004988888888888,
+              "p90": 0.0,
+              "pj": [
+                0.7274618585298197,
+                0.0,
+                0.0,
+                0.0
+              ],
+              "objective": 77.3623675323557
+            },
+            "execution_id": "aa332b0a87af1670bcbc70e1"
+          }
+        ]
+      },
+      {
+        "candidate": {
+          "candidate_id": "v3-0050-0279",
+          "Pbar": 0.19979874789714813,
+          "R": 0.08597591519355774,
+          "weights": [
+            0.16993756592273712,
+            0.16813106834888458,
+            0.3869101405143738,
+            0.2750212252140045
+          ],
+          "source": "V3 snapshot",
+          "start_id": 279,
+          "iteration": 50,
+          "region_id": "region-04",
+          "prediction": {
+            "mean_tracking": 0.0006536177825182676,
+            "p90": 0.0003484172048047185,
+            "pj": [
+              0.696323037147522,
+              2.271026232847362e-06,
+              0.0005290521658025682,
+              1.639872522218866e-07
+            ],
+            "objective": 76.48727416992188
+          },
+          "provenance": {}
+        },
+        "outcome_known": true,
+        "actual": [
+          {
+            "qualified": false,
+            "metrics": {
+              "mean_tracking": 0.0005305555555555,
+              "p90": 0.0,
+              "pj": [
+                0.7274618585298197,
+                0.0,
+                0.0,
+                0.0
+              ],
+              "objective": 77.43894866513348
+            },
+            "execution_id": "65a24f916f912ba548037473"
+          }
+        ]
+      },
+      {
+        "candidate": {
+          "candidate_id": "v3-0000-0374",
+          "Pbar": 0.7069655656814575,
+          "R": 0.06428370624780655,
+          "weights": [
+            0.35557013750076294,
+            0.21734067797660828,
+            0.16748975217342377,
+            0.2595994174480438
+          ],
+          "source": "V3 snapshot",
+          "start_id": 374,
+          "iteration": 0,
+          "region_id": "region-05",
+          "prediction": {
+            "mean_tracking": 1.4244577884674072,
+            "p90": 3.5000343322753906,
+            "pj": [
+              2.8548393594126727e-29,
+              0.0,
+              1.1514297774090475e-34,
+              0.0
+            ],
+            "objective": 153.27658081054688
+          },
+          "provenance": {}
+        },
+        "outcome_known": true,
+        "actual": [
+          {
+            "qualified": false,
+            "metrics": {
+              "mean_tracking": 1.5181105555555556,
+              "p90": 3.283,
+              "pj": [
+                0.0,
+                0.0,
+                0.0,
+                0.0
+              ],
+              "objective": 151.7083314458608
+            },
+            "execution_id": "9b63552c5999c531746e6330"
+          }
+        ]
+      },
+      {
+        "candidate": {
+          "candidate_id": "counterfactual-independent-0",
+          "Pbar": 0.7198686668741333,
+          "R": 0.0625134136983499,
+          "weights": [
+            0.16962488422426814,
+            0.19707050944359247,
+            0.4348522810688571,
+            0.1984523252632823
+          ],
+          "source": "independent",
+          "start_id": null,
+          "iteration": null,
+          "region_id": null,
+          "prediction": null,
+          "provenance": {}
+        },
+        "outcome_known": true,
+        "actual": [
+          {
+            "qualified": false,
+            "metrics": {
+              "mean_tracking": 1.7495008333333335,
+              "p90": 3.753,
+              "pj": [
+                0.0,
+                0.0,
+                0.0,
+                0.0
+              ],
+              "objective": 159.05336410994403
+            },
+            "execution_id": "83318a81da90eae6d8e08bd6"
+          }
+        ]
+      },
+      {
+        "candidate": {
+          "candidate_id": "counterfactual-independent-1",
+          "Pbar": 0.4667081748794323,
+          "R": 0.20787458351146795,
+          "weights": [
+            0.210297425697966,
+            0.15330730838457732,
+            0.44349102167635135,
+            0.19290424424110536
+          ],
+          "source": "independent",
+          "start_id": null,
+          "iteration": null,
+          "region_id": null,
+          "prediction": null,
+          "provenance": {}
+        },
+        "outcome_known": true,
+        "actual": [
+          {
+            "qualified": false,
+            "metrics": {
+              "mean_tracking": 0.0013352777777777,
+              "p90": 0.003,
+              "pj": [
+                0.7274618585298197,
+                0.0,
+                0.0,
+                0.0
+              ],
+              "objective": 91.9645875383141
+            },
+            "execution_id": "b3bbd18839758c79255c94d6"
+          }
+        ]
+      }
+    ],
+    "interpretation": "Known feasible points establish only a lower bound on counterfactual first-batch feasibility. Unknown outcomes cannot establish final incumbent/objective or scenario robustness."
+  },
+  {
+    "case": "c002",
+    "observed_first_batch_qualified": 3,
+    "counterfactual_known_qualified": 3,
+    "unknown_candidates": 2,
+    "batch": [
+      {
+        "candidate": {
+          "candidate_id": "v3-1500-0333",
+          "Pbar": 0.4803402423858642,
+          "R": 0.2877130508422851,
+          "weights": [
+            0.44931602478027344,
+            0.16573919355869293,
+            0.22358663380146027,
+            0.16135813295841217
+          ],
+          "source": "protected_v3_elite",
+          "start_id": 333,
+          "iteration": 1500,
+          "region_id": null,
+          "prediction": {
+            "mean_tracking": 0.0079891439527273,
+            "p90": 0.0251525621861219,
+            "pj": [
+              0.0921715795993805,
+              9.57597649176023e-07,
+              2.4139506422216073e-05,
+              1.9807934847904107e-07
+            ],
+            "objective": 69.1504135131836
+          },
+          "provenance": {
+            "v3_selection_safe": false,
+            "tracking_slack": 0.2348474264144897,
+            "qos_slack": -0.0021715795993804,
+            "v3_rank": 1,
+            "original_candidate_id": "v3-1500-0333",
+            "original_source": "V3 endpoint",
+            "original_selection": false
+          }
+        },
+        "outcome_known": false,
+        "actual": []
+      },
+      {
+        "candidate": {
+          "candidate_id": "v3-1500-0486",
+          "Pbar": 0.4360778629779815,
+          "R": 0.2409798055887222,
+          "weights": [
+            0.4498809278011322,
+            0.1641118824481964,
+            0.22555994987487793,
+            0.16044723987579346
+          ],
+          "source": "protected_v3_elite",
+          "start_id": 486,
+          "iteration": 1500,
+          "region_id": null,
+          "prediction": {
+            "mean_tracking": 0.0019160979427397,
+            "p90": 0.0054079447872936,
+            "pj": [
+              0.09180344641208649,
+              1.2834163953812094e-06,
+              5.2223727834643796e-05,
+              2.625967283620412e-07
+            ],
+            "objective": 69.19618225097656
+          },
+          "provenance": {
+            "v3_selection_safe": false,
+            "tracking_slack": 0.2545920312404632,
+            "qos_slack": -0.0018034464120864,
+            "v3_rank": 2,
+            "original_candidate_id": "v3-1500-0486",
+            "original_source": "V3 endpoint",
+            "original_selection": false
+          }
+        },
+        "outcome_known": false,
+        "actual": []
+      },
+      {
+        "candidate": {
+          "candidate_id": "v3-0000-0371",
+          "Pbar": 0.6033233404159546,
+          "R": 0.20155231654644012,
+          "weights": [
+            0.35699212551116943,
+            0.23489515483379364,
+            0.2442539483308792,
+            0.16385877132415771
+          ],
+          "source": "V3 snapshot",
+          "start_id": 371,
+          "iteration": 0,
+          "region_id": "region-02",
+          "prediction": {
+            "mean_tracking": 0.03357676789164543,
+            "p90": 0.20873337984085083,
+            "pj": [
+              0.0033670635893940926,
+              1.1847463454728313e-08,
+              9.115078825061573e-08,
+              5.169569633478588e-12
+            ],
+            "objective": 89.10321044921875
+          },
+          "provenance": {}
+        },
+        "outcome_known": true,
+        "actual": [
+          {
+            "qualified": true,
+            "metrics": {
+              "mean_tracking": 0.0354575,
+              "p90": 0.221,
+              "pj": [
+                0.0,
+                0.0,
+                0.0,
+                0.0
+              ],
+              "objective": 89.11707418466911
+            },
+            "execution_id": "e306494f5bde86df09a2ba09"
+          }
+        ]
+      },
+      {
+        "candidate": {
+          "candidate_id": "v3-0000-0002",
+          "Pbar": 0.6843191385269165,
+          "R": 0.022085487842559814,
+          "weights": [
+            0.23750364780426025,
+            0.23387962579727173,
+            0.2503081262111664,
+            0.27830860018730164
+          ],
+          "source": "V3 snapshot",
+          "start_id": 2,
+          "iteration": 0,
+          "region_id": "region-03",
+          "prediction": {
+            "mean_tracking": 0.005520400125533342,
+            "p90": 0.0003394889645278454,
+            "pj": [
+              2.306913593486115e-08,
+              9.964854351605819e-23,
+              1.908766973773659e-23,
+              4.49696938294642e-28
+            ],
+            "objective": 114.13542175292969
+          },
+          "provenance": {}
+        },
+        "outcome_known": true,
+        "actual": [
+          {
+            "qualified": true,
+            "metrics": {
+              "mean_tracking": 0.0055041666666666,
+              "p90": 0.004,
+              "pj": [
+                0.0,
+                0.0,
+                0.0,
+                0.0
+              ],
+              "objective": 114.13718647014471
+            },
+            "execution_id": "cf6b18cfaeaa2289c0ca5cff"
+          }
+        ]
+      },
+      {
+        "candidate": {
+          "candidate_id": "v3-0050-0419",
+          "Pbar": 0.21253828704357147,
+          "R": 0.11487621814012527,
+          "weights": [
+            0.15832039713859558,
+            0.3286716043949127,
+            0.29918110370635986,
+            0.21382689476013184
+          ],
+          "source": "V3 snapshot",
+          "start_id": 419,
+          "iteration": 50,
+          "region_id": "region-04",
+          "prediction": {
+            "mean_tracking": 0.0006104552885517478,
+            "p90": 8.766516111791134e-05,
+            "pj": [
+              0.7119337916374207,
+              0.0002846823772415519,
+              0.0002925890439655632,
+              2.7955056935979883e-08
+            ],
+            "objective": 75.35408782958984
+          },
+          "provenance": {}
+        },
+        "outcome_known": true,
+        "actual": [
+          {
+            "qualified": false,
+            "metrics": {
+              "mean_tracking": 0.0004691666666666,
+              "p90": 0.0,
+              "pj": [
+                0.6975763962065332,
+                0.0,
+                0.0,
+                0.0
+              ],
+              "objective": 74.89969631031488
+            },
+            "execution_id": "42f7fd31b69eaa06b6a694ab"
+          }
+        ]
+      },
+      {
+        "candidate": {
+          "candidate_id": "v3-0200-0365",
+          "Pbar": 0.2393130213022232,
+          "R": 0.1330764889717102,
+          "weights": [
+            0.150071382522583,
+            0.2501887083053589,
+            0.15036353468894958,
+            0.4493763744831085
+          ],
+          "source": "V3 snapshot",
+          "start_id": 365,
+          "iteration": 200,
+          "region_id": "region-05",
+          "prediction": {
+            "mean_tracking": 0.0005584329483099282,
+            "p90": 0.00034106685779988766,
+            "pj": [
+              0.7105740308761597,
+              0.00011138329864479601,
+              7.774496771162376e-05,
+              0.0002702332567423582
+            ],
+            "objective": 76.16793823242188
+          },
+          "provenance": {}
+        },
+        "outcome_known": true,
+        "actual": [
+          {
+            "qualified": false,
+            "metrics": {
+              "mean_tracking": 0.00055,
+              "p90": 0.0,
+              "pj": [
+                0.6975763962065332,
+                0.0,
+                0.0,
+                0.0
+              ],
+              "objective": 75.75912589131488
+            },
+            "execution_id": "01c96d9e9189072e15a1a0cf"
+          }
+        ]
+      },
+      {
+        "candidate": {
+          "candidate_id": "counterfactual-independent-0",
+          "Pbar": 0.22298675136578625,
+          "R": 0.07753415336946726,
+          "weights": [
+            0.18455641515993473,
+            0.2448806908456582,
+            0.3455274128630347,
+            0.2250354811313724
+          ],
+          "source": "independent",
+          "start_id": null,
+          "iteration": null,
+          "region_id": null,
+          "prediction": null,
+          "provenance": {}
+        },
+        "outcome_known": true,
+        "actual": [
+          {
+            "qualified": false,
+            "metrics": {
+              "mean_tracking": 0.0007911111111111,
+              "p90": 0.0,
+              "pj": [
+                0.6975763962065332,
+                0.0,
+                0.0,
+                0.0
+              ],
+              "objective": 79.67954051220377
+            },
+            "execution_id": "43ce95c371b21fd23e56145e"
+          }
+        ]
+      },
+      {
+        "candidate": {
+          "candidate_id": "counterfactual-independent-1",
+          "Pbar": 0.6543805604243199,
+          "R": 0.12804198457796534,
+          "weights": [
+            0.25540724185553254,
+            0.16220716183518769,
+            0.43217874433143055,
+            0.15020685197784922
+          ],
+          "source": "independent",
+          "start_id": null,
+          "iteration": null,
+          "region_id": null,
+          "prediction": null,
+          "provenance": {}
+        },
+        "outcome_known": true,
+        "actual": [
+          {
+            "qualified": true,
+            "metrics": {
+              "mean_tracking": 0.0345088888888888,
+              "p90": 0.213,
+              "pj": [
+                0.0,
+                0.0,
+                0.0,
+                0.0
+              ],
+              "objective": 101.27678651894004
+            },
+            "execution_id": "538237f84982211c18761e1a"
+          }
+        ]
+      }
+    ],
+    "interpretation": "Known feasible points establish only a lower bound on counterfactual first-batch feasibility. Unknown outcomes cannot establish final incumbent/objective or scenario robustness."
+  },
+  {
+    "case": "c003",
+    "observed_first_batch_qualified": 2,
+    "counterfactual_known_qualified": 2,
+    "unknown_candidates": 1,
+    "batch": [
+      {
+        "candidate": {
+          "candidate_id": "v3-1500-0383",
+          "Pbar": 0.3352040648460388,
+          "R": 0.2009887546300888,
+          "weights": [
+            0.44960519671440125,
+            0.1697465032339096,
+            0.18469057977199554,
+            0.1959577351808548
+          ],
+          "source": "protected_v3_elite",
+          "start_id": 383,
+          "iteration": 1500,
+          "region_id": null,
+          "prediction": {
+            "mean_tracking": 0.0054026138968765736,
+            "p90": 0.006256770342588425,
+            "pj": [
+              0.014538722112774849,
+              1.4524989637720864e-06,
+              2.38591451307002e-06,
+              1.4128749725728085e-08
+            ],
+            "objective": 61.69683074951172
+          },
+          "provenance": {
+            "v3_rank": 1,
+            "original_candidate_id": "v3-1500-0383",
+            "original_source": "V3 endpoint",
+            "original_selection": true
+          }
+        },
+        "outcome_known": true,
+        "actual": [
+          {
+            "qualified": true,
+            "metrics": {
+              "mean_tracking": 0.0104125,
+              "p90": 0.006,
+              "pj": [
+                0.0,
+                0.0,
+                0.0,
+                0.0
+              ],
+              "objective": 61.53340505872971
+            },
+            "execution_id": "bd9cd859e524f77eda7e4e77"
+          }
+        ]
+      },
+      {
+        "candidate": {
+          "candidate_id": "v3-1500-0328",
+          "Pbar": 0.3356751203536987,
+          "R": 0.2012740820646286,
+          "weights": [
+            0.4496367275714874,
+            0.16012300550937653,
+            0.2226121872663498,
+            0.16762807965278625
+          ],
+          "source": "protected_v3_elite",
+          "start_id": 328,
+          "iteration": 1500,
+          "region_id": null,
+          "prediction": {
+            "mean_tracking": 0.0043896669521927,
+            "p90": 0.0062255635857582,
+            "pj": [
+              0.014858594164252281,
+              1.0506125818210421e-06,
+              1.880454306046886e-06,
+              2.695615464176626e-08
+            ],
+            "objective": 61.70098876953125
+          },
+          "provenance": {
+            "v3_selection_safe": true,
+            "tracking_slack": 0.2537744343280792,
+            "qos_slack": 0.0751414058357477,
+            "v3_rank": 2,
+            "original_candidate_id": "v3-1500-0328",
+            "original_source": "V3 endpoint",
+            "original_selection": false
+          }
+        },
+        "outcome_known": false,
+        "actual": []
+      },
+      {
+        "candidate": {
+          "candidate_id": "v3-0000-0444",
+          "Pbar": 0.46769627928733826,
+          "R": 0.2606895864009857,
+          "weights": [
+            0.3346402645111084,
+            0.22551482915878296,
+            0.21744081377983093,
+            0.2224041223526001
+          ],
+          "source": "V3 snapshot",
+          "start_id": 444,
+          "iteration": 0,
+          "region_id": "region-02",
+          "prediction": {
+            "mean_tracking": 0.00176188163459301,
+            "p90": 0.004824115429073572,
+            "pj": [
+              0.05735564976930618,
+              8.051515898443995e-09,
+              5.751862772740424e-07,
+              5.389983459558323e-10
+            ],
+            "objective": 69.71410369873047
+          },
+          "provenance": {}
+        },
+        "outcome_known": true,
+        "actual": [
+          {
+            "qualified": true,
+            "metrics": {
+              "mean_tracking": 0.0020797222222222,
+              "p90": 0.006,
+              "pj": [
+                0.0,
+                0.0,
+                0.0,
+                0.0
+              ],
+              "objective": 68.65744154109083
+            },
+            "execution_id": "9ff4fab7f284e9b621b102f9"
+          }
+        ]
+      },
+      {
+        "candidate": {
+          "candidate_id": "v3-0000-0145",
+          "Pbar": 0.24227216839790344,
+          "R": 0.13305532932281494,
+          "weights": [
+            0.20908601582050323,
+            0.32577839493751526,
+            0.24659855663776398,
+            0.21853701770305634
+          ],
+          "source": "V3 snapshot",
+          "start_id": 145,
+          "iteration": 0,
+          "region_id": "region-03",
+          "prediction": {
+            "mean_tracking": 0.0006229710998013616,
+            "p90": 0.0004128448199480772,
+            "pj": [
+              0.6025197505950928,
+              7.191231816250365e-06,
+              1.562790566822514e-05,
+              4.854814861232626e-08
+            ],
+            "objective": 73.20646667480469
+          },
+          "provenance": {}
+        },
+        "outcome_known": true,
+        "actual": [
+          {
+            "qualified": false,
+            "metrics": {
+              "mean_tracking": 0.0006613888888888,
+              "p90": 0.0,
+              "pj": [
+                0.5630136986301371,
+                0.0,
+                0.0,
+                0.0
+              ],
+              "objective": 72.06196741938567
+            },
+            "execution_id": "8df86a81741e3e17b2005b40"
+          }
+        ]
+      },
+      {
+        "candidate": {
+          "candidate_id": "v3-0050-0389",
+          "Pbar": 0.21818359196186066,
+          "R": 0.11533573269844055,
+          "weights": [
+            0.21331116557121277,
+            0.2038651704788208,
+            0.41957637667655945,
+            0.16324730217456818
+          ],
+          "source": "V3 snapshot",
+          "start_id": 389,
+          "iteration": 50,
+          "region_id": "region-04",
+          "prediction": {
+            "mean_tracking": 0.0005341942305676639,
+            "p90": 0.0003224222455173731,
+            "pj": [
+              0.5960053205490112,
+              7.298511377484829e-07,
+              6.52820472168969e-06,
+              1.208800259888676e-08
+            ],
+            "objective": 72.37669372558594
+          },
+          "provenance": {}
+        },
+        "outcome_known": true,
+        "actual": [
+          {
+            "qualified": false,
+            "metrics": {
+              "mean_tracking": 0.000585,
+              "p90": 0.0,
+              "pj": [
+                0.5630136986301371,
+                0.0,
+                0.0,
+                0.0
+              ],
+              "objective": 71.42301446552455
+            },
+            "execution_id": "f8278654f68d11b9f4098950"
+          }
+        ]
+      },
+      {
+        "candidate": {
+          "candidate_id": "v3-0100-0388",
+          "Pbar": 0.19292356073856354,
+          "R": 0.08153638243675232,
+          "weights": [
+            0.2549780607223511,
+            0.38676702976226807,
+            0.19011053442955017,
+            0.1681443601846695
+          ],
+          "source": "V3 snapshot",
+          "start_id": 388,
+          "iteration": 100,
+          "region_id": "region-05",
+          "prediction": {
+            "mean_tracking": 0.0005530304042622447,
+            "p90": 0.00020280457101762295,
+            "pj": [
+              0.5958925485610962,
+              1.0434178875584621e-05,
+              7.662196730962023e-05,
+              2.656181777638267e-06
+            ],
+            "objective": 73.22711181640625
+          },
+          "provenance": {}
+        },
+        "outcome_known": true,
+        "actual": [
+          {
+            "qualified": false,
+            "metrics": {
+              "mean_tracking": 0.0006352777777777,
+              "p90": 0.0,
+              "pj": [
+                0.5630136986301371,
+                0.0,
+                0.0,
+                0.0
+              ],
+              "objective": 72.27544711041344
+            },
+            "execution_id": "1bb682b7f6d2d0428b0f38ca"
+          }
+        ]
+      },
+      {
+        "candidate": {
+          "candidate_id": "counterfactual-independent-0",
+          "Pbar": 0.39717388418740274,
+          "R": 0.14676494889392433,
+          "weights": [
+            0.17803536923405958,
+            0.23840853063771159,
+            0.1536332791960683,
+            0.4299228209321605
+          ],
+          "source": "independent",
+          "start_id": null,
+          "iteration": null,
+          "region_id": null,
+          "prediction": null,
+          "provenance": {}
+        },
+        "outcome_known": true,
+        "actual": [
+          {
+            "qualified": false,
+            "metrics": {
+              "mean_tracking": 0.0008897222222222,
+              "p90": 0.002,
+              "pj": [
+                0.5630136986301371,
+                0.0,
+                0.0,
+                0.0
+              ],
+              "objective": 86.18638292525664
+            },
+            "execution_id": "4525a9e7c5e3e76986fa805b"
+          }
+        ]
+      },
+      {
+        "candidate": {
+          "candidate_id": "counterfactual-independent-1",
+          "Pbar": 0.21791001783744296,
+          "R": 0.01650592579509201,
+          "weights": [
+            0.2454132020364403,
+            0.18281189476384746,
+            0.2825321420055019,
+            0.28924276119421033
+          ],
+          "source": "independent",
+          "start_id": null,
+          "iteration": null,
+          "region_id": null,
+          "prediction": null,
+          "provenance": {}
+        },
+        "outcome_known": true,
+        "actual": [
+          {
+            "qualified": false,
+            "metrics": {
+              "mean_tracking": 0.0029861111111111,
+              "p90": 0.005,
+              "pj": [
+                0.5630136986301371,
+                0.0,
+                0.0,
+                0.0
+              ],
+              "objective": 81.27922480954035
+            },
+            "execution_id": "72348e3b4db32113d60566ce"
+          }
+        ]
+      }
+    ],
+    "interpretation": "Known feasible points establish only a lower bound on counterfactual first-batch feasibility. Unknown outcomes cannot establish final incumbent/objective or scenario robustness."
+  },
+  {
+    "case": "c004",
+    "observed_first_batch_qualified": 2,
+    "counterfactual_known_qualified": 2,
+    "unknown_candidates": 1,
+    "batch": [
+      {
+        "candidate": {
+          "candidate_id": "v3-1500-0275",
+          "Pbar": 0.38349318504333496,
+          "R": 0.22992466390132904,
+          "weights": [
+            0.44805729389190674,
+            0.2322375327348709,
+            0.15970204770565033,
+            0.16000311076641083
+          ],
+          "source": "protected_v3_elite",
+          "start_id": 275,
+          "iteration": 1500,
+          "region_id": null,
+          "prediction": {
+            "mean_tracking": 0.0024591777473688126,
+            "p90": 0.005444679409265518,
+            "pj": [
+              0.03400452435016632,
+              1.808837077987846e-05,
+              1.9863728084601462e-05,
+              8.604611707596632e-07
+            ],
+            "objective": 63.940216064453125
+          },
+          "provenance": {
+            "v3_rank": 1,
+            "original_candidate_id": "v3-1500-0275",
+            "original_source": "V3 endpoint",
+            "original_selection": true
+          }
+        },
+        "outcome_known": true,
+        "actual": [
+          {
+            "qualified": false,
+            "metrics": {
+              "mean_tracking": 0.0015927777777777,
+              "p90": 0.005,
+              "pj": [
+                0.10099424385138667,
+                0.0,
+                0.0,
+                0.0
+              ],
+              "objective": 65.21560845597398
+            },
+            "execution_id": "dd189c4127bada45cb0f8b7b"
+          }
+        ]
+      },
+      {
+        "candidate": {
+          "candidate_id": "v3-1500-0306",
+          "Pbar": 0.3876938819885254,
+          "R": 0.2324530035257339,
+          "weights": [
+            0.4482055604457855,
+            0.16860055923461914,
+            0.21882066130638123,
+            0.1643732190132141
+          ],
+          "source": "protected_v3_elite",
+          "start_id": 306,
+          "iteration": 1500,
+          "region_id": null,
+          "prediction": {
+            "mean_tracking": 0.0024562375620007,
+            "p90": 0.0058821076527237,
+            "pj": [
+              0.029806392267346382,
+              2.0074835447303485e-06,
+              1.216321197716752e-05,
+              3.4413392313581426e-07
+            ],
+            "objective": 64.02953338623047
+          },
+          "provenance": {
+            "v3_selection_safe": true,
+            "tracking_slack": 0.254117876291275,
+            "qos_slack": 0.0601936077326536,
+            "v3_rank": 2,
+            "original_candidate_id": "v3-1500-0306",
+            "original_source": "V3 endpoint",
+            "original_selection": false
+          }
+        },
+        "outcome_known": false,
+        "actual": []
+      },
+      {
+        "candidate": {
+          "candidate_id": "v3-0000-0152",
+          "Pbar": 0.41670292615890503,
+          "R": 0.1618143916130066,
+          "weights": [
+            0.3846343457698822,
+            0.18412812054157257,
+            0.2350703328847885,
+            0.1961672008037567
+          ],
+          "source": "V3 snapshot",
+          "start_id": 152,
+          "iteration": 0,
+          "region_id": "region-02",
+          "prediction": {
+            "mean_tracking": 0.002654026495292783,
+            "p90": 0.007166857831180096,
+            "pj": [
+              0.010175726376473904,
+              3.155987542413641e-07,
+              2.898331786127528e-06,
+              1.3656022979091631e-08
+            ],
+            "objective": 73.61932373046875
+          },
+          "provenance": {}
+        },
+        "outcome_known": true,
+        "actual": [
+          {
+            "qualified": true,
+            "metrics": {
+              "mean_tracking": 0.0019108333333333,
+              "p90": 0.006,
+              "pj": [
+                0.0,
+                0.0,
+                0.0,
+                0.0
+              ],
+              "objective": 73.42244522097971
+            },
+            "execution_id": "793da3c7428a5dc1cb5dba8c"
+          }
+        ]
+      },
+      {
+        "candidate": {
+          "candidate_id": "v3-0000-0438",
+          "Pbar": 0.6983261108398438,
+          "R": 0.021516071632504463,
+          "weights": [
+            0.16641855239868164,
+            0.25095611810684204,
+            0.24232690036296844,
+            0.3402984142303467
+          ],
+          "source": "V3 snapshot",
+          "start_id": 438,
+          "iteration": 0,
+          "region_id": "region-03",
+          "prediction": {
+            "mean_tracking": 0.013666283339262009,
+            "p90": 0.0,
+            "pj": [
+              3.417891321078059e-07,
+              7.854395207674633e-30,
+              2.144565941312947e-27,
+              1.267611896747854e-34
+            ],
+            "objective": 115.610107421875
+          },
+          "provenance": {}
+        },
+        "outcome_known": true,
+        "actual": [
+          {
+            "qualified": true,
+            "metrics": {
+              "mean_tracking": 0.0142058333333333,
+              "p90": 0.0,
+              "pj": [
+                0.0,
+                0.0,
+                0.0,
+                0.0
+              ],
+              "objective": 115.61126217310111
+            },
+            "execution_id": "44603b80b3beddf267fe4dab"
+          }
+        ]
+      },
+      {
+        "candidate": {
+          "candidate_id": "v3-0050-0501",
+          "Pbar": 0.2660132944583893,
+          "R": 0.15073522925376892,
+          "weights": [
+            0.16181239485740662,
+            0.21896876394748688,
+            0.34547361731529236,
+            0.27374523878097534
+          ],
+          "source": "V3 snapshot",
+          "start_id": 501,
+          "iteration": 50,
+          "region_id": "region-04",
+          "prediction": {
+            "mean_tracking": 0.0006170269334688783,
+            "p90": 0.000303183333016932,
+            "pj": [
+              0.6104339361190796,
+              7.807298970874399e-06,
+              4.045765308546834e-05,
+              2.2017411538399756e-07
+            ],
+            "objective": 74.0462417602539
+          },
+          "provenance": {}
+        },
+        "outcome_known": true,
+        "actual": [
+          {
+            "qualified": false,
+            "metrics": {
+              "mean_tracking": 0.0006666666666666,
+              "p90": 0.003,
+              "pj": [
+                0.6070120355834641,
+                0.0,
+                0.0,
+                0.0
+              ],
+              "objective": 73.94687975554257
+            },
+            "execution_id": "1f22b2bc3598656d9c13d16a"
+          }
+        ]
+      },
+      {
+        "candidate": {
+          "candidate_id": "v3-0100-0233",
+          "Pbar": 0.23327092826366425,
+          "R": 0.11691789329051971,
+          "weights": [
+            0.17703381180763245,
+            0.22698535025119781,
+            0.4242076873779297,
+            0.17177313566207886
+          ],
+          "source": "V3 snapshot",
+          "start_id": 233,
+          "iteration": 100,
+          "region_id": "region-05",
+          "prediction": {
+            "mean_tracking": 0.0006130235269665718,
+            "p90": 0.0003522734623402357,
+            "pj": [
+              0.6125677227973938,
+              1.61712830504257e-06,
+              3.448462848609779e-06,
+              6.075137548577914e-08
+            ],
+            "objective": 74.213623046875
+          },
+          "provenance": {}
+        },
+        "outcome_known": true,
+        "actual": [
+          {
+            "qualified": false,
+            "metrics": {
+              "mean_tracking": 0.0004977777777777,
+              "p90": 0.0,
+              "pj": [
+                0.6070120355834641,
+                0.0,
+                0.0,
+                0.0
+              ],
+              "objective": 74.04870738294528
+            },
+            "execution_id": "625a3ab922d9fcff8c37fd09"
+          }
+        ]
+      },
+      {
+        "candidate": {
+          "candidate_id": "counterfactual-independent-0",
+          "Pbar": 0.23461564029613294,
+          "R": 0.013878861505210944,
+          "weights": [
+            0.2823515417788238,
+            0.40714120513506735,
+            0.16041033945955935,
+            0.15009691362654948
+          ],
+          "source": "independent",
+          "start_id": null,
+          "iteration": null,
+          "region_id": null,
+          "prediction": null,
+          "provenance": {}
+        },
+        "outcome_known": true,
+        "actual": [
+          {
+            "qualified": false,
+            "metrics": {
+              "mean_tracking": 0.0039527777777777,
+              "p90": 0.01,
+              "pj": [
+                0.6070120355834641,
+                0.0,
+                0.0,
+                0.0
+              ],
+              "objective": 84.49174894964506
+            },
+            "execution_id": "ccc049ac6a41c639a98000e4"
+          }
+        ]
+      },
+      {
+        "candidate": {
+          "candidate_id": "counterfactual-independent-1",
+          "Pbar": 0.36660406485804264,
+          "R": 0.13683167933812232,
+          "weights": [
+            0.33856916803890424,
+            0.32387612060686555,
+            0.17070238368894697,
+            0.16685232766528324
+          ],
+          "source": "independent",
+          "start_id": null,
+          "iteration": null,
+          "region_id": null,
+          "prediction": null,
+          "provenance": {}
+        },
+        "outcome_known": true,
+        "actual": [
+          {
+            "qualified": false,
+            "metrics": {
+              "mean_tracking": 0.0016527777777777,
+              "p90": 0.005,
+              "pj": [
+                0.3485086342229199,
+                0.0,
+                0.0,
+                0.0
+              ],
+              "objective": 78.38359144283969
+            },
+            "execution_id": "0e0af3a2d20bd0d8598c893a"
+          }
+        ]
+      }
+    ],
+    "interpretation": "Known feasible points establish only a lower bound on counterfactual first-batch feasibility. Unknown outcomes cannot establish final incumbent/objective or scenario robustness."
+  },
+  {
+    "case": "c005",
+    "observed_first_batch_qualified": 2,
+    "counterfactual_known_qualified": 2,
+    "unknown_candidates": 1,
+    "batch": [
+      {
+        "candidate": {
+          "candidate_id": "v3-1500-0027",
+          "Pbar": 0.47381454706192017,
+          "R": 0.10080268979072571,
+          "weights": [
+            0.26256445050239563,
+            0.2516682744026184,
+            0.24889235198497772,
+            0.23687492311000824
+          ],
+          "source": "protected_v3_elite",
+          "start_id": 27,
+          "iteration": 1500,
+          "region_id": null,
+          "prediction": {
+            "mean_tracking": 0.06484528630971909,
+            "p90": 0.1812742054462433,
+            "pj": [
+              0.007200670428574085,
+              0.00989101454615593,
+              0.01339554600417614,
+              0.005288861691951752
+            ],
+            "objective": 86.71994018554688
+          },
+          "provenance": {
+            "v3_rank": 1,
+            "original_candidate_id": "v3-1500-0027",
+            "original_source": "V3 endpoint",
+            "original_selection": true
+          }
+        },
+        "outcome_known": true,
+        "actual": [
+          {
+            "qualified": true,
+            "metrics": {
+              "mean_tracking": 0.0768,
+              "p90": 0.25,
+              "pj": [
+                0.0,
+                0.02411950827325071,
+                0.0,
+                0.058054912338736275
+              ],
+              "objective": 87.91948650142828
+            },
+            "execution_id": "7e3eb14b76ec0539a27bd834"
+          }
+        ]
+      },
+      {
+        "candidate": {
+          "candidate_id": "v3-1500-0222",
+          "Pbar": 0.4745989441871643,
+          "R": 0.1249790042638778,
+          "weights": [
+            0.26292628049850464,
+            0.25175586342811584,
+            0.24800987541675568,
+            0.23730801045894623
+          ],
+          "source": "protected_v3_elite",
+          "start_id": 222,
+          "iteration": 1500,
+          "region_id": null,
+          "prediction": {
+            "mean_tracking": 0.0766947716474533,
+            "p90": 0.2606983184814453,
+            "pj": [
+              0.017264502122998238,
+              0.02402087114751339,
+              0.032872993499040604,
+              0.01040653232485056
+            ],
+            "objective": 85.83064270019531
+          },
+          "provenance": {
+            "v3_selection_safe": false,
+            "tracking_slack": -0.0006983280181884,
+            "qos_slack": 0.0571270065009594,
+            "v3_rank": 2,
+            "original_candidate_id": "v3-1500-0222",
+            "original_source": "V3 endpoint",
+            "original_selection": false
+          }
+        },
+        "outcome_known": false,
+        "actual": []
+      },
+      {
+        "candidate": {
+          "candidate_id": "v3-0150-0493",
+          "Pbar": 0.47513556480407715,
+          "R": 0.12436037510633469,
+          "weights": [
+            0.263502836227417,
+            0.25144970417022705,
+            0.24786745011806488,
+            0.23718000948429108
+          ],
+          "source": "V3 snapshot",
+          "start_id": 493,
+          "iteration": 150,
+          "region_id": "region-01",
+          "prediction": {
+            "mean_tracking": 0.07864179462194443,
+            "p90": 0.2875605821609497,
+            "pj": [
+              0.011407111771404743,
+              0.02089453861117363,
+              0.0282614566385746,
+              0.00853043794631958
+            ],
+            "objective": 85.79791259765625
+          },
+          "provenance": {}
+        },
+        "outcome_known": true,
+        "actual": [
+          {
+            "qualified": true,
+            "metrics": {
+              "mean_tracking": 0.0960877777777777,
+              "p90": 0.278,
+              "pj": [
+                0.0,
+                0.08086519010322113,
+                0.0,
+                0.0745947734039033
+              ],
+              "objective": 87.63248863849995
+            },
+            "execution_id": "ad25304fe6ae8d4d48538089"
+          }
+        ]
+      },
+      {
+        "candidate": {
+          "candidate_id": "v3-0000-0249",
+          "Pbar": 0.33307912945747375,
+          "R": 0.1452280580997467,
+          "weights": [
+            0.31315523386001587,
+            0.16913898289203644,
+            0.19879256188869476,
+            0.31891322135925293
+          ],
+          "source": "V3 snapshot",
+          "start_id": 249,
+          "iteration": 0,
+          "region_id": "region-02",
+          "prediction": {
+            "mean_tracking": 0.0024017421528697014,
+            "p90": 0.006246369332075119,
+            "pj": [
+              0.9160583019256592,
+              0.9584909081459045,
+              0.9458995461463928,
+              0.8756014108657837
+            ],
+            "objective": 164.81527709960938
+          },
+          "provenance": {}
+        },
+        "outcome_known": true,
+        "actual": [
+          {
+            "qualified": false,
+            "metrics": {
+              "mean_tracking": 0.0024708333333333,
+              "p90": 0.007,
+              "pj": [
+                0.9104945491975858,
+                0.9554437470823176,
+                0.9432805658470865,
+                0.8900099239166391
+              ],
+              "objective": 164.91568248905045
+            },
+            "execution_id": "638f67468543ca2367558649"
+          }
+        ]
+      },
+      {
+        "candidate": {
+          "candidate_id": "v3-0000-0018",
+          "Pbar": 0.694441556930542,
+          "R": 0.07134256511926651,
+          "weights": [
+            0.25755542516708374,
+            0.2552188038825989,
+            0.26047006249427795,
+            0.22675570845603943
+          ],
+          "source": "V3 snapshot",
+          "start_id": 18,
+          "iteration": 0,
+          "region_id": "region-03",
+          "prediction": {
+            "mean_tracking": 2.956514596939087,
+            "p90": 3.8333442211151123,
+            "pj": [
+              4.540601773552924e-34,
+              4.021504788365059e-35,
+              8.773987517371944e-37,
+              2.1924367379087187e-33
+            ],
+            "objective": 166.58697509765625
+          },
+          "provenance": {}
+        },
+        "outcome_known": true,
+        "actual": [
+          {
+            "qualified": false,
+            "metrics": {
+              "mean_tracking": 3.138255277777778,
+              "p90": 4.006,
+              "pj": [
+                0.0,
+                0.0,
+                0.0,
+                0.0
+              ],
+              "objective": 169.61026417877736
+            },
+            "execution_id": "566ac8b60573961703e21a9b"
+          }
+        ]
+      },
+      {
+        "candidate": {
+          "candidate_id": "v3-0050-0299",
+          "Pbar": 0.35935336351394653,
+          "R": 0.19352740049362183,
+          "weights": [
+            0.2754528224468231,
+            0.2770317494869232,
+            0.24345995485782623,
+            0.20405548810958862
+          ],
+          "source": "V3 snapshot",
+          "start_id": 299,
+          "iteration": 50,
+          "region_id": "region-04",
+          "prediction": {
+            "mean_tracking": 0.002616174053400755,
+            "p90": 0.0062902322970330715,
+            "pj": [
+              0.9237403273582458,
+              0.9108617901802063,
+              0.9190073609352112,
+              0.9243916273117065
+            ],
+            "objective": 162.00193786621094
+          },
+          "provenance": {}
+        },
+        "outcome_known": true,
+        "actual": [
+          {
+            "qualified": false,
+            "metrics": {
+              "mean_tracking": 0.0022780555555555,
+              "p90": 0.006,
+              "pj": [
+                0.9160623216207364,
+                0.9106281446133098,
+                0.9172785449646346,
+                0.9282997022825008
+              ],
+              "objective": 161.80355582284386
+            },
+            "execution_id": "96a71485569369270d0a031e"
+          }
+        ]
+      },
+      {
+        "candidate": {
+          "candidate_id": "counterfactual-independent-0",
+          "Pbar": 0.6264030684558644,
+          "R": 0.1956049556551888,
+          "weights": [
+            0.21623726406876603,
+            0.1576660818637417,
+            0.1859212092437118,
+            0.44017544482378046
+          ],
+          "source": "independent",
+          "start_id": null,
+          "iteration": null,
+          "region_id": null,
+          "prediction": null,
+          "provenance": {}
+        },
+        "outcome_known": true,
+        "actual": [
+          {
+            "qualified": false,
+            "metrics": {
+              "mean_tracking": 0.8857458333333333,
+              "p90": 1.692,
+              "pj": [
+                0.0,
+                0.0,
+                0.0,
+                0.0
+              ],
+              "objective": 122.17654182422793
+            },
+            "execution_id": "046cfa5624a6b2ba81b0b78b"
+          }
+        ]
+      },
+      {
+        "candidate": {
+          "candidate_id": "counterfactual-independent-1",
+          "Pbar": 0.6794978750879945,
+          "R": 0.03255508068075438,
+          "weights": [
+            0.20682958009941133,
+            0.15839239504578628,
+            0.44126505758389367,
+            0.1935129672709087
+          ],
+          "source": "independent",
+          "start_id": null,
+          "iteration": null,
+          "region_id": null,
+          "prediction": null,
+          "provenance": {}
+        },
+        "outcome_known": true,
+        "actual": [
+          {
+            "qualified": false,
+            "metrics": {
+              "mean_tracking": 6.250915000000001,
+              "p90": 7.27,
+              "pj": [
+                0.0,
+                0.0,
+                0.0,
+                0.0
+              ],
+              "objective": 202.59526333302736
+            },
+            "execution_id": "ba223eff914e580fce95769e"
+          }
+        ]
+      }
+    ],
+    "interpretation": "Known feasible points establish only a lower bound on counterfactual first-batch feasibility. Unknown outcomes cannot establish final incumbent/objective or scenario robustness."
+  },
+  {
+    "case": "c006",
+    "observed_first_batch_qualified": 0,
+    "counterfactual_known_qualified": 0,
+    "unknown_candidates": 1,
+    "batch": [
+      {
+        "candidate": {
+          "candidate_id": "v3-1500-0070",
+          "Pbar": 0.5874885320663452,
+          "R": 0.1329021453857422,
+          "weights": [
+            0.25882488489151,
+            0.25588127970695496,
+            0.24318400025367737,
+            0.24210983514785767
+          ],
+          "source": "protected_v3_elite",
+          "start_id": 70,
+          "iteration": 1500,
+          "region_id": null,
+          "prediction": {
+            "mean_tracking": 0.0588018074631691,
+            "p90": 0.25910234451293945,
+            "pj": [
+              0.007024616003036499,
+              0.01439825538545847,
+              0.010679561644792557,
+              0.007189899682998657
+            ],
+            "objective": 95.31236267089844
+          },
+          "provenance": {
+            "v3_rank": 1,
+            "original_candidate_id": "v3-1500-0070",
+            "original_source": "V3 endpoint",
+            "original_selection": true
+          }
+        },
+        "outcome_known": true,
+        "actual": [
+          {
+            "qualified": false,
+            "metrics": {
+              "mean_tracking": 0.0737744444444444,
+              "p90": 0.386,
+              "pj": [
+                0.0,
+                0.0,
+                0.09279129514885898,
+                0.010135970333745248
+              ],
+              "objective": 97.44321227417493
+            },
+            "execution_id": "92645a16fe6f5e0e0e41dd04"
+          }
+        ]
+      },
+      {
+        "candidate": {
+          "candidate_id": "v3-1500-0006",
+          "Pbar": 0.5864078998565674,
+          "R": 0.123583398759365,
+          "weights": [
+            0.2590301036834717,
+            0.2558614909648895,
+            0.24307993054389954,
+            0.24202848970890045
+          ],
+          "source": "protected_v3_elite",
+          "start_id": 6,
+          "iteration": 1500,
+          "region_id": null,
+          "prediction": {
+            "mean_tracking": 0.0477915331721305,
+            "p90": 0.1864669620990753,
+            "pj": [
+              0.005902585107833147,
+              0.012755115516483784,
+              0.009606411680579185,
+              0.006487476173788309
+            ],
+            "objective": 95.6318588256836
+          },
+          "provenance": {
+            "v3_selection_safe": true,
+            "tracking_slack": 0.0735330283641815,
+            "qos_slack": 0.0772448844835162,
+            "v3_rank": 2,
+            "original_candidate_id": "v3-1500-0006",
+            "original_source": "V3 endpoint",
+            "original_selection": false
+          }
+        },
+        "outcome_known": false,
+        "actual": []
+      },
+      {
+        "candidate": {
+          "candidate_id": "v3-0050-0115",
+          "Pbar": 0.5881890058517456,
+          "R": 0.13626885414123535,
+          "weights": [
+            0.25917187333106995,
+            0.255493700504303,
+            0.24269923567771912,
+            0.24263520538806915
+          ],
+          "source": "V3 snapshot",
+          "start_id": 115,
+          "iteration": 50,
+          "region_id": "region-01",
+          "prediction": {
+            "mean_tracking": 0.0632777214050293,
+            "p90": 0.28813523054122925,
+            "pj": [
+              0.005802135914564133,
+              0.015511925332248211,
+              0.011936277151107788,
+              0.005278453696519136
+            ],
+            "objective": 95.23916625976562
+          },
+          "provenance": {}
+        },
+        "outcome_known": true,
+        "actual": [
+          {
+            "qualified": false,
+            "metrics": {
+              "mean_tracking": 0.0763461111111111,
+              "p90": 0.411,
+              "pj": [
+                0.0,
+                0.0,
+                0.09888670595939753,
+                0.0009270704573546285
+              ],
+              "objective": 97.37293232186434
+            },
+            "execution_id": "e70bbb377b0172a8918dd513"
+          }
+        ]
+      },
+      {
+        "candidate": {
+          "candidate_id": "v3-0000-0443",
+          "Pbar": 0.3915576934814453,
+          "R": 0.18569615483283997,
+          "weights": [
+            0.24270455539226532,
+            0.3126397132873535,
+            0.17136912047863007,
+            0.2732866108417511
+          ],
+          "source": "V3 snapshot",
+          "start_id": 443,
+          "iteration": 0,
+          "region_id": "region-02",
+          "prediction": {
+            "mean_tracking": 0.002335182623937726,
+            "p90": 0.005969031248241663,
+            "pj": [
+              0.942376434803009,
+              0.9101566672325134,
+              0.9441573023796082,
+              0.9161303639411926
+            ],
+            "objective": 167.17039489746094
+          },
+          "provenance": {}
+        },
+        "outcome_known": true,
+        "actual": [
+          {
+            "qualified": false,
+            "metrics": {
+              "mean_tracking": 0.0023544444444444,
+              "p90": 0.006,
+              "pj": [
+                0.9313540355294447,
+                0.9074665720033133,
+                0.9471059392473931,
+                0.9149567367119901
+              ],
+              "objective": 166.77008702428364
+            },
+            "execution_id": "c299e289faf2b8543787aa7e"
+          }
+        ]
+      },
+      {
+        "candidate": {
+          "candidate_id": "v3-0050-0189",
+          "Pbar": 0.36195722222328186,
+          "R": 0.20809082686901093,
+          "weights": [
+            0.27636176347732544,
+            0.27485233545303345,
+            0.29576098918914795,
+            0.15302491188049316
+          ],
+          "source": "V3 snapshot",
+          "start_id": 189,
+          "iteration": 50,
+          "region_id": "region-03",
+          "prediction": {
+            "mean_tracking": 0.0025535733439028263,
+            "p90": 0.00638152239844203,
+            "pj": [
+              0.9361937642097473,
+              0.9319139122962952,
+              0.9132334589958191,
+              0.9488482475280762
+            ],
+            "objective": 162.5631866455078
+          },
+          "provenance": {}
+        },
+        "outcome_known": true,
+        "actual": [
+          {
+            "qualified": false,
+            "metrics": {
+              "mean_tracking": 0.0023705555555555,
+              "p90": 0.008,
+              "pj": [
+                0.9286613512379354,
+                0.9295152447442118,
+                0.9184927711450305,
+                0.9530284301606922
+              ],
+              "objective": 162.54354767537706
+            },
+            "execution_id": "d8af691f580f11d12cea66ba"
+          }
+        ]
+      },
+      {
+        "candidate": {
+          "candidate_id": "v3-0100-0256",
+          "Pbar": 0.41834959387779236,
+          "R": 0.24521908164024353,
+          "weights": [
+            0.2410801500082016,
+            0.24434000253677368,
+            0.2606208622455597,
+            0.25395897030830383
+          ],
+          "source": "V3 snapshot",
+          "start_id": 256,
+          "iteration": 100,
+          "region_id": "region-04",
+          "prediction": {
+            "mean_tracking": 0.0023667605128139257,
+            "p90": 0.0065401108004152775,
+            "pj": [
+              0.9277390241622925,
+              0.9199773073196411,
+              0.9035865068435669,
+              0.9064393043518066
+            ],
+            "objective": 162.0634002685547
+          },
+          "provenance": {}
+        },
+        "outcome_known": true,
+        "actual": [
+          {
+            "qualified": false,
+            "metrics": {
+              "mean_tracking": 0.0023388888888888,
+              "p90": 0.007,
+              "pj": [
+                0.9237305916911456,
+                0.9224154932355145,
+                0.9115913555992141,
+                0.9131644004944376
+              ],
+              "objective": 162.50180589989048
+            },
+            "execution_id": "b46218632df18295e04881d7"
+          }
+        ]
+      },
+      {
+        "candidate": {
+          "candidate_id": "counterfactual-independent-0",
+          "Pbar": 0.6815127953541887,
+          "R": 0.1525248182806323,
+          "weights": [
+            0.35491799364166343,
+            0.22770999526813818,
+            0.22191214993091296,
+            0.19545986115928543
+          ],
+          "source": "independent",
+          "start_id": null,
+          "iteration": null,
+          "region_id": null,
+          "prediction": null,
+          "provenance": {}
+        },
+        "outcome_known": true,
+        "actual": [
+          {
+            "qualified": false,
+            "metrics": {
+              "mean_tracking": 0.767985,
+              "p90": 1.505,
+              "pj": [
+                0.0,
+                0.0,
+                0.0,
+                0.734734239802225
+              ],
+              "objective": 142.89272151930112
+            },
+            "execution_id": "a3d361a1f3295ece27dafae4"
+          }
+        ]
+      },
+      {
+        "candidate": {
+          "candidate_id": "counterfactual-independent-1",
+          "Pbar": 0.3456771575952279,
+          "R": 0.03562086205487111,
+          "weights": [
+            0.2651481827903379,
+            0.23943810074682131,
+            0.3197228074106377,
+            0.17569090905220308
+          ],
+          "source": "independent",
+          "start_id": null,
+          "iteration": null,
+          "region_id": null,
+          "prediction": null,
+          "provenance": {}
+        },
+        "outcome_known": true,
+        "actual": [
+          {
+            "qualified": false,
+            "metrics": {
+              "mean_tracking": 0.0035491666666666,
+              "p90": 0.015,
+              "pj": [
+                0.9420198629178906,
+                0.9485662446258826,
+                0.9195506523600826,
+                0.9555624227441285
+              ],
+              "objective": 179.34267458280664
+            },
+            "execution_id": "3e6413468fae97a6c9df0845"
+          }
+        ]
+      }
+    ],
+    "interpretation": "Known feasible points establish only a lower bound on counterfactual first-batch feasibility. Unknown outcomes cannot establish final incumbent/objective or scenario robustness."
+  },
+  {
+    "case": "c007",
+    "observed_first_batch_qualified": 1,
+    "counterfactual_known_qualified": 1,
+    "unknown_candidates": 1,
+    "batch": [
+      {
+        "candidate": {
+          "candidate_id": "v3-1500-0076",
+          "Pbar": 0.47039520740509033,
+          "R": 0.11621902137994766,
+          "weights": [
+            0.26825445890426636,
+            0.25292664766311646,
+            0.24729259312152863,
+            0.23152630031108856
+          ],
+          "source": "protected_v3_elite",
+          "start_id": 76,
+          "iteration": 1500,
+          "region_id": null,
+          "prediction": {
+            "mean_tracking": 0.062026094645261765,
+            "p90": 0.14592349529266357,
+            "pj": [
+              0.008881406858563423,
+              0.008699615485966206,
+              0.008243548683822155,
+              0.00530523294582963
+            ],
+            "objective": 84.74671936035156
+          },
+          "provenance": {
+            "v3_rank": 1,
+            "original_candidate_id": "v3-1500-0076",
+            "original_source": "V3 endpoint",
+            "original_selection": true
+          }
+        },
+        "outcome_known": true,
+        "actual": [
+          {
+            "qualified": false,
+            "metrics": {
+              "mean_tracking": 0.0695041666666666,
+              "p90": 0.274,
+              "pj": [
+                0.0,
+                0.0003651729354686717,
+                0.0,
+                0.2135143979057591
+              ],
+              "objective": 88.95366395600176
+            },
+            "execution_id": "251f6636aa38aeea3cf03a0f"
+          }
+        ]
+      },
+      {
+        "candidate": {
+          "candidate_id": "v3-1500-0008",
+          "Pbar": 0.4698196351528168,
+          "R": 0.1056734248995781,
+          "weights": [
+            0.26806506514549255,
+            0.25262343883514404,
+            0.24742688238620758,
+            0.23188461363315582
+          ],
+          "source": "protected_v3_elite",
+          "start_id": 8,
+          "iteration": 1500,
+          "region_id": null,
+          "prediction": {
+            "mean_tracking": 0.0553370676934719,
+            "p90": 0.1110748127102851,
+            "pj": [
+              0.0069889770820736885,
+              0.0071558477357029915,
+              0.0069738104939460754,
+              0.004512482322752476
+            ],
+            "objective": 85.45449829101562
+          },
+          "provenance": {
+            "v3_selection_safe": true,
+            "tracking_slack": 0.1489251852035522,
+            "qos_slack": 0.082844152264297,
+            "v3_rank": 2,
+            "original_candidate_id": "v3-1500-0008",
+            "original_source": "V3 endpoint",
+            "original_selection": false
+          }
+        },
+        "outcome_known": false,
+        "actual": []
+      },
+      {
+        "candidate": {
+          "candidate_id": "v3-0200-0364",
+          "Pbar": 0.4721609652042389,
+          "R": 0.14643557369709015,
+          "weights": [
+            0.26872092485427856,
+            0.2538398206233978,
+            0.24683623015880585,
+            0.23060302436351776
+          ],
+          "source": "V3 snapshot",
+          "start_id": 364,
+          "iteration": 200,
+          "region_id": "region-01",
+          "prediction": {
+            "mean_tracking": 0.07492127269506454,
+            "p90": 0.2751086950302124,
+            "pj": [
+              0.024987220764160156,
+              0.021656731143593788,
+              0.017490439116954803,
+              0.01080104149878025
+            ],
+            "objective": 83.4615478515625
+          },
+          "provenance": {}
+        },
+        "outcome_known": true,
+        "actual": [
+          {
+            "qualified": false,
+            "metrics": {
+              "mean_tracking": 0.0823566666666666,
+              "p90": 0.298,
+              "pj": [
+                0.0,
+                0.009494496322186796,
+                0.0,
+                0.11559227748691092
+              ],
+              "objective": 84.69910470833594
+            },
+            "execution_id": "682fafd181f1324270490582"
+          }
+        ]
+      },
+      {
+        "candidate": {
+          "candidate_id": "v3-0000-0369",
+          "Pbar": 0.3736840486526489,
+          "R": 0.2046547830104828,
+          "weights": [
+            0.25509750843048096,
+            0.26894763112068176,
+            0.2006363570690155,
+            0.2753184735774994
+          ],
+          "source": "V3 snapshot",
+          "start_id": 369,
+          "iteration": 0,
+          "region_id": "region-02",
+          "prediction": {
+            "mean_tracking": 0.0024942299351096153,
+            "p90": 0.0059287226758897305,
+            "pj": [
+              0.9305356740951538,
+              0.9033873081207275,
+              0.9156073927879333,
+              0.774000346660614
+            ],
+            "objective": 157.27288818359375
+          },
+          "provenance": {}
+        },
+        "outcome_known": true,
+        "actual": [
+          {
+            "qualified": false,
+            "metrics": {
+              "mean_tracking": 0.0025105555555555,
+              "p90": 0.006,
+              "pj": [
+                0.911336938280813,
+                0.9022379884188012,
+                0.9165557625765238,
+                0.8145451570680629
+              ],
+              "objective": 157.92127429143085
+            },
+            "execution_id": "88ac08b02a46ae68fe957e91"
+          }
+        ]
+      },
+      {
+        "candidate": {
+          "candidate_id": "v3-0000-0003",
+          "Pbar": 0.6999497413635254,
+          "R": 0.062233105301856995,
+          "weights": [
+            0.25785937905311584,
+            0.2500220239162445,
+            0.2533014416694641,
+            0.23881714046001434
+          ],
+          "source": "V3 snapshot",
+          "start_id": 3,
+          "iteration": 0,
+          "region_id": "region-03",
+          "prediction": {
+            "mean_tracking": 3.4113223552703857,
+            "p90": 4.429116725921631,
+            "pj": [
+              1.846279181859487e-34,
+              1.5886252268527013e-35,
+              9.427735402037278e-38,
+              1.5100741174881846e-38
+            ],
+            "objective": 174.14364624023438
+          },
+          "provenance": {}
+        },
+        "outcome_known": true,
+        "actual": [
+          {
+            "qualified": false,
+            "metrics": {
+              "mean_tracking": 3.6351177777777774,
+              "p90": 4.42,
+              "pj": [
+                0.0,
+                0.0,
+                0.0,
+                0.0
+              ],
+              "objective": 175.4452380169718
+            },
+            "execution_id": "ffb467b9e9ccfdd0e1cb0d6b"
+          }
+        ]
+      },
+      {
+        "candidate": {
+          "candidate_id": "v3-0100-0424",
+          "Pbar": 0.4750674366950989,
+          "R": 0.04684286564588547,
+          "weights": [
+            0.2608281075954437,
+            0.25420162081718445,
+            0.24530282616615295,
+            0.23966743052005768
+          ],
+          "source": "V3 snapshot",
+          "start_id": 424,
+          "iteration": 100,
+          "region_id": "region-04",
+          "prediction": {
+            "mean_tracking": 0.024970564991235733,
+            "p90": 0.03527947887778282,
+            "pj": [
+              0.0071610151790082455,
+              0.00047681303112767637,
+              0.0037896980065852404,
+              4.180257019470446e-05
+            ],
+            "objective": 91.066162109375
+          },
+          "provenance": {}
+        },
+        "outcome_known": true,
+        "actual": [
+          {
+            "qualified": true,
+            "metrics": {
+              "mean_tracking": 0.0516383333333333,
+              "p90": 0.254,
+              "pj": [
+                0.0,
+                0.0,
+                0.0,
+                0.0
+              ],
+              "objective": 91.40476621283497
+            },
+            "execution_id": "11141add87f5c520a16d0d31"
+          }
+        ]
+      },
+      {
+        "candidate": {
+          "candidate_id": "counterfactual-independent-0",
+          "Pbar": 0.27308786166666066,
+          "R": 0.09046340839593464,
+          "weights": [
+            0.183837070512777,
+            0.3632006398286644,
+            0.2751317535543998,
+            0.17783053610415875
+          ],
+          "source": "independent",
+          "start_id": null,
+          "iteration": null,
+          "region_id": null,
+          "prediction": null,
+          "provenance": {}
+        },
+        "outcome_known": true,
+        "actual": [
+          {
+            "qualified": false,
+            "metrics": {
+              "mean_tracking": 0.0023855555555555,
+              "p90": 0.007,
+              "pj": [
+                0.9611691217602089,
+                0.9215921539986436,
+                0.9308623902049508,
+                0.9371727748691099
+              ],
+              "objective": 166.10256501414824
+            },
+            "execution_id": "8840d7fa71fdfe7ffe895f16"
+          }
+        ]
+      },
+      {
+        "candidate": {
+          "candidate_id": "counterfactual-independent-1",
+          "Pbar": 0.6653485238947779,
+          "R": 0.09900605391728488,
+          "weights": [
+            0.2438409954188388,
+            0.15599095479630726,
+            0.29307483799304146,
+            0.3070932117918125
+          ],
+          "source": "independent",
+          "start_id": null,
+          "iteration": null,
+          "region_id": null,
+          "prediction": null,
+          "provenance": {}
+        },
+        "outcome_known": true,
+        "actual": [
+          {
+            "qualified": false,
+            "metrics": {
+              "mean_tracking": 1.987869444444445,
+              "p90": 2.755,
+              "pj": [
+                0.0,
+                0.0,
+                0.0,
+                0.0
+              ],
+              "objective": 148.7165097722158
+            },
+            "execution_id": "f8e763114f437270e922aaa2"
+          }
+        ]
+      }
+    ],
+    "interpretation": "Known feasible points establish only a lower bound on counterfactual first-batch feasibility. Unknown outcomes cannot establish final incumbent/objective or scenario robustness."
+  },
+  {
+    "case": "c008",
+    "observed_first_batch_qualified": 0,
+    "counterfactual_known_qualified": 1,
+    "unknown_candidates": 1,
+    "batch": [
+      {
+        "candidate": {
+          "candidate_id": "v3-1500-0030",
+          "Pbar": 0.582560658454895,
+          "R": 0.13437432050704956,
+          "weights": [
+            0.2637091279029846,
+            0.2574663758277893,
+            0.24094831943511963,
+            0.23787617683410645
+          ],
+          "source": "protected_v3_elite",
+          "start_id": 30,
+          "iteration": 1500,
+          "region_id": null,
+          "prediction": {
+            "mean_tracking": 0.04375568777322769,
+            "p90": 0.2051696926355362,
+            "pj": [
+              0.007458193227648735,
+              0.013249521143734455,
+              0.008735332638025284,
+              0.005884178448468447
+            ],
+            "objective": 94.22465515136719
+          },
+          "provenance": {
+            "v3_rank": 1,
+            "original_candidate_id": "v3-1500-0030",
+            "original_source": "V3 endpoint",
+            "original_selection": true
+          }
+        },
+        "outcome_known": true,
+        "actual": [
+          {
+            "qualified": true,
+            "metrics": {
+              "mean_tracking": 0.0688569444444444,
+              "p90": 0.286,
+              "pj": [
+                0.0,
+                0.0,
+                0.06827551533433895,
+                0.0
+              ],
+              "objective": 95.49640230990984
+            },
+            "execution_id": "63dd2737aadf8d7bb8977e86"
+          }
+        ]
+      },
+      {
+        "candidate": {
+          "candidate_id": "v3-1500-0033",
+          "Pbar": 0.5814329385757446,
+          "R": 0.114831268787384,
+          "weights": [
+            0.2643240690231323,
+            0.2573384940624237,
+            0.2406739890575409,
+            0.23766343295574188
+          ],
+          "source": "protected_v3_elite",
+          "start_id": 33,
+          "iteration": 1500,
+          "region_id": null,
+          "prediction": {
+            "mean_tracking": 0.0238328576087951,
+            "p90": 0.0644592195749282,
+            "pj": [
+              0.004746727179735899,
+              0.010330249555408955,
+              0.006966575980186462,
+              0.004879516549408436
+            ],
+            "objective": 95.36236572265624
+          },
+          "provenance": {
+            "v3_selection_safe": true,
+            "tracking_slack": 0.1955407708883285,
+            "qos_slack": 0.079669750444591,
+            "v3_rank": 2,
+            "original_candidate_id": "v3-1500-0033",
+            "original_source": "V3 endpoint",
+            "original_selection": false
+          }
+        },
+        "outcome_known": false,
+        "actual": []
+      },
+      {
+        "candidate": {
+          "candidate_id": "v3-0050-0024",
+          "Pbar": 0.5845588445663452,
+          "R": 0.14605331420898438,
+          "weights": [
+            0.2638402283191681,
+            0.2572666108608246,
+            0.24137035012245178,
+            0.23752279579639435
+          ],
+          "source": "V3 snapshot",
+          "start_id": 24,
+          "iteration": 50,
+          "region_id": "region-01",
+          "prediction": {
+            "mean_tracking": 0.05664515867829323,
+            "p90": 0.29372021555900574,
+            "pj": [
+              0.007101066876202822,
+              0.014548166655004025,
+              0.007582549937069416,
+              0.0069287847727537155
+            ],
+            "objective": 93.84599304199219
+          },
+          "provenance": {}
+        },
+        "outcome_known": true,
+        "actual": [
+          {
+            "qualified": false,
+            "metrics": {
+              "mean_tracking": 0.0802961111111111,
+              "p90": 0.342,
+              "pj": [
+                0.0,
+                0.0,
+                0.025188536953242857,
+                0.0
+              ],
+              "objective": 94.259347720293
+            },
+            "execution_id": "26cefc9178777d62b18a4b08"
+          }
+        ]
+      },
+      {
+        "candidate": {
+          "candidate_id": "v3-0000-0439",
+          "Pbar": 0.35433483123779297,
+          "R": 0.19842468202114105,
+          "weights": [
+            0.18532831966876984,
+            0.32771557569503784,
+            0.28420811891555786,
+            0.20274800062179565
+          ],
+          "source": "V3 snapshot",
+          "start_id": 439,
+          "iteration": 0,
+          "region_id": "region-02",
+          "prediction": {
+            "mean_tracking": 0.0023363337386399508,
+            "p90": 0.005852208007127047,
+            "pj": [
+              0.9564847946166992,
+              0.912494957447052,
+              0.9132773876190186,
+              0.9182933568954468
+            ],
+            "objective": 161.7683563232422
+          },
+          "provenance": {}
+        },
+        "outcome_known": true,
+        "actual": [
+          {
+            "qualified": false,
+            "metrics": {
+              "mean_tracking": 0.0024313888888888,
+              "p90": 0.006,
+              "pj": [
+                0.9502279901788846,
+                0.9177163037080636,
+                0.9095022624434389,
+                0.9181450357920946
+              ],
+              "objective": 161.6020403578188
+            },
+            "execution_id": "ac97caccd21d0d8e5dfa3340"
+          }
+        ]
+      },
+      {
+        "candidate": {
+          "candidate_id": "v3-0050-0183",
+          "Pbar": 0.3904399871826172,
+          "R": 0.22739379107952118,
+          "weights": [
+            0.15486399829387665,
+            0.3112344741821289,
+            0.21818682551383972,
+            0.31571468710899353
+          ],
+          "source": "V3 snapshot",
+          "start_id": 183,
+          "iteration": 50,
+          "region_id": "region-03",
+          "prediction": {
+            "mean_tracking": 0.002512027509510517,
+            "p90": 0.006193290464580059,
+            "pj": [
+              0.956628143787384,
+              0.9071394801139832,
+              0.9176263809204102,
+              0.8660960793495178
+            ],
+            "objective": 160.73193359375
+          },
+          "provenance": {}
+        },
+        "outcome_known": true,
+        "actual": [
+          {
+            "qualified": false,
+            "metrics": {
+              "mean_tracking": 0.0024102777777777,
+              "p90": 0.007,
+              "pj": [
+                0.9520869870220975,
+                0.910496370413969,
+                0.9188536953242836,
+                0.8674758792405851
+              ],
+              "objective": 160.77474919028484
+            },
+            "execution_id": "bee65351d880d1225e2fe341"
+          }
+        ]
+      },
+      {
+        "candidate": {
+          "candidate_id": "v3-0100-0214",
+          "Pbar": 0.42398250102996826,
+          "R": 0.24666675925254822,
+          "weights": [
+            0.26099351048469543,
+            0.27579349279403687,
+            0.23477788269519806,
+            0.22843509912490845
+          ],
+          "source": "V3 snapshot",
+          "start_id": 214,
+          "iteration": 100,
+          "region_id": "region-04",
+          "prediction": {
+            "mean_tracking": 0.002253036480396986,
+            "p90": 0.0061782654374837875,
+            "pj": [
+              0.9249549508094788,
+              0.8975169658660889,
+              0.8951631784439087,
+              0.8785225749015808
+            ],
+            "objective": 160.4291534423828
+          },
+          "provenance": {}
+        },
+        "outcome_known": true,
+        "actual": [
+          {
+            "qualified": false,
+            "metrics": {
+              "mean_tracking": 0.002395,
+              "p90": 0.007,
+              "pj": [
+                0.9164152928796914,
+                0.9072395526780459,
+                0.9019105077928607,
+                0.8913787737317149
+              ],
+              "objective": 161.1208943250789
+            },
+            "execution_id": "4df48157223c09a5d78c4310"
+          }
+        ]
+      },
+      {
+        "candidate": {
+          "candidate_id": "counterfactual-independent-0",
+          "Pbar": 0.6140116805201914,
+          "R": 0.22130875192467417,
+          "weights": [
+            0.17568028299316527,
+            0.39354775693940713,
+            0.24552780496750637,
+            0.18524415509992118
+          ],
+          "source": "independent",
+          "start_id": null,
+          "iteration": null,
+          "region_id": null,
+          "prediction": null,
+          "provenance": {}
+        },
+        "outcome_known": true,
+        "actual": [
+          {
+            "qualified": false,
+            "metrics": {
+              "mean_tracking": 0.461915,
+              "p90": 1.073,
+              "pj": [
+                0.9016836197825324,
+                0.0,
+                0.0,
+                0.8261437908496732
+              ],
+              "objective": 150.1344776488122
+            },
+            "execution_id": "7b98c6b9521307302eb93969"
+          }
+        ]
+      },
+      {
+        "candidate": {
+          "candidate_id": "counterfactual-independent-1",
+          "Pbar": 0.5451109407512976,
+          "R": 0.034031524147969665,
+          "weights": [
+            0.39542402112676145,
+            0.21310579696326054,
+            0.16717298944117032,
+            0.2242971924688077
+          ],
+          "source": "independent",
+          "start_id": null,
+          "iteration": null,
+          "region_id": null,
+          "prediction": null,
+          "provenance": {}
+        },
+        "outcome_known": true,
+        "actual": [
+          {
+            "qualified": false,
+            "metrics": {
+              "mean_tracking": 1.411708888888889,
+              "p90": 1.807,
+              "pj": [
+                0.0,
+                0.8587796743182264,
+                0.8947209653092006,
+                0.7167755991285403
+              ],
+              "objective": 182.54666979055986
+            },
+            "execution_id": "84e4321d996637b71ec9d6c5"
+          }
+        ]
+      }
+    ],
+    "interpretation": "Known feasible points establish only a lower bound on counterfactual first-batch feasibility. Unknown outcomes cannot establish final incumbent/objective or scenario robustness."
+  }
+]

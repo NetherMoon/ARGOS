@@ -1,0 +1,90 @@
+{
+  "C:\\Users\\Achuthan Menon\\Desktop\\Research Work\\condor_flexdc_v4\\reports\\trackS_v6_summary.json": {
+    "sha256": "ee6c4f390d70f64db84467cd867887bb851d2576ece461c1e8aa8a901b823734",
+    "bytes": 48123
+  },
+  "C:\\Users\\Achuthan Menon\\Desktop\\Research Work\\ARGOS Hybrid\\runs\\campaigns\\controlled_development_v2\\campaign_manifest.json": {
+    "sha256": "31c144dfb02a818b583ffedb095a5793fb0788105a06255808d8034f7f27a31a",
+    "bytes": 910052
+  },
+  "C:\\Users\\Achuthan Menon\\Desktop\\Research Work\\condor_flexdc_v4\\traditional_iso16_newqos_plus_w2dense_AQA_combined_grid_search_results.csv": {
+    "sha256": "f2dcff9e4b31305f5f25c54d0b874f7680198ca18b2f40b4a3f761003253c47d",
+    "bytes": 173780811
+  },
+  "C:\\Users\\Achuthan Menon\\Desktop\\Research Work\\ARGOS Hybrid\\configs\\campaigns\\provenance_v1.json": {
+    "sha256": "45cd00f1ecd1c29a7879464adec716895e5fa71cb05bf0ecc7585bfc27a48bed",
+    "bytes": 19960
+  },
+  "C:\\Users\\Achuthan Menon\\Desktop\\Research Work\\ARGOS Hybrid\\condor_set_transformer_sweep_v3_behavior_v3_best_feasibility_artifacts\\condor_set_transformer_sweep_v3_behavior_v3_best_feasibility_train_predictions.csv": {
+    "sha256": "31d998262ee873afdfa6910dd029b57d29087294670bcfae39d9f54f8f30ab6a",
+    "bytes": 36038426
+  },
+  "C:\\Users\\Achuthan Menon\\Desktop\\Research Work\\ARGOS Hybrid\\condor_set_transformer_sweep_v3_behavior_v3_best_feasibility_artifacts\\condor_set_transformer_sweep_v3_behavior_v3_best_feasibility_validation_predictions.csv": {
+    "sha256": "3b3bd14e8df993766a16e9ba2c33b21d1cd7f00e467195aa198a3472ff96fbdc",
+    "bytes": 10275778
+  },
+  "C:\\Users\\Achuthan Menon\\Desktop\\Research Work\\ARGOS Hybrid\\condor_set_transformer_sweep_v3_behavior_v3_best_feasibility_artifacts\\condor_set_transformer_sweep_v3_behavior_v3_best_feasibility_test_predictions.csv": {
+    "sha256": "27e9d7ab99c06bc8f11d7b85adb4171361ab87e9773c6cf814aa40c2ddc15ea5",
+    "bytes": 5129066
+  },
+  "C:\\Users\\Achuthan Menon\\Desktop\\Research Work\\ARGOS Hybrid\\runs\\campaigns\\controlled_development_v2\\cache\\v3_banks\\6649b1b0b3fcb7375fee87d068965398e41f3191c8df004f624914c10f272a42\\manifest.json": {
+    "sha256": "dd267312e768510ec8346b1224104de1446d4b5a97977434658923275377d0fd",
+    "bytes": 16693
+  },
+  "C:\\Users\\Achuthan Menon\\Desktop\\Research Work\\ARGOS Hybrid\\runs\\campaigns\\controlled_development_v2\\cache\\v3_banks\\6649b1b0b3fcb7375fee87d068965398e41f3191c8df004f624914c10f272a42\\attempt-1789355657974776900\\selection.json": {
+    "sha256": "9a2366901ce4495df694a22f1fd01dc66e1003b3114eebb41aafc9d6e121b5fa",
+    "bytes": 606
+  },
+  "C:\\Users\\Achuthan Menon\\Desktop\\Research Work\\ARGOS Hybrid\\runs\\campaigns\\controlled_development_v2\\cases\\c005\\v3_only\\state.json": {
+    "sha256": "cb7681276d0cca7aef7ac0dc1bdecf70fe3f7fd5513cd196b05816dc030d3196",
+    "bytes": 49262
+  },
+  "C:\\Users\\Achuthan Menon\\Desktop\\Research Work\\ARGOS Hybrid\\runs\\campaigns\\controlled_development_v2\\cases\\c005\\argos_fixed_budget\\state.json": {
+    "sha256": "bb7922aef34ed2fd4f59126ccd357754a489a7cfc945dd2d9bd00dbb5fa4a840",
+    "bytes": 549512
+  },
+  "C:\\Users\\Achuthan Menon\\Desktop\\Research Work\\ARGOS Hybrid\\runs\\campaigns\\controlled_development_v2\\cases\\c006\\v3_only\\state.json": {
+    "sha256": "02692d49d600497c1df2436eb94d90cacd8291d9dfb546b1c6a99ed26583069c",
+    "bytes": 16401
+  },
+  "C:\\Users\\Achuthan Menon\\Desktop\\Research Work\\ARGOS Hybrid\\runs\\campaigns\\controlled_development_v2\\cases\\c006\\argos_fixed_budget\\state.json": {
+    "sha256": "ef3ac5d007da3d231680d1dcc2784d8406c0581fd987365fc390557fc7ea6a0b",
+    "bytes": 518639
+  },
+  "C:\\Users\\Achuthan Menon\\Desktop\\Research Work\\ARGOS Hybrid\\runs\\campaigns\\controlled_development_v2\\cases\\c007\\v3_only\\state.json": {
+    "sha256": "19a0c95581dfd9d9cdd7820e74eec833b191616526bd0ecb03e44f31eb6bb615",
+    "bytes": 16382
+  },
+  "C:\\Users\\Achuthan Menon\\Desktop\\Research Work\\ARGOS Hybrid\\runs\\campaigns\\controlled_development_v2\\cases\\c007\\argos_fixed_budget\\state.json": {
+    "sha256": "a5cff2ed1f146dab738c97f7636f95bc03ff86d3e4989af8f8d102415994dffb",
+    "bytes": 548481
+  },
+  "C:\\Users\\Achuthan Menon\\Desktop\\Research Work\\ARGOS Hybrid\\runs\\campaigns\\controlled_development_v2\\cases\\c008\\v3_only\\state.json": {
+    "sha256": "da1a8f76d0ffbb4d943a3b85f3eeae0a22f85847472eb268ae1f059ac57f9a82",
+    "bytes": 48992
+  },
+  "C:\\Users\\Achuthan Menon\\Desktop\\Research Work\\ARGOS Hybrid\\runs\\campaigns\\controlled_development_v2\\cases\\c008\\argos_fixed_budget\\state.json": {
+    "sha256": "8b8a5c8d0c947f0355ebb0480601d969cad7c3559fe3f00164a3ef3223077970",
+    "bytes": 517084
+  },
+  "C:\\Users\\Achuthan Menon\\Desktop\\Research Work\\condor_flexdc_v4\\run_trackS_v6.py": {
+    "sha256": "121d398fa338a1d924d9b26f4136f97c89bd89d9d9f6d6a1f80e0e3afcaade76",
+    "bytes": 15643
+  },
+  "C:\\Users\\Achuthan Menon\\Desktop\\Research Work\\condor_flexdc_v4\\sim_plan_v6.py": {
+    "sha256": "58ba8ab3f8533eabf1adeaa0f65b4b140782190b3355f714d979b9fca6014bc5",
+    "bytes": 6470
+  },
+  "C:\\Users\\Achuthan Menon\\Desktop\\Research Work\\condor_flexdc_v4\\sim_validation\\plans\\plan_W2HU_r2.csv": {
+    "sha256": "96ee36d36ad5c9be873fcf3b111204e23734b59ce4acfa80f113079856676073",
+    "bytes": 805
+  },
+  "C:\\Users\\Achuthan Menon\\Desktop\\Research Work\\condor_flexdc_v4\\sim_validation\\plans\\plan_W2HU_verify.csv": {
+    "sha256": "3cf8dc1387ba9fc92b28643dbb73337048f3e074752719b6c93c1554902f0682",
+    "bytes": 394
+  },
+  "C:\\Users\\Achuthan Menon\\Desktop\\Research Work\\ARGOS Hybrid\\src\\argos\\vnext\\historical.py": {
+    "sha256": "411afee9e802041fef6ab1c76fa91772fbd6a390a2093c1b3959cc0ad43f82dc",
+    "bytes": 7668
+  }
+}
