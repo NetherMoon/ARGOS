@@ -4,3 +4,5 @@
 *.yaml text eol=lf
 *.md text eol=lf
 configs/canonical_cost_source.ini -text
+docs/vnext_offline_results/* text eol=lf
+docs/vnext_development_results/* text eol=lf
