@@ -1,0 +1,11 @@
+{
+  "before_inventory_sha256": "2487e3a2247e53aea8ef929ff21ee57763a86298f9f5450fdd6681797abf6736",
+  "after_inventory_sha256": "07bae899842a3f0e2bd931cf1ee9225ad861a2346e529dcae307290a604920ac",
+  "before_aggregate_sha256": "66bf3e02900035ac02c9d5e64ddadf0764871443debf3fba8be36ac8a02beccb",
+  "after_aggregate_sha256": "66bf3e02900035ac02c9d5e64ddadf0764871443debf3fba8be36ac8a02beccb",
+  "historical_files_unchanged": true,
+  "files": 31018,
+  "bytes": 67706934533,
+  "directories": 13537,
+  "after_hash_seconds": 540.8910000000033
+}

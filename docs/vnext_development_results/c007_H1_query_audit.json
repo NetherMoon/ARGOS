@@ -1,0 +1,3871 @@
+[
+  {
+    "candidate_id": "v3-0150-0459",
+    "source": "V3 snapshot",
+    "elite_rank": null,
+    "region_id": "region-01",
+    "anchor": null,
+    "targeted_probe": {},
+    "unique_location_id": "5c73b385f90536cae272626a3462ab877cf86d524aed19e7dedb0d4075d90d53",
+    "scenario_id": 3514694477,
+    "phase": "search",
+    "batch": 1,
+    "repeat_number": 0,
+    "state_before": "UNOBSERVED",
+    "state_after": "INFEASIBLE",
+    "decision_reason": "H1",
+    "prequery_timestamp": 1789437532.9977252,
+    "prequery_file_sha256": "ac75ac52925c2490a9c4a5a7aa041ea207493de4b2cc23a32f0bf2b954ad98b9",
+    "v3_prediction": {
+      "mean_tracking": 0.07571373879909515,
+      "p90": 0.2865791618824005,
+      "pj": [
+        0.01962035335600376,
+        0.01944434829056263,
+        0.017143864184617996,
+        0.009656444191932678
+      ],
+      "objective": 83.4664077758789
+    },
+    "corrected_behaviors": [
+      0.07571373879909515,
+      0.2865791618824005,
+      0.01962035335600376,
+      0.01944434829056263,
+      0.017143864184617996,
+      0.009656444191932678
+    ],
+    "correction_uncertainty": null,
+    "actual": {
+      "mean_tracking": 0.0966191666666666,
+      "p90": 0.346,
+      "pj": [
+        0.0,
+        0.08884707849900697,
+        0.0,
+        0.04376349443614014
+      ],
+      "objective": 85.37969813277734
+    },
+    "v3_residual": [
+      0.02090542786757145,
+      0.05942083811759946,
+      -0.01962035335600376,
+      0.06940273020844434,
+      -0.017143864184617996,
+      0.03410705024420746
+    ],
+    "corrected_residual": [
+      0.02090542786757145,
+      0.05942083811759946,
+      -0.01962035335600376,
+      0.06940273020844434,
+      -0.017143864184617996,
+      0.03410705024420746
+    ],
+    "assessment": {
+      "tracking_pass": false,
+      "qos_numerical_pass": true,
+      "max_pj": 0.08884707849900697,
+      "worst_violation": 0.15333333333333332,
+      "total_violation": 0.15333333333333332,
+      "per_job_evidence_counts": [
+        21416,
+        19135,
+        14769,
+        12043
+      ],
+      "ordered_job_sections": [
+        "Resnet.infer.4",
+        "GPT2.infer.4",
+        "Llama.infer.4",
+        "Bloom.infer.4"
+      ],
+      "execution_status": "PARSED",
+      "execution_valid": true,
+      "numerical_feasible": false,
+      "evidence_status": "SUFFICIENT",
+      "evidence_sufficient": true,
+      "evidence_qualified_feasible": false,
+      "min_qos_observations_per_type": 1,
+      "statistical_reliability_established": false
+    },
+    "requested_P_R_weights": [
+      0.4723909795284271,
+      0.14551234245300293,
+      [
+        0.2691279947757721,
+        0.2537333071231842,
+        0.24648357927799225,
+        0.23065511882305145
+      ]
+    ],
+    "effective_P_R_watts": [
+      472391,
+      145512
+    ],
+    "effective_dynamic_job_allocation": "Time-varying AQA allocation; not inferred from nominal weights",
+    "execution_id": "486c4a7f124fdc3e409983f5",
+    "runtime_seconds": 15.5272629000101
+  },
+  {
+    "candidate_id": "v3-0000-0240",
+    "source": "V3 snapshot",
+    "elite_rank": null,
+    "region_id": "region-02",
+    "anchor": null,
+    "targeted_probe": {},
+    "unique_location_id": "9ce068a2a0c010d3aed7fa251896cb3109ee03d70739420cd235580553084dfa",
+    "scenario_id": 3514694477,
+    "phase": "search",
+    "batch": 1,
+    "repeat_number": 0,
+    "state_before": "UNOBSERVED",
+    "state_after": "INFEASIBLE",
+    "decision_reason": "H1",
+    "prequery_timestamp": 1789437532.9977252,
+    "prequery_file_sha256": "ac75ac52925c2490a9c4a5a7aa041ea207493de4b2cc23a32f0bf2b954ad98b9",
+    "v3_prediction": {
+      "mean_tracking": 0.002372525632381439,
+      "p90": 0.006050117779523134,
+      "pj": [
+        0.9163997769355774,
+        0.8654232621192932,
+        0.9205306768417358,
+        0.6223160624504089
+      ],
+      "objective": 155.17613220214844
+    },
+    "corrected_behaviors": [
+      0.002372525632381439,
+      0.006050117779523134,
+      0.9163997769355774,
+      0.8654232621192932,
+      0.9205306768417358,
+      0.6223160624504089
+    ],
+    "correction_uncertainty": null,
+    "actual": {
+      "mean_tracking": 0.0024447222222222,
+      "p90": 0.007,
+      "pj": [
+        0.8995096894699977,
+        0.895944392181457,
+        0.9117009750812568,
+        0.598737751204119
+      ],
+      "objective": 154.6345545434224
+    },
+    "v3_residual": [
+      7.219658984076094e-05,
+      0.0009498822204768659,
+      -0.01689008746557974,
+      0.030521130062163837,
+      -0.008829701760479036,
+      -0.02357831124628995
+    ],
+    "corrected_residual": [
+      7.219658984076094e-05,
+      0.0009498822204768659,
+      -0.01689008746557974,
+      0.030521130062163837,
+      -0.008829701760479036,
+      -0.02357831124628995
+    ],
+    "assessment": {
+      "tracking_pass": true,
+      "qos_numerical_pass": false,
+      "max_pj": 0.9117009750812568,
+      "worst_violation": 8.117009750812567,
+      "total_violation": 29.058928079368304,
+      "per_job_evidence_counts": [
+        21416,
+        19135,
+        14769,
+        12043
+      ],
+      "ordered_job_sections": [
+        "Resnet.infer.4",
+        "GPT2.infer.4",
+        "Llama.infer.4",
+        "Bloom.infer.4"
+      ],
+      "execution_status": "PARSED",
+      "execution_valid": true,
+      "numerical_feasible": false,
+      "evidence_status": "SUFFICIENT",
+      "evidence_sufficient": true,
+      "evidence_qualified_feasible": false,
+      "min_qos_observations_per_type": 1,
+      "statistical_reliability_established": false
+    },
+    "requested_P_R_weights": [
+      0.3890220522880554,
+      0.17864695191383362,
+      [
+        0.2701023817062378,
+        0.2723601162433624,
+        0.18329115211963654,
+        0.27424633502960205
+      ]
+    ],
+    "effective_P_R_watts": [
+      389022,
+      178647
+    ],
+    "effective_dynamic_job_allocation": "Time-varying AQA allocation; not inferred from nominal weights",
+    "execution_id": "522db9b694c6db383e66d080",
+    "runtime_seconds": 17.992135299995425
+  },
+  {
+    "candidate_id": "v3-0000-0085",
+    "source": "V3 snapshot",
+    "elite_rank": null,
+    "region_id": "region-03",
+    "anchor": null,
+    "targeted_probe": {},
+    "unique_location_id": "07c7b5ec8fed3cecfdc09997ace025758a3a0f8fe4d587f4fdbd2e81a759b835",
+    "scenario_id": 3514694477,
+    "phase": "search",
+    "batch": 1,
+    "repeat_number": 0,
+    "state_before": "UNOBSERVED",
+    "state_after": "INFEASIBLE",
+    "decision_reason": "H1",
+    "prequery_timestamp": 1789437532.9977252,
+    "prequery_file_sha256": "ac75ac52925c2490a9c4a5a7aa041ea207493de4b2cc23a32f0bf2b954ad98b9",
+    "v3_prediction": {
+      "mean_tracking": 2.9979703426361084,
+      "p90": 3.90773606300354,
+      "pj": [
+        4.570646043106936e-35,
+        5.138893385838558e-36,
+        1.5074921533211847e-35,
+        0.0
+      ],
+      "objective": 168.9000701904297
+    },
+    "corrected_behaviors": [
+      2.9979703426361084,
+      3.90773606300354,
+      4.570646043106936e-35,
+      5.138893385838558e-36,
+      1.5074921533211847e-35,
+      0.0
+    ],
+    "correction_uncertainty": null,
+    "actual": {
+      "mean_tracking": 3.184381111111112,
+      "p90": 4.05,
+      "pj": [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "objective": 171.69262633608292
+    },
+    "v3_residual": [
+      0.1864107684750036,
+      0.14226393699645978,
+      -4.570646043106936e-35,
+      -5.138893385838558e-36,
+      -1.5074921533211847e-35,
+      0.0
+    ],
+    "corrected_residual": [
+      0.1864107684750036,
+      0.14226393699645978,
+      -4.570646043106936e-35,
+      -5.138893385838558e-36,
+      -1.5074921533211847e-35,
+      0.0
+    ],
+    "assessment": {
+      "tracking_pass": false,
+      "qos_numerical_pass": true,
+      "max_pj": 0.0,
+      "worst_violation": 12.5,
+      "total_violation": 12.5,
+      "per_job_evidence_counts": [
+        21416,
+        19135,
+        14769,
+        12043
+      ],
+      "ordered_job_sections": [
+        "Resnet.infer.4",
+        "GPT2.infer.4",
+        "Llama.infer.4",
+        "Bloom.infer.4"
+      ],
+      "execution_status": "PARSED",
+      "execution_valid": true,
+      "numerical_feasible": false,
+      "evidence_status": "SUFFICIENT",
+      "evidence_sufficient": true,
+      "evidence_qualified_feasible": false,
+      "min_qos_observations_per_type": 1,
+      "statistical_reliability_established": false
+    },
+    "requested_P_R_weights": [
+      0.7028846144676208,
+      0.07349023222923279,
+      [
+        0.2589406371116638,
+        0.25066086649894714,
+        0.23993366956710815,
+        0.25046485662460327
+      ]
+    ],
+    "effective_P_R_watts": [
+      702885,
+      73490
+    ],
+    "effective_dynamic_job_allocation": "Time-varying AQA allocation; not inferred from nominal weights",
+    "execution_id": "f098869777af51bb04874e90",
+    "runtime_seconds": 13.427797700001975
+  },
+  {
+    "candidate_id": "v3-0050-0433",
+    "source": "V3 snapshot",
+    "elite_rank": null,
+    "region_id": "region-04",
+    "anchor": null,
+    "targeted_probe": {},
+    "unique_location_id": "6f244933a305b1482edde720694eecfa8ee78b2829483eaaf455c3f08b664ec0",
+    "scenario_id": 3514694477,
+    "phase": "search",
+    "batch": 1,
+    "repeat_number": 0,
+    "state_before": "UNOBSERVED",
+    "state_after": "INFEASIBLE",
+    "decision_reason": "H1",
+    "prequery_timestamp": 1789437532.9977252,
+    "prequery_file_sha256": "ac75ac52925c2490a9c4a5a7aa041ea207493de4b2cc23a32f0bf2b954ad98b9",
+    "v3_prediction": {
+      "mean_tracking": 0.002580154687166214,
+      "p90": 0.006499166134744883,
+      "pj": [
+        0.9247989654541016,
+        0.9347115159034729,
+        0.8684364557266235,
+        0.9037308692932129
+      ],
+      "objective": 159.2401885986328
+    },
+    "corrected_behaviors": [
+      0.002580154687166214,
+      0.006499166134744883,
+      0.9247989654541016,
+      0.9347115159034729,
+      0.8684364557266235,
+      0.9037308692932129
+    ],
+    "correction_uncertainty": null,
+    "actual": {
+      "mean_tracking": 0.0025102777777777,
+      "p90": 0.006,
+      "pj": [
+        0.9122577632500584,
+        0.9433991846973973,
+        0.7938786565547129,
+        0.9155455904334828
+      ],
+      "objective": 157.0850296279661
+    },
+    "v3_residual": [
+      -6.987690938851411e-05,
+      -0.0004991661347448825,
+      -0.0125412022040432,
+      0.008687668793924352,
+      -0.07455779917191063,
+      0.011814721140269935
+    ],
+    "corrected_residual": [
+      -6.987690938851411e-05,
+      -0.0004991661347448825,
+      -0.0125412022040432,
+      0.008687668793924352,
+      -0.07455779917191063,
+      0.011814721140269935
+    ],
+    "assessment": {
+      "tracking_pass": true,
+      "qos_numerical_pass": false,
+      "max_pj": 0.9433991846973973,
+      "worst_violation": 8.433991846973973,
+      "total_violation": 31.65081194935651,
+      "per_job_evidence_counts": [
+        21416,
+        19135,
+        14769,
+        12043
+      ],
+      "ordered_job_sections": [
+        "Resnet.infer.4",
+        "GPT2.infer.4",
+        "Llama.infer.4",
+        "Bloom.infer.4"
+      ],
+      "execution_status": "PARSED",
+      "execution_valid": true,
+      "numerical_feasible": false,
+      "evidence_status": "SUFFICIENT",
+      "evidence_sufficient": true,
+      "evidence_qualified_feasible": false,
+      "min_qos_observations_per_type": 1,
+      "statistical_reliability_established": false
+    },
+    "requested_P_R_weights": [
+      0.34010350704193115,
+      0.18652141094207764,
+      [
+        0.2923360764980316,
+        0.2048041969537735,
+        0.3120560944080353,
+        0.1908036470413208
+      ]
+    ],
+    "effective_P_R_watts": [
+      340104,
+      186521
+    ],
+    "effective_dynamic_job_allocation": "Time-varying AQA allocation; not inferred from nominal weights",
+    "execution_id": "481f705c4f06a9b56bbc2477",
+    "runtime_seconds": 19.262914600010845
+  },
+  {
+    "candidate_id": "v3-0100-0237",
+    "source": "V3 snapshot",
+    "elite_rank": null,
+    "region_id": "region-05",
+    "anchor": null,
+    "targeted_probe": {},
+    "unique_location_id": "2d114b36d7c271700b090b29ee96f646060c56166fa5989b6ee9348c97cbe1cf",
+    "scenario_id": 3514694477,
+    "phase": "search",
+    "batch": 1,
+    "repeat_number": 0,
+    "state_before": "UNOBSERVED",
+    "state_after": "INFEASIBLE",
+    "decision_reason": "H1",
+    "prequery_timestamp": 1789437532.9977252,
+    "prequery_file_sha256": "ac75ac52925c2490a9c4a5a7aa041ea207493de4b2cc23a32f0bf2b954ad98b9",
+    "v3_prediction": {
+      "mean_tracking": 0.012837875634431839,
+      "p90": 0.008681638166308403,
+      "pj": [
+        0.9237024188041687,
+        0.9071720242500305,
+        0.9087446331977844,
+        0.005452989134937525
+      ],
+      "objective": 147.52658081054688
+    },
+    "corrected_behaviors": [
+      0.012837875634431839,
+      0.008681638166308403,
+      0.9237024188041687,
+      0.9071720242500305,
+      0.9087446331977844,
+      0.005452989134937525
+    ],
+    "correction_uncertainty": null,
+    "actual": {
+      "mean_tracking": 0.0178686111111111,
+      "p90": 0.014,
+      "pj": [
+        0.9135652579967313,
+        0.9126685481342114,
+        0.9037784398699892,
+        0.0
+      ],
+      "objective": 147.1691749272597
+    },
+    "v3_residual": [
+      0.00503073547667926,
+      0.005318361833691597,
+      -0.010137160807437429,
+      0.005496523884180871,
+      -0.004966193327795243,
+      -0.005452989134937525
+    ],
+    "corrected_residual": [
+      0.00503073547667926,
+      0.005318361833691597,
+      -0.010137160807437429,
+      0.005496523884180871,
+      -0.004966193327795243,
+      -0.005452989134937525
+    ],
+    "assessment": {
+      "tracking_pass": true,
+      "qos_numerical_pass": false,
+      "max_pj": 0.9135652579967313,
+      "worst_violation": 8.135652579967312,
+      "total_violation": 24.300122460009316,
+      "per_job_evidence_counts": [
+        21416,
+        19135,
+        14769,
+        12043
+      ],
+      "ordered_job_sections": [
+        "Resnet.infer.4",
+        "GPT2.infer.4",
+        "Llama.infer.4",
+        "Bloom.infer.4"
+      ],
+      "execution_status": "PARSED",
+      "execution_valid": true,
+      "numerical_feasible": false,
+      "evidence_status": "SUFFICIENT",
+      "evidence_sufficient": true,
+      "evidence_qualified_feasible": false,
+      "min_qos_observations_per_type": 1,
+      "statistical_reliability_established": false
+    },
+    "requested_P_R_weights": [
+      0.3880341053009033,
+      0.11900155246257782,
+      [
+        0.24532602727413177,
+        0.23365415632724762,
+        0.20218084752559662,
+        0.3188389837741852
+      ]
+    ],
+    "effective_P_R_watts": [
+      388034,
+      119002
+    ],
+    "effective_dynamic_job_allocation": "Time-varying AQA allocation; not inferred from nominal weights",
+    "execution_id": "922c2e1463c5b048f04589da",
+    "runtime_seconds": 17.79011790000368
+  },
+  {
+    "candidate_id": "v3-0150-0037",
+    "source": "V3 snapshot",
+    "elite_rank": null,
+    "region_id": "region-06",
+    "anchor": null,
+    "targeted_probe": {},
+    "unique_location_id": "df369a72e419ad9c28496a4850d9244c0a2f7d87aed7f10ac10ff5e08cd82b54",
+    "scenario_id": 3514694477,
+    "phase": "search",
+    "batch": 1,
+    "repeat_number": 0,
+    "state_before": "UNOBSERVED",
+    "state_after": "PROVISIONAL_FEASIBLE",
+    "decision_reason": "H1",
+    "prequery_timestamp": 1789437532.9977252,
+    "prequery_file_sha256": "ac75ac52925c2490a9c4a5a7aa041ea207493de4b2cc23a32f0bf2b954ad98b9",
+    "v3_prediction": {
+      "mean_tracking": 0.028221262618899345,
+      "p90": 0.037996936589479446,
+      "pj": [
+        0.002330939518287778,
+        0.004471775144338608,
+        0.00404141191393137,
+        0.003461028216406703
+      ],
+      "objective": 89.32440185546875
+    },
+    "corrected_behaviors": [
+      0.028221262618899345,
+      0.037996936589479446,
+      0.002330939518287778,
+      0.004471775144338608,
+      0.00404141191393137,
+      0.003461028216406703
+    ],
+    "correction_uncertainty": null,
+    "actual": {
+      "mean_tracking": 0.0764141666666666,
+      "p90": 0.296,
+      "pj": [
+        0.0,
+        0.0,
+        0.0,
+        0.06925759840558043
+      ],
+      "objective": 91.25646799152533
+    },
+    "v3_residual": [
+      0.04819290404776726,
+      0.25800306341052054,
+      -0.002330939518287778,
+      -0.004471775144338608,
+      -0.00404141191393137,
+      0.06579657018917373
+    ],
+    "corrected_residual": [
+      0.04819290404776726,
+      0.25800306341052054,
+      -0.002330939518287778,
+      -0.004471775144338608,
+      -0.00404141191393137,
+      0.06579657018917373
+    ],
+    "assessment": {
+      "tracking_pass": true,
+      "qos_numerical_pass": true,
+      "max_pj": 0.06925759840558043,
+      "worst_violation": 0.0,
+      "total_violation": 0.0,
+      "per_job_evidence_counts": [
+        21416,
+        19135,
+        14769,
+        12043
+      ],
+      "ordered_job_sections": [
+        "Resnet.infer.4",
+        "GPT2.infer.4",
+        "Llama.infer.4",
+        "Bloom.infer.4"
+      ],
+      "execution_status": "PARSED",
+      "execution_valid": true,
+      "numerical_feasible": true,
+      "evidence_status": "SUFFICIENT",
+      "evidence_sufficient": true,
+      "evidence_qualified_feasible": true,
+      "min_qos_observations_per_type": 1,
+      "statistical_reliability_established": false
+    },
+    "requested_P_R_weights": [
+      0.47039860486984253,
+      0.06066159904003143,
+      [
+        0.26837557554244995,
+        0.25136417150497437,
+        0.24770696461200714,
+        0.23255328834056854
+      ]
+    ],
+    "effective_P_R_watts": [
+      470399,
+      60662
+    ],
+    "effective_dynamic_job_allocation": "Time-varying AQA allocation; not inferred from nominal weights",
+    "execution_id": "944bf235c6c0c51057ed16c8",
+    "runtime_seconds": 15.07054149999749
+  },
+  {
+    "candidate_id": "b001-independent-0000",
+    "source": "independent",
+    "elite_rank": null,
+    "region_id": null,
+    "anchor": null,
+    "targeted_probe": {},
+    "unique_location_id": "745fda9000be3e88dd7725db31626a8d77331a9f55a2b843c6ed759472f4c293",
+    "scenario_id": 3514694477,
+    "phase": "search",
+    "batch": 1,
+    "repeat_number": 0,
+    "state_before": "UNOBSERVED",
+    "state_after": "INFEASIBLE",
+    "decision_reason": "H1",
+    "prequery_timestamp": 1789437532.9977252,
+    "prequery_file_sha256": "ac75ac52925c2490a9c4a5a7aa041ea207493de4b2cc23a32f0bf2b954ad98b9",
+    "v3_prediction": {
+      "mean_tracking": 2.68034029006958,
+      "p90": 3.931049108505249,
+      "pj": [
+        3.3213468867560048e-12,
+        1.3170355259717326e-06,
+        4.2192372081406706e-17,
+        0.0
+      ],
+      "objective": 145.5994534518657
+    },
+    "corrected_behaviors": [
+      2.68034029006958,
+      3.931049108505249,
+      3.3213468867560048e-12,
+      1.3170355259717326e-06,
+      4.2192372081406706e-17,
+      0.0
+    ],
+    "correction_uncertainty": null,
+    "actual": {
+      "mean_tracking": 2.932973611111111,
+      "p90": 4.044,
+      "pj": [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "objective": 147.4929083452496
+    },
+    "v3_residual": [
+      0.252633321041531,
+      0.11295089149475057,
+      -3.3213468867560048e-12,
+      -1.3170355259717326e-06,
+      -4.2192372081406706e-17,
+      0.0
+    ],
+    "corrected_residual": [
+      0.252633321041531,
+      0.11295089149475057,
+      -3.3213468867560048e-12,
+      -1.3170355259717326e-06,
+      -4.2192372081406706e-17,
+      0.0
+    ],
+    "assessment": {
+      "tracking_pass": false,
+      "qos_numerical_pass": true,
+      "max_pj": 0.0,
+      "worst_violation": 12.479999999999999,
+      "total_violation": 12.479999999999999,
+      "per_job_evidence_counts": [
+        21416,
+        19135,
+        14769,
+        12043
+      ],
+      "ordered_job_sections": [
+        "Resnet.infer.4",
+        "GPT2.infer.4",
+        "Llama.infer.4",
+        "Bloom.infer.4"
+      ],
+      "execution_status": "PARSED",
+      "execution_valid": true,
+      "numerical_feasible": false,
+      "evidence_status": "SUFFICIENT",
+      "evidence_sufficient": true,
+      "evidence_qualified_feasible": false,
+      "min_qos_observations_per_type": 1,
+      "statistical_reliability_established": false
+    },
+    "requested_P_R_weights": [
+      0.5635609487656664,
+      0.03024229231596353,
+      [
+        0.2085038666774826,
+        0.1819202085366937,
+        0.21856894650688313,
+        0.3910069782789406
+      ]
+    ],
+    "effective_P_R_watts": [
+      563561,
+      30242
+    ],
+    "effective_dynamic_job_allocation": "Time-varying AQA allocation; not inferred from nominal weights",
+    "execution_id": "ecb140cf9f85d0d15fab8418",
+    "runtime_seconds": 13.123628900008043
+  },
+  {
+    "candidate_id": "b001-independent-0001",
+    "source": "independent",
+    "elite_rank": null,
+    "region_id": null,
+    "anchor": null,
+    "targeted_probe": {},
+    "unique_location_id": "06f34216931145789aa8360f1049644f56c1c6f21c8082a82a86e49dcca56150",
+    "scenario_id": 3514694477,
+    "phase": "search",
+    "batch": 1,
+    "repeat_number": 0,
+    "state_before": "UNOBSERVED",
+    "state_after": "INFEASIBLE",
+    "decision_reason": "H1",
+    "prequery_timestamp": 1789437532.9977252,
+    "prequery_file_sha256": "ac75ac52925c2490a9c4a5a7aa041ea207493de4b2cc23a32f0bf2b954ad98b9",
+    "v3_prediction": {
+      "mean_tracking": 7.110459804534912,
+      "p90": 8.594605445861816,
+      "pj": [
+        5.698054333057312e-13,
+        1.2824061138828927e-21,
+        0.0,
+        0.0
+      ],
+      "objective": 215.79548627226924
+    },
+    "corrected_behaviors": [
+      7.110459804534912,
+      8.594605445861816,
+      5.698054333057312e-13,
+      1.2824061138828927e-21,
+      0.0,
+      0.0
+    ],
+    "correction_uncertainty": null,
+    "actual": {
+      "mean_tracking": 7.534071666666667,
+      "p90": 8.589,
+      "pj": [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "objective": 216.9029237543607
+    },
+    "v3_residual": [
+      0.4236118621317546,
+      -0.005605445861815994,
+      -5.698054333057312e-13,
+      -1.2824061138828927e-21,
+      0.0,
+      0.0
+    ],
+    "corrected_residual": [
+      0.4236118621317546,
+      -0.005605445861815994,
+      -5.698054333057312e-13,
+      -1.2824061138828927e-21,
+      0.0,
+      0.0
+    ],
+    "assessment": {
+      "tracking_pass": false,
+      "qos_numerical_pass": true,
+      "max_pj": 0.0,
+      "worst_violation": 27.630000000000003,
+      "total_violation": 27.630000000000003,
+      "per_job_evidence_counts": [
+        21416,
+        19135,
+        14769,
+        12043
+      ],
+      "ordered_job_sections": [
+        "Resnet.infer.4",
+        "GPT2.infer.4",
+        "Llama.infer.4",
+        "Bloom.infer.4"
+      ],
+      "execution_status": "PARSED",
+      "execution_valid": true,
+      "numerical_feasible": false,
+      "evidence_status": "SUFFICIENT",
+      "evidence_sufficient": true,
+      "evidence_qualified_feasible": false,
+      "min_qos_observations_per_type": 1,
+      "statistical_reliability_established": false
+    },
+    "requested_P_R_weights": [
+      0.6821863763037878,
+      0.027460592442293055,
+      [
+        0.15928139965074958,
+        0.18198439449497072,
+        0.26611536676934733,
+        0.39261883908493234
+      ]
+    ],
+    "effective_P_R_watts": [
+      682186,
+      27461
+    ],
+    "effective_dynamic_job_allocation": "Time-varying AQA allocation; not inferred from nominal weights",
+    "execution_id": "6c6c87ea658baf02daa950cd",
+    "runtime_seconds": 12.608559100001003
+  },
+  {
+    "candidate_id": "b002-local-0000",
+    "source": "local",
+    "elite_rank": null,
+    "region_id": "region-06",
+    "anchor": "v3-0150-0037",
+    "targeted_probe": {
+      "anchor": "v3-0150-0037",
+      "radius": 0.12
+    },
+    "unique_location_id": "adc7cf4a7baf52a813167e3a1360e9e0aef1e18aa021fddf857445aed167b935",
+    "scenario_id": 3514694477,
+    "phase": "search",
+    "batch": 2,
+    "repeat_number": 0,
+    "state_before": "UNOBSERVED",
+    "state_after": "INFEASIBLE",
+    "decision_reason": "H1",
+    "prequery_timestamp": 1789437565.1883883,
+    "prequery_file_sha256": "03facb337960bc924570d7f632e7de16aea364c16c0d84e9abf08f93a8cbc5d9",
+    "v3_prediction": {
+      "mean_tracking": 0.4378080666065216,
+      "p90": 1.214824914932251,
+      "pj": [
+        1.6660392510026156e-10,
+        2.123437425893826e-08,
+        7.1003741081154814e-12,
+        5.448049509356595e-14
+      ],
+      "objective": 103.56203398465863
+    },
+    "corrected_behaviors": [
+      0.4378080666065216,
+      1.214824914932251,
+      1.6660392510026156e-10,
+      2.123437425893826e-08,
+      7.1003741081154814e-12,
+      5.448049509356595e-14
+    ],
+    "correction_uncertainty": null,
+    "actual": {
+      "mean_tracking": 0.5004213888888889,
+      "p90": 1.386,
+      "pj": [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "objective": 105.74434587862163
+    },
+    "v3_residual": [
+      0.06261332228236727,
+      0.17117508506774892,
+      -1.6660392510026156e-10,
+      -2.123437425893826e-08,
+      -7.1003741081154814e-12,
+      -5.448049509356595e-14
+    ],
+    "corrected_residual": [
+      0.06261332228236727,
+      0.17117508506774892,
+      -1.6660392510026156e-10,
+      -2.123437425893826e-08,
+      -7.1003741081154814e-12,
+      -5.448049509356595e-14
+    ],
+    "assessment": {
+      "tracking_pass": false,
+      "qos_numerical_pass": true,
+      "max_pj": 0.0,
+      "worst_violation": 3.62,
+      "total_violation": 3.62,
+      "per_job_evidence_counts": [
+        21416,
+        19135,
+        14769,
+        12043
+      ],
+      "ordered_job_sections": [
+        "Resnet.infer.4",
+        "GPT2.infer.4",
+        "Llama.infer.4",
+        "Bloom.infer.4"
+      ],
+      "execution_status": "PARSED",
+      "execution_valid": true,
+      "numerical_feasible": false,
+      "evidence_status": "SUFFICIENT",
+      "evidence_sufficient": true,
+      "evidence_qualified_feasible": false,
+      "min_qos_observations_per_type": 1,
+      "statistical_reliability_established": false
+    },
+    "requested_P_R_weights": [
+      0.5078797028481452,
+      0.07515941682530147,
+      [
+        0.2644390317635818,
+        0.23910116094237305,
+        0.2511895475522416,
+        0.2452702597418036
+      ]
+    ],
+    "effective_P_R_watts": [
+      507880,
+      75159
+    ],
+    "effective_dynamic_job_allocation": "Time-varying AQA allocation; not inferred from nominal weights",
+    "execution_id": "7bdefcc0cf66382f1c132b94",
+    "runtime_seconds": 13.271320200001355
+  },
+  {
+    "candidate_id": "b002-local-0001",
+    "source": "local",
+    "elite_rank": null,
+    "region_id": "region-01",
+    "anchor": "v3-0150-0459",
+    "targeted_probe": {
+      "anchor": "v3-0150-0459",
+      "radius": 0.12
+    },
+    "unique_location_id": "c5d55129616b1f3275abf2150dd9380acf219d2afee88c7de2e0ed83b8e38761",
+    "scenario_id": 3514694477,
+    "phase": "search",
+    "batch": 2,
+    "repeat_number": 0,
+    "state_before": "UNOBSERVED",
+    "state_after": "INFEASIBLE",
+    "decision_reason": "H1",
+    "prequery_timestamp": 1789437565.1883883,
+    "prequery_file_sha256": "03facb337960bc924570d7f632e7de16aea364c16c0d84e9abf08f93a8cbc5d9",
+    "v3_prediction": {
+      "mean_tracking": 0.15122784674167633,
+      "p90": 0.583316445350647,
+      "pj": [
+        2.0592524379026145e-06,
+        0.5562968254089355,
+        0.00042223409400321543,
+        0.8225575685501099
+      ],
+      "objective": 120.89516700712095
+    },
+    "corrected_behaviors": [
+      0.15122784674167633,
+      0.583316445350647,
+      2.0592524379026145e-06,
+      0.5562968254089355,
+      0.00042223409400321543,
+      0.8225575685501099
+    ],
+    "correction_uncertainty": null,
+    "actual": {
+      "mean_tracking": 0.1409424999999999,
+      "p90": 0.448,
+      "pj": [
+        0.0,
+        0.7279188878436291,
+        0.0,
+        0.8295964125560538
+      ],
+      "objective": 124.91704403294855
+    },
+    "v3_residual": [
+      -0.010285346741676443,
+      -0.13531644535064696,
+      -2.0592524379026145e-06,
+      0.17162206243469358,
+      -0.00042223409400321543,
+      0.007038844005943901
+    ],
+    "corrected_residual": [
+      -0.010285346741676443,
+      -0.13531644535064696,
+      -2.0592524379026145e-06,
+      0.17162206243469358,
+      -0.00042223409400321543,
+      0.007038844005943901
+    ],
+    "assessment": {
+      "tracking_pass": false,
+      "qos_numerical_pass": false,
+      "max_pj": 0.8295964125560538,
+      "worst_violation": 7.295964125560538,
+      "total_violation": 14.068486337330162,
+      "per_job_evidence_counts": [
+        21416,
+        19135,
+        14769,
+        12043
+      ],
+      "ordered_job_sections": [
+        "Resnet.infer.4",
+        "GPT2.infer.4",
+        "Llama.infer.4",
+        "Bloom.infer.4"
+      ],
+      "execution_status": "PARSED",
+      "execution_valid": true,
+      "numerical_feasible": false,
+      "evidence_status": "SUFFICIENT",
+      "evidence_sufficient": true,
+      "evidence_qualified_feasible": false,
+      "min_qos_observations_per_type": 1,
+      "statistical_reliability_established": false
+    },
+    "requested_P_R_weights": [
+      0.4586183148603188,
+      0.11696919987596024,
+      [
+        0.299531734552969,
+        0.23697763952060297,
+        0.26215014120698815,
+        0.20134048471943988
+      ]
+    ],
+    "effective_P_R_watts": [
+      458618,
+      116969
+    ],
+    "effective_dynamic_job_allocation": "Time-varying AQA allocation; not inferred from nominal weights",
+    "execution_id": "d56baa3fa1899ae3f235fa2e",
+    "runtime_seconds": 14.601574200001778
+  },
+  {
+    "candidate_id": "b002-local-0002",
+    "source": "local",
+    "elite_rank": null,
+    "region_id": "region-02",
+    "anchor": "v3-0000-0240",
+    "targeted_probe": {
+      "anchor": "v3-0000-0240",
+      "radius": 0.12
+    },
+    "unique_location_id": "6cbf68f0a2ac326991d7efb9bb4a659ab2c79bceea1f1c06d0caf5327732a26c",
+    "scenario_id": 3514694477,
+    "phase": "search",
+    "batch": 2,
+    "repeat_number": 0,
+    "state_before": "UNOBSERVED",
+    "state_after": "INFEASIBLE",
+    "decision_reason": "H1",
+    "prequery_timestamp": 1789437565.1883883,
+    "prequery_file_sha256": "03facb337960bc924570d7f632e7de16aea364c16c0d84e9abf08f93a8cbc5d9",
+    "v3_prediction": {
+      "mean_tracking": 0.015140806324779987,
+      "p90": 0.009041196666657925,
+      "pj": [
+        0.7894890904426575,
+        0.5582596063613892,
+        0.9147112965583801,
+        0.3075227439403534
+      ],
+      "objective": 133.16582780043353
+    },
+    "corrected_behaviors": [
+      0.015140806324779987,
+      0.009041196666657925,
+      0.7894890904426575,
+      0.5582596063613892,
+      0.9147112965583801,
+      0.3075227439403534
+    ],
+    "correction_uncertainty": null,
+    "actual": {
+      "mean_tracking": 0.0071325,
+      "p90": 0.009,
+      "pj": [
+        0.7937427037123511,
+        0.5190759903836103,
+        0.9114978331527628,
+        0.23584122238830763
+      ],
+      "objective": 130.25271929628332
+    },
+    "v3_residual": [
+      -0.008008306324779987,
+      -4.119666665792533e-05,
+      0.004253613269693646,
+      -0.03918361597777886,
+      -0.003213463405617345,
+      -0.07168152155204577
+    ],
+    "corrected_residual": [
+      -0.008008306324779987,
+      -4.119666665792533e-05,
+      0.004253613269693646,
+      -0.03918361597777886,
+      -0.003213463405617345,
+      -0.07168152155204577
+    ],
+    "assessment": {
+      "tracking_pass": true,
+      "qos_numerical_pass": false,
+      "max_pj": 0.9114978331527628,
+      "worst_violation": 8.114978331527627,
+      "total_violation": 20.601577496370314,
+      "per_job_evidence_counts": [
+        21416,
+        19135,
+        14769,
+        12043
+      ],
+      "ordered_job_sections": [
+        "Resnet.infer.4",
+        "GPT2.infer.4",
+        "Llama.infer.4",
+        "Bloom.infer.4"
+      ],
+      "execution_status": "PARSED",
+      "execution_valid": true,
+      "numerical_feasible": false,
+      "evidence_status": "SUFFICIENT",
+      "evidence_sufficient": true,
+      "evidence_qualified_feasible": false,
+      "min_qos_observations_per_type": 1,
+      "statistical_reliability_established": false
+    },
+    "requested_P_R_weights": [
+      0.40749554191852144,
+      0.1967481148925055,
+      [
+        0.2676046445061002,
+        0.2873028137337449,
+        0.17306562036230494,
+        0.2720269213978501
+      ]
+    ],
+    "effective_P_R_watts": [
+      407496,
+      196748
+    ],
+    "effective_dynamic_job_allocation": "Time-varying AQA allocation; not inferred from nominal weights",
+    "execution_id": "a25e50870f51813aedef8bc1",
+    "runtime_seconds": 16.146918500002357
+  },
+  {
+    "candidate_id": "b002-local-0003",
+    "source": "local",
+    "elite_rank": null,
+    "region_id": "region-05",
+    "anchor": "v3-0100-0237",
+    "targeted_probe": {
+      "anchor": "v3-0100-0237",
+      "radius": 0.12
+    },
+    "unique_location_id": "e88f70dd2380a0d002147c4ad06fcc93bde947763b75e796e7f87d5aed113449",
+    "scenario_id": 3514694477,
+    "phase": "search",
+    "batch": 2,
+    "repeat_number": 0,
+    "state_before": "UNOBSERVED",
+    "state_after": "INFEASIBLE",
+    "decision_reason": "H1",
+    "prequery_timestamp": 1789437565.1883883,
+    "prequery_file_sha256": "03facb337960bc924570d7f632e7de16aea364c16c0d84e9abf08f93a8cbc5d9",
+    "v3_prediction": {
+      "mean_tracking": 0.003180720144882798,
+      "p90": 0.008572663180530071,
+      "pj": [
+        0.9354975819587708,
+        0.9241665601730347,
+        0.8915629386901855,
+        0.891620397567749
+      ],
+      "objective": 170.70205661297337
+    },
+    "corrected_behaviors": [
+      0.003180720144882798,
+      0.008572663180530071,
+      0.9354975819587708,
+      0.9241665601730347,
+      0.8915629386901855,
+      0.891620397567749
+    ],
+    "correction_uncertainty": null,
+    "actual": {
+      "mean_tracking": 0.0024944444444444,
+      "p90": 0.007,
+      "pj": [
+        0.9231379873920149,
+        0.9253161910734817,
+        0.8804171180931745,
+        0.8954492609201129
+      ],
+      "objective": 170.07650111484003
+    },
+    "v3_residual": [
+      -0.0006862757004383983,
+      -0.0015726631805300711,
+      -0.012359594566755838,
+      0.0011496309004470628,
+      -0.01114582059701108,
+      0.003828863352363876
+    ],
+    "corrected_residual": [
+      -0.0006862757004383983,
+      -0.0015726631805300711,
+      -0.012359594566755838,
+      0.0011496309004470628,
+      -0.01114582059701108,
+      0.003828863352363876
+    ],
+    "assessment": {
+      "tracking_pass": true,
+      "qos_numerical_pass": false,
+      "max_pj": 0.9253161910734817,
+      "worst_violation": 8.253161910734816,
+      "total_violation": 32.24320557478784,
+      "per_job_evidence_counts": [
+        21416,
+        19135,
+        14769,
+        12043
+      ],
+      "ordered_job_sections": [
+        "Resnet.infer.4",
+        "GPT2.infer.4",
+        "Llama.infer.4",
+        "Bloom.infer.4"
+      ],
+      "execution_status": "PARSED",
+      "execution_valid": true,
+      "numerical_feasible": false,
+      "evidence_status": "SUFFICIENT",
+      "evidence_sufficient": true,
+      "evidence_qualified_feasible": false,
+      "min_qos_observations_per_type": 1,
+      "statistical_reliability_established": false
+    },
+    "requested_P_R_weights": [
+      0.3518451361762468,
+      0.08712003666908272,
+      [
+        0.2618863156225694,
+        0.2417107658526813,
+        0.26975839453640726,
+        0.2266445239883422
+      ]
+    ],
+    "effective_P_R_watts": [
+      351845,
+      87120
+    ],
+    "effective_dynamic_job_allocation": "Time-varying AQA allocation; not inferred from nominal weights",
+    "execution_id": "f6a923c105404f663f4e1902",
+    "runtime_seconds": 17.918423399998574
+  },
+  {
+    "candidate_id": "b002-local-0004",
+    "source": "local",
+    "elite_rank": null,
+    "region_id": "region-04",
+    "anchor": "v3-0050-0433",
+    "targeted_probe": {
+      "anchor": "v3-0050-0433",
+      "radius": 0.12
+    },
+    "unique_location_id": "4b991d7a571631d4cc522d0db6dbe69cc8921b68788c242c20518af2589d20e1",
+    "scenario_id": 3514694477,
+    "phase": "search",
+    "batch": 2,
+    "repeat_number": 0,
+    "state_before": "UNOBSERVED",
+    "state_after": "INFEASIBLE",
+    "decision_reason": "H1",
+    "prequery_timestamp": 1789437565.1883883,
+    "prequery_file_sha256": "03facb337960bc924570d7f632e7de16aea364c16c0d84e9abf08f93a8cbc5d9",
+    "v3_prediction": {
+      "mean_tracking": 0.0024192561395466328,
+      "p90": 0.0069175222888588905,
+      "pj": [
+        0.945468008518219,
+        0.949873685836792,
+        0.8821255564689636,
+        0.9108778834342957
+      ],
+      "objective": 159.31226710496907
+    },
+    "corrected_behaviors": [
+      0.0024192561395466328,
+      0.0069175222888588905,
+      0.945468008518219,
+      0.949873685836792,
+      0.8821255564689636,
+      0.9108778834342957
+    ],
+    "correction_uncertainty": null,
+    "actual": {
+      "mean_tracking": 0.0025155555555555,
+      "p90": 0.007,
+      "pj": [
+        0.9272472565958441,
+        0.9554719347757918,
+        0.8809588299024919,
+        0.9185351270553064
+      ],
+      "objective": 159.10741542541922
+    },
+    "v3_residual": [
+      9.629941600886732e-05,
+      8.247771114110961e-05,
+      -0.018220751922374934,
+      0.00559824893899985,
+      -0.0011667265664717652,
+      0.007657243621010723
+    ],
+    "corrected_residual": [
+      9.629941600886732e-05,
+      8.247771114110961e-05,
+      -0.018220751922374934,
+      0.00559824893899985,
+      -0.0011667265664717652,
+      0.007657243621010723
+    ],
+    "assessment": {
+      "tracking_pass": true,
+      "qos_numerical_pass": false,
+      "max_pj": 0.9554719347757918,
+      "worst_violation": 8.554719347757917,
+      "total_violation": 32.822131483294335,
+      "per_job_evidence_counts": [
+        21416,
+        19135,
+        14769,
+        12043
+      ],
+      "ordered_job_sections": [
+        "Resnet.infer.4",
+        "GPT2.infer.4",
+        "Llama.infer.4",
+        "Bloom.infer.4"
+      ],
+      "execution_status": "PARSED",
+      "execution_valid": true,
+      "numerical_feasible": false,
+      "evidence_status": "SUFFICIENT",
+      "evidence_sufficient": true,
+      "evidence_qualified_feasible": false,
+      "min_qos_observations_per_type": 1,
+      "statistical_reliability_established": false
+    },
+    "requested_P_R_weights": [
+      0.3122338628947409,
+      0.17685519455289128,
+      [
+        0.2805024352837612,
+        0.17558627466263557,
+        0.34232982398463774,
+        0.20158146606896568
+      ]
+    ],
+    "effective_P_R_watts": [
+      312234,
+      176855
+    ],
+    "effective_dynamic_job_allocation": "Time-varying AQA allocation; not inferred from nominal weights",
+    "execution_id": "03ae605de16640a6e402040f",
+    "runtime_seconds": 18.598369100000127
+  },
+  {
+    "candidate_id": "b002-local-0005",
+    "source": "local",
+    "elite_rank": null,
+    "region_id": null,
+    "anchor": "b001-independent-0000",
+    "targeted_probe": {
+      "anchor": "b001-independent-0000",
+      "radius": 0.12
+    },
+    "unique_location_id": "55d830d3652d4d7e38b4f8b9bd62d26570db67c260a4a04ba28d36c89cfcb738",
+    "scenario_id": 3514694477,
+    "phase": "search",
+    "batch": 2,
+    "repeat_number": 0,
+    "state_before": "UNOBSERVED",
+    "state_after": "INFEASIBLE",
+    "decision_reason": "H1",
+    "prequery_timestamp": 1789437565.1883883,
+    "prequery_file_sha256": "03facb337960bc924570d7f632e7de16aea364c16c0d84e9abf08f93a8cbc5d9",
+    "v3_prediction": {
+      "mean_tracking": 1.9000142812728882,
+      "p90": 2.9352970123291016,
+      "pj": [
+        0.9029682874679565,
+        1.561035467556593e-10,
+        0.8611624240875244,
+        1.2460485503161982e-32
+      ],
+      "objective": 173.7943917405417
+    },
+    "corrected_behaviors": [
+      1.9000142812728882,
+      2.9352970123291016,
+      0.9029682874679565,
+      1.561035467556593e-10,
+      0.8611624240875244,
+      1.2460485503161982e-32
+    ],
+    "correction_uncertainty": null,
+    "actual": {
+      "mean_tracking": 2.014671388888889,
+      "p90": 3.411,
+      "pj": [
+        0.8971281811814149,
+        0.0,
+        0.8032908992416035,
+        0.0
+      ],
+      "objective": 176.81351608096324
+    },
+    "v3_residual": [
+      0.11465710761600079,
+      0.47570298767089847,
+      -0.005840106286541635,
+      -1.561035467556593e-10,
+      -0.05787152484592095,
+      -1.2460485503161982e-32
+    ],
+    "corrected_residual": [
+      0.11465710761600079,
+      0.47570298767089847,
+      -0.005840106286541635,
+      -1.561035467556593e-10,
+      -0.05787152484592095,
+      -1.2460485503161982e-32
+    ],
+    "assessment": {
+      "tracking_pass": false,
+      "qos_numerical_pass": false,
+      "max_pj": 0.8971281811814149,
+      "worst_violation": 10.370000000000001,
+      "total_violation": 25.37419080423018,
+      "per_job_evidence_counts": [
+        21416,
+        19135,
+        14769,
+        12043
+      ],
+      "ordered_job_sections": [
+        "Resnet.infer.4",
+        "GPT2.infer.4",
+        "Llama.infer.4",
+        "Bloom.infer.4"
+      ],
+      "execution_status": "PARSED",
+      "execution_valid": true,
+      "numerical_feasible": false,
+      "evidence_status": "SUFFICIENT",
+      "evidence_sufficient": true,
+      "evidence_qualified_feasible": false,
+      "min_qos_observations_per_type": 1,
+      "statistical_reliability_established": false
+    },
+    "requested_P_R_weights": [
+      0.5070324978155306,
+      0.02935193805332178,
+      [
+        0.16205172183963018,
+        0.25493812689808004,
+        0.15,
+        0.43301015126228987
+      ]
+    ],
+    "effective_P_R_watts": [
+      507032,
+      29352
+    ],
+    "effective_dynamic_job_allocation": "Time-varying AQA allocation; not inferred from nominal weights",
+    "execution_id": "1866d134db36d19c4e0750b0",
+    "runtime_seconds": 14.202848400003859
+  },
+  {
+    "candidate_id": "b002-independent-0006",
+    "source": "independent",
+    "elite_rank": null,
+    "region_id": null,
+    "anchor": null,
+    "targeted_probe": {},
+    "unique_location_id": "0933f9a0718b8e67bf77c814ffe10a9f13bf72485e61629c72a7ba0e970c554d",
+    "scenario_id": 3514694477,
+    "phase": "search",
+    "batch": 2,
+    "repeat_number": 0,
+    "state_before": "UNOBSERVED",
+    "state_after": "INFEASIBLE",
+    "decision_reason": "H1",
+    "prequery_timestamp": 1789437565.1883883,
+    "prequery_file_sha256": "03facb337960bc924570d7f632e7de16aea364c16c0d84e9abf08f93a8cbc5d9",
+    "v3_prediction": {
+      "mean_tracking": 0.002985758241266012,
+      "p90": 0.007511420175433159,
+      "pj": [
+        0.9461310505867004,
+        0.9632799625396729,
+        0.944122850894928,
+        0.9400388598442078
+      ],
+      "objective": 163.53391892603142
+    },
+    "corrected_behaviors": [
+      0.002985758241266012,
+      0.007511420175433159,
+      0.9461310505867004,
+      0.9632799625396729,
+      0.944122850894928,
+      0.9400388598442078
+    ],
+    "correction_uncertainty": null,
+    "actual": {
+      "mean_tracking": 0.0028436111111111,
+      "p90": 0.007,
+      "pj": [
+        0.9335979453653981,
+        0.9628410159924742,
+        0.9368905742145179,
+        0.9394618834080718
+      ],
+      "objective": 162.83163368482622
+    },
+    "v3_residual": [
+      -0.00014214713015491204,
+      -0.0005114201754331587,
+      -0.012533105221302354,
+      -0.0004389465471986709,
+      -0.007232276680410044,
+      -0.0005769764361359675
+    ],
+    "corrected_residual": [
+      -0.00014214713015491204,
+      -0.0005114201754331587,
+      -0.012533105221302354,
+      -0.0004389465471986709,
+      -0.007232276680410044,
+      -0.0005769764361359675
+    ],
+    "assessment": {
+      "tracking_pass": true,
+      "qos_numerical_pass": false,
+      "max_pj": 0.9628410159924742,
+      "worst_violation": 8.62841015992474,
+      "total_violation": 33.727914189804615,
+      "per_job_evidence_counts": [
+        21416,
+        19135,
+        14769,
+        12043
+      ],
+      "ordered_job_sections": [
+        "Resnet.infer.4",
+        "GPT2.infer.4",
+        "Llama.infer.4",
+        "Bloom.infer.4"
+      ],
+      "execution_status": "PARSED",
+      "execution_valid": true,
+      "numerical_feasible": false,
+      "evidence_status": "SUFFICIENT",
+      "evidence_sufficient": true,
+      "evidence_qualified_feasible": false,
+      "min_qos_observations_per_type": 1,
+      "statistical_reliability_established": false
+    },
+    "requested_P_R_weights": [
+      0.22936153788171615,
+      0.08687652860492791,
+      [
+        0.4372005598280392,
+        0.15138511701707483,
+        0.2565281745049943,
+        0.15488614864989167
+      ]
+    ],
+    "effective_P_R_watts": [
+      229362,
+      86877
+    ],
+    "effective_dynamic_job_allocation": "Time-varying AQA allocation; not inferred from nominal weights",
+    "execution_id": "efbe2ba68882f43c95ae539b",
+    "runtime_seconds": 20.220950100003392
+  },
+  {
+    "candidate_id": "b002-independent-0007",
+    "source": "independent",
+    "elite_rank": null,
+    "region_id": null,
+    "anchor": null,
+    "targeted_probe": {},
+    "unique_location_id": "780cc79f5d60a33678268e61c142eb8f9454252923e20f02e498f8d34cc87ae6",
+    "scenario_id": 3514694477,
+    "phase": "search",
+    "batch": 2,
+    "repeat_number": 0,
+    "state_before": "UNOBSERVED",
+    "state_after": "INFEASIBLE",
+    "decision_reason": "H1",
+    "prequery_timestamp": 1789437565.1883883,
+    "prequery_file_sha256": "03facb337960bc924570d7f632e7de16aea364c16c0d84e9abf08f93a8cbc5d9",
+    "v3_prediction": {
+      "mean_tracking": 0.005926146171987057,
+      "p90": 0.023444676771759987,
+      "pj": [
+        0.9647291302680969,
+        0.8497059941291809,
+        0.848280131816864,
+        0.9215317964553833
+      ],
+      "objective": 173.75067200094819
+    },
+    "corrected_behaviors": [
+      0.005926146171987057,
+      0.023444676771759987,
+      0.9647291302680969,
+      0.8497059941291809,
+      0.848280131816864,
+      0.9215317964553833
+    ],
+    "correction_uncertainty": null,
+    "actual": {
+      "mean_tracking": 0.0062002777777777,
+      "p90": 0.022,
+      "pj": [
+        0.9593275741302825,
+        0.8407024145500157,
+        0.8443932827735645,
+        0.9348945357913968
+      ],
+      "objective": 173.5950016763428
+    },
+    "v3_residual": [
+      0.00027413160579064285,
+      -0.0014446767717599882,
+      -0.005401556137814456,
+      -0.0090035795791652,
+      -0.0038868490432995007,
+      0.013362739336013507
+    ],
+    "corrected_residual": [
+      0.00027413160579064285,
+      -0.0014446767717599882,
+      -0.005401556137814456,
+      -0.0090035795791652,
+      -0.0038868490432995007,
+      0.013362739336013507
+    ],
+    "assessment": {
+      "tracking_pass": true,
+      "qos_numerical_pass": false,
+      "max_pj": 0.9593275741302825,
+      "worst_violation": 8.593275741302824,
+      "total_violation": 31.79317807245259,
+      "per_job_evidence_counts": [
+        21416,
+        19135,
+        14769,
+        12043
+      ],
+      "ordered_job_sections": [
+        "Resnet.infer.4",
+        "GPT2.infer.4",
+        "Llama.infer.4",
+        "Bloom.infer.4"
+      ],
+      "execution_status": "PARSED",
+      "execution_valid": true,
+      "numerical_feasible": false,
+      "evidence_status": "SUFFICIENT",
+      "evidence_sufficient": true,
+      "evidence_qualified_feasible": false,
+      "min_qos_observations_per_type": 1,
+      "statistical_reliability_established": false
+    },
+    "requested_P_R_weights": [
+      0.335328894237307,
+      0.020985653165233056,
+      [
+        0.15481937372799126,
+        0.3704955971689763,
+        0.32225643233162815,
+        0.1524285967714043
+      ]
+    ],
+    "effective_P_R_watts": [
+      335329,
+      20986
+    ],
+    "effective_dynamic_job_allocation": "Time-varying AQA allocation; not inferred from nominal weights",
+    "execution_id": "7cecc4ee4e3e74015e23e474",
+    "runtime_seconds": 17.901473999998416
+  },
+  {
+    "candidate_id": "b003-local-0000",
+    "source": "local",
+    "elite_rank": null,
+    "region_id": "region-06",
+    "anchor": "v3-0150-0037",
+    "targeted_probe": {
+      "anchor": "v3-0150-0037",
+      "radius": 0.12
+    },
+    "unique_location_id": "db306685b1f1f611211b30e4713e700e94039fe408af6318337367168013e5f6",
+    "scenario_id": 3514694477,
+    "phase": "search",
+    "batch": 3,
+    "repeat_number": 0,
+    "state_before": "UNOBSERVED",
+    "state_after": "INFEASIBLE",
+    "decision_reason": "H1",
+    "prequery_timestamp": 1789437601.9270504,
+    "prequery_file_sha256": "7f9e82afeda25eaa71bc0165ad866332791cb7c2d2913b96f209a369d23718b6",
+    "v3_prediction": {
+      "mean_tracking": 0.18604370951652527,
+      "p90": 0.5750288963317871,
+      "pj": [
+        1.372750830341829e-06,
+        0.557149350643158,
+        0.8608519434928894,
+        0.024161184206604958
+      ],
+      "objective": 125.86096894803885
+    },
+    "corrected_behaviors": [
+      0.18604370951652527,
+      0.5750288963317871,
+      1.372750830341829e-06,
+      0.557149350643158,
+      0.8608519434928894,
+      0.024161184206604958
+    ],
+    "correction_uncertainty": null,
+    "actual": {
+      "mean_tracking": 0.1390102777777777,
+      "p90": 0.392,
+      "pj": [
+        0.0,
+        0.7389463781749765,
+        0.8131771397616468,
+        0.0
+      ],
+      "objective": 127.38059149324592
+    },
+    "v3_residual": [
+      -0.04703343173874758,
+      -0.1830288963317871,
+      -1.372750830341829e-06,
+      0.1817970275318186,
+      -0.047674803731242554,
+      -0.024161184206604958
+    ],
+    "corrected_residual": [
+      -0.04703343173874758,
+      -0.1830288963317871,
+      -1.372750830341829e-06,
+      0.1817970275318186,
+      -0.047674803731242554,
+      -0.024161184206604958
+    ],
+    "assessment": {
+      "tracking_pass": false,
+      "qos_numerical_pass": false,
+      "max_pj": 0.8131771397616468,
+      "worst_violation": 7.131771397616468,
+      "total_violation": 13.827901846032901,
+      "per_job_evidence_counts": [
+        21416,
+        19135,
+        14769,
+        12043
+      ],
+      "ordered_job_sections": [
+        "Resnet.infer.4",
+        "GPT2.infer.4",
+        "Llama.infer.4",
+        "Bloom.infer.4"
+      ],
+      "execution_status": "PARSED",
+      "execution_valid": true,
+      "numerical_feasible": false,
+      "evidence_status": "SUFFICIENT",
+      "evidence_sufficient": true,
+      "evidence_qualified_feasible": false,
+      "min_qos_observations_per_type": 1,
+      "statistical_reliability_established": false
+    },
+    "requested_P_R_weights": [
+      0.4580922420108059,
+      0.08031868303932292,
+      [
+        0.29720968209714915,
+        0.2431195758472994,
+        0.21582341861166748,
+        0.2438473234438841
+      ]
+    ],
+    "effective_P_R_watts": [
+      458092,
+      80319
+    ],
+    "effective_dynamic_job_allocation": "Time-varying AQA allocation; not inferred from nominal weights",
+    "execution_id": "931d172ff14e239fcae119a7",
+    "runtime_seconds": 14.653272299998207
+  },
+  {
+    "candidate_id": "b003-local-0001",
+    "source": "local",
+    "elite_rank": null,
+    "region_id": "region-01",
+    "anchor": "v3-0150-0459",
+    "targeted_probe": {
+      "anchor": "v3-0150-0459",
+      "radius": 0.12
+    },
+    "unique_location_id": "723c97c43c222cb98470726e096b1fad4965f93dfbb3a18012f773deb05196da",
+    "scenario_id": 3514694477,
+    "phase": "search",
+    "batch": 3,
+    "repeat_number": 0,
+    "state_before": "UNOBSERVED",
+    "state_after": "INFEASIBLE",
+    "decision_reason": "H1",
+    "prequery_timestamp": 1789437601.9270504,
+    "prequery_file_sha256": "7f9e82afeda25eaa71bc0165ad866332791cb7c2d2913b96f209a369d23718b6",
+    "v3_prediction": {
+      "mean_tracking": 0.3929241895675659,
+      "p90": 0.936191737651825,
+      "pj": [
+        8.116222944372017e-14,
+        2.395541937323476e-19,
+        0.09931278228759766,
+        0.21574488282203674
+      ],
+      "objective": 102.88612719185328
+    },
+    "corrected_behaviors": [
+      0.3929241895675659,
+      0.936191737651825,
+      8.116222944372017e-14,
+      2.395541937323476e-19,
+      0.09931278228759766,
+      0.21574488282203674
+    ],
+    "correction_uncertainty": null,
+    "actual": {
+      "mean_tracking": 0.4102572222222222,
+      "p90": 0.913,
+      "pj": [
+        0.0,
+        0.0,
+        0.0,
+        0.27918950340475
+      ],
+      "objective": 102.4696494912707
+    },
+    "v3_residual": [
+      0.0173330326546563,
+      -0.023191737651824917,
+      -8.116222944372017e-14,
+      -2.395541937323476e-19,
+      -0.09931278228759766,
+      0.06344462058271327
+    ],
+    "corrected_residual": [
+      0.0173330326546563,
+      -0.023191737651824917,
+      -8.116222944372017e-14,
+      -2.395541937323476e-19,
+      -0.09931278228759766,
+      0.06344462058271327
+    ],
+    "assessment": {
+      "tracking_pass": false,
+      "qos_numerical_pass": false,
+      "max_pj": 0.27918950340475,
+      "worst_violation": 2.0433333333333334,
+      "total_violation": 3.8352283673808336,
+      "per_job_evidence_counts": [
+        21416,
+        19135,
+        14769,
+        12043
+      ],
+      "ordered_job_sections": [
+        "Resnet.infer.4",
+        "GPT2.infer.4",
+        "Llama.infer.4",
+        "Bloom.infer.4"
+      ],
+      "execution_status": "PARSED",
+      "execution_valid": true,
+      "numerical_feasible": false,
+      "evidence_status": "SUFFICIENT",
+      "evidence_sufficient": true,
+      "evidence_qualified_feasible": false,
+      "min_qos_observations_per_type": 1,
+      "statistical_reliability_established": false
+    },
+    "requested_P_R_weights": [
+      0.5107987530579815,
+      0.1423819010188554,
+      [
+        0.2822560319438123,
+        0.3106651868771583,
+        0.21054415710766325,
+        0.19653462407136624
+      ]
+    ],
+    "effective_P_R_watts": [
+      510799,
+      142382
+    ],
+    "effective_dynamic_job_allocation": "Time-varying AQA allocation; not inferred from nominal weights",
+    "execution_id": "4f23f716e145d78f429a1c0f",
+    "runtime_seconds": 13.31129620000138
+  },
+  {
+    "candidate_id": "b003-local-0002",
+    "source": "local",
+    "elite_rank": null,
+    "region_id": "region-01",
+    "anchor": "b002-local-0001",
+    "targeted_probe": {
+      "anchor": "b002-local-0001",
+      "radius": 0.12
+    },
+    "unique_location_id": "f0c1e63472939fc0e14f4ae1b76f9c0f617505ef2380ad8f251aa8721753daea",
+    "scenario_id": 3514694477,
+    "phase": "search",
+    "batch": 3,
+    "repeat_number": 0,
+    "state_before": "UNOBSERVED",
+    "state_after": "INFEASIBLE",
+    "decision_reason": "H1",
+    "prequery_timestamp": 1789437601.9270504,
+    "prequery_file_sha256": "7f9e82afeda25eaa71bc0165ad866332791cb7c2d2913b96f209a369d23718b6",
+    "v3_prediction": {
+      "mean_tracking": 0.4701169729232788,
+      "p90": 1.0176814794540405,
+      "pj": [
+        8.420709537847532e-25,
+        2.1232490765576983e-10,
+        0.6171567440032959,
+        0.011604929342865944
+      ],
+      "objective": 114.03420966828557
+    },
+    "corrected_behaviors": [
+      0.4701169729232788,
+      1.0176814794540405,
+      8.420709537847532e-25,
+      2.1232490765576983e-10,
+      0.6171567440032959,
+      0.011604929342865944
+    ],
+    "correction_uncertainty": null,
+    "actual": {
+      "mean_tracking": 0.4781599999999999,
+      "p90": 0.998,
+      "pj": [
+        0.0,
+        0.0,
+        0.5677139761646803,
+        0.0
+      ],
+      "objective": 112.31211309748053
+    },
+    "v3_residual": [
+      0.00804302707672111,
+      -0.01968147945404053,
+      -8.420709537847532e-25,
+      -2.1232490765576983e-10,
+      -0.049442767838615564,
+      -0.011604929342865944
+    ],
+    "corrected_residual": [
+      0.00804302707672111,
+      -0.01968147945404053,
+      -8.420709537847532e-25,
+      -2.1232490765576983e-10,
+      -0.049442767838615564,
+      -0.011604929342865944
+    ],
+    "assessment": {
+      "tracking_pass": false,
+      "qos_numerical_pass": false,
+      "max_pj": 0.5677139761646803,
+      "worst_violation": 4.677139761646803,
+      "total_violation": 7.003806428313469,
+      "per_job_evidence_counts": [
+        21416,
+        19135,
+        14769,
+        12043
+      ],
+      "ordered_job_sections": [
+        "Resnet.infer.4",
+        "GPT2.infer.4",
+        "Llama.infer.4",
+        "Bloom.infer.4"
+      ],
+      "execution_status": "PARSED",
+      "execution_valid": true,
+      "numerical_feasible": false,
+      "evidence_status": "SUFFICIENT",
+      "evidence_sufficient": true,
+      "evidence_qualified_feasible": false,
+      "min_qos_observations_per_type": 1,
+      "statistical_reliability_established": false
+    },
+    "requested_P_R_weights": [
+      0.5220612582166089,
+      0.15507888460241165,
+      [
+        0.3707609730267665,
+        0.24929203574113573,
+        0.18216200477078265,
+        0.1977849864613152
+      ]
+    ],
+    "effective_P_R_watts": [
+      522061,
+      155079
+    ],
+    "effective_dynamic_job_allocation": "Time-varying AQA allocation; not inferred from nominal weights",
+    "execution_id": "b7d1e5a4714ef47cb8d3ec95",
+    "runtime_seconds": 13.368075599995791
+  },
+  {
+    "candidate_id": "b003-local-0003",
+    "source": "local",
+    "elite_rank": null,
+    "region_id": "region-02",
+    "anchor": "b002-local-0002",
+    "targeted_probe": {
+      "anchor": "b002-local-0002",
+      "radius": 0.12
+    },
+    "unique_location_id": "dd2e0dc66a88f5b7c49d985706e9b03e1bf77550706e60e1d73a7354b8bbadee",
+    "scenario_id": 3514694477,
+    "phase": "search",
+    "batch": 3,
+    "repeat_number": 0,
+    "state_before": "UNOBSERVED",
+    "state_after": "INFEASIBLE",
+    "decision_reason": "H1",
+    "prequery_timestamp": 1789437601.9270504,
+    "prequery_file_sha256": "7f9e82afeda25eaa71bc0165ad866332791cb7c2d2913b96f209a369d23718b6",
+    "v3_prediction": {
+      "mean_tracking": 0.03483996540307999,
+      "p90": 0.021439217031002045,
+      "pj": [
+        0.9245979189872742,
+        0.5014593005180359,
+        0.9274049997329712,
+        0.26868924498558044
+      ],
+      "objective": 136.2414515089806
+    },
+    "corrected_behaviors": [
+      0.03483996540307999,
+      0.021439217031002045,
+      0.9245979189872742,
+      0.5014593005180359,
+      0.9274049997329712,
+      0.26868924498558044
+    ],
+    "correction_uncertainty": null,
+    "actual": {
+      "mean_tracking": 0.0154208333333333,
+      "p90": 0.01,
+      "pj": [
+        0.9104833060938594,
+        0.4604369185742657,
+        0.922467497291441,
+        0.1761335326357748
+      ],
+      "objective": 132.05286740326375
+    },
+    "v3_residual": [
+      -0.019419132069746686,
+      -0.011439217031002044,
+      -0.014114612893414757,
+      -0.04102238194377017,
+      -0.004937502441530239,
+      -0.09255571234980564
+    ],
+    "corrected_residual": [
+      -0.019419132069746686,
+      -0.011439217031002044,
+      -0.014114612893414757,
+      -0.04102238194377017,
+      -0.004937502441530239,
+      -0.09255571234980564
+    ],
+    "assessment": {
+      "tracking_pass": true,
+      "qos_numerical_pass": false,
+      "max_pj": 0.922467497291441,
+      "worst_violation": 8.224674972914409,
+      "total_violation": 20.695212545953407,
+      "per_job_evidence_counts": [
+        21416,
+        19135,
+        14769,
+        12043
+      ],
+      "ordered_job_sections": [
+        "Resnet.infer.4",
+        "GPT2.infer.4",
+        "Llama.infer.4",
+        "Bloom.infer.4"
+      ],
+      "execution_status": "PARSED",
+      "execution_valid": true,
+      "numerical_feasible": false,
+      "evidence_status": "SUFFICIENT",
+      "evidence_sufficient": true,
+      "evidence_qualified_feasible": false,
+      "min_qos_observations_per_type": 1,
+      "statistical_reliability_established": false
+    },
+    "requested_P_R_weights": [
+      0.39453510432719274,
+      0.17974633257187608,
+      [
+        0.2436895135691125,
+        0.31045462174708083,
+        0.15594946890296707,
+        0.28990639578083977
+      ]
+    ],
+    "effective_P_R_watts": [
+      394535,
+      179746
+    ],
+    "effective_dynamic_job_allocation": "Time-varying AQA allocation; not inferred from nominal weights",
+    "execution_id": "db863860f0d971a9e0f7f71c",
+    "runtime_seconds": 17.057386000000406
+  },
+  {
+    "candidate_id": "b003-local-0004",
+    "source": "local",
+    "elite_rank": null,
+    "region_id": "region-05",
+    "anchor": "v3-0100-0237",
+    "targeted_probe": {
+      "anchor": "v3-0100-0237",
+      "radius": 0.12
+    },
+    "unique_location_id": "f602f97219d296e614171de535545f04043381b315bea2a500ad1ffe24c77ef6",
+    "scenario_id": 3514694477,
+    "phase": "search",
+    "batch": 3,
+    "repeat_number": 0,
+    "state_before": "UNOBSERVED",
+    "state_after": "INFEASIBLE",
+    "decision_reason": "H1",
+    "prequery_timestamp": 1789437601.9270504,
+    "prequery_file_sha256": "7f9e82afeda25eaa71bc0165ad866332791cb7c2d2913b96f209a369d23718b6",
+    "v3_prediction": {
+      "mean_tracking": 0.0028215788770467043,
+      "p90": 0.0075140222907066345,
+      "pj": [
+        0.9232246279716492,
+        0.9039363265037537,
+        0.907919704914093,
+        0.843960165977478
+      ],
+      "objective": 166.65298667383976
+    },
+    "corrected_behaviors": [
+      0.0028215788770467043,
+      0.0075140222907066345,
+      0.9232246279716492,
+      0.9039363265037537,
+      0.907919704914093,
+      0.843960165977478
+    ],
+    "correction_uncertainty": null,
+    "actual": {
+      "mean_tracking": 0.00242,
+      "p90": 0.008,
+      "pj": [
+        0.9097828624795704,
+        0.9022159506637399,
+        0.8993770314192849,
+        0.8540940043182196
+      ],
+      "objective": 166.18737301324785
+    },
+    "v3_residual": [
+      -0.00040157887704670445,
+      0.00048597770929336565,
+      -0.013441765492078761,
+      -0.0017203758400137215,
+      -0.008542673494808084,
+      0.010133838340741552
+    ],
+    "corrected_residual": [
+      -0.00040157887704670445,
+      0.00048597770929336565,
+      -0.013441765492078761,
+      -0.0017203758400137215,
+      -0.008542673494808084,
+      0.010133838340741552
+    ],
+    "assessment": {
+      "tracking_pass": true,
+      "qos_numerical_pass": false,
+      "max_pj": 0.9097828624795704,
+      "worst_violation": 8.097828624795703,
+      "total_violation": 31.65469848880815,
+      "per_job_evidence_counts": [
+        21416,
+        19135,
+        14769,
+        12043
+      ],
+      "ordered_job_sections": [
+        "Resnet.infer.4",
+        "GPT2.infer.4",
+        "Llama.infer.4",
+        "Bloom.infer.4"
+      ],
+      "execution_status": "PARSED",
+      "execution_valid": true,
+      "numerical_feasible": false,
+      "evidence_status": "SUFFICIENT",
+      "evidence_sufficient": true,
+      "evidence_qualified_feasible": false,
+      "min_qos_observations_per_type": 1,
+      "statistical_reliability_established": false
+    },
+    "requested_P_R_weights": [
+      0.37787133023489716,
+      0.1325977948646008,
+      [
+        0.26276999441709936,
+        0.2591403044772761,
+        0.21891363489815469,
+        0.2591760662074699
+      ]
+    ],
+    "effective_P_R_watts": [
+      377871,
+      132598
+    ],
+    "effective_dynamic_job_allocation": "Time-varying AQA allocation; not inferred from nominal weights",
+    "execution_id": "b839c9e2635085582d96b648",
+    "runtime_seconds": 17.594409099998302
+  },
+  {
+    "candidate_id": "b003-local-0005",
+    "source": "local",
+    "elite_rank": null,
+    "region_id": "region-05",
+    "anchor": "b002-local-0003",
+    "targeted_probe": {
+      "anchor": "b002-local-0003",
+      "radius": 0.12
+    },
+    "unique_location_id": "00289d51559f4367cdc04bc9c613a302b96fb128fb20ae65c488766446fb9bbb",
+    "scenario_id": 3514694477,
+    "phase": "search",
+    "batch": 3,
+    "repeat_number": 0,
+    "state_before": "UNOBSERVED",
+    "state_after": "INFEASIBLE",
+    "decision_reason": "H1",
+    "prequery_timestamp": 1789437601.9270504,
+    "prequery_file_sha256": "7f9e82afeda25eaa71bc0165ad866332791cb7c2d2913b96f209a369d23718b6",
+    "v3_prediction": {
+      "mean_tracking": 0.003019989700987935,
+      "p90": 0.00814128015190363,
+      "pj": [
+        0.9275881052017212,
+        0.9269120693206787,
+        0.8961028456687927,
+        0.8965157270431519
+      ],
+      "objective": 171.26348748861912
+    },
+    "corrected_behaviors": [
+      0.003019989700987935,
+      0.00814128015190363,
+      0.9275881052017212,
+      0.9269120693206787,
+      0.8961028456687927,
+      0.8965157270431519
+    ],
+    "correction_uncertainty": null,
+    "actual": {
+      "mean_tracking": 0.0025127777777777,
+      "p90": 0.007,
+      "pj": [
+        0.9060471632033621,
+        0.9251594021114247,
+        0.8819068255687974,
+        0.9017605048995183
+      ],
+      "objective": 170.1826505254619
+    },
+    "v3_residual": [
+      -0.0005072119232102349,
+      -0.0011412801519036292,
+      -0.021540941998359098,
+      -0.001752667209254044,
+      -0.014196020099995321,
+      0.005244777856366456
+    ],
+    "corrected_residual": [
+      -0.0005072119232102349,
+      -0.0011412801519036292,
+      -0.021540941998359098,
+      -0.001752667209254044,
+      -0.014196020099995321,
+      0.005244777856366456
+    ],
+    "assessment": {
+      "tracking_pass": true,
+      "qos_numerical_pass": false,
+      "max_pj": 0.9251594021114247,
+      "worst_violation": 8.251594021114245,
+      "total_violation": 32.14873895783102,
+      "per_job_evidence_counts": [
+        21416,
+        19135,
+        14769,
+        12043
+      ],
+      "ordered_job_sections": [
+        "Resnet.infer.4",
+        "GPT2.infer.4",
+        "Llama.infer.4",
+        "Bloom.infer.4"
+      ],
+      "execution_status": "PARSED",
+      "execution_valid": true,
+      "numerical_feasible": false,
+      "evidence_status": "SUFFICIENT",
+      "evidence_sufficient": true,
+      "evidence_qualified_feasible": false,
+      "min_qos_observations_per_type": 1,
+      "statistical_reliability_established": false
+    },
+    "requested_P_R_weights": [
+      0.35568365830203197,
+      0.08672233272133618,
+      [
+        0.2889599799423178,
+        0.23739961614594401,
+        0.2621462265135756,
+        0.21149417739816267
+      ]
+    ],
+    "effective_P_R_watts": [
+      355684,
+      86722
+    ],
+    "effective_dynamic_job_allocation": "Time-varying AQA allocation; not inferred from nominal weights",
+    "execution_id": "2dfc7217840adaa47f2a65b4",
+    "runtime_seconds": 17.865329799999017
+  },
+  {
+    "candidate_id": "b003-independent-0006",
+    "source": "independent",
+    "elite_rank": null,
+    "region_id": null,
+    "anchor": null,
+    "targeted_probe": {},
+    "unique_location_id": "54838ff32cb9d3b762fa52f8df0e9725eef340f896cff18b2625aa6d11f1ec88",
+    "scenario_id": 3514694477,
+    "phase": "search",
+    "batch": 3,
+    "repeat_number": 0,
+    "state_before": "UNOBSERVED",
+    "state_after": "INFEASIBLE",
+    "decision_reason": "H1",
+    "prequery_timestamp": 1789437601.9270504,
+    "prequery_file_sha256": "7f9e82afeda25eaa71bc0165ad866332791cb7c2d2913b96f209a369d23718b6",
+    "v3_prediction": {
+      "mean_tracking": 0.0026252225507050753,
+      "p90": 0.007049260661005974,
+      "pj": [
+        0.9651865363121033,
+        0.9602330327033997,
+        0.9235697984695435,
+        0.9333354234695435
+      ],
+      "objective": 162.11115161767339
+    },
+    "corrected_behaviors": [
+      0.0026252225507050753,
+      0.007049260661005974,
+      0.9651865363121033,
+      0.9602330327033997,
+      0.9235697984695435,
+      0.9333354234695435
+    ],
+    "correction_uncertainty": null,
+    "actual": {
+      "mean_tracking": 0.0029886111111111,
+      "p90": 0.007,
+      "pj": [
+        0.9586271305159935,
+        0.9628410159924742,
+        0.9147481040086674,
+        0.9394618834080718
+      ],
+      "objective": 161.89158380720906
+    },
+    "v3_residual": [
+      0.0003633885604060246,
+      -4.926066100597367e-05,
+      -0.006559405796109807,
+      0.0026079832890745225,
+      -0.008821694460876106,
+      0.006126459938528339
+    ],
+    "corrected_residual": [
+      0.0003633885604060246,
+      -4.926066100597367e-05,
+      -0.006559405796109807,
+      0.0026079832890745225,
+      -0.008821694460876106,
+      0.006126459938528339
+    ],
+    "assessment": {
+      "tracking_pass": true,
+      "qos_numerical_pass": false,
+      "max_pj": 0.9628410159924742,
+      "worst_violation": 8.62841015992474,
+      "total_violation": 33.756781339252065,
+      "per_job_evidence_counts": [
+        21416,
+        19135,
+        14769,
+        12043
+      ],
+      "ordered_job_sections": [
+        "Resnet.infer.4",
+        "GPT2.infer.4",
+        "Llama.infer.4",
+        "Bloom.infer.4"
+      ],
+      "execution_status": "PARSED",
+      "execution_valid": true,
+      "numerical_feasible": false,
+      "evidence_status": "SUFFICIENT",
+      "evidence_sufficient": true,
+      "evidence_qualified_feasible": false,
+      "min_qos_observations_per_type": 1,
+      "statistical_reliability_established": false
+    },
+    "requested_P_R_weights": [
+      0.23491083204225427,
+      0.10290972044674486,
+      [
+        0.23005260144819367,
+        0.18572771574138708,
+        0.39105202226035973,
+        0.19316766055005952
+      ]
+    ],
+    "effective_P_R_watts": [
+      234911,
+      102910
+    ],
+    "effective_dynamic_job_allocation": "Time-varying AQA allocation; not inferred from nominal weights",
+    "execution_id": "23c8570118bfe125efcb892b",
+    "runtime_seconds": 20.57347510001273
+  },
+  {
+    "candidate_id": "b003-independent-0007",
+    "source": "independent",
+    "elite_rank": null,
+    "region_id": null,
+    "anchor": null,
+    "targeted_probe": {},
+    "unique_location_id": "b66601c665e1d0a914db9121552b658bb6c07ca44bc0881b2657edcfd1519eee",
+    "scenario_id": 3514694477,
+    "phase": "search",
+    "batch": 3,
+    "repeat_number": 0,
+    "state_before": "UNOBSERVED",
+    "state_after": "INFEASIBLE",
+    "decision_reason": "H1",
+    "prequery_timestamp": 1789437601.9270504,
+    "prequery_file_sha256": "7f9e82afeda25eaa71bc0165ad866332791cb7c2d2913b96f209a369d23718b6",
+    "v3_prediction": {
+      "mean_tracking": 0.04703250899910927,
+      "p90": 0.20066460967063904,
+      "pj": [
+        0.9455203413963318,
+        0.8960318565368652,
+        0.5306902527809143,
+        5.9785899793496355e-05
+      ],
+      "objective": 139.3574744611918
+    },
+    "corrected_behaviors": [
+      0.04703250899910927,
+      0.20066460967063904,
+      0.9455203413963318,
+      0.8960318565368652,
+      0.5306902527809143,
+      5.9785899793496355e-05
+    ],
+    "correction_uncertainty": null,
+    "actual": {
+      "mean_tracking": 0.0287894444444444,
+      "p90": 0.085,
+      "pj": [
+        0.9349521363530235,
+        0.8956830772446953,
+        0.5026408450704225,
+        0.0
+      ],
+      "objective": 137.7856916268693
+    },
+    "v3_residual": [
+      -0.01824306455466487,
+      -0.11566460967063903,
+      -0.010568205043308243,
+      -0.00034877929216992065,
+      -0.028049407710491803,
+      -5.9785899793496355e-05
+    ],
+    "corrected_residual": [
+      -0.01824306455466487,
+      -0.11566460967063903,
+      -0.010568205043308243,
+      -0.00034877929216992065,
+      -0.028049407710491803,
+      -5.9785899793496355e-05
+    ],
+    "assessment": {
+      "tracking_pass": true,
+      "qos_numerical_pass": false,
+      "max_pj": 0.9349521363530235,
+      "worst_violation": 8.349521363530235,
+      "total_violation": 20.33276058668141,
+      "per_job_evidence_counts": [
+        21416,
+        19135,
+        14769,
+        12043
+      ],
+      "ordered_job_sections": [
+        "Resnet.infer.4",
+        "GPT2.infer.4",
+        "Llama.infer.4",
+        "Bloom.infer.4"
+      ],
+      "execution_status": "PARSED",
+      "execution_valid": true,
+      "numerical_feasible": false,
+      "evidence_status": "SUFFICIENT",
+      "evidence_sufficient": true,
+      "evidence_qualified_feasible": false,
+      "min_qos_observations_per_type": 1,
+      "statistical_reliability_established": false
+    },
+    "requested_P_R_weights": [
+      0.4132718537882982,
+      0.11832517768427055,
+      [
+        0.1849315258308893,
+        0.23991310119253278,
+        0.26966684163335847,
+        0.3054885313432195
+      ]
+    ],
+    "effective_P_R_watts": [
+      413272,
+      118325
+    ],
+    "effective_dynamic_job_allocation": "Time-varying AQA allocation; not inferred from nominal weights",
+    "execution_id": "6e9d98bd7bd1c9f7bdccf123",
+    "runtime_seconds": 16.944197399992845
+  },
+  {
+    "candidate_id": "b004-local-0000",
+    "source": "local",
+    "elite_rank": null,
+    "region_id": "region-06",
+    "anchor": "v3-0150-0037",
+    "targeted_probe": {
+      "anchor": "v3-0150-0037",
+      "radius": 0.12
+    },
+    "unique_location_id": "cc3e975a4004375fbcacd8e0cdd04d4a1a5aacba930e429ab03b1e9da726b905",
+    "scenario_id": 3514694477,
+    "phase": "search",
+    "batch": 4,
+    "repeat_number": 0,
+    "state_before": "UNOBSERVED",
+    "state_after": "INFEASIBLE",
+    "decision_reason": "H1",
+    "prequery_timestamp": 1789437637.5284503,
+    "prequery_file_sha256": "5456bbe0b6c9af415f2ab30687c003e9e234369081f0884763b183c47d2c1585",
+    "v3_prediction": {
+      "mean_tracking": 0.008274238556623459,
+      "p90": 0.017632370814681053,
+      "pj": [
+        0.9066136479377747,
+        0.0031749578192830086,
+        0.04112687706947327,
+        0.8869680762290955
+      ],
+      "objective": 134.47860817444666
+    },
+    "corrected_behaviors": [
+      0.008274238556623459,
+      0.017632370814681053,
+      0.9066136479377747,
+      0.0031749578192830086,
+      0.04112687706947327,
+      0.8869680762290955
+    ],
+    "correction_uncertainty": null,
+    "actual": {
+      "mean_tracking": 0.0044694444444444,
+      "p90": 0.016,
+      "pj": [
+        0.8922250758813915,
+        0.0,
+        0.0,
+        0.9003487792725461
+      ],
+      "objective": 133.6164985409837
+    },
+    "v3_residual": [
+      -0.003804794112179059,
+      -0.0016323708146810528,
+      -0.014388572056383109,
+      -0.0031749578192830086,
+      -0.04112687706947327,
+      0.013380703043450626
+    ],
+    "corrected_residual": [
+      -0.003804794112179059,
+      -0.0016323708146810528,
+      -0.014388572056383109,
+      -0.0031749578192830086,
+      -0.04112687706947327,
+      0.013380703043450626
+    ],
+    "assessment": {
+      "tracking_pass": true,
+      "qos_numerical_pass": false,
+      "max_pj": 0.9003487792725461,
+      "worst_violation": 8.00348779272546,
+      "total_violation": 15.925738551539375,
+      "per_job_evidence_counts": [
+        21416,
+        19135,
+        14769,
+        12043
+      ],
+      "ordered_job_sections": [
+        "Resnet.infer.4",
+        "GPT2.infer.4",
+        "Llama.infer.4",
+        "Bloom.infer.4"
+      ],
+      "execution_status": "PARSED",
+      "execution_valid": true,
+      "numerical_feasible": false,
+      "evidence_status": "SUFFICIENT",
+      "evidence_sufficient": true,
+      "evidence_qualified_feasible": false,
+      "min_qos_observations_per_type": 1,
+      "statistical_reliability_established": false
+    },
+    "requested_P_R_weights": [
+      0.4171885640503872,
+      0.03208277503491705,
+      [
+        0.24172002683903462,
+        0.30292111694197754,
+        0.28716886858821755,
+        0.16818998763077034
+      ]
+    ],
+    "effective_P_R_watts": [
+      417189,
+      32083
+    ],
+    "effective_dynamic_job_allocation": "Time-varying AQA allocation; not inferred from nominal weights",
+    "execution_id": "76807245c32e483d997870b4",
+    "runtime_seconds": 16.8300453999982
+  },
+  {
+    "candidate_id": "b004-local-0001",
+    "source": "local",
+    "elite_rank": null,
+    "region_id": "region-01",
+    "anchor": "v3-0150-0459",
+    "targeted_probe": {
+      "anchor": "v3-0150-0459",
+      "radius": 0.12
+    },
+    "unique_location_id": "cb092e6e6cc5486b703a82be1c7a19a95385dff3bdf03e96567c6471ea138e2f",
+    "scenario_id": 3514694477,
+    "phase": "search",
+    "batch": 4,
+    "repeat_number": 0,
+    "state_before": "UNOBSERVED",
+    "state_after": "INFEASIBLE",
+    "decision_reason": "H1",
+    "prequery_timestamp": 1789437637.5284503,
+    "prequery_file_sha256": "5456bbe0b6c9af415f2ab30687c003e9e234369081f0884763b183c47d2c1585",
+    "v3_prediction": {
+      "mean_tracking": 0.06804236024618149,
+      "p90": 0.33744919300079346,
+      "pj": [
+        0.5054368376731873,
+        0.004910687915980816,
+        0.8762953281402588,
+        6.650577688560588e-06
+      ],
+      "objective": 116.20272976294551
+    },
+    "corrected_behaviors": [
+      0.06804236024618149,
+      0.33744919300079346,
+      0.5054368376731873,
+      0.004910687915980816,
+      0.8762953281402588,
+      6.650577688560588e-06
+    ],
+    "correction_uncertainty": null,
+    "actual": {
+      "mean_tracking": 0.0604472222222222,
+      "p90": 0.241,
+      "pj": [
+        0.4409992995563857,
+        0.00036584091146651954,
+        0.8663326110509209,
+        0.0
+      ],
+      "objective": 113.48528360435822
+    },
+    "v3_residual": [
+      -0.007595138023959287,
+      -0.09644919300079347,
+      -0.06443753811680153,
+      -0.004544847004514296,
+      -0.009962717089337936,
+      -6.650577688560588e-06
+    ],
+    "corrected_residual": [
+      -0.007595138023959287,
+      -0.09644919300079347,
+      -0.06443753811680153,
+      -0.004544847004514296,
+      -0.009962717089337936,
+      -6.650577688560588e-06
+    ],
+    "assessment": {
+      "tracking_pass": true,
+      "qos_numerical_pass": false,
+      "max_pj": 0.8663326110509209,
+      "worst_violation": 7.6633261105092085,
+      "total_violation": 11.073319106073065,
+      "per_job_evidence_counts": [
+        21416,
+        19135,
+        14769,
+        12043
+      ],
+      "ordered_job_sections": [
+        "Resnet.infer.4",
+        "GPT2.infer.4",
+        "Llama.infer.4",
+        "Bloom.infer.4"
+      ],
+      "execution_status": "PARSED",
+      "execution_valid": true,
+      "numerical_feasible": false,
+      "evidence_status": "SUFFICIENT",
+      "evidence_sufficient": true,
+      "evidence_qualified_feasible": false,
+      "min_qos_observations_per_type": 1,
+      "statistical_reliability_established": false
+    },
+    "requested_P_R_weights": [
+      0.4530736158049995,
+      0.13392657813243405,
+      [
+        0.2537258310736962,
+        0.2746365394935566,
+        0.204026705647619,
+        0.2676109237851283
+      ]
+    ],
+    "effective_P_R_watts": [
+      453074,
+      133927
+    ],
+    "effective_dynamic_job_allocation": "Time-varying AQA allocation; not inferred from nominal weights",
+    "execution_id": "db51307bab03316424d46a23",
+    "runtime_seconds": 15.538993000009214
+  },
+  {
+    "candidate_id": "b004-local-0002",
+    "source": "local",
+    "elite_rank": null,
+    "region_id": "region-01",
+    "anchor": "b003-local-0001",
+    "targeted_probe": {
+      "anchor": "b003-local-0001",
+      "radius": 0.12
+    },
+    "unique_location_id": "5eabf4b990a4a258cec92f3210cb10d2f93298ee176c15470b8878b2a29393e7",
+    "scenario_id": 3514694477,
+    "phase": "search",
+    "batch": 4,
+    "repeat_number": 0,
+    "state_before": "UNOBSERVED",
+    "state_after": "INFEASIBLE",
+    "decision_reason": "H1",
+    "prequery_timestamp": 1789437637.5284503,
+    "prequery_file_sha256": "5456bbe0b6c9af415f2ab30687c003e9e234369081f0884763b183c47d2c1585",
+    "v3_prediction": {
+      "mean_tracking": 0.5574051141738892,
+      "p90": 1.2853100299835205,
+      "pj": [
+        1.640706344822495e-26,
+        1.4854150774713668e-16,
+        5.338193401855859e-14,
+        0.029107483103871346
+      ],
+      "objective": 105.98724360015069
+    },
+    "corrected_behaviors": [
+      0.5574051141738892,
+      1.2853100299835205,
+      1.640706344822495e-26,
+      1.4854150774713668e-16,
+      5.338193401855859e-14,
+      0.029107483103871346
+    ],
+    "correction_uncertainty": null,
+    "actual": {
+      "mean_tracking": 0.5868574999999999,
+      "p90": 1.255,
+      "pj": [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "objective": 105.62886333575574
+    },
+    "v3_residual": [
+      0.02945238582611076,
+      -0.030310029983520614,
+      -1.640706344822495e-26,
+      -1.4854150774713668e-16,
+      -5.338193401855859e-14,
+      -0.029107483103871346
+    ],
+    "corrected_residual": [
+      0.02945238582611076,
+      -0.030310029983520614,
+      -1.640706344822495e-26,
+      -1.4854150774713668e-16,
+      -5.338193401855859e-14,
+      -0.029107483103871346
+    ],
+    "assessment": {
+      "tracking_pass": false,
+      "qos_numerical_pass": true,
+      "max_pj": 0.0,
+      "worst_violation": 3.1833333333333336,
+      "total_violation": 3.1833333333333336,
+      "per_job_evidence_counts": [
+        21416,
+        19135,
+        14769,
+        12043
+      ],
+      "ordered_job_sections": [
+        "Resnet.infer.4",
+        "GPT2.infer.4",
+        "Llama.infer.4",
+        "Bloom.infer.4"
+      ],
+      "execution_status": "PARSED",
+      "execution_valid": true,
+      "numerical_feasible": false,
+      "evidence_status": "SUFFICIENT",
+      "evidence_sufficient": true,
+      "evidence_qualified_feasible": false,
+      "min_qos_observations_per_type": 1,
+      "statistical_reliability_established": false
+    },
+    "requested_P_R_weights": [
+      0.5492146389492725,
+      0.16202207237125135,
+      [
+        0.3306866373550169,
+        0.25509472516385,
+        0.23508190480607907,
+        0.17913673267505417
+      ]
+    ],
+    "effective_P_R_watts": [
+      549215,
+      162022
+    ],
+    "effective_dynamic_job_allocation": "Time-varying AQA allocation; not inferred from nominal weights",
+    "execution_id": "211c571dd28f39bcc2bb37fb",
+    "runtime_seconds": 13.195177400004468
+  },
+  {
+    "candidate_id": "b004-local-0003",
+    "source": "local",
+    "elite_rank": null,
+    "region_id": "region-01",
+    "anchor": "b003-local-0002",
+    "targeted_probe": {
+      "anchor": "b003-local-0002",
+      "radius": 0.12
+    },
+    "unique_location_id": "47282b338d8e1b5c75827ce7577db49b8e5e0667b4d112ef48bd1c7137e2a8c1",
+    "scenario_id": 3514694477,
+    "phase": "search",
+    "batch": 4,
+    "repeat_number": 0,
+    "state_before": "UNOBSERVED",
+    "state_after": "INFEASIBLE",
+    "decision_reason": "H1",
+    "prequery_timestamp": 1789437637.5284503,
+    "prequery_file_sha256": "5456bbe0b6c9af415f2ab30687c003e9e234369081f0884763b183c47d2c1585",
+    "v3_prediction": {
+      "mean_tracking": 0.4686194658279419,
+      "p90": 1.051706075668335,
+      "pj": [
+        2.0587490744927135e-24,
+        7.968238513456072e-09,
+        0.4809615910053253,
+        9.711662585232261e-10
+      ],
+      "objective": 110.87151403263374
+    },
+    "corrected_behaviors": [
+      0.4686194658279419,
+      1.051706075668335,
+      2.0587490744927135e-24,
+      7.968238513456072e-09,
+      0.4809615910053253,
+      9.711662585232261e-10
+    ],
+    "correction_uncertainty": null,
+    "actual": {
+      "mean_tracking": 0.4843894444444445,
+      "p90": 1.12,
+      "pj": [
+        0.0,
+        0.0,
+        0.5321641386782232,
+        0.0
+      ],
+      "objective": 113.20095205339018
+    },
+    "v3_residual": [
+      0.01576997861650259,
+      0.06829392433166515,
+      -2.0587490744927135e-24,
+      -7.968238513456072e-09,
+      0.05120254767289789,
+      -9.711662585232261e-10
+    ],
+    "corrected_residual": [
+      0.01576997861650259,
+      0.06829392433166515,
+      -2.0587490744927135e-24,
+      -7.968238513456072e-09,
+      0.05120254767289789,
+      -9.711662585232261e-10
+    ],
+    "assessment": {
+      "tracking_pass": false,
+      "qos_numerical_pass": false,
+      "max_pj": 0.5321641386782232,
+      "worst_violation": 4.321641386782232,
+      "total_violation": 7.054974720115565,
+      "per_job_evidence_counts": [
+        21416,
+        19135,
+        14769,
+        12043
+      ],
+      "ordered_job_sections": [
+        "Resnet.infer.4",
+        "GPT2.infer.4",
+        "Llama.infer.4",
+        "Bloom.infer.4"
+      ],
+      "execution_status": "PARSED",
+      "execution_valid": true,
+      "numerical_feasible": false,
+      "evidence_status": "SUFFICIENT",
+      "evidence_sufficient": true,
+      "evidence_qualified_feasible": false,
+      "min_qos_observations_per_type": 1,
+      "statistical_reliability_established": false
+    },
+    "requested_P_R_weights": [
+      0.5224675955460938,
+      0.1445455856698557,
+      [
+        0.35504758670736736,
+        0.23755903448085708,
+        0.18303408153478862,
+        0.224359297276987
+      ]
+    ],
+    "effective_P_R_watts": [
+      522468,
+      144546
+    ],
+    "effective_dynamic_job_allocation": "Time-varying AQA allocation; not inferred from nominal weights",
+    "execution_id": "83fb9a147de801e5eeb8cdce",
+    "runtime_seconds": 13.35106299999461
+  },
+  {
+    "candidate_id": "b004-local-0004",
+    "source": "local",
+    "elite_rank": null,
+    "region_id": "region-06",
+    "anchor": "b003-local-0000",
+    "targeted_probe": {
+      "anchor": "b003-local-0000",
+      "radius": 0.12
+    },
+    "unique_location_id": "4468a268bafc74ef1d6a8a4111a789185a2bbe9b019159a701b81e7eb1bc8218",
+    "scenario_id": 3514694477,
+    "phase": "search",
+    "batch": 4,
+    "repeat_number": 0,
+    "state_before": "UNOBSERVED",
+    "state_after": "INFEASIBLE",
+    "decision_reason": "H1",
+    "prequery_timestamp": 1789437637.5284503,
+    "prequery_file_sha256": "5456bbe0b6c9af415f2ab30687c003e9e234369081f0884763b183c47d2c1585",
+    "v3_prediction": {
+      "mean_tracking": 0.10450340062379837,
+      "p90": 0.41889917850494385,
+      "pj": [
+        0.0005251013790257275,
+        0.903231680393219,
+        0.8494195342063904,
+        0.5727274417877197
+      ],
+      "objective": 144.50278007933434
+    },
+    "corrected_behaviors": [
+      0.10450340062379837,
+      0.41889917850494385,
+      0.0005251013790257275,
+      0.903231680393219,
+      0.8494195342063904,
+      0.5727274417877197
+    ],
+    "correction_uncertainty": null,
+    "actual": {
+      "mean_tracking": 0.0882477777777777,
+      "p90": 0.34,
+      "pj": [
+        0.0,
+        0.9008571129925786,
+        0.799363488624052,
+        0.5568011958146487
+      ],
+      "objective": 141.65732933466296
+    },
+    "v3_residual": [
+      -0.016255622846020668,
+      -0.07889917850494382,
+      -0.0005251013790257275,
+      -0.0023745674006403483,
+      -0.05005604558233834,
+      -0.015926245973071018
+    ],
+    "corrected_residual": [
+      -0.016255622846020668,
+      -0.07889917850494382,
+      -0.0005251013790257275,
+      -0.0023745674006403483,
+      -0.05005604558233834,
+      -0.015926245973071018
+    ],
+    "assessment": {
+      "tracking_pass": false,
+      "qos_numerical_pass": false,
+      "max_pj": 0.9008571129925786,
+      "worst_violation": 8.008571129925786,
+      "total_violation": 19.703551307646123,
+      "per_job_evidence_counts": [
+        21416,
+        19135,
+        14769,
+        12043
+      ],
+      "ordered_job_sections": [
+        "Resnet.infer.4",
+        "GPT2.infer.4",
+        "Llama.infer.4",
+        "Bloom.infer.4"
+      ],
+      "execution_status": "PARSED",
+      "execution_valid": true,
+      "numerical_feasible": false,
+      "evidence_status": "SUFFICIENT",
+      "evidence_sufficient": true,
+      "evidence_qualified_feasible": false,
+      "min_qos_observations_per_type": 1,
+      "statistical_reliability_established": false
+    },
+    "requested_P_R_weights": [
+      0.4335184064341515,
+      0.08425111017997121,
+      [
+        0.304689812060587,
+        0.21294901133598626,
+        0.23720966207463073,
+        0.24515151452879624
+      ]
+    ],
+    "effective_P_R_watts": [
+      433518,
+      84251
+    ],
+    "effective_dynamic_job_allocation": "Time-varying AQA allocation; not inferred from nominal weights",
+    "execution_id": "be9c220cb9f5dbe59c6d9028",
+    "runtime_seconds": 15.811253599997144
+  },
+  {
+    "candidate_id": "b004-local-0005",
+    "source": "local",
+    "elite_rank": null,
+    "region_id": "region-01",
+    "anchor": "b002-local-0001",
+    "targeted_probe": {
+      "anchor": "b002-local-0001",
+      "radius": 0.12
+    },
+    "unique_location_id": "84ea507ca9b110af940b0f78a82e45ea77a8fe8843ea580c64ac3d7fb01a3530",
+    "scenario_id": 3514694477,
+    "phase": "search",
+    "batch": 4,
+    "repeat_number": 0,
+    "state_before": "UNOBSERVED",
+    "state_after": "INFEASIBLE",
+    "decision_reason": "H1",
+    "prequery_timestamp": 1789437637.5284503,
+    "prequery_file_sha256": "5456bbe0b6c9af415f2ab30687c003e9e234369081f0884763b183c47d2c1585",
+    "v3_prediction": {
+      "mean_tracking": 0.003140513552352786,
+      "p90": 0.00775031466037035,
+      "pj": [
+        0.5335322618484497,
+        0.6503311395645142,
+        0.24548391997814178,
+        0.885585367679596
+      ],
+      "objective": 136.55358939337836
+    },
+    "corrected_behaviors": [
+      0.003140513552352786,
+      0.00775031466037035,
+      0.5335322618484497,
+      0.6503311395645142,
+      0.24548391997814178,
+      0.885585367679596
+    ],
+    "correction_uncertainty": null,
+    "actual": {
+      "mean_tracking": 0.0041016666666666,
+      "p90": 0.007,
+      "pj": [
+        0.2161568993696007,
+        0.8557541549074945,
+        0.07346966413867828,
+        0.8981896694901179
+      ],
+      "objective": 131.76051199258282
+    },
+    "v3_residual": [
+      0.0009611531143138138,
+      -0.0007503146603703497,
+      -0.317375362478849,
+      0.20542301534298035,
+      -0.1720142558394635,
+      0.012604301810521967
+    ],
+    "corrected_residual": [
+      0.0009611531143138138,
+      -0.0007503146603703497,
+      -0.317375362478849,
+      0.20542301534298035,
+      -0.1720142558394635,
+      0.012604301810521967
+    ],
+    "assessment": {
+      "tracking_pass": true,
+      "qos_numerical_pass": false,
+      "max_pj": 0.8981896694901179,
+      "worst_violation": 7.981896694901179,
+      "total_violation": 16.70100723767213,
+      "per_job_evidence_counts": [
+        21416,
+        19135,
+        14769,
+        12043
+      ],
+      "ordered_job_sections": [
+        "Resnet.infer.4",
+        "GPT2.infer.4",
+        "Llama.infer.4",
+        "Bloom.infer.4"
+      ],
+      "execution_status": "PARSED",
+      "execution_valid": true,
+      "numerical_feasible": false,
+      "evidence_status": "SUFFICIENT",
+      "evidence_sufficient": true,
+      "evidence_qualified_feasible": false,
+      "min_qos_observations_per_type": 1,
+      "statistical_reliability_established": false
+    },
+    "requested_P_R_weights": [
+      0.41972011727643965,
+      0.09798237982885297,
+      [
+        0.2911141390487995,
+        0.2646348843745343,
+        0.27276601098132774,
+        0.17148496559533866
+      ]
+    ],
+    "effective_P_R_watts": [
+      419720,
+      97982
+    ],
+    "effective_dynamic_job_allocation": "Time-varying AQA allocation; not inferred from nominal weights",
+    "execution_id": "b05312e306af0f6e0040468f",
+    "runtime_seconds": 16.460999300004914
+  },
+  {
+    "candidate_id": "b004-independent-0006",
+    "source": "independent",
+    "elite_rank": null,
+    "region_id": null,
+    "anchor": null,
+    "targeted_probe": {},
+    "unique_location_id": "9d4820ec85f64e6f93a62f93689fa1cb4e0ec86b4faf52a003669b86a5935f82",
+    "scenario_id": 3514694477,
+    "phase": "search",
+    "batch": 4,
+    "repeat_number": 0,
+    "state_before": "UNOBSERVED",
+    "state_after": "INFEASIBLE",
+    "decision_reason": "H1",
+    "prequery_timestamp": 1789437637.5284503,
+    "prequery_file_sha256": "5456bbe0b6c9af415f2ab30687c003e9e234369081f0884763b183c47d2c1585",
+    "v3_prediction": {
+      "mean_tracking": 0.018667837604880333,
+      "p90": 0.009233804419636726,
+      "pj": [
+        0.9684379696846008,
+        0.9545553922653198,
+        0.9282627105712891,
+        0.005591828376054764
+      ],
+      "objective": 146.56265347730505
+    },
+    "corrected_behaviors": [
+      0.018667837604880333,
+      0.009233804419636726,
+      0.9684379696846008,
+      0.9545553922653198,
+      0.9282627105712891,
+      0.005591828376054764
+    ],
+    "correction_uncertainty": null,
+    "actual": {
+      "mean_tracking": 0.0260602777777777,
+      "p90": 0.025,
+      "pj": [
+        0.959140789166472,
+        0.956673983484896,
+        0.9143418201516793,
+        0.0
+      ],
+      "objective": 145.83157296736536
+    },
+    "v3_residual": [
+      0.007392440172897367,
+      0.015766195580363275,
+      -0.009297180518128778,
+      0.002118591219576138,
+      -0.013920890419609755,
+      -0.005591828376054764
+    ],
+    "corrected_residual": [
+      0.007392440172897367,
+      0.015766195580363275,
+      -0.009297180518128778,
+      0.002118591219576138,
+      -0.013920890419609755,
+      -0.005591828376054764
+    ],
+    "assessment": {
+      "tracking_pass": true,
+      "qos_numerical_pass": false,
+      "max_pj": 0.959140789166472,
+      "worst_violation": 8.59140789166472,
+      "total_violation": 25.30156592803047,
+      "per_job_evidence_counts": [
+        21416,
+        19135,
+        14769,
+        12043
+      ],
+      "ordered_job_sections": [
+        "Resnet.infer.4",
+        "GPT2.infer.4",
+        "Llama.infer.4",
+        "Bloom.infer.4"
+      ],
+      "execution_status": "PARSED",
+      "execution_valid": true,
+      "numerical_feasible": false,
+      "evidence_status": "SUFFICIENT",
+      "evidence_sufficient": true,
+      "evidence_qualified_feasible": false,
+      "min_qos_observations_per_type": 1,
+      "statistical_reliability_established": false
+    },
+    "requested_P_R_weights": [
+      0.31842911719274547,
+      0.0969213758796444,
+      [
+        0.15944236845512502,
+        0.16094865587956114,
+        0.24414728650361245,
+        0.43546168916170136
+      ]
+    ],
+    "effective_P_R_watts": [
+      318429,
+      96921
+    ],
+    "effective_dynamic_job_allocation": "Time-varying AQA allocation; not inferred from nominal weights",
+    "execution_id": "82ec95f23a5560dbc90addf1",
+    "runtime_seconds": 18.939703500000178
+  },
+  {
+    "candidate_id": "b004-independent-0007",
+    "source": "independent",
+    "elite_rank": null,
+    "region_id": null,
+    "anchor": null,
+    "targeted_probe": {},
+    "unique_location_id": "9384b13cfd6de95e9e18be3d24dc88c342ffc320277901119ea96a08fe7bbecc",
+    "scenario_id": 3514694477,
+    "phase": "search",
+    "batch": 4,
+    "repeat_number": 0,
+    "state_before": "UNOBSERVED",
+    "state_after": "INFEASIBLE",
+    "decision_reason": "H1",
+    "prequery_timestamp": 1789437637.5284503,
+    "prequery_file_sha256": "5456bbe0b6c9af415f2ab30687c003e9e234369081f0884763b183c47d2c1585",
+    "v3_prediction": {
+      "mean_tracking": 0.003162194974720478,
+      "p90": 0.007553509436547756,
+      "pj": [
+        0.9689040184020996,
+        0.9540216326713562,
+        0.9312064051628113,
+        0.9280979633331299
+      ],
+      "objective": 163.96021033895937
+    },
+    "corrected_behaviors": [
+      0.003162194974720478,
+      0.007553509436547756,
+      0.9689040184020996,
+      0.9540216326713562,
+      0.9312064051628113,
+      0.9280979633331299
+    ],
+    "correction_uncertainty": null,
+    "actual": {
+      "mean_tracking": 0.0025088888888888,
+      "p90": 0.006,
+      "pj": [
+        0.9587205229978987,
+        0.9578237692066478,
+        0.9233477789815818,
+        0.9280850357083541
+      ],
+      "objective": 163.47135957802652
+    },
+    "v3_residual": [
+      -0.0006533060858316779,
+      -0.001553509436547756,
+      -0.010183495404200937,
+      0.0038021365352916003,
+      -0.007858626181229456,
+      -1.2927624775782576e-05
+    ],
+    "corrected_residual": [
+      -0.0006533060858316779,
+      -0.001553509436547756,
+      -0.010183495404200937,
+      0.0038021365352916003,
+      -0.007858626181229456,
+      -1.2927624775782576e-05
+    ],
+    "assessment": {
+      "tracking_pass": true,
+      "qos_numerical_pass": false,
+      "max_pj": 0.9587205229978987,
+      "worst_violation": 8.587205229978986,
+      "total_violation": 33.67977106894482,
+      "per_job_evidence_counts": [
+        21416,
+        19135,
+        14769,
+        12043
+      ],
+      "ordered_job_sections": [
+        "Resnet.infer.4",
+        "GPT2.infer.4",
+        "Llama.infer.4",
+        "Bloom.infer.4"
+      ],
+      "execution_status": "PARSED",
+      "execution_valid": true,
+      "numerical_feasible": false,
+      "evidence_status": "SUFFICIENT",
+      "evidence_sufficient": true,
+      "evidence_qualified_feasible": false,
+      "min_qos_observations_per_type": 1,
+      "statistical_reliability_established": false
+    },
+    "requested_P_R_weights": [
+      0.2525698996445478,
+      0.10209570447526362,
+      [
+        0.2070545354309533,
+        0.2324523384344418,
+        0.3067820052805891,
+        0.2537111208540158
+      ]
+    ],
+    "effective_P_R_watts": [
+      252570,
+      102096
+    ],
+    "effective_dynamic_job_allocation": "Time-varying AQA allocation; not inferred from nominal weights",
+    "execution_id": "461b84b53647c70a98876113",
+    "runtime_seconds": 19.96357240001089
+  },
+  {
+    "candidate_id": "v3-0150-0037",
+    "source": "V3 snapshot",
+    "elite_rank": null,
+    "region_id": "region-06",
+    "anchor": null,
+    "targeted_probe": {},
+    "unique_location_id": "df369a72e419ad9c28496a4850d9244c0a2f7d87aed7f10ac10ff5e08cd82b54",
+    "scenario_id": 3654258730,
+    "phase": "confirmation",
+    "batch": 1,
+    "repeat_number": null,
+    "state_before": "PROVISIONAL_FEASIBLE",
+    "state_after": "PROVISIONAL_FEASIBLE",
+    "decision_reason": "H1",
+    "prequery_timestamp": 1789437674.6531513,
+    "prequery_file_sha256": "e343c63c0b34a44c690090ccf19dc4f36f34aa4941038f496d0b508d81a35549",
+    "v3_prediction": {
+      "mean_tracking": 0.028221262618899345,
+      "p90": 0.037996936589479446,
+      "pj": [
+        0.002330939518287778,
+        0.004471775144338608,
+        0.00404141191393137,
+        0.003461028216406703
+      ],
+      "objective": 89.32440185546875
+    },
+    "corrected_behaviors": [
+      0.028221262618899345,
+      0.037996936589479446,
+      0.002330939518287778,
+      0.004471775144338608,
+      0.00404141191393137,
+      0.003461028216406703
+    ],
+    "correction_uncertainty": null,
+    "actual": {
+      "mean_tracking": 0.0752191666666666,
+      "p90": 0.296,
+      "pj": [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "objective": 89.95445122658873
+    },
+    "v3_residual": [
+      0.046997904047767255,
+      0.25800306341052054,
+      -0.002330939518287778,
+      -0.004471775144338608,
+      -0.00404141191393137,
+      -0.003461028216406703
+    ],
+    "corrected_residual": [
+      0.046997904047767255,
+      0.25800306341052054,
+      -0.002330939518287778,
+      -0.004471775144338608,
+      -0.00404141191393137,
+      -0.003461028216406703
+    ],
+    "assessment": {
+      "tracking_pass": true,
+      "qos_numerical_pass": true,
+      "max_pj": 0.0,
+      "worst_violation": 0.0,
+      "total_violation": 0.0,
+      "per_job_evidence_counts": [
+        21321,
+        19359,
+        14790,
+        11888
+      ],
+      "ordered_job_sections": [
+        "Resnet.infer.4",
+        "GPT2.infer.4",
+        "Llama.infer.4",
+        "Bloom.infer.4"
+      ],
+      "execution_status": "PARSED",
+      "execution_valid": true,
+      "numerical_feasible": true,
+      "evidence_status": "SUFFICIENT",
+      "evidence_sufficient": true,
+      "evidence_qualified_feasible": true,
+      "min_qos_observations_per_type": 1,
+      "statistical_reliability_established": false
+    },
+    "requested_P_R_weights": [
+      0.47039860486984253,
+      0.06066159904003143,
+      [
+        0.26837557554244995,
+        0.25136417150497437,
+        0.24770696461200714,
+        0.23255328834056854
+      ]
+    ],
+    "effective_P_R_watts": [
+      470399,
+      60662
+    ],
+    "effective_dynamic_job_allocation": "Time-varying AQA allocation; not inferred from nominal weights",
+    "execution_id": "00a8881f5d248d30c87d0b04",
+    "runtime_seconds": 12.472012599988375
+  },
+  {
+    "candidate_id": "v3-0150-0037",
+    "source": "V3 snapshot",
+    "elite_rank": null,
+    "region_id": "region-06",
+    "anchor": null,
+    "targeted_probe": {},
+    "unique_location_id": "df369a72e419ad9c28496a4850d9244c0a2f7d87aed7f10ac10ff5e08cd82b54",
+    "scenario_id": 2277863917,
+    "phase": "confirmation",
+    "batch": 2,
+    "repeat_number": null,
+    "state_before": "PROVISIONAL_FEASIBLE",
+    "state_after": "PROVISIONAL_FEASIBLE",
+    "decision_reason": "H1",
+    "prequery_timestamp": 1789437687.2473447,
+    "prequery_file_sha256": "ee73d9088957451717568190fad1988e9b59afe08d48f8e1939aa112d415cc80",
+    "v3_prediction": {
+      "mean_tracking": 0.028221262618899345,
+      "p90": 0.037996936589479446,
+      "pj": [
+        0.002330939518287778,
+        0.004471775144338608,
+        0.00404141191393137,
+        0.003461028216406703
+      ],
+      "objective": 89.32440185546875
+    },
+    "corrected_behaviors": [
+      0.028221262618899345,
+      0.037996936589479446,
+      0.002330939518287778,
+      0.004471775144338608,
+      0.00404141191393137,
+      0.003461028216406703
+    ],
+    "correction_uncertainty": null,
+    "actual": {
+      "mean_tracking": 0.0910224999999999,
+      "p90": 0.304,
+      "pj": [
+        0.0,
+        0.0,
+        0.0,
+        0.2523325902072495
+      ],
+      "objective": 95.26829565988757
+    },
+    "v3_residual": [
+      0.06280123738110055,
+      0.26600306341052055,
+      -0.002330939518287778,
+      -0.004471775144338608,
+      -0.00404141191393137,
+      0.24887156199084282
+    ],
+    "corrected_residual": [
+      0.06280123738110055,
+      0.26600306341052055,
+      -0.002330939518287778,
+      -0.004471775144338608,
+      -0.00404141191393137,
+      0.24887156199084282
+    ],
+    "assessment": {
+      "tracking_pass": false,
+      "qos_numerical_pass": false,
+      "max_pj": 0.2523325902072495,
+      "worst_violation": 1.5233259020724952,
+      "total_violation": 1.5366592354058286,
+      "per_job_evidence_counts": [
+        21268,
+        18951,
+        14838,
+        12112
+      ],
+      "ordered_job_sections": [
+        "Resnet.infer.4",
+        "GPT2.infer.4",
+        "Llama.infer.4",
+        "Bloom.infer.4"
+      ],
+      "execution_status": "PARSED",
+      "execution_valid": true,
+      "numerical_feasible": false,
+      "evidence_status": "SUFFICIENT",
+      "evidence_sufficient": true,
+      "evidence_qualified_feasible": false,
+      "min_qos_observations_per_type": 1,
+      "statistical_reliability_established": false
+    },
+    "requested_P_R_weights": [
+      0.47039860486984253,
+      0.06066159904003143,
+      [
+        0.26837557554244995,
+        0.25136417150497437,
+        0.24770696461200714,
+        0.23255328834056854
+      ]
+    ],
+    "effective_P_R_watts": [
+      470399,
+      60662
+    ],
+    "effective_dynamic_job_allocation": "Time-varying AQA allocation; not inferred from nominal weights",
+    "execution_id": "1f5c2c33a6a912776ec3b4db",
+    "runtime_seconds": 12.426714899993385
+  },
+  {
+    "candidate_id": "v3-0150-0037",
+    "source": "V3 snapshot",
+    "elite_rank": null,
+    "region_id": "region-06",
+    "anchor": null,
+    "targeted_probe": {},
+    "unique_location_id": "df369a72e419ad9c28496a4850d9244c0a2f7d87aed7f10ac10ff5e08cd82b54",
+    "scenario_id": 2932812093,
+    "phase": "confirmation",
+    "batch": 3,
+    "repeat_number": null,
+    "state_before": "PROVISIONAL_FEASIBLE",
+    "state_after": "PROVISIONAL_FEASIBLE",
+    "decision_reason": "H1",
+    "prequery_timestamp": 1789437699.8012943,
+    "prequery_file_sha256": "cf0b9f02b98e14dfbb56fa10ee082538bc22f9a929d2ebd9b91a7fb6b1d3614b",
+    "v3_prediction": {
+      "mean_tracking": 0.028221262618899345,
+      "p90": 0.037996936589479446,
+      "pj": [
+        0.002330939518287778,
+        0.004471775144338608,
+        0.00404141191393137,
+        0.003461028216406703
+      ],
+      "objective": 89.32440185546875
+    },
+    "corrected_behaviors": [
+      0.028221262618899345,
+      0.037996936589479446,
+      0.002330939518287778,
+      0.004471775144338608,
+      0.00404141191393137,
+      0.003461028216406703
+    ],
+    "correction_uncertainty": null,
+    "actual": {
+      "mean_tracking": 0.0730247222222222,
+      "p90": 0.263,
+      "pj": [
+        0.0,
+        0.009074788776468168,
+        0.0,
+        0.384565446725635
+      ],
+      "objective": 98.34772885850943
+    },
+    "v3_residual": [
+      0.044803459603322854,
+      0.22500306341052057,
+      -0.002330939518287778,
+      0.00460301363212956,
+      -0.00404141191393137,
+      0.38110441850922827
+    ],
+    "corrected_residual": [
+      0.044803459603322854,
+      0.22500306341052057,
+      -0.002330939518287778,
+      0.00460301363212956,
+      -0.00404141191393137,
+      0.38110441850922827
+    ],
+    "assessment": {
+      "tracking_pass": true,
+      "qos_numerical_pass": false,
+      "max_pj": 0.384565446725635,
+      "worst_violation": 2.8456544672563497,
+      "total_violation": 2.8456544672563497,
+      "per_job_evidence_counts": [
+        21461,
+        19175,
+        14761,
+        12324
+      ],
+      "ordered_job_sections": [
+        "Resnet.infer.4",
+        "GPT2.infer.4",
+        "Llama.infer.4",
+        "Bloom.infer.4"
+      ],
+      "execution_status": "PARSED",
+      "execution_valid": true,
+      "numerical_feasible": false,
+      "evidence_status": "SUFFICIENT",
+      "evidence_sufficient": true,
+      "evidence_qualified_feasible": false,
+      "min_qos_observations_per_type": 1,
+      "statistical_reliability_established": false
+    },
+    "requested_P_R_weights": [
+      0.47039860486984253,
+      0.06066159904003143,
+      [
+        0.26837557554244995,
+        0.25136417150497437,
+        0.24770696461200714,
+        0.23255328834056854
+      ]
+    ],
+    "effective_P_R_watts": [
+      470399,
+      60662
+    ],
+    "effective_dynamic_job_allocation": "Time-varying AQA allocation; not inferred from nominal weights",
+    "execution_id": "2cb9af105a22df935d9e1443",
+    "runtime_seconds": 12.462759200003347
+  }
+]

@@ -4,13 +4,13 @@ This report closes the authorized W2 development work. Independent verification 
 
 ## A. Git and software state
 
-Starting HEAD: `2c56cc1dadda273686252b6da732d4c386929e05`. Preservation tag: `v0.3.0-h1-closed`. Working branch: `argos-vnext-original-workloads`. Scientific development freeze: `4f2fc8e28bdf7adb66102e35647f139eb2548c8e`. Commit `f79efcc` only preserves LF bytes in the new evidence archives on Windows. The separate verification gate records the later recovery-safeguard source commit; the final handoff commit can be obtained with `git rev-parse HEAD` and is reported in the handoff receipt. A commit cannot contain its own final hash.
+Starting HEAD: `2c56cc1dadda273686252b6da732d4c386929e05`. Preservation tag: `v0.3.0-h1-closed`. Working branch: `argos-vnext-original-workloads`. Scientific development freeze: `4f2fc8e28bdf7adb66102e35647f139eb2548c8e`. Commit `f79efcc` only preserves LF bytes in the new evidence archives on Windows. Recovery safeguard and selected-choice commit: `fa4fe88f4031717dd015f18181fae1620f4e45a5`. The separate verification gate records this source commit; the final handoff commit can be obtained with `git rev-parse HEAD` and is reported in the handoff receipt. A commit cannot contain its own final hash.
 
 FlexDC is pinned to `525dc684d73ab0c6f6c479f5b54811ddf02f1221`; CONDOR-FLEXDC to `2b653facf31de356d8c682ee76d814bd81b8e95d`. Both dependency checkouts were clean at the gate. The checkpoint is best-feasibility epoch146, SHA256 `7f60e28dfc836053064c772c95acc56eb73999b145fa314e98f7b39cf4d0c38a`. The paper runtime uses Python3.12.4, torch2.4.1+cpu, numpy2.2.6, pandas2.2.2, scipy1.14.0, scikit-learn1.6.1. Full source/runtime/input identities are archived in the execution gates. No retraining occurred.
 
 ## B. Historical H1 preservation
 
-The complete before and after inventories cover the closed campaign and its report package: 31,018 files and 67,706,934,533 bytes. The expected aggregate is `66bf3e02900035ac02c9d5e64ddadf0764871443debf3fba8be36ac8a02beccb`. The final comparison receipt is [H1_PRESERVATION.json](vnext_development_results/H1_PRESERVATION.json); full per-file inventories remain under `runs/vnext_originals/manifests`. H1 source, old results, reports, closure receipts and reserved seeds are preserved. New evidence uses a separate directory and fresh disjoint seed pools.
+The complete before and after inventories cover the closed campaign and its report package: 31,018 files and 67,706,934,533 bytes. The before and after aggregate hashes match: `66bf3e02900035ac02c9d5e64ddadf0764871443debf3fba8be36ac8a02beccb`. The full after scan completed in540.891 seconds and confirmed every historical file and directory unchanged. The final comparison receipt is [H1_PRESERVATION.json](vnext_development_results/H1_PRESERVATION.json); full per-file inventories remain under `runs/vnext_originals/manifests`. H1 source, old results, reports, closure receipts and reserved seeds are preserved. New evidence uses a separate directory and fresh disjoint seed pools.
 
 ## C. Failure diagnosis
 
@@ -26,7 +26,7 @@ Fresh elites exposed qualified c005 points, but their returned E bid failed all 
 
 ## E. Correction ladder
 
-A predeclared prequential comparison fit each original context's earlier search batches and predicted only its next batch. No confirmations, mixed workloads, same-query labels, or cross-method temporal pooling entered training. C0 is identity; C1 is a local constant; C2 is local ridge; C3 uses six MatÃ©rn2.5 Gaussian processes with deterministic ridge fallback. Exact transformations, regularization, kernel bounds and selection criteria were fixed before fitting.
+A predeclared prequential comparison fit each original context's earlier search batches and predicted only its next batch. No confirmations, mixed workloads, same-query labels, or cross-method temporal pooling entered training. C0 is identity; C1 is a local constant; C2 is local ridge; C3 uses six Matern2.5 Gaussian processes with deterministic ridge fallback. Exact transformations, regularization, kernel bounds and selection criteria were fixed before fitting.
 
 Physical-space W2 normalized constraint MAE was .241031/.306220/.328700/.250292 for C0/C1/C2/C3; rank Spearman was .950397/.936508/.871032/.904762. None met the declared improvement criterion. **C0 was selected**, so no correction model was deployed and no artificial ERTC run was added. Held-out W2 batches had zero feasible points, limiting classification/discovery conclusions. This study does not prove that all correction methods are useless. Full per-fold behavior errors, uncertainty/fallback records and provenance are in the offline archive.
 

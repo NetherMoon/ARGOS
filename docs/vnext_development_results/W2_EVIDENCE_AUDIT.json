@@ -1,0 +1,13 @@
+{
+  "status": "PASS",
+  "completed_methods": 16,
+  "physical_observations": 527,
+  "search_observations": 512,
+  "confirmation_observations": 15,
+  "verified_files": 3932,
+  "original_only": true,
+  "scenario_membership": "PASS",
+  "same_geometry_scenario_groups": 108,
+  "matched_scenario_metric_differences": [],
+  "note": "Execution IDs may repeat across method directories; physical observations are counted by episode, not deduplicated across independently executed methods."
+}

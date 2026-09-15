@@ -1,0 +1,56 @@
+{
+  "method": "ERT",
+  "ranking": [
+    {
+      "method": "ERT",
+      "selection_key": [
+        -2,
+        -6,
+        -2,
+        -4,
+        58,
+        8,
+        3
+      ]
+    },
+    {
+      "method": "E",
+      "selection_key": [
+        0,
+        -1,
+        0,
+        -2,
+        84,
+        8,
+        1
+      ]
+    },
+    {
+      "method": "H1",
+      "selection_key": [
+        0,
+        -1,
+        0,
+        -1,
+        105,
+        12,
+        0
+      ]
+    },
+    {
+      "method": "ER",
+      "selection_key": [
+        0,
+        0,
+        0,
+        -2,
+        84,
+        16,
+        2
+      ]
+    }
+  ],
+  "protocol_sha256": "55cd13bc36f02d48c764db0df9c427166e1b8f7f52349fe86761ccca60c918c6",
+  "development_results_sha256": "a5641dce508d37f392f0ac4446d5cb9408406b1dff31824f9ec36bf87ba5944d",
+  "selection_rule": "Lexicographically maximize W2 contexts with >=2/3 confirmation passes, total confirmation passes, robust-search contexts, contexts with any search-qualified point; then minimize sum of first-qualified call indices (33 for none), sum of per-context selected-objective ranks (missing last), then mechanism count H1<E<ER<ERT. Confirmation labels select the method only, never an episode incumbent. No retuning after development."
+}
