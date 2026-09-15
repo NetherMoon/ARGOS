@@ -66,13 +66,25 @@ class LoggedRunner:
         return self.runner.evaluate_batch(candidates, seed, phase, batch)
 
 
-def gate():
+def gate_path(stage):
+    if stage not in {"development", "verification"}:
+        raise ValueError("Unknown scientific stage")
+    return (
+        BASE
+        / "manifests"
+        / ("execution_gate.json" if stage == "development" else "verification_gate.json")
+    )
+
+
+def gate(stage="development"):
     if git(ROOT, "status", "--porcelain"):
         raise ValueError("Commit implementation and protocol before sealing execution")
     protocol = read_json(PROTOCOL)
     for case in protocol["cases"]:
         validate_case(case)
-    log = BASE / "reports/all_tests.log"
+    log = (
+        BASE / "reports" / ("all_tests.log" if stage == "development" else "verification_tests.log")
+    )
     if (
         not log.exists()
         or "failed" in log.read_text().splitlines()[-1]
@@ -91,12 +103,26 @@ def gate():
         "tests_sha256": sha256(log),
         "h1_preservation_sha256": sha256(BASE / "manifests/h1_before.json"),
     }
-    immutable_json(BASE / "manifests/execution_gate.json", value)
+    value["stage"] = stage
+    if stage == "verification":
+        choice = read_json(ROOT / "configs/vnext/selected.json")
+        if choice["protocol_sha256"] != sha256(PROTOCOL):
+            raise ValueError("Selected configuration protocol changed")
+        value["choice_sha256"] = sha256(ROOT / "configs/vnext/selected.json")
+        value["development_gate_sha256"] = sha256(gate_path("development"))
+    immutable_json(gate_path(stage), value)
     print("Execution gate sealed.", flush=True)
 
 
-def audit_gate():
-    g = read_json(BASE / "manifests/execution_gate.json")
+def audit_gate(stage="development"):
+    g = read_json(gate_path(stage))
+    if g.get("stage", "development") != stage:
+        raise ValueError("Execution gate stage mismatch")
+    if stage == "verification" and (
+        g["choice_sha256"] != sha256(ROOT / "configs/vnext/selected.json")
+        or g["development_gate_sha256"] != sha256(gate_path("development"))
+    ):
+        raise ValueError("Frozen choice or development gate changed")
     if (
         sha256(PROTOCOL) != g["protocol_sha256"]
         or sha256(ROOT / "configs/vnext/seed_ledger.json") != g["ledger_sha256"]
@@ -112,7 +138,7 @@ def audit_gate():
 
 
 def run(stage):
-    g = audit_gate()
+    g = audit_gate(stage)
     protocol = read_json(PROTOCOL)
     directory = BASE / ("w2_development" if stage == "development" else "originals_verification")
     pause = BASE / "PAUSE"
@@ -192,7 +218,7 @@ def run(stage):
                     {
                         "case": case,
                         "method": method,
-                        "gate_sha256": sha256(BASE / "manifests/execution_gate.json"),
+                        "gate_sha256": sha256(gate_path(stage)),
                         "bank_id": bank_case["bank_id"],
                         "bank_seconds": meta["wall_seconds"],
                         "bank_reused": True,
@@ -373,7 +399,7 @@ def main():
     if args.command == "prepare":
         prepare()
     elif args.command == "gate":
-        gate()
+        gate(args.stage)
     elif args.command == "run":
         run(args.stage)
     elif args.command == "select":

@@ -339,6 +339,16 @@ class NextController:
                         s["stop_reason"] = "No search-robust incumbent within 32 calls"
                     self.save()
                     continue
+                if (
+                    s["pending"] is None
+                    and s["search_calls"] + self.config.batch_size > self.config.max_search_calls
+                ):
+                    s["phase"] = "ERROR"
+                    s["stop_reason"] = (
+                        "Abandoned physical attempts leave insufficient budget for the next fixed batch; review preserved evidence"
+                    )
+                    self.save()
+                    continue
                 if s["pending"] is None:
                     query_path = self.episode / "prequery" / f"batch_{s['batch'] + 1:03d}.json"
                     if query_path.exists():
@@ -360,9 +370,25 @@ class NextController:
                 for seed in dict.fromkeys(e["seed"] for e in frozen["entries"]):
                     entries = [e for e in frozen["entries"] if e["seed"] == seed]
                     candidates = [candidate_from_dict(e["candidate"]) for e in entries]
-                    actual = self.simulator.evaluate_batch(
-                        candidates, seed, "search", frozen["batch"]
-                    )
+                    try:
+                        actual = self.simulator.evaluate_batch(
+                            candidates, seed, "search", frozen["batch"]
+                        )
+                    except RuntimeError as exc:
+                        if "Insufficient remaining budget to retry interrupted batch" not in str(
+                            exc
+                        ):
+                            raise
+                        s["phase"] = "ERROR"
+                        s["stop_reason"] = (
+                            "Hard-crash retries exhausted the physical search budget; review preserved evidence"
+                        )
+                        if hasattr(self.simulator, "search_attempts"):
+                            s["search_calls"] = max(
+                                s["search_calls"], self.simulator.search_attempts()
+                            )
+                        self.save()
+                        return s
                     if len(actual) != len(candidates) or any(
                         o.candidate != c or o.seed != seed or o.phase != "search"
                         for o, c in zip(actual, candidates)
