@@ -1,0 +1,8 @@
+seed,selection_index,selection_method,selection_root_seed,confirmation_role,already_used
+2720817509,1,"Python random.Random(root).randrange(1,2**32); reject prior ledger/history membership and duplicates",20260919,NEW,false
+422443260,2,"Python random.Random(root).randrange(1,2**32); reject prior ledger/history membership and duplicates",20260919,NEW,false
+3463391848,3,"Python random.Random(root).randrange(1,2**32); reject prior ledger/history membership and duplicates",20260919,NEW,false
+1507332087,4,"Python random.Random(root).randrange(1,2**32); reject prior ledger/history membership and duplicates",20260919,NEW,false
+598775175,5,"Python random.Random(root).randrange(1,2**32); reject prior ledger/history membership and duplicates",20260919,NEW,false
+3385754323,6,"Python random.Random(root).randrange(1,2**32); reject prior ledger/history membership and duplicates",20260919,NEW,false
+2812640469,7,"Python random.Random(root).randrange(1,2**32); reject prior ledger/history membership and duplicates",20260919,NEW,false

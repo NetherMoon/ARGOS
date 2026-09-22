@@ -1,0 +1,299 @@
+{
+  "schema": 1,
+  "phase1_directory": "runs/diagnostics/w2_workload_seed_forensics_20260918T230805_755114Z",
+  "phase1_manifest_sha256": "17cbb1e1d34a6fe2f0b24ce309c8b221263eaa87d761df08c0c24d9de87330b4",
+  "phase1_zip_sha256": "a19b0af50806a81e0cf1bcf73263e0bcb3f9a4975d7ff440108eae218695d418",
+  "repo_shas": {
+    "ARGOS": "6c95e4b77eebbf25f32522c5836d69759f225963",
+    "FlexDC": "525dc684d73ab0c6f6c479f5b54811ddf02f1221",
+    "CONDOR-FLEXDC": "2b653facf31de356d8c682ee76d814bd81b8e95d"
+  },
+  "runtime": {
+    "python": "3.12.4",
+    "numpy": "2.2.6",
+    "pandas": "2.2.2"
+  },
+  "fixed": {
+    "duration_seconds": 3600,
+    "N": 1000,
+    "U": 0.6,
+    "iso_start_hour": 16,
+    "randomize_iso_start": false,
+    "time_granularity": 1,
+    "workload_trace": "poisson"
+  },
+  "experiment_path": ".deps/FlexDC/configs/experiment/new_iso/traditional_signal/generated_server_counts/exp_traditional_iso16_servers_1000.ini",
+  "cluster_path": ".deps/FlexDC/configs/cluster/cluster.ini",
+  "grid_path": ".deps/FlexDC/data/1-17-2025_traditional.csv",
+  "policy": "AQA",
+  "policy_parameters": {
+    "node_count_control": true
+  },
+  "replay_absolute_tolerance": 1e-12,
+  "replay_relative_tolerance": 0,
+  "cases": [
+    {
+      "case": "c005",
+      "workload": "W2-short-qos5_4.5_4_3.5",
+      "workload_path": "runs/vnext_originals/workloads/W2-short-qos5_4.5_4_3.5.ini",
+      "workload_sha256": "432b2d7a9f3eb87d305692001c25b83efa4db49387149d3f0ef523bf6ea10c15",
+      "N": 1000,
+      "U": 0.6,
+      "candidate_id": "b4-target-0-003",
+      "Pbar": 0.473702073097229,
+      "R": 0.10366622393131254,
+      "weights": [
+        0.26254186034202576,
+        0.2516586482524872,
+        0.2489594668149948,
+        0.23684002459049225
+      ],
+      "seeds": [
+        1841060571,
+        2381098110,
+        2495920665
+      ],
+      "historical": [
+        {
+          "seed": 1841060571,
+          "reason": "Confirmed pass; lowest historical Bloom Pj",
+          "p90": 0.285,
+          "Pj": [
+            0.0,
+            0.06880049400504296,
+            0.0,
+            0.011801861702127714
+          ],
+          "objective": 87.67387938485652,
+          "evidence_counts": [
+            21437,
+            19434,
+            14786,
+            12033
+          ],
+          "evidence_qualified_pass": true,
+          "source_artifact": "runs/vnext_originals/late_passing_candidates_six_confirmations/results.json",
+          "source_observation_index": 1,
+          "source_sha256": "a9519c06743f09e3a811f69a5e3fb8fce01b22056a0b1af0f4c20b1b285cb49d",
+          "initial_job_table_hash": "733acce37d9fa18c138252df092ab46676aef42a82c88021e8af319c353fcdc3",
+          "arrival_hash": "6558add4aea59248ae15e3568753c28e186d02a951caf28c201cd62cc451010d"
+        },
+        {
+          "seed": 2381098110,
+          "reason": "Failure with highest Bloom arrival count",
+          "p90": 0.28,
+          "Pj": [
+            0.0,
+            0.0,
+            0.00026741542987018807,
+            0.27013871988318316
+          ],
+          "objective": 91.83407321824811,
+          "evidence_counts": [
+            21138,
+            19184,
+            14959,
+            12328
+          ],
+          "evidence_qualified_pass": false,
+          "source_artifact": "runs/vnext_originals/late_passing_candidates_six_confirmations/results.json",
+          "source_observation_index": 0,
+          "source_sha256": "a9519c06743f09e3a811f69a5e3fb8fce01b22056a0b1af0f4c20b1b285cb49d",
+          "initial_job_table_hash": "1306c7bcdca7892a1b5bc7ccc7bb6349cb0684ec1c7b558778f9f05bd923851d",
+          "arrival_hash": "e7c135911173d73544a80d2d742e0494d26155aa026dbc3322b77e2259277132"
+        },
+        {
+          "seed": 2495920665,
+          "reason": "Higher-Pj failure with nearly the same heavy Bloom count",
+          "p90": 0.275,
+          "Pj": [
+            0.0,
+            0.0,
+            0.002125116217293055,
+            0.32371535094828985
+          ],
+          "objective": 92.97213264199843,
+          "evidence_counts": [
+            21521,
+            19046,
+            15059,
+            12339
+          ],
+          "evidence_qualified_pass": false,
+          "source_artifact": "runs/vnext_originals/late_passing_candidates_six_confirmations/results.json",
+          "source_observation_index": 2,
+          "source_sha256": "a9519c06743f09e3a811f69a5e3fb8fce01b22056a0b1af0f4c20b1b285cb49d",
+          "initial_job_table_hash": "3a225e2c4b10926925bbd8b21c2cc2503cb92e26149749f768178075ad6f7b5f",
+          "arrival_hash": "685051458468011eb50488f619a1ff5d63d82514a364a73853d72d5d1150fac6"
+        }
+      ]
+    },
+    {
+      "case": "c007",
+      "workload": "W2-short-qos5555",
+      "workload_path": "runs/vnext_originals/workloads/W2-short-qos5555.ini",
+      "workload_sha256": "086a98b3cf7733c3ac08220bb606ca59e6c583cefb06b59518ebc706856cfdeb",
+      "N": 1000,
+      "U": 0.6,
+      "candidate_id": "b4-target-0-003",
+      "Pbar": 0.47039860486984253,
+      "R": 0.06610638229846953,
+      "weights": [
+        0.26837557554244995,
+        0.25136417150497437,
+        0.24770696461200714,
+        0.23255328834056854
+      ],
+      "seeds": [
+        3514694477,
+        1004088181,
+        624506888
+      ],
+      "historical": [
+        {
+          "seed": 3514694477,
+          "reason": "Original pass with favorable Bloom outcome",
+          "p90": 0.293,
+          "Pj": [
+            0.0,
+            0.0,
+            0.0,
+            0.03238664673642255
+          ],
+          "objective": 90.0297579097633,
+          "evidence_counts": [
+            21416,
+            19135,
+            14769,
+            12043
+          ],
+          "evidence_qualified_pass": true,
+          "source_artifact": "runs/vnext_originals/w2_development/cases/c007/ERT/vnext_state.json",
+          "source_observation_index": 25,
+          "source_sha256": "c6c799f36aea93a0faf4ca761d37fba2f207e7e3ac69f7f3cdde0fed52cb3198",
+          "initial_job_table_hash": "19448b9f7c33ca2f38ff87a0cd7386bdc5b1ffb217dded64a9044625f8764df3",
+          "arrival_hash": "5bb7e0c7fdebf7ac861a6c89d20c93256230d428f649e9810c40f036ed6f8ac3"
+        },
+        {
+          "seed": 1004088181,
+          "reason": "Failure with only six more Bloom Poisson arrivals and lower max60s than the pass",
+          "p90": 0.293,
+          "Pj": [
+            0.0,
+            0.0,
+            0.0,
+            0.24219009637753408
+          ],
+          "objective": 94.40510158157987,
+          "evidence_counts": [
+            21384,
+            19130,
+            14804,
+            12037
+          ],
+          "evidence_qualified_pass": false,
+          "source_artifact": "runs/vnext_originals/late_passing_candidates_six_confirmations/results.json",
+          "source_observation_index": 5,
+          "source_sha256": "a9519c06743f09e3a811f69a5e3fb8fce01b22056a0b1af0f4c20b1b285cb49d",
+          "initial_job_table_hash": "246de7d12f517928bbea9a5214718afa5994d59bf38ed50713bc1560453bd384",
+          "arrival_hash": "e030a093cd229189b804d90b0a9d32433dd3f11ac59f4512c428c03a28fe49c1"
+        },
+        {
+          "seed": 624506888,
+          "reason": "Failure with largest observed Bloom max60s burst",
+          "p90": 0.3,
+          "Pj": [
+            0.0,
+            0.04333761232349165,
+            0.0,
+            0.22621895883177956
+          ],
+          "objective": 94.83580726451116,
+          "evidence_counts": [
+            21313,
+            19476,
+            15021,
+            12122
+          ],
+          "evidence_qualified_pass": false,
+          "source_artifact": "runs/vnext_originals/late_passing_candidates_six_confirmations/results.json",
+          "source_observation_index": 3,
+          "source_sha256": "a9519c06743f09e3a811f69a5e3fb8fce01b22056a0b1af0f4c20b1b285cb49d",
+          "initial_job_table_hash": "97a3ee66f0a638c7a4cf1ac3ff54534fc173a924c740d77920f9c1f0ea835de5",
+          "arrival_hash": "a493e072b96d33b025004a305279eea57326e08e3c91e78cf5ffb95c3c4ed7db"
+        }
+      ]
+    }
+  ],
+  "files": {
+    ".deps/FlexDC/src/peacsim/create_tables.py": "8161c0d1e3b34ba7dadfc01635361ba22cf22718d341efae928d36bcb9e58728",
+    ".deps/FlexDC/src/peacsim/parsing/experiment_config_reader.py": "0af78a923fe4e513fd42f78c58389338a6b12982f23bb1d026c279e46b508bd1",
+    ".deps/FlexDC/src/peacsim/parsing/job_profile_reader.py": "d0eb7023857b8683e24332f1eb2aca7185a31f791e0278e36652bcc741dd8f43",
+    ".deps/FlexDC/src/peacsim/parsing/parsing_utils.py": "48d333775273ef5a0d17dc8fefbf2e3ea6ce44fbb9e725e560462bf438b86788",
+    ".deps/FlexDC/src/peacsim/am_data_extraction_wizard.py": "26270c6769893a9542f105e2709043f64d54d8df7314222b447a10c481e3b1dd",
+    ".deps/FlexDC/src/peacsim/simulator.py": "9c92fc5507934c10cf2fd63f1c9eb8a5503a9ab95492f56944fa7cfbf7f844c4",
+    ".deps/FlexDC/src/peacsim/scheduler.py": "d98021fee27268d8f22b48bf401798cedee5a7be6ec0699e295dd13b683178c0",
+    ".deps/FlexDC/src/peacsim/runtime_policy_new.py": "6b910cfca04eb5f6ba4d7812b37040dea26ab5584e89dd8bb56f8104dc7d1028",
+    ".deps/FlexDC/src/peacsim/aqa_runtimepolicy.py": "e19410e0a7a6306aa5dbffb2d73079c08b67ad327568ce9ed669edfc5b645266",
+    ".deps/FlexDC/src/peacsim/iso_signal.py": "e4e08697d8c19f5aa481e6f9cb7d9575ba9de1552287395b50d691a9e739960f",
+    ".deps/FlexDC/configs/experiment/new_iso/traditional_signal/generated_server_counts/exp_traditional_iso16_servers_1000.ini": "e358c47a2fb3f33d6480ef8175d8373117b02916a2c2215e36dea85531b62a7e",
+    "runs/vnext_originals/workloads/W2-short-qos5_4.5_4_3.5.ini": "432b2d7a9f3eb87d305692001c25b83efa4db49387149d3f0ef523bf6ea10c15",
+    "runs/vnext_originals/workloads/W2-short-qos5555.ini": "086a98b3cf7733c3ac08220bb606ca59e6c583cefb06b59518ebc706856cfdeb",
+    ".deps/FlexDC/data/1-17-2025_traditional.csv": "b33e986fa6410b715fc86cd7f3c2e868c42a7379e6cd8eeea99fa81211000413",
+    ".deps/FlexDC/configs/cluster/cluster.ini": "da8643388be4618a538d6dc6c0a006ee2d62d64064f47d3a209d83c05d3393d5",
+    "configs/canonical_cost_source.ini": "f20f3f78f53cca79d29c8b077747df86d9a23dc5bf19a5870142154c9b0567c4",
+    "configs/canonical_cost_source.json": "56244d45acb6fb8e54f85d8fb762d3568f1c7a7f465a30206ad620f37d7d3ba6",
+    "src/argos/contracts.py": "dfd6a14cb72c5f649bcfa0078dbb6da89b9a7761251ffc8b72c70236a31a2841",
+    "src/argos/types.py": "030ab7a72d225dd83832d6e8401944d9042c7453be56ab9c36df4e643c52ddaf",
+    "src/argos/simulator/evidence.py": "9a593828effcae930fbc209c5836891af2347dbbccc6b97cd189418e1f31f859",
+    "src/argos/simulator/configuration.py": "021983831bf73428eec81174757a1facab142df788a07d04eb26c040b0370959",
+    "src/argos/diagnostics/workload_seed_forensics.py": "6a670beb436af017fdf372ae1619a1d7d5baf8f01b31b58232317ef0a9043225",
+    "configs/diagnostics/w2_seed_forensics.json": "98d3bf06c33a76e81d65aab79ac5e437129c2b30072f41543a3805365581f720",
+    "configs/diagnostics/w2_seed_historical_outcomes.csv": "3b7ffd9c862e4c652b4833d309b24b3b7e139469b6de68559a00e6f720fd9a70",
+    ".deps/FlexDC/src/peacsim/AQA_runtime_policy.py": "e40ca00bd19ac9bf9b29d4e939f222beabbaab0cf6f40ca6dd849ea9e76c91e2",
+    ".deps/FlexDC/src/peacsim/calculate_monetary_cost.py": "fffff0c4e15cc2a6ccd7ff2826a768ea765b38ab9e425ef822fec1c51349bba9",
+    ".deps/FlexDC/src/peacsim/calculate_qos_cost.py": "14d767d2f3f778da8cfaa213d87f9ebe96d4adbdaceda75c82c1e2b872aa32af",
+    ".deps/FlexDC/src/peacsim/denormalize_PR.py": "73e72875d7e8f231730c0cd71c1a3f0670408636a3bb43ba9f1707a27f56022c",
+    ".deps/FlexDC/src/peacsim/energy_cost_calculator.py": "6ae751258586f1794bdb6c6959a90bb16c668e71b49c0d93a37840fa13aac737",
+    ".deps/FlexDC/src/peacsim/extract_power_metrics.py": "715c5cdab1cd29301f86f375a70e98f956e00c7ef65c06a0658dad7aed46f555",
+    ".deps/FlexDC/src/peacsim/extract_qos_metrics.py": "f766e38022fb3fa2ba73cb08e7df9e0a444a97642beb62b08bc11cf149ae370a",
+    ".deps/FlexDC/src/peacsim/flex_resource_policy.py": "ed77c207b522f66ba35fd41a2c0829abc65160b0a8bc739bc46db62f0c6f3f12",
+    ".deps/FlexDC/src/peacsim/gradient_descent.py": "d544e583b54a0b23e79ad1d764e8dc8fbf43504aec248a5b1fe0dbcf8103a3b2",
+    ".deps/FlexDC/src/peacsim/gradient_descent_collab.py": "449b6240cf084c5ee2a6a2a5288873d25428ba8a5eafb0bfb26d9adb8c121309",
+    ".deps/FlexDC/src/peacsim/gradient_descent_plot.py": "c4cbe0d820a861921d9f6a7c9f5ee41fbeb34c1956e916b6c4f2a1e807d93623",
+    ".deps/FlexDC/src/peacsim/grid_search.py": "03af85c4f4be8c580af800e67551d1d72300274924b44fd05dd0c099aa38ce54",
+    ".deps/FlexDC/src/peacsim/job_table_dao.py": "925e27998c2a17852e1d623c696b3dcbb1dcbe88dd457626d9f91ecbcd071d74",
+    ".deps/FlexDC/src/peacsim/macros.py": "916f7d7ccdc8b8609db4aef54e9db527bf781b6c9bc95d8d1639145da3beae28",
+    ".deps/FlexDC/src/peacsim/node_table_dao.py": "ae31a1d45bad3aba63a456f3d0757808dd8d35374f3e1f7bb6cd826e921ef938",
+    ".deps/FlexDC/src/peacsim/policy_refactor_testing.py": "0ca640d8d2632817d8b4d962c28f2e53f671732ad318193c35cc303edae5d124",
+    ".deps/FlexDC/src/peacsim/power_capper.py": "20913775bd222ad4f96e5d498545e4b70317c264ae2c108b5226612a31b00526",
+    ".deps/FlexDC/src/peacsim/priority_cap_policy.py": "10ec048267d02de3c879bb163bb4925864bbe03f1dc16ec5b0eabb6bdd98e788",
+    ".deps/FlexDC/src/peacsim/proportional_cap_policy.py": "25f8a1adf3ca6afc605ba9d1a0bd717e345e2f032f229ec842677c1d22007f53",
+    ".deps/FlexDC/src/peacsim/runtime_policy.py": "6e4a014e537de942d05d9db2caae5118197c847c082eaa7128cd556b8dc7cd35",
+    ".deps/FlexDC/src/peacsim/run_gradient_descent_optimizer.py": "4d4331f92da68f85a3a90670d1c45576fe95eac689f08391f9075d0068232345",
+    ".deps/FlexDC/src/peacsim/run_simulator.py": "6e521c5084d6ad6a4c5ff967b12993b0171a1f340cedbce5f8a62ab09073a6bb",
+    ".deps/FlexDC/src/peacsim/run_simulator_old.py": "b70547cf1daed55b567ce35519a3b1b261654b0393a5d34b2a932dd2d739ca58",
+    ".deps/FlexDC/src/peacsim/simulated_annealing.py": "e5471d928c3139bf5d218e919d6760ab4756e91cec0323af26cfcf616849b16d",
+    ".deps/FlexDC/src/peacsim/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    ".deps/FlexDC/src/peacsim/notebooks/evaluate_flex_resource.py": "e9970241dc3c3a8ca15dbbb662c4610774c96e32fc7e9755f349402c297d5da9",
+    ".deps/FlexDC/src/peacsim/notebooks/experiment_data_reader.py": "2beaf1e28b26eeeb144dc6c7164d1d5b93130474f2a0574daf997fb9ba2d31cc",
+    ".deps/FlexDC/src/peacsim/notebooks/flex_resource_analysis.py": "9a1f1f25c3e69ace28202d9e58065926e5548f8489461e5cf750aa2380d2a87a",
+    ".deps/FlexDC/src/peacsim/notebooks/plotting_helpers.py": "e90a336a89ede617b280554b3ca4718af92012726e0653e125ab445b21249a59",
+    ".deps/FlexDC/src/peacsim/notebooks/plot_iso_signal_types.py": "33204d78411f82c8abc4f9a5a7f61476437df5fea796a0511c04b64f91b1ae5a",
+    ".deps/FlexDC/src/peacsim/notebooks/plot_simulation.py": "0947dd96fa626ee9b53b2134931beed21688b06f3c49b98d09fb0a06a29209f3",
+    ".deps/FlexDC/src/peacsim/notebooks/qos_cdf_plot.py": "8918462b381dc84293e03aa485629d0b6efcf9069f1a1b56adc51429ea956259",
+    ".deps/FlexDC/src/peacsim/parsing/cluster_profile_reader.py": "abf0fdf2af1973872a029d3d40f5d63792623f8ca96827b278cad5ef8396aa07",
+    ".deps/FlexDC/src/peacsim/parsing/gradient_descent_reader.py": "70e7412ed546cbb20d7a08d5f409b89307c507e0cc65559327189c4991d19df4",
+    ".deps/FlexDC/src/peacsim/parsing/policy_config_reader.py": "1fcbf3d34283b88b8867fd8beb6e38e03bf097b46de004532af66d046b5cb8b8",
+    ".deps/FlexDC/src/peacsim/parsing/simulated_annealing_reader.py": "202f061d8ab34b7c80809f82a8860bd12c37860a9ad328c382cd2b6e1edf6c8b",
+    ".deps/FlexDC/src/peacsim/parsing/workload_writer.py": "ec0b013fa1b990dc23de17027889f6f389f1400b68c760ff3449769fee52d083",
+    ".deps/FlexDC/src/peacsim/parsing/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "historical_sources": {
+    "runs/vnext_originals/w2_development/cases/c005/ERT/vnext_state.json": "590b8223dccdb715d966056beef0f49e6fb3784840fbc8042097df88603b8bb9",
+    "runs/vnext_originals/late_candidate_four_repeats/results.json": "53a24a3d0df812c8d45b358fa64dc82d9f638c787327bf36084ed462e7a06651",
+    "runs/vnext_originals/late_passing_candidates_six_confirmations/results.json": "a9519c06743f09e3a811f69a5e3fb8fce01b22056a0b1af0f4c20b1b285cb49d",
+    "runs/vnext_originals/w2_development/cases/c007/ERT/vnext_state.json": "c6c799f36aea93a0faf4ca761d37fba2f207e7e3ac69f7f3cdde0fed52cb3198"
+  },
+  "pre_setup_status": "?? configs/diagnostics/\n?? docs/WORKLOAD_SEED_FORENSICS.md\n?? scripts/analyze_workload_seed_variation.py\n?? src/argos/diagnostics/\n?? tests/unit/test_workload_seed_forensics.py"
+}

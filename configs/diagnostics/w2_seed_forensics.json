@@ -1,0 +1,91 @@
+{
+  "schema": 1,
+  "setup_repositories": {
+    "ARGOS": {
+      "sha": "6c95e4b77eebbf25f32522c5836d69759f225963",
+      "status": "",
+      "status_before_setup": "clean"
+    },
+    "FlexDC": {
+      "sha": "525dc684d73ab0c6f6c479f5b54811ddf02f1221",
+      "status": ""
+    },
+    "CONDOR-FLEXDC": {
+      "sha": "2b653facf31de356d8c682ee76d814bd81b8e95d",
+      "status": ""
+    }
+  },
+  "contexts": [
+    {
+      "case": "c005",
+      "workload": "W2-short-qos5_4.5_4_3.5",
+      "workload_path": "runs/vnext_originals/workloads/W2-short-qos5_4.5_4_3.5.ini",
+      "workload_sha256": "432b2d7a9f3eb87d305692001c25b83efa4db49387149d3f0ef523bf6ea10c15",
+      "N": 1000,
+      "U": 0.6
+    },
+    {
+      "case": "c007",
+      "workload": "W2-short-qos5555",
+      "workload_path": "runs/vnext_originals/workloads/W2-short-qos5555.ini",
+      "workload_sha256": "086a98b3cf7733c3ac08220bb606ca59e6c583cefb06b59518ebc706856cfdeb",
+      "N": 1000,
+      "U": 0.6
+    }
+  ],
+  "experiment_path": ".deps/FlexDC/configs/experiment/new_iso/traditional_signal/generated_server_counts/exp_traditional_iso16_servers_1000.ini",
+  "files": {
+    ".deps/FlexDC/src/peacsim/create_tables.py": "8161c0d1e3b34ba7dadfc01635361ba22cf22718d341efae928d36bcb9e58728",
+    ".deps/FlexDC/src/peacsim/parsing/experiment_config_reader.py": "0af78a923fe4e513fd42f78c58389338a6b12982f23bb1d026c279e46b508bd1",
+    ".deps/FlexDC/src/peacsim/parsing/job_profile_reader.py": "d0eb7023857b8683e24332f1eb2aca7185a31f791e0278e36652bcc741dd8f43",
+    ".deps/FlexDC/src/peacsim/parsing/parsing_utils.py": "48d333775273ef5a0d17dc8fefbf2e3ea6ce44fbb9e725e560462bf438b86788",
+    ".deps/FlexDC/src/peacsim/am_data_extraction_wizard.py": "26270c6769893a9542f105e2709043f64d54d8df7314222b447a10c481e3b1dd",
+    ".deps/FlexDC/src/peacsim/simulator.py": "9c92fc5507934c10cf2fd63f1c9eb8a5503a9ab95492f56944fa7cfbf7f844c4",
+    ".deps/FlexDC/src/peacsim/scheduler.py": "d98021fee27268d8f22b48bf401798cedee5a7be6ec0699e295dd13b683178c0",
+    ".deps/FlexDC/src/peacsim/runtime_policy_new.py": "6b910cfca04eb5f6ba4d7812b37040dea26ab5584e89dd8bb56f8104dc7d1028",
+    ".deps/FlexDC/src/peacsim/aqa_runtimepolicy.py": "e19410e0a7a6306aa5dbffb2d73079c08b67ad327568ce9ed669edfc5b645266",
+    ".deps/FlexDC/src/peacsim/iso_signal.py": "e4e08697d8c19f5aa481e6f9cb7d9575ba9de1552287395b50d691a9e739960f",
+    ".deps/FlexDC/configs/experiment/new_iso/traditional_signal/generated_server_counts/exp_traditional_iso16_servers_1000.ini": "e358c47a2fb3f33d6480ef8175d8373117b02916a2c2215e36dea85531b62a7e",
+    "runs/vnext_originals/workloads/W2-short-qos5_4.5_4_3.5.ini": "432b2d7a9f3eb87d305692001c25b83efa4db49387149d3f0ef523bf6ea10c15",
+    "runs/vnext_originals/workloads/W2-short-qos5555.ini": "086a98b3cf7733c3ac08220bb606ca59e6c583cefb06b59518ebc706856cfdeb",
+    ".deps/FlexDC/data/1-17-2025_traditional.csv": "b33e986fa6410b715fc86cd7f3c2e868c42a7379e6cd8eeea99fa81211000413",
+    ".deps/FlexDC/configs/cluster/cluster.ini": "da8643388be4618a538d6dc6c0a006ee2d62d64064f47d3a209d83c05d3393d5"
+  },
+  "historical_sources": {
+    "runs/vnext_originals/w2_development/cases/c005/ERT/vnext_state.json": "590b8223dccdb715d966056beef0f49e6fb3784840fbc8042097df88603b8bb9",
+    "runs/vnext_originals/late_candidate_four_repeats/results.json": "53a24a3d0df812c8d45b358fa64dc82d9f638c787327bf36084ed462e7a06651",
+    "runs/vnext_originals/late_passing_candidates_six_confirmations/results.json": "a9519c06743f09e3a811f69a5e3fb8fce01b22056a0b1af0f4c20b1b285cb49d",
+    "runs/vnext_originals/w2_development/cases/c007/ERT/vnext_state.json": "c6c799f36aea93a0faf4ca761d37fba2f207e7e3ac69f7f3cdde0fed52cb3198"
+  },
+  "historical_csv": "configs/diagnostics/w2_seed_historical_outcomes.csv",
+  "historical_csv_sha256": "3b7ffd9c862e4c652b4833d309b24b3b7e139469b6de68559a00e6f720fd9a70",
+  "missing_historical_artifacts": [],
+  "seed_panel": [
+    144392579,
+    624506888,
+    709520479,
+    1004088181,
+    1768413673,
+    1841060571,
+    2043325904,
+    2381098110,
+    2495920665,
+    3514694477
+  ],
+  "seed_panel_rule": "Ascending numeric union of all recovered seeds for the two exact candidates: two original search, two fresh repeats, six confirmations. No fillers needed.",
+  "fixed": {
+    "duration_seconds": 3600,
+    "N": 1000,
+    "U": 0.6,
+    "iso_start_hour": 16,
+    "randomize_iso_start": false,
+    "time_granularity": 1,
+    "workload_trace": "poisson"
+  },
+  "runtime": {
+    "python": "3.12.4",
+    "numpy": "2.2.6"
+  },
+  "generator": "peacsim.create_tables.init_job_table -> init_job_table_poisson",
+  "lineage_checks": "Dependency commits/clean status, workload hashes, canonical experiment overlay source hash, fixed context, ISO and cluster hashes, and recent raw receipt input hashes matched. No old campaign rehash."
+}

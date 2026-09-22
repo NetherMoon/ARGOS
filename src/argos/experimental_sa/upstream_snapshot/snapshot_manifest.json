@@ -1,0 +1,141 @@
+{
+  "copied_utc": "2026-09-19T17:51:40.507750+00:00",
+  "files": [
+    {
+      "repository": "FlexDC",
+      "sha": "525dc684d73ab0c6f6c479f5b54811ddf02f1221",
+      "original_path": "src/peacsim/simulated_annealing.py",
+      "snapshot_path": "src/argos/experimental_sa/upstream_snapshot/simulated_annealing.py",
+      "sha256": "e5471d928c3139bf5d218e919d6760ab4756e91cec0323af26cfcf616849b16d",
+      "reason": "SA execution, objective, metric, RNG or policy lineage audit"
+    },
+    {
+      "repository": "FlexDC",
+      "sha": "525dc684d73ab0c6f6c479f5b54811ddf02f1221",
+      "original_path": "src/peacsim/simulator.py",
+      "snapshot_path": "src/argos/experimental_sa/upstream_snapshot/simulator.py",
+      "sha256": "9c92fc5507934c10cf2fd63f1c9eb8a5503a9ab95492f56944fa7cfbf7f844c4",
+      "reason": "SA execution, objective, metric, RNG or policy lineage audit"
+    },
+    {
+      "repository": "FlexDC",
+      "sha": "525dc684d73ab0c6f6c479f5b54811ddf02f1221",
+      "original_path": "src/peacsim/calculate_monetary_cost.py",
+      "snapshot_path": "src/argos/experimental_sa/upstream_snapshot/calculate_monetary_cost.py",
+      "sha256": "fffff0c4e15cc2a6ccd7ff2826a768ea765b38ab9e425ef822fec1c51349bba9",
+      "reason": "SA execution, objective, metric, RNG or policy lineage audit"
+    },
+    {
+      "repository": "FlexDC",
+      "sha": "525dc684d73ab0c6f6c479f5b54811ddf02f1221",
+      "original_path": "src/peacsim/calculate_qos_cost.py",
+      "snapshot_path": "src/argos/experimental_sa/upstream_snapshot/calculate_qos_cost.py",
+      "sha256": "14d767d2f3f778da8cfaa213d87f9ebe96d4adbdaceda75c82c1e2b872aa32af",
+      "reason": "SA execution, objective, metric, RNG or policy lineage audit"
+    },
+    {
+      "repository": "FlexDC",
+      "sha": "525dc684d73ab0c6f6c479f5b54811ddf02f1221",
+      "original_path": "src/peacsim/extract_qos_metrics.py",
+      "snapshot_path": "src/argos/experimental_sa/upstream_snapshot/extract_qos_metrics.py",
+      "sha256": "f766e38022fb3fa2ba73cb08e7df9e0a444a97642beb62b08bc11cf149ae370a",
+      "reason": "SA execution, objective, metric, RNG or policy lineage audit"
+    },
+    {
+      "repository": "FlexDC",
+      "sha": "525dc684d73ab0c6f6c479f5b54811ddf02f1221",
+      "original_path": "src/peacsim/extract_power_metrics.py",
+      "snapshot_path": "src/argos/experimental_sa/upstream_snapshot/extract_power_metrics.py",
+      "sha256": "715c5cdab1cd29301f86f375a70e98f956e00c7ef65c06a0658dad7aed46f555",
+      "reason": "SA execution, objective, metric, RNG or policy lineage audit"
+    },
+    {
+      "repository": "FlexDC",
+      "sha": "525dc684d73ab0c6f6c479f5b54811ddf02f1221",
+      "original_path": "src/peacsim/denormalize_PR.py",
+      "snapshot_path": "src/argos/experimental_sa/upstream_snapshot/denormalize_PR.py",
+      "sha256": "73e72875d7e8f231730c0cd71c1a3f0670408636a3bb43ba9f1707a27f56022c",
+      "reason": "SA execution, objective, metric, RNG or policy lineage audit"
+    },
+    {
+      "repository": "FlexDC",
+      "sha": "525dc684d73ab0c6f6c479f5b54811ddf02f1221",
+      "original_path": "src/peacsim/AQA_runtime_policy.py",
+      "snapshot_path": "src/argos/experimental_sa/upstream_snapshot/AQA_runtime_policy.py",
+      "sha256": "e40ca00bd19ac9bf9b29d4e939f222beabbaab0cf6f40ca6dd849ea9e76c91e2",
+      "reason": "SA execution, objective, metric, RNG or policy lineage audit"
+    },
+    {
+      "repository": "FlexDC",
+      "sha": "525dc684d73ab0c6f6c479f5b54811ddf02f1221",
+      "original_path": "src/peacsim/runtime_policy.py",
+      "snapshot_path": "src/argos/experimental_sa/upstream_snapshot/runtime_policy.py",
+      "sha256": "6e4a014e537de942d05d9db2caae5118197c847c082eaa7128cd556b8dc7cd35",
+      "reason": "SA execution, objective, metric, RNG or policy lineage audit"
+    },
+    {
+      "repository": "FlexDC",
+      "sha": "525dc684d73ab0c6f6c479f5b54811ddf02f1221",
+      "original_path": "src/peacsim/aqa_runtimepolicy.py",
+      "snapshot_path": "src/argos/experimental_sa/upstream_snapshot/aqa_runtimepolicy.py",
+      "sha256": "e19410e0a7a6306aa5dbffb2d73079c08b67ad327568ce9ed669edfc5b645266",
+      "reason": "SA execution, objective, metric, RNG or policy lineage audit"
+    },
+    {
+      "repository": "FlexDC",
+      "sha": "525dc684d73ab0c6f6c479f5b54811ddf02f1221",
+      "original_path": "src/peacsim/runtime_policy_new.py",
+      "snapshot_path": "src/argos/experimental_sa/upstream_snapshot/runtime_policy_new.py",
+      "sha256": "6b910cfca04eb5f6ba4d7812b37040dea26ab5584e89dd8bb56f8104dc7d1028",
+      "reason": "SA execution, objective, metric, RNG or policy lineage audit"
+    },
+    {
+      "repository": "FlexDC",
+      "sha": "525dc684d73ab0c6f6c479f5b54811ddf02f1221",
+      "original_path": "src/peacsim/scheduler.py",
+      "snapshot_path": "src/argos/experimental_sa/upstream_snapshot/scheduler.py",
+      "sha256": "d98021fee27268d8f22b48bf401798cedee5a7be6ec0699e295dd13b683178c0",
+      "reason": "SA execution, objective, metric, RNG or policy lineage audit"
+    },
+    {
+      "repository": "FlexDC",
+      "sha": "525dc684d73ab0c6f6c479f5b54811ddf02f1221",
+      "original_path": "src/peacsim/create_tables.py",
+      "snapshot_path": "src/argos/experimental_sa/upstream_snapshot/create_tables.py",
+      "sha256": "8161c0d1e3b34ba7dadfc01635361ba22cf22718d341efae928d36bcb9e58728",
+      "reason": "SA execution, objective, metric, RNG or policy lineage audit"
+    },
+    {
+      "repository": "FlexDC",
+      "sha": "525dc684d73ab0c6f6c479f5b54811ddf02f1221",
+      "original_path": "src/peacsim/run_simulator.py",
+      "snapshot_path": "src/argos/experimental_sa/upstream_snapshot/run_simulator.py",
+      "sha256": "6e521c5084d6ad6a4c5ff967b12993b0171a1f340cedbce5f8a62ab09073a6bb",
+      "reason": "SA execution, objective, metric, RNG or policy lineage audit"
+    },
+    {
+      "repository": "FlexDC",
+      "sha": "525dc684d73ab0c6f6c479f5b54811ddf02f1221",
+      "original_path": "src/peacsim/am_data_extraction_wizard.py",
+      "snapshot_path": "src/argos/experimental_sa/upstream_snapshot/am_data_extraction_wizard.py",
+      "sha256": "26270c6769893a9542f105e2709043f64d54d8df7314222b447a10c481e3b1dd",
+      "reason": "SA execution, objective, metric, RNG or policy lineage audit"
+    },
+    {
+      "repository": "FlexDC",
+      "sha": "525dc684d73ab0c6f6c479f5b54811ddf02f1221",
+      "original_path": "src/peacsim/iso_signal.py",
+      "snapshot_path": "src/argos/experimental_sa/upstream_snapshot/iso_signal.py",
+      "sha256": "e4e08697d8c19f5aa481e6f9cb7d9575ba9de1552287395b50d691a9e739960f",
+      "reason": "SA execution, objective, metric, RNG or policy lineage audit"
+    },
+    {
+      "repository": "FlexDC",
+      "sha": "525dc684d73ab0c6f6c479f5b54811ddf02f1221",
+      "original_path": "src/peacsim/parsing/simulated_annealing_reader.py",
+      "snapshot_path": "src/argos/experimental_sa/upstream_snapshot/parsing/simulated_annealing_reader.py",
+      "sha256": "202f061d8ab34b7c80809f82a8860bd12c37860a9ad328c382cd2b6e1edf6c8b",
+      "reason": "SA execution, objective, metric, RNG or policy lineage audit"
+    }
+  ]
+}

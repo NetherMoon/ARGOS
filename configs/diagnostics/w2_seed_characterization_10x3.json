@@ -1,0 +1,68 @@
+{
+  "schema": 1,
+  "phase": "2B",
+  "phase1_directory": "runs/diagnostics/w2_workload_seed_forensics_20260918T230805_755114Z",
+  "phase2_directory": "runs/diagnostics/w2_seed_factorization_20260919T002931_161214Z",
+  "phase1_manifest_sha256": "17cbb1e1d34a6fe2f0b24ce309c8b221263eaa87d761df08c0c24d9de87330b4",
+  "phase2_manifest_sha256": "16e9233fe606114ff1b2f449c14205679bcea1f34da12b2df7c02f7456981e28",
+  "phase1_zip_sha256": "a19b0af50806a81e0cf1bcf73263e0bcb3f9a4975d7ff440108eae218695d418",
+  "phase2_zip_sha256": "4f403ab4ead37a57261a8de0072a2f2bc7315a1477fd68efbb4debfe22b3f788",
+  "panel_path": "configs/diagnostics/w2_characterization_new_seed_panel.csv",
+  "panel_sha256": "29790167f9e3870224a4fdaa443a63f71bdd1592f638711358867dd6222141d8",
+  "new_seeds": [
+    2720817509,
+    422443260,
+    3463391848,
+    1507332087,
+    598775175,
+    3385754323,
+    2812640469
+  ],
+  "selection_root_seed": 20260919,
+  "exclusion_ledgers": {
+    "configs/campaigns/seed_ledger_v1.json": "6c6af5412070623c5b8fcf6eb4223a4169b86bdd702e32731ebf803d5a33f4b6",
+    "configs/vnext/seed_ledger.json": "0695fbcae13f99d7512bda042179dd0f1babd1b02f98de7b5cb008ba4708d985"
+  },
+  "excluded_count": 701,
+  "historical_seed_union": [
+    144392579,
+    624506888,
+    709520479,
+    1004088181,
+    1768413673,
+    1841060571,
+    2043325904,
+    2381098110,
+    2495920665,
+    3514694477
+  ],
+  "repo_shas": {
+    "ARGOS": "6c95e4b77eebbf25f32522c5836d69759f225963",
+    "FlexDC": "525dc684d73ab0c6f6c479f5b54811ddf02f1221",
+    "CONDOR-FLEXDC": "2b653facf31de356d8c682ee76d814bd81b8e95d"
+  },
+  "phase2_tool_baseline": {
+    "scripts/run_w2_seed_factorization.py": "1f7685c8075e7fb6425fab50241528dcfeb1f85da2ad98fa20bd1278fabf8aff",
+    "src/argos/diagnostics/seed_factorization.py": "68b7f9975eccf007d77c8fff29d4c86f52c75b7ae14c5525e12dd42fbd34460e",
+    "src/argos/diagnostics/seed_factorization_worker.py": "41241ae5b11002d0ad089cdaf1aba5173821e8b4db75ae3f2a583ab8a1751f17",
+    "src/argos/diagnostics/seed_factorization_reporting.py": "e93db8b563ddab7f7de0afac5de2ab8b5a4abd7e9a034decbab91d7c6f0da7c0",
+    "docs/W2_SEED_FACTORIZATION.md": "2c29bca93edbacb8f5e7576a8a459d51444b20d2984ad2479d3f106ca01534a3"
+  },
+  "old_fixed_confirmation_seeds": {
+    "c005": [
+      2381098110,
+      1841060571,
+      2495920665
+    ],
+    "c007": [
+      624506888,
+      144392579,
+      1004088181
+    ]
+  },
+  "maximum_new_runs": 56,
+  "planned_counts": {
+    "COUPLED_NEW": 14,
+    "FACTORIZATION_NEW": 42
+  }
+}
