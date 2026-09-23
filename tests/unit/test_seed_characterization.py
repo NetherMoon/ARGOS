@@ -12,12 +12,18 @@ from argos.diagnostics import seed_characterization as sc
 from argos.diagnostics import seed_characterization_reporting as report
 from argos.diagnostics.seed_factorization_worker import create_initial, run_cell
 from argos.diagnostics.workload_seed_forensics import table_hash
+from argos.provenance import git, read_json
 
 ROOT = Path(__file__).resolve().parents[2]
 
 
 @pytest.fixture(scope="module")
 def inputs():
+    frozen = read_json(ROOT / "configs/diagnostics/w2_seed_factorization.json")
+    if git(ROOT, "rev-parse", "HEAD") != frozen["repo_shas"]["ARGOS"]:
+        pytest.skip(
+            "Phase 2B setup tests require the archived ARGOS commit pinned in their specification"
+        )
     return sc.load_inputs(ROOT)
 
 

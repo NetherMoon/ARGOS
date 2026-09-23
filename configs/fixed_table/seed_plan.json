@@ -1,0 +1,31 @@
+{
+  "schema": 1,
+  "selection_method": "Python 3.12 random.Random(20260922).randrange(1,2**32), sequential rejection against all listed prior integers and selected values",
+  "root_seed": 20260922,
+  "excluded_source_sha256": {
+    "configs/campaigns/seed_ledger_v1.json": "6c6af5412070623c5b8fcf6eb4223a4169b86bdd702e32731ebf803d5a33f4b6",
+    "configs/vnext/seed_ledger.json": "0695fbcae13f99d7512bda042179dd0f1babd1b02f98de7b5cb008ba4708d985",
+    "configs/diagnostics/w2_characterization_new_seed_panel.csv": "29790167f9e3870224a4fdaa443a63f71bdd1592f638711358867dd6222141d8",
+    "configs/diagnostics/w2_seed_historical_outcomes.csv": "3b7ffd9c862e4c652b4833d309b24b3b7e139469b6de68559a00e6f720fd9a70",
+    "runs/experiments/phase3_sa_arrival_uncertainty_20260919T192854_241405Z/seed_plan.json": "1317d3067de3465bc551fc98c8fe6c3a07d5a3e9179832ac40784a9b2b6e428f",
+    "runs/experiments/phase3b_sa_repeatability_20260920T013845_702021Z/seed_plan.json": "24cd6d6faf89cb1fe38643b12a1eb6e37e7413b3b9dc2f9355fea17fc9de7514",
+    "runs/experiments/phase3c_shared_scenario_final_20260921T030010_482207Z/seed_plan.json": "f41ba8d399f3bbbfff999790e8fc6e4fe39c4b7a3ef479e5bbe5853c8a4b4189"
+  },
+  "excluded_count": 1711,
+  "arrival_seeds": [
+    3883208862,
+    3090083691,
+    2888586026
+  ],
+  "search_runtime_seed": 3122970382,
+  "final_runtime_seeds": [
+    1551038600,
+    439454967,
+    3928942722
+  ],
+  "controller_seeds": {
+    "W2-short-qos5_4.5_4_3.5": 2173799794,
+    "W2-short-qos5555": 33078245
+  },
+  "controller_randomness": "One candidate seed per workload reused across all three arrival-table episodes; V3 bank and each batch draw use this seed"
+}

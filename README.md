@@ -1,5 +1,9 @@
 # ARGOS
 
+**Current W2 research workflow:** [fixed-job-table ARGOS](docs/ARGOS_FIXED_JOB_TABLE.md).
+It uses a separate command and a frozen initial job table per episode. The
+ordinary `argos run` command below retains its original behavior.
+
 **Adaptive Region-Guided Optimization Search** combines a frozen CONDOR/FlexDC
 Behavior Model V3 with bounded batches of real FlexDC simulations. V3 proposes
 candidate regions. ARGOS preserves diversity, probes those regions, and refines

@@ -1,4 +1,9 @@
-# Phase 3C — shared-scenario candidate evaluation
+# Phase 3C — shared-scenario candidate evaluation (SHELVED)
+
+This prepared campaign was cancelled for the current research direction after the
+Kerim meeting. Its source and completed setup smoke evidence are preserved. The
+launcher now requires explicit acknowledgement before its long run can start.
+The active workflow is [fixed-job-table ARGOS](ARGOS_FIXED_JOB_TABLE.md).
 
 Phase 3C is the final simulated-annealing methodology experiment before ARGOS development.
 It compares naive one-fresh-arrival evaluation against a shared three-arrival panel held for
@@ -15,4 +20,3 @@ new coupled arrival/runtime seeds shared across every selected candidate.
 All schedules and plans are frozen before the real integration smoke. The full user-run command
 is resumable, executes independent trajectories concurrently, and keeps each trajectory itself
 sequential.
-

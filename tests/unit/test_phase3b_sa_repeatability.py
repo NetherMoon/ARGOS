@@ -6,10 +6,11 @@ import csv
 from pathlib import Path
 
 import pandas as pd
+import pytest
 
+from argos.experimental_sa.phase3.planning import EXPECTED_SHAS, collect_prior_seeds
 from argos.experimental_sa.phase3b.planning import (
     EVALUATIONS,
-    PHASE3,
     PHASE3_ARRIVAL_SCHEDULE_SHA256,
     _collect_seed_values,
     _generate_seed_plan,
@@ -21,14 +22,19 @@ from argos.experimental_sa.phase3b.reporting import (
     JOBS,
     _assessment_summaries,
     _build_report,
-    _plots,
     _paired,
+    _plots,
     _repeatability,
     build_zip,
 )
-from argos.experimental_sa.phase3.planning import collect_prior_seeds
+from argos.provenance import git
 
 ROOT = Path(__file__).resolve().parents[2]
+
+
+def require_archived_phase3_head():
+    if git(ROOT, "rev-parse", "HEAD") != EXPECTED_SHAS["ARGOS"]:
+        pytest.skip("Phase 3B plan creation requires its archived Phase 3 ARGOS commit")
 
 
 def read_csv(path: Path) -> list[dict]:
@@ -37,16 +43,23 @@ def read_csv(path: Path) -> list[dict]:
 
 
 def test_phase3_artifacts_load_and_schedule_hash_matches():
+    require_archived_phase3_head()
     value = verify_phase3_provenance(ROOT)
     assert value["phase3_manifest"]["status"] == "COMPLETE"
-    assert value["phase3_manifest"]["repo_shas"]["ARGOS"] == "6c95e4b77eebbf25f32522c5836d69759f225963"
+    assert (
+        value["phase3_manifest"]["repo_shas"]["ARGOS"] == "6c95e4b77eebbf25f32522c5836d69759f225963"
+    )
     assert value["phase3_contract"]["simulator_policy_contract"] == "normal_v3_argos_aqa"
     assert value["phase3_seed_plan"]["training_runtime_seed"] == 3609882979
     assert len(value["arrival_schedule"]) == EVALUATIONS
-    assert PHASE3_ARRIVAL_SCHEDULE_SHA256 == "464225850c667f6566da4719661d91e9f96cd0c007c6a8b012e7bad1430db349"
+    assert (
+        PHASE3_ARRIVAL_SCHEDULE_SHA256
+        == "464225850c667f6566da4719661d91e9f96cd0c007c6a8b012e7bad1430db349"
+    )
 
 
 def test_new_seed_plan_is_deterministic_new_and_frozen():
+    require_archived_phase3_head()
     phase3 = verify_phase3_provenance(ROOT)
     prior = collect_prior_seeds(ROOT) | _collect_seed_values(phase3["phase3_seed_plan"])
     first = _generate_seed_plan(prior)
@@ -74,6 +87,7 @@ def test_search_draws_are_matched_by_reference_and_distinct_by_replicate():
 
 
 def test_full_plan_has_exact_budget_and_no_replicate1_optimization(tmp_path):
+    require_archived_phase3_head()
     experiment = create_plan(ROOT, tmp_path / "phase3b")
     replicates = read_csv(experiment / "replicate_plan.csv")
     optimization = read_csv(experiment / "optimization_run_plan.csv")
@@ -93,7 +107,11 @@ def test_full_plan_has_exact_budget_and_no_replicate1_optimization(tmp_path):
     assert len({x["arrival_seed"] for x in fixed}) == 1
     for replicate in [2, 3]:
         for label in ["A", "B"]:
-            rows = [x for x in replicates if int(x["replicate"]) == replicate and x["case_label"] == label]
+            rows = [
+                x
+                for x in replicates
+                if int(x["replicate"]) == replicate and x["case_label"] == label
+            ]
             assert len(rows) == 2
             assert rows[0]["search_draw_schedule"] == rows[1]["search_draw_schedule"]
             assert rows[0]["search_draw_schedule_sha256"] == rows[1]["search_draw_schedule_sha256"]
@@ -102,7 +120,9 @@ def test_full_plan_has_exact_budget_and_no_replicate1_optimization(tmp_path):
 def synthetic_assessment() -> pd.DataFrame:
     rows = []
     for case in ["c005", "c007"]:
-        for role in ["starting"] + [f"replicate_{r}_{m}" for r in (1, 2, 3) for m in ("fixed", "varying")]:
+        for role in ["starting"] + [
+            f"replicate_{r}_{m}" for r in (1, 2, 3) for m in ("fixed", "varying")
+        ]:
             replicate = 0 if role == "starting" else int(role.split("_")[1])
             method = "starting" if role == "starting" else role.rsplit("_", 1)[1]
             for seed in range(20):
@@ -153,6 +173,7 @@ def test_compact_zip_excludes_simulator_scratch(tmp_path):
     path = build_zip(experiment)
     assert path.exists()
     import zipfile
+
     with zipfile.ZipFile(path) as archive:
         names = archive.namelist()
     assert any(name.endswith("manifest.json") for name in names)
@@ -189,4 +210,3 @@ def test_plots_and_report_generate_from_synthetic_results(tmp_path):
     assert "Cross-replicate findings" in report
     assert "Average metric feasibility and complete-scenario pass frequency" in report
     assert "Suggested next experiment" in report
-

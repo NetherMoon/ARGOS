@@ -63,13 +63,21 @@ class NextController:
         repeat_seeds,
         variant="ERT",
         correction=None,
+        fixed_table_single_seed=False,
     ):
         correction = correction or CorrectionSpec()
         if variant not in {"ER", "ERT", "ERTC"}:
             raise ValueError("Invalid vNext variant")
         if variant == "ERTC" and correction.model == "C0":
             raise ValueError("A no-correction duplicate is not an ablation")
-        if (
+        if fixed_table_single_seed:
+            if (
+                repeat_seeds
+                or len(config.confirmation_seeds) != 3
+                or len({config.search_seed, *config.confirmation_seeds}) != 4
+            ):
+                raise ValueError("Fixed-table search requires no repeats and three fresh checks")
+        elif (
             len(repeat_seeds) != 3
             or len({config.search_seed, *repeat_seeds, *config.confirmation_seeds}) != 7
         ):
@@ -90,6 +98,7 @@ class NextController:
         self.predictor = predictor
         self.elites = elites
         self.repeat_seeds = repeat_seeds
+        self.fixed_table_single_seed = fixed_table_single_seed
         self.variant = variant
         self.correction_spec = correction if variant == "ERTC" else CorrectionSpec()
         self.episode.mkdir(parents=True, exist_ok=True)
@@ -116,6 +125,10 @@ class NextController:
                 "regions": [],
             }
         )
+        mode = "FIXED_TABLE_SINGLE_SEED" if fixed_table_single_seed else "VNEXT_RACING"
+        if self.state.get("mode", mode) != mode:
+            raise ValueError("Controller recovery mode changed")
+        self.state["mode"] = mode
         self.start = time.perf_counter()
         self.previous = self.state["timing"]["active_wall"]
         self.save()
@@ -134,8 +147,15 @@ class NextController:
         rng = np.random.default_rng(np.random.SeedSequence([config.candidate_seed, batch]))
         obs = [o for o in self.observations() if o.phase == "search"]
         used = [o.candidate for o in obs]
-        clustered = sorted(groups(obs), key=robust_rank)
-        robust = any(scenario_status(g) == "SEARCH_ROBUST_FEASIBLE" for g in clustered)
+        clustered = sorted(
+            groups(obs),
+            key=(lambda g: observation_rank(g[0])) if self.fixed_table_single_seed else robust_rank,
+        )
+        robust = (
+            any(qualified(o) for o in obs)
+            if self.fixed_table_single_seed
+            else any(scenario_status(g) == "SEARCH_ROBUST_FEASIBLE" for g in clustered)
+        )
         model = Correction(domain, self.correction_spec)
         fit_start = time.perf_counter()
         model.fit(obs)
@@ -145,7 +165,7 @@ class NextController:
         repeat = []
         # Exactly 8 potential racing slots: 2+3+3. Unused repeat slots become
         # exploration when there is no qualified or near-boundary candidate.
-        repeat_slots = {1: 0, 2: 2, 3: 3, 4: 3}[batch]
+        repeat_slots = 0 if self.fixed_table_single_seed else {1: 0, 2: 2, 3: 3, 4: 3}[batch]
         if repeat_slots:
             for g in clustered:
                 status = scenario_status(g)
@@ -316,27 +336,48 @@ class NextController:
             s = self.state
             if s["phase"] == "SEARCH":
                 if s["batch"] == 4:
-                    clustered = sorted(groups(self.observations()), key=robust_rank)
-                    robust = [
-                        g for g in clustered if scenario_status(g) == "SEARCH_ROBUST_FEASIBLE"
-                    ]
+                    clustered = sorted(
+                        groups(self.observations()),
+                        key=(lambda g: observation_rank(g[0]))
+                        if self.fixed_table_single_seed
+                        else robust_rank,
+                    )
+                    robust = (
+                        [g for g in clustered if qualified(g[0])]
+                        if self.fixed_table_single_seed
+                        else [
+                            g for g in clustered if scenario_status(g) == "SEARCH_ROBUST_FEASIBLE"
+                        ]
+                    )
                     s["search_statuses"] = [
                         {
                             "candidate_id": g[0].candidate.candidate_id,
-                            "status": scenario_status(g),
+                            "status": (
+                                "SEARCH_OBSERVED_FEASIBLE"
+                                if qualified(g[0])
+                                else "INFEASIBLE"
+                                if g[0].valid
+                                else "INVALID_EVIDENCE"
+                            )
+                            if self.fixed_table_single_seed
+                            else scenario_status(g),
                             "scenarios": len({o.seed for o in g}),
                         }
                         for g in clustered
                     ]
                     if robust:
                         s["incumbent"] = asdict(robust[0][0].candidate)
-                        s["phase"] = "CONFIRM"
+                        s["phase"] = "DONE" if self.fixed_table_single_seed else "CONFIRM"
                         immutable_json(
                             self.episode / "final/selected_candidate.json", s["incumbent"]
                         )
                     else:
                         s["phase"] = "NO_BID"
-                        s["stop_reason"] = "No search-robust incumbent within 32 calls"
+                        s["stop_reason"] = (
+                            "No feasible bid found within 32 fixed-table calls"
+                            if self.fixed_table_single_seed
+                            else "No search-robust incumbent within 32 calls"
+                        )
                     self.save()
                     continue
                 if (
