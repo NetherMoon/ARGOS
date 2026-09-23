@@ -1,0 +1,12 @@
+{
+  "schema": 1,
+  "source": "pinned FlexDC original V3 workload and ISO16 experiment files",
+  "files": {
+    ".deps/FlexDC/configs/workload/W1-train-qos3333.ini": "f166c1b1719f4321fcfc33c063e2716599f61dc3c1ab7f6a2bfaf394e4384f1d",
+    ".deps/FlexDC/configs/workload/W1-train-qos4444.ini": "27337bc0143e9b41efcc0970ac953ecfd9a82ba65222fcf09677ff55b58e3d09",
+    ".deps/FlexDC/configs/workload/W2-short-qos5_4.5_4_3.5.ini": "432b2d7a9f3eb87d305692001c25b83efa4db49387149d3f0ef523bf6ea10c15",
+    ".deps/FlexDC/configs/workload/W2-short-qos5555.ini": "086a98b3cf7733c3ac08220bb606ca59e6c583cefb06b59518ebc706856cfdeb",
+    ".deps/FlexDC/configs/experiment/new_iso/traditional_signal/generated_server_counts/exp_traditional_iso16_servers_250.ini": "2850ce43e8c57a52939949e3517dd2f55ca7d6f2c636802071e46f8f78d6f521",
+    ".deps/FlexDC/configs/experiment/new_iso/traditional_signal/generated_server_counts/exp_traditional_iso16_servers_1000.ini": "e358c47a2fb3f33d6480ef8175d8373117b02916a2c2215e36dea85531b62a7e"
+  }
+}

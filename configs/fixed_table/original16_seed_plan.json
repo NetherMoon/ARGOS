@@ -1,0 +1,39 @@
+{
+  "schema": 1,
+  "role": "ORIGINAL16_BREADTH_VALIDATION",
+  "selection_method": "Python 3.12 random.Random(20260924).randrange(1,2**32), sequential rejection against listed prior seed ledgers and selections; established search runtime seed reused",
+  "root_seed": 20260924,
+  "excluded_source_sha256": {
+    "configs/campaigns/seed_ledger_v1.json": "6c6af5412070623c5b8fcf6eb4223a4169b86bdd702e32731ebf803d5a33f4b6",
+    "configs/vnext/seed_ledger.json": "0695fbcae13f99d7512bda042179dd0f1babd1b02f98de7b5cb008ba4708d985",
+    "configs/diagnostics/w2_characterization_new_seed_panel.csv": "29790167f9e3870224a4fdaa443a63f71bdd1592f638711358867dd6222141d8",
+    "configs/diagnostics/w2_seed_historical_outcomes.csv": "3b7ffd9c862e4c652b4833d309b24b3b7e139469b6de68559a00e6f720fd9a70",
+    "runs/experiments/phase3_sa_arrival_uncertainty_20260919T192854_241405Z/seed_plan.json": "1317d3067de3465bc551fc98c8fe6c3a07d5a3e9179832ac40784a9b2b6e428f",
+    "runs/experiments/phase3b_sa_repeatability_20260920T013845_702021Z/seed_plan.json": "24cd6d6faf89cb1fe38643b12a1eb6e37e7413b3b9dc2f9355fea17fc9de7514",
+    "runs/experiments/phase3c_shared_scenario_final_20260921T030010_482207Z/seed_plan.json": "f41ba8d399f3bbbfff999790e8fc6e4fe39c4b7a3ef479e5bbe5853c8a4b4189",
+    "configs/fixed_table/seed_plan.json": "1f49096d654c8bcd70e1b15fe5191ccb20d38756411d3d64b2fff7ebc938e7fc",
+    "configs/fixed_table/validation_seed_plan.json": "e601739e7514f5d2af09cb17207b2e057697aa4f7053c16e32e23d4356161492",
+    "runs/diagnostics/w2_workload_seed_forensics_20260918T230805_755114Z/seed_panel.csv": "572c1e7a893ea04ba7bcc68c7bfbc2e4b9a568106cd8b39c9b0b83076690bc1c",
+    "runs/diagnostics/w2_seed_factorization_20260919T002931_161214Z/seed_panels.csv": "750d0e6d6ece5e704a71a21196f84b5399f17ffaf694989a4b2da78092e1be10",
+    "runs/diagnostics/w2_seed_characterization_10x3_20260919T165931_783442Z/new_seed_panel.csv": "29790167f9e3870224a4fdaa443a63f71bdd1592f638711358867dd6222141d8",
+    "runs/experiments/phase3_sa_arrival_uncertainty_20260919T192854_241405Z/assessment_seed_panel.csv": "60656543b4f1ff570bc543bffc0dc7db51873c7e6f66e9af72760f6f7fffd811",
+    "runs/experiments/phase3b_sa_repeatability_20260920T013845_702021Z/assessment_seed_panel.csv": "19ecb88774d13ae66a510e5474f8d31536c45c57e612fd148dd0e7402bd75fdf",
+    "runs/experiments/phase3c_shared_scenario_final_20260921T030010_482207Z/assessment_seed_panel.csv": "2222ae54e35a7c69a3b468cd359042334381b2750bb2d27b0b83943df8965dcc"
+  },
+  "excluded_count": 1729,
+  "arrival_seed": 65583180,
+  "search_runtime_seed": 3122970382,
+  "final_runtime_seeds": [
+    3519392497,
+    4034377376,
+    2837833634
+  ],
+  "controller_seeds": {
+    "W1-train-qos3333": 3924084969,
+    "W1-train-qos4444": 2346941940,
+    "W2-short-qos5_4.5_4_3.5": 2173799794,
+    "W2-short-qos5555": 33078245
+  },
+  "controller_seed_note": "Historical W2 candidate seeds retained for exact compatible N1000/U0.6 V3 bank reuse; W1 candidate seeds drawn before workload generation",
+  "smoke_seeds_used": []
+}

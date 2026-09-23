@@ -147,9 +147,16 @@ def new_experiment(
 
 
 def bank_for(
-    root: Path, directory: Path, workload: str, seeds: dict, manifest: dict, adapter, workers: int
+    root: Path,
+    directory: Path,
+    workload: str,
+    seeds: dict,
+    manifest: dict,
+    adapter,
+    workers: int,
+    config_override=None,
 ):
-    config = config_for(workload, seeds, workers)
+    config = config_override or config_for(workload, seeds, workers)
     values = setup(adapter, root, config)
     _, _, _, _, domain, predictor = values
     identity = {
@@ -182,6 +189,12 @@ def bank_for(
         },
         "device": adapter.device_metadata,
     }
+    # The historical N1000/U0.6 identity remains byte-for-byte compatible.
+    # Other contexts need U in the key; N is already captured by experiment SHA.
+    if (config.server_count, config.utilization) != (1000, 0.6):
+        identity["mode"] = "fixed_table_v3_bank_v2"
+        identity["server_count"] = config.server_count
+        identity["utilization"] = config.utilization
     case = {"bank_id": digest(identity), "bank_identity": identity}
     bank, metadata, reused = get_bank(directory, case, adapter, config, values)
     bank_path = directory / "cache/v3_banks" / case["bank_id"] / metadata["completed_attempt"]
@@ -254,6 +267,13 @@ def episode_result(
     if not selected and valid_good:
         raise ValueError("Controller omitted a measured feasible bid")
     diagnostic = min(search, key=observation_rank) if search else None
+    first_good = next((o for o in search if qualified(o)), None)
+    initial_good = any(
+        qualified(o) and o.batch == 1 and o.candidate.source != "independent" for o in search
+    )
+    initial_independent_good = any(
+        qualified(o) and o.batch == 1 and o.candidate.source == "independent" for o in search
+    )
     if state["phase"] == "ERROR":
         raise RuntimeError(f"Fixed-table search stopped on invalid evidence: {episode}")
     frozen = {
@@ -286,8 +306,8 @@ def episode_result(
         raise RuntimeError(f"Fixed-table runtime check has invalid evidence: {episode}")
     result = {
         "workload": workload,
-        "server_count": 1000,
-        "utilization": 0.6,
+        "server_count": int(row["server_count"]),
+        "utilization": float(row["utilization"]),
         "arrival_seed": arrival_seed,
         "initial_job_table_hash": context["initial_job_table_hash"],
         "initial_file_sha256": context["initial_file_sha256"],
@@ -296,6 +316,20 @@ def episode_result(
         "search_status": frozen["status"],
         "search_calls": simulator.search_attempts(),
         "search_observations": len(search),
+        "qualified_candidates_total": len(valid_good),
+        "first_feasible_call_number": search.index(first_good) + 1 if first_good else None,
+        "first_feasible_candidate_id": first_good.candidate.candidate_id if first_good else None,
+        "first_feasible_candidate_source": first_good.candidate.source if first_good else None,
+        "initial_v3_guided_feasible": initial_good,
+        "hybrid_contribution": (
+            "INITIAL_V3_GUIDED_FEASIBLE"
+            if initial_good
+            else "INITIAL_INDEPENDENT_PROBE_FEASIBLE"
+            if initial_independent_good
+            else "ARGOS_REFINEMENT_FOUND_FEASIBILITY"
+            if selected
+            else "NO_FEASIBLE_WITHIN_32_CALLS"
+        ),
         "selected_candidate_source": selected.source if selected else None,
         "selected_candidate_id": selected.candidate_id if selected else None,
         "Pbar": selected.Pbar if selected else None,
