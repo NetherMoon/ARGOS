@@ -113,7 +113,7 @@ def test_manifest_freezes_small_plan_and_recovery_rejects_changes(tmp_path, monk
     monkeypatch.setattr(
         runner,
         "verify_environment",
-        lambda _root: {
+        lambda _root, *_plans: {
             "spec": {"fixed": {"duration_seconds": 3600}},
             "dependencies": {"FlexDC": "pinned", "CONDOR-FLEXDC": "pinned"},
             "checkpoint_sha256": "pinned",
@@ -131,6 +131,25 @@ def test_manifest_freezes_small_plan_and_recovery_rejects_changes(tmp_path, monk
     with pytest.raises(ValueError, match="integrity"):
         new_experiment(ROOT, directory, 10)
 
+    validation = tmp_path / "fresh-validation"
+    custom = new_experiment(
+        ROOT,
+        validation,
+        10,
+        "configs/fixed_table/validation_seed_plan.json",
+        "configs/fixed_table/validation_episode_plan.csv",
+    )
+    assert custom["plan_paths"]["seed_plan"] == "configs/fixed_table/validation_seed_plan.json"
+    assert new_experiment(
+        ROOT,
+        validation,
+        10,
+        "configs/fixed_table/validation_seed_plan.json",
+        "configs/fixed_table/validation_episode_plan.csv",
+    ) == custom
+    with pytest.raises(ValueError, match="source or plan changed"):
+        new_experiment(ROOT, validation, 10)
+
 
 def test_six_episode_orchestration_shares_two_banks_without_sharing_search_state(
     tmp_path, monkeypatch
@@ -141,7 +160,7 @@ def test_six_episode_orchestration_shares_two_banks_without_sharing_search_state
     directory = tmp_path / "experiment"
     bank_calls, episode_calls = [], []
 
-    def fake_manifest(_root, output, _workers):
+    def fake_manifest(_root, output, _workers, *_plans):
         output.mkdir()
         write_json(output / "seed_plan.json", seeds)
         return {"seed_plan": seeds}
@@ -353,3 +372,58 @@ def test_compact_report_and_zip_handle_no_bid_and_partial_checks(tmp_path):
     with zipfile.ZipFile(zipped) as z:
         assert "report.md" in z.namelist()
         assert "W2-1/arrival_1/result.json" in z.namelist()
+
+
+def test_fresh_validation_plan_is_distinct_and_keeps_the_fixed_budget():
+    prior, _ = load_plan(ROOT)
+    fresh, rows = load_plan(
+        ROOT,
+        "configs/fixed_table/validation_seed_plan.json",
+        "configs/fixed_table/validation_episode_plan.csv",
+    )
+    assert len(rows) == 6
+    assert len(set(fresh["arrival_seeds"])) == 3
+    assert not set(fresh["arrival_seeds"]) & set(prior["arrival_seeds"])
+    assert not set(fresh["final_runtime_seeds"]) & set(prior["final_runtime_seeds"])
+    assert fresh["search_runtime_seed"] == prior["search_runtime_seed"]
+    assert fresh["controller_seeds"] == prior["controller_seeds"]
+    assert sum(int(row["max_search_calls"]) for row in rows) == 192
+    assert sum(int(row["max_final_checks"]) for row in rows) == 18
+
+
+def test_bank_identity_uses_json_stable_weight_bounds(monkeypatch, tmp_path):
+    from argos.fixed_table import runner
+
+    class Adapter:
+        device_metadata = {"backend": "CPU"}
+
+    monkeypatch.setattr(runner, "setup", lambda *_args: (None, None, None, None, None, None))
+    captured = {}
+
+    def fake_get_bank(_directory, case, *_args):
+        captured.update(case)
+        raise RuntimeError("identity captured")
+
+    monkeypatch.setattr(runner, "get_bank", fake_get_bank)
+    seeds, _ = load_plan(ROOT)
+    manifest = {
+        "specification": {
+            "files": {
+                f".deps/FlexDC/configs/workload/{name}.ini": "workload"
+                for name in ("W2-short-qos5_4.5_4_3.5", "W2-short-qos5555")
+            }
+            | {"experiment.ini": "experiment", "cluster.ini": "cluster"},
+            "experiment_path": "experiment.ini",
+            "cluster_path": "cluster.ini",
+        },
+        "checkpoint_sha256": "checkpoint",
+        "v3_contexts": {"W2-short-qos5555": {"label": "REVIEWED_V3_CONTEXT"}},
+        "source_hashes": {
+            "src/argos/surrogate/v3_adapter.py": "v3",
+            "src/argos/campaign/candidate_bank.py": "bank",
+            "configs/v3_context_contract.json": "context",
+        },
+    }
+    with pytest.raises(RuntimeError, match="identity captured"):
+        runner.bank_for(ROOT, tmp_path, "W2-short-qos5555", seeds, manifest, Adapter(), 10)
+    assert captured["bank_identity"]["weight_bounds"] == [0.15, 0.45]

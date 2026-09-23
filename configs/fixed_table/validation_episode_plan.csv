@@ -1,0 +1,7 @@
+workload,server_count,utilization,arrival_seed,search_runtime_seed,episode_path,max_search_calls,max_final_checks
+W2-short-qos5_4.5_4_3.5,1000,0.6,1483544252,3122970382,W2-short-qos5_4.5_4_3.5/arrival_1483544252,32,3
+W2-short-qos5_4.5_4_3.5,1000,0.6,1059155856,3122970382,W2-short-qos5_4.5_4_3.5/arrival_1059155856,32,3
+W2-short-qos5_4.5_4_3.5,1000,0.6,1258205800,3122970382,W2-short-qos5_4.5_4_3.5/arrival_1258205800,32,3
+W2-short-qos5555,1000,0.6,1483544252,3122970382,W2-short-qos5555/arrival_1483544252,32,3
+W2-short-qos5555,1000,0.6,1059155856,3122970382,W2-short-qos5555/arrival_1059155856,32,3
+W2-short-qos5555,1000,0.6,1258205800,3122970382,W2-short-qos5555/arrival_1258205800,32,3

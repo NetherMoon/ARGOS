@@ -28,9 +28,11 @@ WORKLOAD_HASHES = {
 }
 
 
-def load_plan(root: Path = ROOT) -> tuple[dict, list[dict]]:
-    seeds = read_json(root / SEED_PLAN)
-    with (root / EPISODE_PLAN).open(newline="", encoding="utf8") as stream:
+def load_plan(
+    root: Path = ROOT, seed_plan: str = SEED_PLAN, episode_plan: str = EPISODE_PLAN
+) -> tuple[dict, list[dict]]:
+    seeds = read_json(root / seed_plan)
+    with (root / episode_plan).open(newline="", encoding="utf8") as stream:
         rows = list(csv.DictReader(stream))
     arrival = seeds["arrival_seeds"]
     runtime = seeds["search_runtime_seed"]
@@ -126,8 +128,10 @@ def config_for(workload: str, seeds: dict, workers: int) -> Config:
     return config
 
 
-def verify_environment(root: Path = ROOT) -> dict:
-    seeds, _ = load_plan(root)
+def verify_environment(
+    root: Path = ROOT, seed_plan: str = SEED_PLAN, episode_plan: str = EPISODE_PLAN
+) -> dict:
+    seeds, _ = load_plan(root, seed_plan, episode_plan)
     spec = load_source(root)
     deps = {}
     for name, expected in EXPECTED_DEPS.items():

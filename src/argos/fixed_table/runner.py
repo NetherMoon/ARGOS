@@ -72,19 +72,27 @@ SOURCE_FILES = (
 )
 
 
-def source_hashes(root: Path) -> dict:
-    return {name: sha256(root / name) for name in SOURCE_FILES}
+def source_hashes(root: Path, seed_plan: str = SEED_PLAN, episode_plan: str = EPISODE_PLAN) -> dict:
+    files = dict.fromkeys((*SOURCE_FILES, seed_plan, episode_plan))
+    return {name: sha256(root / name) for name in files}
 
 
-def new_experiment(root: Path, directory: Path, workers: int) -> dict:
-    evidence = verify_environment(root)
-    seeds, rows = load_plan(root)
+def new_experiment(
+    root: Path,
+    directory: Path,
+    workers: int,
+    seed_plan: str = SEED_PLAN,
+    episode_plan: str = EPISODE_PLAN,
+) -> dict:
+    evidence = verify_environment(root, seed_plan, episode_plan)
+    seeds, rows = load_plan(root, seed_plan, episode_plan)
     if directory.exists():
         manifest = read_json(directory / "manifest.json")
         if (
-            manifest["source_hashes"] != source_hashes(root)
-            or manifest["seed_plan_sha256"] != sha256(root / SEED_PLAN)
-            or manifest["episode_plan_sha256"] != sha256(root / EPISODE_PLAN)
+            manifest["source_hashes"] != source_hashes(root, seed_plan, episode_plan)
+            or manifest.get("plan_paths") != {"seed_plan": seed_plan, "episode_plan": episode_plan}
+            or manifest["seed_plan_sha256"] != sha256(root / seed_plan)
+            or manifest["episode_plan_sha256"] != sha256(root / episode_plan)
             or manifest["checkpoint_sha256"] != evidence["checkpoint_sha256"]
             or manifest["artifact_manifest_sha256"] != evidence["artifact_manifest_sha256"]
             or manifest["dependency_shas"] != evidence["dependencies"]
@@ -94,8 +102,8 @@ def new_experiment(root: Path, directory: Path, workers: int) -> dict:
         verify_files(directory, manifest["frozen_files"])
         return manifest
     directory.mkdir(parents=True, exist_ok=False)
-    shutil.copyfile(root / SEED_PLAN, directory / "seed_plan.json")
-    shutil.copyfile(root / EPISODE_PLAN, directory / "episode_plan.csv")
+    shutil.copyfile(root / seed_plan, directory / "seed_plan.json")
+    shutil.copyfile(root / episode_plan, directory / "episode_plan.csv")
     manifest = {
         "schema": 1,
         "mode": "ARGOS_FIXED_JOB_TABLE_SINGLE_SEARCH_RUNTIME_SEED",
@@ -104,9 +112,10 @@ def new_experiment(root: Path, directory: Path, workers: int) -> dict:
         "dependency_shas": evidence["dependencies"],
         "checkpoint_sha256": evidence["checkpoint_sha256"],
         "artifact_manifest_sha256": evidence["artifact_manifest_sha256"],
-        "source_hashes": source_hashes(root),
-        "seed_plan_sha256": sha256(root / SEED_PLAN),
-        "episode_plan_sha256": sha256(root / EPISODE_PLAN),
+        "source_hashes": source_hashes(root, seed_plan, episode_plan),
+        "plan_paths": {"seed_plan": seed_plan, "episode_plan": episode_plan},
+        "seed_plan_sha256": sha256(root / seed_plan),
+        "episode_plan_sha256": sha256(root / episode_plan),
         "frozen_files": {
             "seed_plan.json": sha256(directory / "seed_plan.json"),
             "episode_plan.csv": sha256(directory / "episode_plan.csv"),
@@ -162,7 +171,7 @@ def bank_for(
         "iterations": config.iterations,
         "snapshot_every": config.snapshot_every,
         "weight_policy": config.weight_policy,
-        "weight_bounds": config.weight_bounds(4),
+        "weight_bounds": list(config.weight_bounds(4)),
         "v3_sources": {
             name: manifest["source_hashes"][name]
             for name in (
@@ -441,11 +450,17 @@ def archive(directory: Path) -> Path:
     return output
 
 
-def run(root: Path, directory: Path, workers: int) -> Path:
+def run(
+    root: Path,
+    directory: Path,
+    workers: int,
+    seed_plan: str = SEED_PLAN,
+    episode_plan: str = EPISODE_PLAN,
+) -> Path:
     if not 1 <= workers <= 10:
         raise ValueError("--max-workers must be in [1,10]")
-    manifest = new_experiment(root, directory, workers)
-    seeds, rows = load_plan(root)
+    manifest = new_experiment(root, directory, workers, seed_plan, episode_plan)
+    seeds, rows = load_plan(root, seed_plan, episode_plan)
     with campaign_lock(directory):
         adapter = None
         model_seconds = 0.0
@@ -505,15 +520,27 @@ def main(argv=None):
         "--max-workers", type=int, default=10, help="Global FlexDC process cap (1–10)"
     )
     parser.add_argument(
+        "--seed-plan", default=SEED_PLAN, help="Frozen repository-relative seed plan"
+    )
+    parser.add_argument(
+        "--episode-plan", default=EPISODE_PLAN, help="Frozen repository-relative episode plan"
+    )
+    parser.add_argument(
         "--validate-plan",
         action="store_true",
         help="Check frozen inputs without running V3 or FlexDC",
     )
     args = parser.parse_args(argv)
     root = ROOT
+    for label, name in (("seed plan", args.seed_plan), ("episode plan", args.episode_plan)):
+        if Path(name).is_absolute() or ".." in Path(name).parts:
+            parser.error(f"{label} must be repository-relative without parent traversal")
+        path = (root / name).resolve()
+        if not path.is_relative_to((root / "configs/fixed_table").resolve()) or not path.is_file():
+            parser.error(f"{label} must be an existing file in configs/fixed_table")
     if args.validate_plan:
-        evidence = verify_environment(root)
-        seeds, rows = load_plan(root)
+        evidence = verify_environment(root, args.seed_plan, args.episode_plan)
+        seeds, rows = load_plan(root, args.seed_plan, args.episode_plan)
         print(
             json.dumps(
                 {
@@ -533,7 +560,7 @@ def main(argv=None):
     ).resolve()
     if not directory.is_relative_to((root / "runs/experiments").resolve()):
         parser.error("Experiment directory must be inside runs/experiments")
-    path = run(root, directory, args.max_workers)
+    path = run(root, directory, args.max_workers, args.seed_plan, args.episode_plan)
     print(directory)
     print(path)
 
