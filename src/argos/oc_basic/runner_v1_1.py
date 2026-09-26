@@ -73,9 +73,11 @@ def _v1_prior(source: Path) -> tuple[dict[str, Candidate], list[dict]]:
         raise ValueError("Frozen v1 development source is not the recorded failed run")
     candidates = v1.read_candidate_batches(old)
     rows = _read_rows(old / "search" / "all_scenario_executions.csv")
-    if len(rows) != 110 or len(candidates) < 11 or {r["candidate_id"] for r in rows} != set(list(candidates)[:11]):
+    measured = {r["candidate_id"] for r in rows}
+    if len(rows) != 110 or len(measured) != 11 or not measured.issubset(candidates):
         raise ValueError("Frozen v1 development evidence changed")
-    return candidates, rows
+    # The five generated-but-unmeasured v1 proposals are not prior observations.
+    return {key: value for key, value in candidates.items() if key in measured}, rows
 
 
 def _batch_candidates(output: Path) -> dict[str, Candidate]:
@@ -324,15 +326,15 @@ def main(argv: list[str] | None = None) -> None:
         elif batch_number == 0:
             if args.mode == "development":
                 states = _states(candidates, all_rows, panel)
-                batch = next_batch(batch=2, candidates=candidates,
+                batch = next_batch(batch=3, candidates=candidates,
                                    rows_by_candidate={key: [r for r in all_rows if r["candidate_id"] == key] for key in candidates},
                                    states=states, cloud=cloud, domain=domain,
-                                   rng=np.random.default_rng(np.random.SeedSequence([20260926011, 2])))
+                                   rng=np.random.default_rng(np.random.SeedSequence([20260926011, 3])))
             else:
                 batch = select_initial(cloud, domain)
         else:
             states = _states(candidates, all_rows, panel)
-            batch = next_batch(batch=next_number + (1 if args.mode == "development" else 0),
+            batch = next_batch(batch=next_number + (2 if args.mode == "development" else 0),
                                candidates=candidates,
                                rows_by_candidate={key: [r for r in all_rows if r["candidate_id"] == key] for key in candidates},
                                states=states, cloud=cloud, domain=domain,

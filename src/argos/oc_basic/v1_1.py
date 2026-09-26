@@ -319,7 +319,10 @@ def next_batch(*, batch: int, candidates: dict[str, Candidate], rows_by_candidat
             ("conditional_R",),
         )
         for search_class in classes:
-            options = [c for c in pack if c.source in search_class or c.provenance.get("axis") in search_class]
+            if search_class[0] in ("P", "conditional_R"):
+                options = [c for c in pack if c.source == "targeted_axis" and c.provenance.get("axis") in search_class]
+            else:
+                options = [c for c in pack if c.source in search_class]
             options.sort(key=lambda c: (
                 0 if c.source == ("targeted_weight_transfer" if batch % 2 == 0 else "targeted_combined") else 1,
                 0 if float(c.provenance.get("normalized_offset", preferred_sign)) * preferred_sign > 0 else 1,

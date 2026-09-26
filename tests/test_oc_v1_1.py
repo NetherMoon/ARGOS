@@ -111,8 +111,8 @@ class OC11Test(unittest.TestCase):
         self.assertEqual(sum(c.source == "independent" for c in batch), 2)
         self.assertEqual(sum(c.provenance.get("anchor") == "a" for c in batch), 3)
         self.assertEqual(sum(c.provenance.get("anchor") == "b" for c in batch), 3)
-        self.assertTrue(any(c.provenance.get("axis") == "P" for c in batch))
-        self.assertTrue(any(c.provenance.get("axis") == "conditional_R" for c in batch))
+        self.assertTrue(any(c.source == "targeted_axis" and c.provenance.get("axis") == "P" for c in batch))
+        self.assertTrue(any(c.source == "targeted_axis" and c.provenance.get("axis") == "conditional_R" for c in batch))
         for c in batch:
             d.validate(c)
 
