@@ -28,6 +28,12 @@ stops at a 20-minute soft search target or 400 search executions at most.
 It does not stop at the first 8/10 candidate. An 8/10 count is not a
 reliability probability or a continuous feasible-region certificate.
 
+The cap was set before the OC outcomes. The frozen original16 run for this
+same W2/N1000/U0.6 context took 71.2 seconds for 32 search simulations
+with up to ten workers. Linear scaling gives roughly 890 seconds for 400
+simulations; the 1,200-second soft target allows for larger ten-table waves
+and overhead. This is a planning estimate, not a promised runtime.
+
 Before search starts, the tool freezes 30 fresh arrival/runtime seed pairs
 and records their deterministic selection root. If an eligible bid exists,
 it is frozen before any of those tables are generated or evaluated. The
