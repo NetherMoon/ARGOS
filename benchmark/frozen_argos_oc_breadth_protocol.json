@@ -1,0 +1,80 @@
+{
+  "schema": 1,
+  "version": "OC_GENERIC_BREADTH_1",
+  "source_commit_before_freeze": "23e89a89ec58b98d166358f0338712fc55e2a9d8",
+  "scientific_root_commit": "3c4949fc4a2694daa243f077073875b9ffb45e21",
+  "source_hashes": {
+    "src/argos/oc_basic/core.py": "1ddacefb4ca286bfd334b2def613b882a6b4c64bfd211c095f1cef90fadf02a3",
+    "src/argos/oc_basic/generic.py": "f672e60bbb797259cc62597baae0ee779fd27e56825a2163d3004f42db5b3a9b",
+    "src/argos/oc_basic/runner.py": "c602ace2120f0a570aa6facca8185916f3b0551f6b4911248ff79e5b8faabf5c",
+    "src/argos/oc_basic/scheduling.py": "642e57fba8867bac6faf791c101d97c3d7032db782db4539b677f7eb665afd5b",
+    "src/argos/oc_basic/breadth_plan.py": "f192068419394d1e72f753cb284836a89f8b3d24c06561821c7ec02deed28073",
+    "src/argos/oc_basic/breadth_runner.py": "92a82c144769f7802233e56eed16bd65fb5faacc1d770726a116327d332a9496",
+    "scripts/freeze_argos_oc_breadth.py": "72febcd0b3c0b5087d746e4f7ae7fbe03cff9587befca66a87af6d33e74d3984",
+    "scripts/run_argos_oc_breadth.py": "f0f88e4b1510f3d74cd0c8dcee3186233b818454fa3dd0f2f0a82d596d5041ce",
+    "src/argos/experimental_sa/paper_consistent/evaluator.py": "12761183c3bb60aa77f4290bcbdddc0000140b0df8bd227749aaf3560f4fae0a",
+    "src/argos/experimental_sa/paper_consistent/objective.py": "6823cf95788b39e81b702fb462f922780e6130978a9ff35fbe5a51f07304ab64",
+    "src/argos/fixed_table/original16.py": "7d7a646b8f3bf5ddcb8059b3099729a70227405a3dd448aef28d1cd4f1ed52b5",
+    "src/argos/fixed_table/simulator.py": "126f1faa08208f7b92bac15fb48fa74558cc89cd8fa36a5fc17ee8ee8ecff850",
+    "src/argos/simulator/evidence.py": "9a593828effcae930fbc209c5836891af2347dbbccc6b97cd189418e1f31f859",
+    "src/argos/search/candidates.py": "42eeee784de8d6bc6745669cea8ea905de5895de0411cedd4fb884b6b59613fc",
+    "src/argos/search/regions.py": "480487e9130c1dee921df207dd1e7913bf70fff53ef0c7f5bb3de3538b30da58",
+    "src/argos/vnext/device.py": "370955173990474aaafe427a0bf246199efec5f1e4a65b61a0d46bb28b947081",
+    "src/argos/surrogate/v3_adapter.py": "be74b1236a2a4d110f571b8acfd2fb31c4de869ced3e86a00fc1bc144e02e597",
+    "src/argos/types.py": "030ab7a72d225dd83832d6e8401944d9042c7453be56ab9c36df4e643c52ddaf",
+    "configs/canonical_cost_source.ini": "f20f3f78f53cca79d29c8b077747df86d9a23dc5bf19a5870142154c9b0567c4"
+  },
+  "contexts": 16,
+  "search_seed_ledger_sha256": "8d0f37bee2e181a373797fa67b32d21316e478f03fe7f2cfa0756ca5d5d3f4d9",
+  "assessment_seed_ledger_sha256": "08a10cc5fd3aebf20875d5a7d7abc5d7ddabce71cfeb820f35e037cf8310108f",
+  "context_contract_sha256": "7db3e5ebd845a063706127c1518a25e837d66401875a3e02d5c79a1a8664e4d7",
+  "original16_manifest_sha256": "9376463cb78f67e2fec13f62f228a4c5b11b55cf214b2e24d1398870176e24af",
+  "v3_manifest_sha256": "65afeb0d1d679c983e203c467cff8d3808648cf6a67417f9ee18f714dda90627",
+  "dependency_shas": {
+    "FlexDC": "525dc684d73ab0c6f6c479f5b54811ddf02f1221",
+    "CONDOR-FLEXDC": "2b653facf31de356d8c682ee76d814bd81b8e95d"
+  },
+  "search_panel_size": 10,
+  "required_search_passes": 8,
+  "search_seed_order": "anchor_first_then_frozen_ledger",
+  "search_runtime_seed": 3122970382,
+  "tracking_limit": 0.3,
+  "qos_limit": 0.1,
+  "initial_candidates": 15,
+  "initial_independent": 3,
+  "refinement_candidates": 8,
+  "refinement_independent": 2,
+  "anchor_count": 2,
+  "proposal_rule": "generic critical-constraint counts/severity/configured-order; legal symmetric P, conditional-R and weight-transfer probes",
+  "probe_scales": {
+    "weight": [
+      0.01,
+      0.02,
+      0.04
+    ],
+    "P": [
+      -0.04,
+      -0.02,
+      -0.01,
+      0.01,
+      0.02,
+      0.04
+    ],
+    "conditional_R": [
+      -0.04,
+      -0.02,
+      0.02,
+      0.04
+    ],
+    "batch_multiplier": "1+0.15*(batch%7)",
+    "local_radius": 0.035
+  },
+  "scheduler": "deterministic_fanout_max4; at most ten concurrent workers",
+  "early_rejection": "passes + remaining_unmeasured < required_search_passes",
+  "selection": "complete valid panel with >=required passes; minimum mean canonical objective over every search table; then more passes, smaller g_target, candidate ID",
+  "soft_search_seconds_per_context": 1200,
+  "hard_search_calls_per_context": 400,
+  "assessment_pairs_per_selected_method": 30,
+  "max_workers": 10,
+  "no_simulator_result_reuse": true
+}
