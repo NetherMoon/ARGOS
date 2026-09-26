@@ -1,0 +1,6 @@
+stage,protocol_version,warm_start_or_cold_start,search_wall_limit,measured_candidate_geometries,full_panels,partial_panels,early_rejected_candidates,total_FlexDC_executions,executions_saved_by_racing,max_workers,time_to_first_8of10,calls_to_first_8of10,best_pass_count,best_g8,eligible_candidates,selected_objective,fresh_assessment_result,search_wall_seconds,notes
+OC-basic v1,OC-basic v1,cold,1200.0,11,11,0,0,110,0,10,,,5,1.07651159020911,0,,,1258.9370000000054,Ten full initial panels consumed 100/110 calls; no held-out assessment
+OC1.1 development continuation,OC1.1,warm development,1200.0,35,12,23,22,84,154,10,769.2039999999979,55.0,9,-0.3049835731803243,1,91.16466750135938,,1219.25,110 prior calls reused; SOFT_SEARCH_WALL_TARGET
+OC1.2 existence,OC1.1,warm development,2400.0,75,15,60,58,147,401,10,0.0,0.0,9,-0.31612038754895844,3,90.34960266675044,28/30,2443.3120000000054,194 prior calls reused; SOFT_SEARCH_WALL_TARGET
+OC1.3 20-minute cold start,OC1.1,cold,1200.0,31,1,30,29,128,180,10,563.6720000000059,56.0,8,-0.01666666666666672,1,89.412059253889,,1230.6089999999967,0 prior calls reused; SOFT_SEARCH_WALL_TARGET
+OC1.3 10-minute cold start,OC1.1,cold,600.0,15,1,14,14,56,94,10,623.0,56.0,8,-0.01666666666666672,1,89.412059253889,,623.0929999999935,0 prior calls reused; SOFT_SEARCH_WALL_TARGET
