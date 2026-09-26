@@ -248,7 +248,11 @@ class OCBasicTest(unittest.TestCase):
                       "v3_timing": {"bank_original_generation_seconds": 300.0,
                                     "v3_model_load_seconds": 1.0,
                                     "v3_independent_scoring_seconds": 2.0}}
-            runner.write_report(base, base / "report_output", rows, [aggregate], [], timing, baseline)
+            held_out = [{"p90": 0.2, "Pj": [0.01, 0.02, 0.03, 0.04],
+                         "feasible": True, "failure_constraints": "none"},
+                        {"p90": 0.31, "Pj": [0.01, 0.02, 0.03, 0.04],
+                         "feasible": False, "failure_constraints": "tracking"}]
+            runner.write_report(base, base / "report_output", rows, [aggregate], held_out, timing, baseline)
             self.assertTrue((base / "report_output" / "report.md").exists())
             self.assertEqual(json.loads((base / "report_output" / "summary.json").read_text())["best_search_arrival_pass_count"], 8)
 
