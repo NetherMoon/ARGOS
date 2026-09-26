@@ -62,6 +62,11 @@ ROOT_SEED_FILES = (
     "configs/fixed_table/seed_plan.json",
     "configs/fixed_table/validation_seed_plan.json",
     "configs/fixed_table/original16_seed_plan.json",
+    "runs/diagnostics/w2_seed_factorization_20260919T002931_161214Z/seed_panels.csv",
+    "runs/diagnostics/w2_seed_characterization_10x3_20260919T165931_783442Z/new_seed_panel.csv",
+    "runs/experiments/phase3_sa_arrival_uncertainty_20260919T192854_241405Z/assessment_seed_panel.csv",
+    "runs/experiments/phase3b_sa_repeatability_20260920T013845_702021Z/assessment_seed_panel.csv",
+    "runs/experiments/phase3c_shared_scenario_final_20260921T030010_482207Z/assessment_seed_panel.csv",
 )
 JOB_NAMES = ("ResNet", "GPT2", "Llama", "Bloom")
 
