@@ -22,6 +22,7 @@ import torch
 from argos.campaign.identity import verify_files
 from argos.contracts import QOS_LIMIT, TRACKING_LIMIT
 from argos.diagnostics.seed_factorization_worker import JOB_COLUMNS
+from argos.diagnostics.workload_seed_forensics import arrival_hash
 from argos.experimental_sa.paper_consistent.evaluator import FixedEvaluator, prepare
 from argos.experimental_sa.paper_consistent.objective import ObjectiveContract
 from argos.fixed_table.protocol import CHECKPOINT_SHA, EXPECTED_DEPS, GRID_TRACE_HASH, load_source
@@ -186,11 +187,29 @@ def table_statistics(path: Path, prefill: int) -> dict:
     frame = pd.read_csv(path, float_precision="round_trip")
     if list(frame.columns) != JOB_COLUMNS:
         raise ValueError("Frozen job-table schema changed")
-    summary = {"total_jobs": len(frame), "prefill": prefill, "later_arrivals": len(frame) - prefill}
+    summary = {
+        "total_jobs": len(frame),
+        "prefill": prefill,
+        "later_arrivals": len(frame) - prefill,
+        "arrival_trace_hash": arrival_hash(
+            frame[["job_id", "job_type_id", "arrival_time"]]
+            .rename(columns={"arrival_time": "submit_time"})
+            .astype("int64")
+        ),
+    }
     for job_id, name in enumerate(JOB_NAMES):
         subset = frame[frame.job_type_id == job_id]
         summary[f"{name}_jobs"] = len(subset)
-        summary[f"{name}_later_arrivals"] = int((subset.arrival_time > 0).sum())
+        later = np.sort(subset.loc[subset.job_id >= prefill, "arrival_time"].to_numpy(dtype=float))
+        gaps = np.diff(later)
+        summary[f"{name}_later_arrivals"] = len(later)
+        summary[f"{name}_mean_interarrival_seconds"] = float(gaps.mean()) if len(gaps) else None
+        summary[f"{name}_interarrival_cv"] = float(gaps.std() / gaps.mean()) if len(gaps) and gaps.mean() else None
+        summary[f"{name}_max_arrivals_60s"] = (
+            int(np.max(np.arange(len(later)) - np.searchsorted(later, later - 60, side="left") + 1))
+            if len(later) else 0
+        )
+        summary[f"{name}_arrivals_final_300s"] = int((later >= 3300).sum())
     return summary
 
 
