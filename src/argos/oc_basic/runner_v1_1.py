@@ -39,6 +39,7 @@ SOURCE_FILES = (
     "src/argos/oc_basic/v1_1.py", "src/argos/oc_basic/runner_v1_1.py",
     "scripts/run_argos_oc_v1_1.py",
 )
+DEVELOPMENT_SOURCE = "runs/experiments/argos_oc_1_1_development_20260926T174100Z"
 
 
 def _bool(value: object) -> bool:
@@ -78,6 +79,27 @@ def _v1_prior(source: Path) -> tuple[dict[str, Candidate], list[dict]]:
         raise ValueError("Frozen v1 development evidence changed")
     # The five generated-but-unmeasured v1 proposals are not prior observations.
     return {key: value for key, value in candidates.items() if key in measured}, rows
+
+
+def _existence_prior(source: Path) -> tuple[dict[str, Candidate], list[dict]]:
+    candidates, rows = _v1_prior(source)
+    development = source / DEVELOPMENT_SOURCE
+    status = read_json(development / "run_status.json")
+    if status.get("status") != "COMPLETE" or status.get("new_search_calls") != 84:
+        raise ValueError("OC1.1 development source has not completed as recorded")
+    dev_manifest = read_json(development / "manifest.json")
+    if dev_manifest.get("mode") != "development" or dev_manifest.get("protocol_version") != PROTOCOL_VERSION:
+        raise ValueError("OC1.1 development provenance mismatch")
+    dev_rows = _read_rows(development / "search" / "new_scenario_executions.csv")
+    if len(dev_rows) != status["new_search_calls"]:
+        raise ValueError("OC1.1 development observations are incomplete")
+    dev_candidates = _batch_candidates(development)
+    measured = {r["candidate_id"] for r in dev_rows}
+    if not measured.issubset(dev_candidates) or measured & set(candidates):
+        raise ValueError("OC1.1 development candidate identity crossed")
+    candidates.update({key: value for key, value in dev_candidates.items() if key in measured})
+    rows.extend(dev_rows)
+    return candidates, rows
 
 
 def _batch_candidates(output: Path) -> dict[str, Candidate]:
@@ -262,6 +284,9 @@ def main(argv: list[str] | None = None) -> None:
         "source_commit": git(source, "rev-parse", "HEAD"),
         "source_hashes": {p: sha256(source / p) for p in SOURCE_FILES},
         "frozen_v1_manifest_sha256": sha256(old / "manifest.json"),
+        "development_source": DEVELOPMENT_SOURCE if args.mode == "existence" else None,
+        "development_manifest_sha256": sha256(source / DEVELOPMENT_SOURCE / "manifest.json") if args.mode == "existence" else None,
+        "development_observations_sha256": sha256(source / DEVELOPMENT_SOURCE / "search/new_scenario_executions.csv") if args.mode == "existence" else None,
         "historical_seed_difficulty_sha256": sha256(difficulty),
         "seed_order": seed_order, "seed_plan": provenance["seed_plan"],
         "phase2b": provenance["phase2b"], "bank_manifest_sha256": sha256(bank / "manifest.json"),
@@ -271,6 +296,8 @@ def main(argv: list[str] | None = None) -> None:
         "independent_quota": 2, "failure_cutoff": 3,
         "selection": "complete >=8/10, minimum mean canonical objective over all 10",
     }
+    # JSON round-trip fixes tuple/list representation before strict resume checks.
+    identity = json.loads(json.dumps(identity))
     if args.smoke_only:
         print(json.dumps({"status": "SMOKE_PASS_NO_FLEXDC", "seed_order": seed_order,
                           "mode": args.mode, "source_commit": identity["source_commit"]}, indent=2))
@@ -295,7 +322,12 @@ def main(argv: list[str] | None = None) -> None:
     table_seconds = time.monotonic() - table_start
     cloud, domain, cloud_timing = v1.build_cloud(root, output, bank, bank_manifest, identity["seed_plan"]["search_runtime_seed"])
     cloud_seconds = time.monotonic() - wall_start - table_seconds
-    old_candidates, old_rows = _v1_prior(source) if args.mode == "development" else ({}, [])
+    if args.mode == "development":
+        old_candidates, old_rows = _v1_prior(source)
+    elif args.mode == "existence":
+        old_candidates, old_rows = _existence_prior(source)
+    else:
+        old_candidates, old_rows = {}, []
     new_candidates = _batch_candidates(output)
     candidates = {**old_candidates, **new_candidates}
     new_rows = _read_rows(output / "search" / "new_scenario_executions.csv")
@@ -324,17 +356,18 @@ def main(argv: list[str] | None = None) -> None:
         if batch_path.exists():
             batch = [candidate_from_dict(item) for item in read_json(batch_path)]
         elif batch_number == 0:
-            if args.mode == "development":
+            if args.mode in ("development", "existence"):
                 states = _states(candidates, all_rows, panel)
-                batch = next_batch(batch=3, candidates=candidates,
+                proposal_batch = 3 if args.mode == "development" else 101
+                batch = next_batch(batch=proposal_batch, candidates=candidates,
                                    rows_by_candidate={key: [r for r in all_rows if r["candidate_id"] == key] for key in candidates},
                                    states=states, cloud=cloud, domain=domain,
-                                   rng=np.random.default_rng(np.random.SeedSequence([20260926011, 3])))
+                                   rng=np.random.default_rng(np.random.SeedSequence([20260926011, proposal_batch])))
             else:
                 batch = select_initial(cloud, domain)
         else:
             states = _states(candidates, all_rows, panel)
-            batch = next_batch(batch=next_number + (2 if args.mode == "development" else 0),
+            batch = next_batch(batch=next_number + (2 if args.mode == "development" else 100 if args.mode == "existence" else 0),
                                candidates=candidates,
                                rows_by_candidate={key: [r for r in all_rows if r["candidate_id"] == key] for key in candidates},
                                states=states, cloud=cloud, domain=domain,

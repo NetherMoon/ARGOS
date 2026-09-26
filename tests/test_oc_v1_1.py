@@ -66,6 +66,7 @@ class OC11Test(unittest.TestCase):
         seven = candidate_state("seven", [row("seven", s, -0.1 if i < 7 else 0.01, 1)
                                            for i, s in enumerate(PANEL)], PANEL)
         self.assertLessEqual(eight.g8, 0)
+        self.assertEqual(eight.critical_failure_seeds, PANEL[8:])
         self.assertGreater(seven.g8, 0)
         self.assertEqual(select_final([state, seven, eight]).candidate_id, "eight")
         self.assertAlmostEqual(eight.mean_objective_all_ten, 104.5)

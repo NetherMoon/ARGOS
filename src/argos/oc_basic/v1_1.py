@@ -97,6 +97,9 @@ def candidate_state(candidate_id: str, rows: Iterable[dict], seed_panel: Iterabl
     g10 = valid[9][0] if complete and len(valid) == SEARCH_TABLES else None
     repair_count = max(0, SEARCH_TARGET - passes) if complete else None
     needed = [(g, seed) for g, seed in valid if g > 0][:repair_count] if repair_count is not None else []
+    # Eligible bids have no required repairs, but their remaining failed
+    # scenarios still identify the most relevant robustness bottleneck.
+    critical = needed if repair_count else [(g, seed) for g, seed in valid if g > 0]
     repair_sum = sum(g for g, _ in needed) if complete and len(valid) == SEARCH_TABLES else None
     objective = (
         float(np.mean([float(r["objective"]) for r in observations]))
@@ -105,7 +108,7 @@ def candidate_state(candidate_id: str, rows: Iterable[dict], seed_panel: Iterabl
     return CandidateState(
         candidate_id, status, len(scored), passes, failures, remaining,
         passes + remaining, complete, rejected, g8, g9, g10,
-        repair_count, repair_sum, tuple(seed for _, seed in needed), objective,
+        repair_count, repair_sum, tuple(seed for _, seed in critical), objective,
         tuple((seed, next((g for s, g in scored if s == seed), None)) for seed in panel if seed in {s for s, _ in scored}),
     )
 
@@ -266,33 +269,37 @@ def proposal_pack(anchor: Candidate, rows: Iterable[dict], state: CandidateState
     """Small legal measured-evidence probe pack; no surrogate veto."""
     bottleneck, donor = critical_bottleneck(rows, state)
     prefix = f"b{batch:02d}-a{anchor_index}"
+    scale = 1.0 + 0.15 * (batch % 7)
     proposals: list[Candidate] = []
     if bottleneck in JOB_NAMES:
         receiver = JOB_NAMES.index(bottleneck)
-        for amount in (0.01, 0.02, 0.04):
+        for base_amount in (0.01, 0.02, 0.04):
+            amount = base_amount * scale
             c = weight_transfer(anchor, domain, receiver, donor, amount,
-                                f"{prefix}-weight-{amount:.2f}")
+                                f"{prefix}-weight-{amount:.4f}")
             if c is not None:
                 proposals.append(c)
     for axis, offsets in (("P", (-0.04, -0.02, -0.01, 0.01, 0.02, 0.04)),
                           ("conditional_R", (-0.04, -0.02, 0.02, 0.04))):
-        for offset in offsets:
-            c = axis_probe(anchor, domain, axis, offset, f"{prefix}-{axis}-{offset:+.2f}")
+        for base_offset in offsets:
+            offset = base_offset * scale
+            c = axis_probe(anchor, domain, axis, offset, f"{prefix}-{axis}-{offset:+.4f}")
             if c is not None:
                 proposals.append(c)
     if bottleneck == "Bloom":
-        transfer = weight_transfer(anchor, domain, 3, donor, 0.02, f"{prefix}-combined-weight")
+        transfer = weight_transfer(anchor, domain, 3, donor, 0.02 * scale, f"{prefix}-combined-weight")
         if transfer is not None:
-            for axis, offset in (("P", -0.01), ("P", 0.01), ("conditional_R", -0.02), ("conditional_R", 0.02)):
-                c = axis_probe(transfer, domain, axis, offset, f"{prefix}-combined-{axis}-{offset:+.2f}")
+            for axis, base_offset in (("P", -0.01), ("P", 0.01), ("conditional_R", -0.02), ("conditional_R", 0.02)):
+                offset = base_offset * scale
+                c = axis_probe(transfer, domain, axis, offset, f"{prefix}-combined-{axis}-{offset:+.4f}")
                 if c is not None:
                     proposals.append(replace(c, source="targeted_combined",
                                              provenance={**c.provenance, "anchor": anchor.candidate_id,
                                                          "weight_transfer": transfer.provenance}))
-    for i in range(2):
-        c = domain.local(anchor, rng, 0.035, f"{prefix}-local-{i}")
+    for i in range(8):
+        c = domain.local(anchor, rng, 0.035 * scale, f"{prefix}-local-{i}")
         proposals.append(replace(c, source="measured_local", prediction=None,
-                                 provenance={"anchor": anchor.candidate_id, "radius": 0.035}))
+                                 provenance={"anchor": anchor.candidate_id, "radius": 0.035 * scale}))
     return proposals
 
 

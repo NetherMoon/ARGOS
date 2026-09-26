@@ -14,14 +14,15 @@ import numpy as np
 import pandas as pd
 
 from argos.oc_basic import runner as v1
-from argos.oc_basic.runner_v1_1 import _read_rows, _states, _v1_prior
+from argos.oc_basic.runner_v1_1 import _existence_prior, _read_rows, _states, _v1_prior
 from argos.oc_basic.v1_1 import signed_scenario_violation
 from argos.provenance import read_json
 
 
 def _all_rows(source: Path, output: Path, mode: str) -> tuple[list[dict], list[dict]]:
     new = _read_rows(output / "search" / "new_scenario_executions.csv")
-    prior = _v1_prior(source)[1] if mode == "development" else []
+    prior = (_v1_prior(source)[1] if mode == "development" else
+             _existence_prior(source)[1] if mode == "existence" else [])
     return prior + new, new
 
 
@@ -113,8 +114,10 @@ def analyze(source: Path, output: Path) -> dict:
     panel = [int(s) for s in identity["seed_order"]]
     all_rows, new_rows = _all_rows(source, output, identity["mode"])
     candidates = v1.read_candidate_batches(output)
-    if identity["mode"] == "development":
-        candidates = {**_v1_prior(source)[0], **candidates}
+    if identity["mode"] in ("development", "existence"):
+        prior_candidates = (_v1_prior(source)[0] if identity["mode"] == "development"
+                            else _existence_prior(source)[0])
+        candidates = {**prior_candidates, **candidates}
     states = _states(candidates, all_rows, panel)
     state_frame = pd.DataFrame([s.__dict__ for s in states])
     candidate_frame = pd.DataFrame([v1.candidate_row(c) for c in candidates.values()])
@@ -131,11 +134,13 @@ def analyze(source: Path, output: Path) -> dict:
                        "best_eligible_objective": min((s.mean_objective_all_ten for s in eligible), default=None),
                        "candidate_id": current["candidate_id"]})
     event_frame = pd.DataFrame(events)
+    prior_eligible = any(s.complete_panel and s.passes >= 8 for s in _states(candidates, prior, panel))
     first = next((e for e in events if e["best_support"] >= 8), None)
     failure_counts = {name: sum(name in str(r.get("failure_constraints", "")).split(",") for r in new_rows)
                       for name in ("tracking", *v1.JOB_NAMES, "evidence")}
-    analysis = {"first_8of10_new_call": first["new_calls"] if first else None,
-                "first_8of10_seconds": first["wall_seconds"] if first else None,
+    analysis = {"first_8of10_new_call": 0 if prior_eligible else first["new_calls"] if first else None,
+                "first_8of10_seconds": 0.0 if prior_eligible else first["wall_seconds"] if first else None,
+                "prior_eligible_candidate_reused": prior_eligible,
                 "new_failure_constraint_counts": failure_counts,
                 "new_calls": len(new_rows), "complete_candidate_count": sum(s.complete_panel for s in states),
                 "eligible_candidate_count": sum(s.passes >= 8 and s.complete_panel for s in states)}
