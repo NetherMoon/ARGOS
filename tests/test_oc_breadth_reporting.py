@@ -1,9 +1,11 @@
 """Synthetic breadth export tests, without FlexDC or V3 calls."""
 
 import json
+import os
 import tempfile
 import unittest
 from pathlib import Path
+from unittest.mock import patch
 from zipfile import ZipFile
 
 import pandas as pd
@@ -12,6 +14,7 @@ from argos.oc_basic.breadth_plan import ORIGINAL_RUN, V3_RUN
 from argos.oc_basic.breadth_runner import (
     _aggregate,
     _baseline_candidates,
+    _configure_worker_import_root,
     _context_report,
     _package,
 )
@@ -20,6 +23,18 @@ from argos.search.candidates import Domain
 
 
 class BreadthExportTest(unittest.TestCase):
+    def test_child_imports_pinned_scientific_root(self):
+        with tempfile.TemporaryDirectory() as temporary:
+            base = Path(temporary)
+            source, root, extra = base / "oc", base / "science", base / "dependencies"
+            with patch.dict(
+                os.environ, {"PYTHONPATH": os.pathsep.join([str(source / "src"), str(extra)])}
+            ):
+                result = _configure_worker_import_root(root, source).split(os.pathsep)
+                self.assertEqual(result[0], str((root / "src").resolve()))
+                self.assertEqual(result[1], str(extra))
+                self.assertNotIn(str(source / "src"), result)
+
     def test_synthetic_full_aggregate_with_absent_bids(self):
         with tempfile.TemporaryDirectory() as temporary:
             root = Path(temporary) / "root"

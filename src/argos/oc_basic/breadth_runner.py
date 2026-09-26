@@ -8,6 +8,7 @@ from __future__ import annotations
 
 import argparse
 import json
+import os
 import shutil
 import time
 import zipfile
@@ -1584,6 +1585,18 @@ def _package(output: Path) -> Path:
     return archive
 
 
+def _configure_worker_import_root(root: Path, source: Path) -> str:
+    """Keep OC controller imports in this process; pin child imports to root."""
+    controller_src = (source / "src").resolve()
+    inherited = [
+        part
+        for part in os.environ.get("PYTHONPATH", "").split(os.pathsep)
+        if part and Path(part).resolve() != controller_src
+    ]
+    os.environ["PYTHONPATH"] = os.pathsep.join([str((root / "src").resolve()), *inherited])
+    return os.environ["PYTHONPATH"]
+
+
 def main(argv: list[str] | None = None) -> None:
     parser = argparse.ArgumentParser(
         description="Frozen generic ARGOS-OC original-16 breadth benchmark"
@@ -1615,6 +1628,10 @@ def main(argv: list[str] | None = None) -> None:
             f"{ASSESSMENT_PAIRS} fresh pairs; cap {HARD_SEARCH_CALLS}/context"
         )
         return
+    # The controller is imported from this ARGOS-OC checkout, but the isolated
+    # FlexDC subprocess must import the pinned scientific-root implementation.
+    # Set the child environment once, before any concurrent workers launch.
+    _configure_worker_import_root(root, source)
     output = args.output.resolve()
     output.mkdir(parents=True, exist_ok=True)
     manifest = {
@@ -1623,6 +1640,7 @@ def main(argv: list[str] | None = None) -> None:
         "source_head_at_start": git(source, "rev-parse", "HEAD"),
         "scientific_root_head_at_start": git(root, "rev-parse", "HEAD"),
         "source_commit_before_freeze": protocol["source_commit_before_freeze"],
+        "worker_import_root": str((root / "src").resolve()),
         "search_seed_ledger": search,
         "assessment_seed_ledger": assessment,
         "context_contract_sha256": protocol["context_contract_sha256"],
