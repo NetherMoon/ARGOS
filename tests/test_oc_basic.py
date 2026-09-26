@@ -214,6 +214,54 @@ class OCBasicTest(unittest.TestCase):
             runner.run_search(output, output, seed_plan, output, {}, 10, 0.001, 100)
             self.assertEqual(calls, list(range(1, 11)))
 
+    def test_refinement_batches_match_after_interrupted_resume(self):
+        from argos.oc_basic import runner
+
+        d = domain()
+        cloud_rng = np.random.default_rng(17)
+        cloud = []
+        for i in range(120):
+            c = d.independent(cloud_rng, f"cloud-{i}")
+            cloud.append(Candidate(c.candidate_id, c.Pbar, c.R, c.weights,
+                                   "independent" if i < 60 else "V3 endpoint",
+                                   prediction=Metrics(0.1, 0.2, (0.01,) * 4, float(i + 1))))
+        seed_plan = {"search_arrival_seeds": list(range(500, 510)), "search_runtime_seed": 900}
+
+        def fake_panel(_root, _output, candidate, number, _seed_plan, _workers):
+            return [
+                {**row, "candidate_id": candidate.candidate_id,
+                 "arrival_seed": _seed_plan["search_arrival_seeds"][i],
+                 "elapsed_seconds": 0.01, "evidence_counts": [100] * 4}
+                for i, row in enumerate(panel(candidate.candidate_id, 8, 10))
+            ], 0.02
+
+        with tempfile.TemporaryDirectory() as temp, \
+             patch.object(runner, "build_cloud", return_value=(cloud, d, {"smoke": True})), \
+             patch.object(runner, "run_panel", side_effect=fake_panel):
+            base = Path(temp)
+            clean, resumed = base / "clean", base / "resumed"
+            clean.mkdir()
+            resumed.mkdir()
+            runner.run_search(base, clean, seed_plan, base, {}, 10, 9999, 220)
+
+            attempts = 0
+
+            def interrupt_once(*args):
+                nonlocal attempts
+                attempts += 1
+                if attempts == 12:
+                    raise RuntimeError("synthetic interruption")
+                return fake_panel(*args)
+
+            with patch.object(runner, "run_panel", side_effect=interrupt_once), \
+                 self.assertRaisesRegex(RuntimeError, "synthetic interruption"):
+                runner.run_search(base, resumed, seed_plan, base, {}, 10, 9999, 220)
+            runner.run_search(base, resumed, seed_plan, base, {}, 10, 9999, 220)
+            self.assertEqual(
+                (clean / "search" / "batch_003_candidates.json").read_bytes(),
+                (resumed / "search" / "batch_003_candidates.json").read_bytes(),
+            )
+
     def test_report_builds_from_frozen_and_synthetic_results(self):
         import json
 

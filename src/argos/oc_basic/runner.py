@@ -462,7 +462,6 @@ def run_search(root: Path, output: Path, seed_plan: dict, bank: Path, bank_manif
     def elapsed_search() -> float:
         return prior_seconds + time.monotonic() - started
 
-    rng = np.random.default_rng(2026092601)
     waves = []
     batch_number = 1
     stop_reason = "HARD_CALL_CAP"
@@ -478,7 +477,10 @@ def run_search(root: Path, output: Path, seed_plan: dict, bank: Path, bank_manif
                 batch = select_initial(cloud, domain)
             else:
                 try:
-                    batch = next_batch(batch=batch_number, candidates=candidates, aggregates=aggregates, cloud=cloud, domain=domain, rng=rng)
+                    # A batch's proposal stream must be independent of whether
+                    # earlier, already-frozen batches were loaded on resume.
+                    batch_rng = np.random.default_rng(np.random.SeedSequence([2026092601, batch_number]))
+                    batch = next_batch(batch=batch_number, candidates=candidates, aggregates=aggregates, cloud=cloud, domain=domain, rng=batch_rng)
                 except RuntimeError as exc:
                     if "distinct" not in str(exc).lower():
                         raise
