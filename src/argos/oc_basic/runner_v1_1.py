@@ -64,10 +64,25 @@ def _read_rows(path: Path) -> list[dict]:
 
 
 def _persist_rows(path: Path, rows: list[dict]) -> None:
-    v1.atomic_csv(path, [
-        {**r, "Pj": json.dumps(r["Pj"]), "evidence_counts": json.dumps(r["evidence_counts"])}
-        for r in rows
-    ])
+    serial = [{**r, "Pj": json.dumps(r["Pj"]), "evidence_counts": json.dumps(r["evidence_counts"])}
+              for r in rows]
+    _retry_transient_windows_lock(lambda: v1.atomic_csv(path, serial))
+
+
+def _retry_transient_windows_lock(write) -> None:
+    """Retry only a transient Windows replace lock; preserve atomic writes."""
+    for attempt in range(20):
+        try:
+            write()
+            return
+        except PermissionError:
+            if attempt == 19:
+                raise
+            time.sleep(0.1)
+
+
+def _progress_json(path: Path, value: dict) -> None:
+    _retry_transient_windows_lock(lambda: v1.atomic_json(path, value))
 
 
 def _v1_prior(source: Path) -> tuple[dict[str, Candidate], list[dict]]:
@@ -196,7 +211,7 @@ def _race_batch(root: Path, output: Path, batch: list[Candidate], candidates: di
                     _persist_rows(output / "search" / "new_scenario_executions.csv", new_rows)
                     states_now = _states(candidates, all_rows, list(seed_order))
                     v1.atomic_csv(output / "search" / "candidate_states.csv", [serialize_state(s) for s in states_now])
-                    v1.atomic_json(output / "search" / "progress.json", {
+                    _progress_json(output / "search" / "progress.json", {
                         "status": "RUNNING", "new_calls_complete": len(new_rows),
                         "prior_calls_reused": len(all_rows) - len(new_rows),
                         "measured_candidates": sum(s.scenarios_evaluated > 0 for s in states_now),
@@ -233,7 +248,7 @@ def _race_batch_fanout(root: Path, output: Path, batch: list[Candidate], candida
         _persist_rows(output / "search" / "new_scenario_executions.csv", new_rows)
         states = _states(candidates, all_rows, list(seed_order))
         v1.atomic_csv(output / "search" / "candidate_states.csv", [serialize_state(s) for s in states])
-        v1.atomic_json(output / "search" / "progress.json", {
+        _progress_json(output / "search" / "progress.json", {
             "status": "RUNNING", "new_calls_complete": len(new_rows),
             "prior_calls_reused": len(all_rows) - len(new_rows),
             "measured_candidates": sum(s.scenarios_evaluated > 0 for s in states),

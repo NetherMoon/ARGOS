@@ -11,7 +11,12 @@ from unittest.mock import patch
 import numpy as np
 
 from argos.oc_basic.core import geometry_key
-from argos.oc_basic.runner_v1_1 import _race_batch, _race_batch_fanout, _read_rows
+from argos.oc_basic.runner_v1_1 import (
+    _race_batch,
+    _race_batch_fanout,
+    _read_rows,
+    _retry_transient_windows_lock,
+)
 from argos.oc_basic.v1_1 import (
     axis_probe,
     candidate_state,
@@ -44,6 +49,18 @@ def row(candidate_id, seed, g, objective=99.0):
 
 
 class OC11Test(unittest.TestCase):
+    def test_transient_windows_receipt_lock_is_retried(self):
+        attempts = []
+
+        def transient():
+            attempts.append(1)
+            if len(attempts) < 3:
+                raise PermissionError("transient Windows file lock")
+
+        with patch("argos.oc_basic.runner_v1_1.time.sleep"):
+            _retry_transient_windows_lock(transient)
+        self.assertEqual(len(attempts), 3)
+
     def test_signed_violation_multiple_constraints(self):
         passing = row("a", 101, -0.2)
         self.assertAlmostEqual(signed_scenario_violation(passing), -0.2)
