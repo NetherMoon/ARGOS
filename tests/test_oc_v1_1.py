@@ -11,7 +11,7 @@ from unittest.mock import patch
 import numpy as np
 
 from argos.oc_basic.core import geometry_key
-from argos.oc_basic.runner_v1_1 import _race_batch, _read_rows
+from argos.oc_basic.runner_v1_1 import _race_batch, _race_batch_fanout, _read_rows
 from argos.oc_basic.v1_1 import (
     axis_probe,
     candidate_state,
@@ -152,6 +152,32 @@ class OC11Test(unittest.TestCase):
             _race_batch(output, output, batch, candidates, all_rows, new_rows, PANEL,
                         999, {s: str(s) for s in PANEL}, 3, 100, 99, time.monotonic())
             self.assertEqual(calls, 12)
+
+    def test_fanout_runner_records_all_launched_cells_and_resumes(self):
+        d = domain()
+        candidate = d.independent(np.random.default_rng(6), "b01-screen-00")
+        candidates = {candidate.candidate_id: candidate}
+        calls = 0
+
+        def fake(_root, episode, point, _number, _runtime_seed, _role):
+            nonlocal calls
+            calls += 1
+            seed = int(episode.name.split("_")[-1])
+            return row(point.candidate_id, seed, 0.2 if seed <= PANEL[2] else -0.2)
+
+        with tempfile.TemporaryDirectory() as temp, patch("argos.oc_basic.runner.one_execution", side_effect=fake):
+            output = Path(temp)
+            (output / "search").mkdir()
+            all_rows = []
+            new_rows = []
+            stats = _race_batch_fanout(output, output, [candidate], candidates, all_rows, new_rows,
+                                       PANEL, 999, {s: str(s) for s in PANEL}, 10, 100, 99, time.monotonic())
+            self.assertLessEqual(stats["peak_workers"], 4)
+            self.assertEqual(len(all_rows), calls)
+            self.assertEqual(len({int(r["arrival_seed"]) for r in all_rows}), calls)
+            _race_batch_fanout(output, output, [candidate], candidates, all_rows, new_rows,
+                               PANEL, 999, {s: str(s) for s in PANEL}, 10, 100, 99, time.monotonic())
+            self.assertEqual(len(all_rows), calls)
 
 
 if __name__ == "__main__":

@@ -15,6 +15,7 @@ import pandas as pd
 
 from argos.oc_basic import runner as v1
 from argos.oc_basic.core import SEARCH_TABLES, geometry_key
+from argos.oc_basic.scheduling import execute_fanout_batch
 from argos.oc_basic.v1_1 import (
     PROTOCOL_VERSION,
     candidate_state,
@@ -37,6 +38,7 @@ MODES = {
 SOURCE_FILES = (
     "src/argos/oc_basic/core.py", "src/argos/oc_basic/runner.py",
     "src/argos/oc_basic/v1_1.py", "src/argos/oc_basic/runner_v1_1.py",
+    "src/argos/oc_basic/scheduling.py",
     "scripts/run_argos_oc_v1_1.py",
 )
 DEVELOPMENT_SOURCE = "runs/experiments/argos_oc_1_1_development_20260926T174100Z"
@@ -210,6 +212,53 @@ def _race_batch(root: Path, output: Path, batch: list[Candidate], candidates: di
             "seed_rounds": rounds, "peak_workers": peak}
 
 
+def _race_batch_fanout(root: Path, output: Path, batch: list[Candidate], candidates: dict[str, Candidate],
+                       all_rows: list[dict], new_rows: list[dict], seed_order: tuple[int, ...],
+                       runtime_seed: int, table_hashes: dict[int, str], workers: int,
+                       hard_cap: int, deadline: float, started: float) -> dict:
+    """OC1.3 engineering scheduler; frozen waves fill spare worker capacity."""
+
+    def evaluate(candidate: Candidate, seed: int) -> dict:
+        row = v1.one_execution(root, output / "arrival_panel" / f"table_{seed}", candidate,
+                               _candidate_number(candidate.candidate_id, candidates), runtime_seed, "SEARCH")
+        row["candidate_number"] = _candidate_number(candidate.candidate_id, candidates)
+        row["batch"] = int(candidate.candidate_id.split("-")[0][1:])
+        row["cumulative_search_wall_seconds"] = time.monotonic() - started
+        return row
+
+    def record(row: dict) -> None:
+        all_rows.append(row)
+        new_rows.append(row)
+        _check_rows(all_rows, list(seed_order), runtime_seed, table_hashes)
+        _persist_rows(output / "search" / "new_scenario_executions.csv", new_rows)
+        states = _states(candidates, all_rows, list(seed_order))
+        v1.atomic_csv(output / "search" / "candidate_states.csv", [serialize_state(s) for s in states])
+        v1.atomic_json(output / "search" / "progress.json", {
+            "status": "RUNNING", "new_calls_complete": len(new_rows),
+            "prior_calls_reused": len(all_rows) - len(new_rows),
+            "measured_candidates": sum(s.scenarios_evaluated > 0 for s in states),
+            "complete_panels": sum(s.complete_panel for s in states),
+            "early_rejected": sum(s.early_rejected for s in states),
+            "best_support": max((s.passes for s in states if s.complete_panel), default=0),
+            "best_g8": min((s.g8 for s in states if s.g8 is not None), default=None),
+            "elapsed_seconds": time.monotonic() - started,
+        })
+
+    result = execute_fanout_batch(
+        batch=batch, rows=all_rows, seed_order=seed_order, workers=workers,
+        call_room=lambda: hard_cap - len(new_rows),
+        deadline_reached=lambda: time.monotonic() - started >= deadline,
+        evaluate=evaluate, record=record,
+    )
+    return {"new_launches": result["launches"],
+            "early_rejection_skipped_opportunities": sum(
+                SEARCH_TABLES - s.scenarios_evaluated
+                for s in _states(candidates, all_rows, list(seed_order))
+                if s.candidate_id in {c.candidate_id for c in batch} and s.early_rejected
+            ),
+            "seed_rounds": result["waves"], "peak_workers": result["peak_workers"]}
+
+
 def _write_summary(output: Path, candidates: dict[str, Candidate], rows: list[dict],
                    new_rows: list[dict], panel: list[int], mode: str, timing: dict) -> dict:
     states = _states(candidates, rows, panel)
@@ -294,6 +343,7 @@ def main(argv: list[str] | None = None) -> None:
         "max_workers": args.max_workers, "soft_search_seconds": soft, "new_call_cap": cap,
         "initial_candidates": 15, "refinement_batch_candidates": 8,
         "independent_quota": 2, "failure_cutoff": 3,
+        "search_scheduler": "deterministic_fanout_max4" if args.mode in ("cold20", "cold10") else "ordered_rounds",
         "selection": "complete >=8/10, minimum mean canonical objective over all 10",
     }
     # JSON round-trip fixes tuple/list representation before strict resume checks.
@@ -381,7 +431,8 @@ def main(argv: list[str] | None = None) -> None:
         for candidate in batch:
             candidates[candidate.candidate_id] = candidate
         batch_number = next_number
-        stats = _race_batch(root, output, batch, candidates, all_rows, new_rows, seed_order,
+        race = _race_batch_fanout if args.mode in ("cold20", "cold10") else _race_batch
+        stats = race(root, output, batch, candidates, all_rows, new_rows, seed_order,
                             identity["seed_plan"]["search_runtime_seed"], table_hashes,
                             args.max_workers, cap, max(0.0, soft - prior_elapsed), search_start)
         total_launched += stats["new_launches"]
