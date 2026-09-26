@@ -416,7 +416,14 @@ def run_panel(root: Path, output: Path, candidate: Candidate, number: int, seed_
             for seed in arrivals
         ]
         rows = [future.result() for future in futures]
-    if [r["arrival_seed"] for r in rows] != arrivals or len({r["geometry_key"] for r in rows}) != 1:
+    if (
+        [r["arrival_seed"] for r in rows] != arrivals
+        or len({r["geometry_key"] for r in rows}) != 1
+        or len({r["initial_job_table_hash"] for r in rows}) != SEARCH_TABLES
+        or {r["runtime_seed"] for r in rows} != {seed_plan["search_runtime_seed"]}
+        or len({r["grid_signal_hash"] for r in rows}) != 1
+        or len({r["target_trace_hash"] for r in rows}) != 1
+    ):
         raise ValueError("Candidate/table scheduling crossed identities")
     return rows, time.monotonic() - started
 
@@ -593,6 +600,12 @@ def run_assessment(root: Path, output: Path, spec: dict, candidate: Candidate, s
         print(f"OC held-out assessment {len(rows)}/{len(pairs)}", flush=True)
     if len(rows) != ASSESSMENT_PAIRS or len({r["arrival_seed"] for r in rows}) != ASSESSMENT_PAIRS:
         raise ValueError("Incomplete or duplicate held-out assessment")
+    if (
+        len({r["initial_job_table_hash"] for r in rows}) != ASSESSMENT_PAIRS
+        or len({r["grid_signal_hash"] for r in rows}) != 1
+        or len({r["target_trace_hash"] for r in rows}) != 1
+    ):
+        raise ValueError("Held-out tables, grid, or frozen-bid target trace lost identity")
     timing = {"assessment_wall_seconds": time.monotonic() - started, "simulator_executions": len(rows), "passes": sum(r["feasible"] for r in rows)}
     atomic_json(final / "assessment_timing.json", timing)
     return rows, timing

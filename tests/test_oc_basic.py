@@ -119,7 +119,10 @@ class OCBasicTest(unittest.TestCase):
             time.sleep(0.01)
             with lock:
                 active -= 1
-            return {"arrival_seed": int(episode.name.split("_")[-1]), "geometry_key": geometry_key(candidate)}
+            seed = int(episode.name.split("_")[-1])
+            return {"arrival_seed": seed, "runtime_seed": _seed,
+                    "initial_job_table_hash": str(seed), "grid_signal_hash": "grid",
+                    "target_trace_hash": "target", "geometry_key": geometry_key(candidate)}
 
         with tempfile.TemporaryDirectory() as temp, patch.object(runner, "one_execution", side_effect=fake):
             seed_plan = {"search_arrival_seeds": list(range(100, 110)), "search_runtime_seed": 999}
@@ -143,6 +146,8 @@ class OCBasicTest(unittest.TestCase):
 
         def fake_execution(_root, episode, candidate, _number, runtime_seed, _role):
             return {"arrival_seed": int(episode.name.split("_")[-1]), "runtime_seed": runtime_seed,
+                    "initial_job_table_hash": episode.name, "grid_signal_hash": "grid",
+                    "target_trace_hash": "target",
                     "candidate_id": candidate.candidate_id, "Pj": [0.0] * 4,
                     "evidence_counts": [100] * 4, "feasible": True}
 
