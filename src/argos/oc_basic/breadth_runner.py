@@ -1714,7 +1714,7 @@ def main(argv: list[str] | None = None) -> None:
                 flush=True,
             )
         elapsed = time.monotonic() - started
-        _aggregate(output, results, contracts, protocol, elapsed)
+        _aggregate(root, output, results, contracts, protocol, elapsed)
         archive = _package(output)
         _json(
             status_path,

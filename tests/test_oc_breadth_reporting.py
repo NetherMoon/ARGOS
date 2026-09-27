@@ -17,12 +17,65 @@ from argos.oc_basic.breadth_runner import (
     _configure_worker_import_root,
     _context_report,
     _package,
+    main,
 )
 from argos.oc_basic.generic import PanelRule
 from argos.search.candidates import Domain
 
 
 class BreadthExportTest(unittest.TestCase):
+    def test_completed_contexts_reach_aggregate_without_simulator(self):
+        with tempfile.TemporaryDirectory() as temporary:
+            base = Path(temporary)
+            root, output = base / "science", base / "results"
+            root.mkdir()
+            contracts = [
+                {"context": f"W{i}/N250_U0.6", "workload": f"W{i}", "N": 250, "U": 0.6}
+                for i in range(16)
+            ]
+            original_rows = [
+                {"workload": f"W{i}", "server_count": 250, "utilization": 0.6} for i in range(16)
+            ]
+            evidence = {
+                "rows": original_rows,
+                "source": {},
+                "seed_plan": {"controller_seeds": {f"W{i}": 123 for i in range(16)}},
+            }
+            protocol = {"source_commit_before_freeze": "test", "context_contract_sha256": "test"}
+            with (
+                patch(
+                    "argos.oc_basic.breadth_runner.verify_protocol",
+                    return_value=(protocol, contracts, {}, {"pairs": []}),
+                ),
+                patch(
+                    "argos.oc_basic.breadth_runner.original16.verify_environment",
+                    return_value=evidence,
+                ),
+                patch(
+                    "argos.oc_basic.breadth_runner._run_context",
+                    side_effect=lambda _, __, c, *args: {
+                        "status": "COMPLETE",
+                        "context": c["context"],
+                        "search_status": "SEARCH_ELIGIBLE",
+                        "oc_assessment_passes": 30,
+                    },
+                ),
+                patch("argos.oc_basic.breadth_runner._aggregate") as aggregate,
+                patch(
+                    "argos.oc_basic.breadth_runner._package",
+                    side_effect=lambda path: path.with_suffix(".zip"),
+                ),
+                patch("argos.oc_basic.breadth_runner._configure_worker_import_root"),
+                patch("argos.oc_basic.breadth_runner.git", return_value="test"),
+            ):
+                main(["--scientific-root", str(root), "--output", str(output)])
+            self.assertEqual(aggregate.call_count, 1)
+            self.assertEqual(aggregate.call_args.args[0], root.resolve())
+            self.assertEqual(len(aggregate.call_args.args[2]), 16)
+            self.assertEqual(
+                json.loads((output / "run_status.json").read_text())["status"], "COMPLETE"
+            )
+
     def test_child_imports_pinned_scientific_root(self):
         with tempfile.TemporaryDirectory() as temporary:
             base = Path(temporary)
