@@ -1225,7 +1225,7 @@ def _aggregate(
                         if (
                             oc["initial_job_table_hash"] != old["initial_job_table_hash"]
                             or oc["runtime_seed"] != old["runtime_seed"]
-                            or oc["target_trace_hash"] != old["target_trace_hash"]
+                            or oc["grid_signal_hash"] != old["grid_signal_hash"]
                         ):
                             raise ValueError("Matched comparison identities diverged")
                         methods[baseline]["oc_minus_baseline_objective"] = float(
@@ -1270,7 +1270,14 @@ def _aggregate(
             )
     _csv(output / "matched_comparison.csv", comparisons)
     v3_old = pd.read_csv(root / V3_RUN / "v3_only_context_summary.csv").set_index("context")
-    argos_old = pd.read_csv(root / ORIGINAL_RUN / "context_summary.csv").set_index("context")
+    argos_old = pd.read_csv(root / ORIGINAL_RUN / "context_summary.csv")
+    argos_old["context"] = argos_old.apply(
+        lambda row: context_key(
+            row["workload"], int(row["server_count"]), float(row["utilization"])
+        ),
+        axis=1,
+    )
+    argos_old = argos_old.set_index("context")
     paper = []
     for row in results:
         key = row["context"]

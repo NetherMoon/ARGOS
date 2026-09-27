@@ -133,7 +133,13 @@ class BreadthExportTest(unittest.TestCase):
                     )
                     old_v3.append({"context": key, "actual_feasible": False})
                     old_argos.append(
-                        {"context": key, "search_status": "NO_BID", "runtime_checks_passed": 0}
+                        {
+                            "workload": workload,
+                            "server_count": n,
+                            "utilization": u,
+                            "search_status": "NO_BID",
+                            "runtime_checks_passed": 0,
+                        }
                     )
                     target = output / key / "final"
                     target.mkdir(parents=True)
